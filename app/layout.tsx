@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Tajawal } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 
 const tajawal = Tajawal({
   subsets: ["arabic"],
@@ -15,8 +13,7 @@ const tajawal = Tajawal({
 export const metadata: Metadata = {
   title: "بترونير - تزويد الوقود الذكي",
   description:
-    "بترونير — المنظومة الرائدة في السعودية لإدارة وتزويد الوقود الذكي. ديزل وغاز لجميع المنشآت مع حساسات IoT ومراقبة لحظية.",
-  keywords: "تزويد وقود، ديزل، غاز، حساسات ذكية، مراقبة عن بُعد، السعودية",
+    "بترونير — المنظومة الرائدة في السعودية لإدارة وتزويد الوقود الذكي.",
 };
 
 export default function RootLayout({
@@ -27,10 +24,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={tajawal.variable}>
       <body className="font-arabic antialiased bg-white text-brand-charcoal">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

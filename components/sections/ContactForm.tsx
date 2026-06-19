@@ -2,6 +2,7 @@
 import { useState, FormEvent } from "react";
 import Button from "@/components/ui/Button";
 import { CheckCircle2 } from "lucide-react";
+import { addMessage } from "@/lib/store";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -17,9 +18,10 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
+      addMessage({ name: form.name, phone: form.phone, email: form.email, message: form.message });
       setLoading(false);
       setSuccess(true);
-    }, 1800);
+    }, 800);
   };
 
   if (success) {

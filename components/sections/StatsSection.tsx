@@ -1,15 +1,17 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import StatCard from "@/components/ui/StatCard";
-
-const stats = [
-  { value: "+500", label: "منشأة نخدمها" },
-  { value: "99.8%", label: "نسبة الإمداد" },
-  { value: "< 2h", label: "زمن الاستجابة" },
-  { value: "24/7", label: "مراقبة ودعم" },
-];
+import { getStats } from "@/lib/store";
+import type { StatItem } from "@/lib/types";
 
 export default function StatsSection() {
+  const [stats, setStats] = useState<StatItem[]>([]);
+
+  useEffect(() => {
+    setStats(getStats());
+  }, []);
+
   return (
     <section
       className="relative py-20 bg-white"
@@ -29,7 +31,7 @@ export default function StatsSection() {
         </motion.div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((s, i) => (
-            <StatCard key={s.label} {...s} delay={i * 0.1} />
+            <StatCard key={s.id} value={s.value} label={s.label} delay={i * 0.1} />
           ))}
         </div>
       </div>

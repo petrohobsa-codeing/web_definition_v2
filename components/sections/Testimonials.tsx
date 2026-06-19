@@ -1,30 +1,17 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
 import TestimonialCard from "@/components/ui/TestimonialCard";
-
-const testimonials = [
-  {
-    text: "بترونير غيّرت طريقة إدارتنا للوقود تماماً. لم نعد نقلق بشأن نفاد الديزل المفاجئ الذي كان يعطّل العمل لساعات.",
-    name: "م. أحمد القحطاني",
-    role: "مدير العمليات",
-    company: "شركة إنشاءات كبرى",
-  },
-  {
-    text: "الحساسات الذكية كشفت لنا عن هدر كبير في الاستهلاك لم نكن نلاحظه. نظام الشفافية لديهم لا يُعلى عليه.",
-    name: "سلطان الراشد",
-    role: "المدير اللوجستي",
-    company: "مصنع صناعات غذائية",
-  },
-  {
-    text: "سرعة الاستجابة والدقة في المواعيد هي ما جعلنا نعتمد عليهم كشريك أساسي لجميع مواقعنا في المنطقة الشرقية.",
-    name: "فهد المطيري",
-    role: "رئيس المشتريات",
-    company: "مجموعة خدمات لوجستية",
-  },
-];
+import { getTestimonials } from "@/lib/store";
+import type { Testimonial } from "@/lib/types";
 
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+  useEffect(() => {
+    setTestimonials(getTestimonials());
+  }, []);
   return (
     <section
       className="py-24 bg-gray-50 relative overflow-hidden"
@@ -53,7 +40,7 @@ export default function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <TestimonialCard key={t.name} {...t} delay={i * 0.12} />
+            <TestimonialCard key={t.id} text={t.text} name={t.name} role={t.role} company={t.company} delay={i * 0.12} />
           ))}
         </div>
       </div>

@@ -1,0 +1,67 @@
+export interface HeroSlide {
+  id: string;
+  badge: string;
+  heading: string;
+  description: string;
+  cta1Label: string;
+  cta1Href: string;
+  cta2Label: string;
+  cta2Href: string;
+}
+
+export interface ServiceItem {
+  id: string;
+  iconName: "Fuel" | "Cpu" | "Flame" | "MonitorCheck";
+  title: string;
+  description: string;
+  href: string;
+}
+
+export interface Testimonial {
+  id: string;
+  text: string;
+  name: string;
+  role: string;
+  company: string;
+}
+
+export interface StatItem {
+  id: string;
+  value: string;
+  label: string;
+}
+
+export interface QuoteRequest {
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  activity: string;
+  fuelType: string;
+  quantity: string;
+  city: string;
+  sensors: string;
+  message: string;
+  status: "new" | "processed";
+  createdAt: string;
+}
+
+export interface ContactMessage {
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+  status: "new" | "read";
+  createdAt: string;
+}
+
+export interface SiteSettings {
+  phone: string;
+  whatsapp: string;
+  email: string;
+  address: string;
+  workingHours: string;
+  cities: string;
+  adminPassword: string;
+}

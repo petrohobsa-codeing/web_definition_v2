@@ -1,41 +1,20 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ServiceCard from "@/components/ui/ServiceCard";
 import Badge from "@/components/ui/Badge";
 import { Fuel, Cpu, Flame, MonitorCheck } from "lucide-react";
+import { getServices } from "@/lib/store";
+import type { ServiceItem } from "@/lib/types";
 
-const services = [
-  {
-    icon: Fuel,
-    title: "تزويد الديزل الذكي",
-    description:
-      "إمداد منتظم بأي كمية، لأي موقع، في الوقت المحدد. نخدم المولّدات والمعدّات الثقيلة وأساطيل النقل بفواتير إلكترونية متكاملة.",
-    href: "/services/diesel-supply",
-  },
-  {
-    icon: Cpu,
-    title: "حساسات IoT",
-    description:
-      "راقب مستوى خزانك من جوّالك، وامنع السرقة والهدر. تنبيهات فورية وطلب تلقائي قبل النفاد.",
-    href: "/services/smart-sensors",
-  },
-  {
-    icon: Flame,
-    title: "تزويد الغاز",
-    description:
-      "حلول غاز آمنة وموثوقة للمنشآت الصناعية والتجارية مع فحص دوري وامتثال كامل للدفاع المدني.",
-    href: "/services/gas-supply",
-  },
-  {
-    icon: MonitorCheck,
-    title: "المراقبة عن بُعد",
-    description:
-      "لوحة تحكم سحابية تجمع كل خزاناتك ومواقعك وتقاريرك في مكان واحد.",
-    href: "/services/remote-monitoring",
-  },
-];
+const iconMap = { Fuel, Cpu, Flame, MonitorCheck } as const;
 
 export default function ServicesGrid() {
+  const [services, setServices] = useState<ServiceItem[]>([]);
+
+  useEffect(() => {
+    setServices(getServices());
+  }, []);
   return (
     <section className="py-24 bg-brand-green-light/40" aria-labelledby="services-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -61,7 +40,14 @@ export default function ServicesGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
-            <ServiceCard key={service.href} {...service} delay={i * 0.1} />
+            <ServiceCard
+              key={service.id}
+              icon={iconMap[service.iconName] ?? Fuel}
+              title={service.title}
+              description={service.description}
+              href={service.href}
+              delay={i * 0.1}
+            />
           ))}
         </div>
       </div>

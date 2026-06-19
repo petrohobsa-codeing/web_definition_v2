@@ -4,71 +4,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import { getSlides } from "@/lib/store";
+import type { HeroSlide } from "@/lib/types";
 
-const slides = [
-  {
-    badge: "تزويد الوقود",
-    heading: "وقودك يصل في الوقت المحدد، كل مرة",
-    description:
-      "تزويد الديزل والغاز للمنشآت بأي كمية ولأي موقع في المملكة، مع تتبّع لحظي وفواتير إلكترونية.",
-    cta1: { label: "اطلب الوقود الآن", href: "/quote" },
-    cta2: { label: "اعرف المزيد", href: "/services/diesel-supply" },
-    gradient: "from-brand-green-dark via-brand-green-mid to-brand-green",
-    accent: "bg-brand-gold",
-  },
-  {
-    badge: "حساسات ذكية",
-    heading: "اعرف مستوى خزانك من جوّالك",
-    description:
-      "حساسات IoT تراقب لحظياً، وتنبّهك قبل النفاد، وتكشف السرقة والهدر فوراً.",
-    cta1: { label: "اعرف المزيد", href: "/services/smart-sensors" },
-    cta2: { label: "احجز عرضاً توضيحياً", href: "/contact" },
-    gradient: "from-[#065F46] via-[#047857] to-[#059669]",
-    accent: "bg-amber-400",
-  },
-  {
-    badge: "مراقبة عن بُعد",
-    heading: "تحكّم كامل في طاقتك من شاشة واحدة",
-    description:
-      "لوحة تحكم سحابية تجمع كل خزاناتك ومواقعك وتقاريرك في مكان واحد.",
-    cta1: { label: "اعرف المزيد", href: "/services/remote-monitoring" },
-    cta2: { label: "اطلب عرض سعر", href: "/quote" },
-    gradient: "from-[#022C22] via-[#064E3B] to-[#065F46]",
-    accent: "bg-brand-gold",
-  },
-  {
-    badge: "إمداد لا ينقطع",
-    heading: "منشأتك لا تتوقّف… أبداً",
-    description:
-      "الطلب التلقائي يضمن وصول الوقود قبل أن تحتاجه فعلاً، فلا توقّف للعمليات.",
-    cta1: { label: "اطلب عرض سعر", href: "/quote" },
-    cta2: { label: "تحدّث مع خبير", href: "/contact" },
-    gradient: "from-[#064E3B] via-[#047857] to-[#10B981]",
-    accent: "bg-yellow-400",
-  },
-  {
-    badge: "شفافية كاملة",
-    heading: "كل فاتورة وكل لتر… أمام عينيك",
-    description:
-      "تتبّع الاستهلاك والفواتير الإلكترونية والتقارير لحظياً من أي جهاز.",
-    cta1: { label: "اطلب عرض سعر", href: "/quote" },
-    cta2: { label: "اعرف المزيد", href: "/about" },
-    gradient: "from-[#022C22] via-[#064E3B] to-[#059669]",
-    accent: "bg-brand-gold",
-  },
+const gradients = [
+  "from-brand-green-dark via-brand-green-mid to-brand-green",
+  "from-[#065F46] via-[#047857] to-[#059669]",
+  "from-[#022C22] via-[#064E3B] to-[#065F46]",
+  "from-[#064E3B] via-[#047857] to-[#10B981]",
+  "from-[#022C22] via-[#064E3B] to-[#059669]",
 ];
 
 export default function HeroSlider() {
+  const [slides, setSlides] = useState<HeroSlide[]>([]);
   const [current, setCurrent] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % slides.length);
+  useEffect(() => {
+    setSlides(getSlides());
   }, []);
 
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % (slides.length || 1));
+  }, [slides.length]);
+
   const prev = useCallback(() => {
-    setCurrent((c) => (c - 1 + slides.length) % slides.length);
-  }, []);
+    setCurrent((c) => (c - 1 + (slides.length || 1)) % (slides.length || 1));
+  }, [slides.length]);
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -77,6 +39,9 @@ export default function HeroSlider() {
   }, [isPlaying, next]);
 
   const slide = slides[current];
+  const gradient = gradients[current % gradients.length];
+
+  if (!slide) return null;
 
   return (
     <section
@@ -89,7 +54,7 @@ export default function HeroSlider() {
       <AnimatePresence mode="wait">
         <motion.div
           key={`bg-${current}`}
-          className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`}
+          className={`absolute inset-0 bg-gradient-to-br ${gradient}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -137,11 +102,11 @@ export default function HeroSlider() {
 
               {/* CTAs */}
               <div className="flex flex-wrap gap-4 pt-2">
-                <Button href={slide.cta1.href} variant="gold" size="lg">
-                  {slide.cta1.label}
+                <Button href={slide.cta1Href} variant="gold" size="lg">
+                  {slide.cta1Label}
                 </Button>
-                <Button href={slide.cta2.href} variant="outline" size="lg">
-                  {slide.cta2.label}
+                <Button href={slide.cta2Href} variant="outline" size="lg">
+                  {slide.cta2Label}
                 </Button>
               </div>
             </motion.div>
