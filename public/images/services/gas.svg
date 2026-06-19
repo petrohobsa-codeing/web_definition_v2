@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#022C22"/>
+      <stop offset="100%" stop-color="#064E3B"/>
+    </linearGradient>
+    <linearGradient id="cylG1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1F2937"/>
+      <stop offset="40%" stop-color="#374151"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="cylG2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#065F46"/>
+      <stop offset="40%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="cylG3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1F2937"/>
+      <stop offset="40%" stop-color="#4B5563"/>
+      <stop offset="100%" stop-color="#1F2937"/>
+    </linearGradient>
+    <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="valveG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9CA3AF"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <radialGradient id="glowC" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="dp" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="9" r="0.8" fill="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#dp)"/>
+
+  <!-- Ground / platform -->
+  <rect x="0" y="420" width="800" height="80" fill="#011a12" opacity="0.8"/>
+  <rect x="0" y="420" width="800" height="2" fill="#059669" opacity="0.3"/>
+  <!-- Platform grid lines -->
+  <line x1="0" y1="440" x2="800" y2="440" stroke="#059669" stroke-width="0.5" opacity="0.1"/>
+  <line x1="80" y1="420" x2="80" y2="500" stroke="#059669" stroke-width="0.5" opacity="0.08"/>
+  <line x1="200" y1="420" x2="200" y2="500" stroke="#059669" stroke-width="0.5" opacity="0.08"/>
+  <line x1="320" y1="420" x2="320" y2="500" stroke="#059669" stroke-width="0.5" opacity="0.08"/>
+  <line x1="440" y1="420" x2="440" y2="500" stroke="#059669" stroke-width="0.5" opacity="0.08"/>
+  <line x1="560" y1="420" x2="560" y2="500" stroke="#059669" stroke-width="0.5" opacity="0.08"/>
+  <line x1="680" y1="420" x2="680" y2="500" stroke="#059669" stroke-width="0.5" opacity="0.08"/>
+
+  <!-- Ambient glows under cylinders -->
+  <ellipse cx="155" cy="424" rx="65" ry="10" fill="#059669" opacity="0.12"/>
+  <ellipse cx="390" cy="424" rx="75" ry="10" fill="#059669" opacity="0.15"/>
+  <ellipse cx="620" cy="424" rx="65" ry="10" fill="#059669" opacity="0.12"/>
+
+  <!-- ===== LEFT CYLINDER (gray, empty-ish) ===== -->
+  <g filter="url(#glow)">
+    <!-- Shadow -->
+    <ellipse cx="155" cy="422" rx="55" ry="8" fill="rgba(0,0,0,0.4)"/>
+    <!-- Body -->
+    <rect x="100" y="130" width="110" height="292" rx="55" fill="url(#cylG3)"/>
+    <!-- Top dome -->
+    <ellipse cx="155" cy="130" rx="55" ry="20" fill="#6B7280"/>
+    <!-- Bottom dome -->
+    <ellipse cx="155" cy="422" rx="55" ry="18" fill="#374151"/>
+    <!-- Highlight stripe -->
+    <rect x="108" y="140" width="18" height="272" rx="9" fill="rgba(255,255,255,0.08)"/>
+    <!-- Fill level (25%) - low -->
+    <rect x="115" y="148" width="8" height="268" rx="3" fill="rgba(0,0,0,0.3)"/>
+    <rect x="115" y="348" width="8" height="68" rx="3" fill="#F59E0B" opacity="0.7"/>
+    <!-- Label band -->
+    <rect x="100" y="200" width="110" height="5" fill="url(#goldG)" opacity="0.5"/>
+    <!-- Text -->
+    <text x="155" y="235" text-anchor="middle" font-family="Arial Black" font-size="11" fill="rgba(255,255,255,0.7)" letter-spacing="1">GAS</text>
+    <text x="155" y="252" text-anchor="middle" font-family="Arial" font-size="9" fill="#F59E0B">غاز A</text>
+    <!-- Percentage badge -->
+    <rect x="178" y="275" width="44" height="26" rx="7" fill="rgba(0,0,0,0.5)"/>
+    <text x="200" y="292" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#F59E0B">٢٥٪</text>
+    <!-- Top valve assembly -->
+    <rect x="147" y="105" width="16" height="30" rx="4" fill="url(#valveG)"/>
+    <rect x="140" y="100" width="30" height="10" rx="3" fill="#6B7280"/>
+    <rect x="150" y="90" width="10" height="12" rx="3" fill="#9CA3AF"/>
+    <!-- Side valve -->
+    <rect x="60" y="195" width="40" height="10" rx="4" fill="#4B5563"/>
+    <circle cx="57" cy="200" r="8" fill="#374151" stroke="#9CA3AF" stroke-width="1.5"/>
+    <line x1="51" y1="200" x2="63" y2="200" stroke="#9CA3AF" stroke-width="2"/>
+    <!-- Gauge -->
+    <circle cx="195" cy="170" r="16" fill="#111827" stroke="#6B7280" stroke-width="2"/>
+    <circle cx="195" cy="170" r="10" fill="#1F2937"/>
+    <line x1="195" y1="163" x2="195" y2="158" stroke="#6B7280" stroke-width="1"/>
+    <line x1="195" y1="177" x2="195" y2="182" stroke="#6B7280" stroke-width="1"/>
+    <line x1="188" y1="170" x2="183" y2="170" stroke="#6B7280" stroke-width="1"/>
+    <line x1="202" y1="170" x2="207" y2="170" stroke="#6B7280" stroke-width="1"/>
+    <!-- Gauge needle (low) -->
+    <line x1="195" y1="170" x2="192" y2="163" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== CENTER CYLINDER (green, main, full) ===== -->
+  <g filter="url(#glow)">
+    <ellipse cx="390" cy="425" rx="65" ry="10" fill="rgba(0,0,0,0.4)"/>
+    <!-- Body -->
+    <rect x="323" y="100" width="134" height="325" rx="67" fill="url(#cylG2)"/>
+    <!-- Top dome -->
+    <ellipse cx="390" cy="100" rx="67" ry="24" fill="#10B981"/>
+    <!-- Bottom dome -->
+    <ellipse cx="390" cy="425" rx="67" ry="20" fill="#047857"/>
+    <!-- Highlight -->
+    <rect x="332" y="112" width="22" height="305" rx="11" fill="rgba(255,255,255,0.12)"/>
+    <!-- Full fill (92%) -->
+    <rect x="343" y="115" width="10" height="305" rx="4" fill="rgba(0,0,0,0.2)"/>
+    <rect x="343" y="139" width="10" height="281" rx="4" fill="#34D399" opacity="0.7"/>
+    <!-- Gold stripe -->
+    <rect x="323" y="175" width="134" height="6" fill="url(#goldG)" opacity="0.7"/>
+    <!-- Manhole ring at top -->
+    <ellipse cx="390" cy="75" rx="34" ry="10" fill="#047857" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="79" text-anchor="middle" font-family="Arial Black" font-size="8" fill="#F59E0B">LPG</text>
+    <!-- Vent pipe -->
+    <rect x="383" y="43" width="10" height="35" rx="4" fill="#374151"/>
+    <rect x="378" y="38" width="20" height="7" rx="3" fill="#4B5563"/>
+    <!-- Labels -->
+    <text x="390" y="230" text-anchor="middle" font-family="Arial Black" font-size="14" fill="white" letter-spacing="2">GAS</text>
+    <text x="390" y="250" text-anchor="middle" font-family="Arial" font-size="10" fill="#A7F3D0">غاز رئيسي LPG</text>
+    <!-- Fill badge -->
+    <rect x="422" y="280" width="52" height="32" rx="8" fill="rgba(0,0,0,0.45)"/>
+    <text x="448" y="301" text-anchor="middle" font-family="Arial Black" font-size="15" fill="#10B981">٩٢٪</text>
+    <!-- Pressure gauge (top right) -->
+    <circle cx="445" cy="140" r="22" fill="#022C22" stroke="#10B981" stroke-width="2"/>
+    <circle cx="445" cy="140" r="14" fill="#011a12"/>
+    <text x="445" y="135" text-anchor="middle" font-family="Arial" font-size="7" fill="#10B981">bar</text>
+    <text x="445" y="147" text-anchor="middle" font-family="Arial Black" font-size="10" fill="#F59E0B">4.2</text>
+    <!-- Valve top -->
+    <rect x="382" y="72" width="16" height="32" rx="5" fill="url(#valveG)"/>
+    <!-- Side outlet -->
+    <rect x="457" y="310" width="45" height="12" rx="5" fill="#374151"/>
+    <circle cx="507" cy="316" r="9" fill="#4B5563" stroke="#10B981" stroke-width="1.5"/>
+    <line x1="501" y1="316" x2="513" y2="316" stroke="#10B981" stroke-width="2.5"/>
+    <!-- Bands -->
+    <line x1="323" y1="250" x2="457" y2="250" stroke="rgba(255,255,255,0.08)" stroke-width="2.5"/>
+    <line x1="323" y1="340" x2="457" y2="340" stroke="rgba(255,255,255,0.08)" stroke-width="2.5"/>
+  </g>
+
+  <!-- ===== RIGHT CYLINDER (dark, industrial) ===== -->
+  <g filter="url(#glow)">
+    <ellipse cx="625" cy="423" rx="58" ry="9" fill="rgba(0,0,0,0.4)"/>
+    <!-- Body -->
+    <rect x="565" y="140" width="120" height="283" rx="60" fill="url(#cylG1)"/>
+    <!-- Top dome -->
+    <ellipse cx="625" cy="140" rx="60" ry="21" fill="#374151"/>
+    <!-- Bottom dome -->
+    <ellipse cx="625" cy="423" rx="60" ry="18" fill="#1F2937"/>
+    <!-- Highlight -->
+    <rect x="573" y="152" width="20" height="262" rx="10" fill="rgba(255,255,255,0.07)"/>
+    <!-- Fill level 58% -->
+    <rect x="582" y="156" width="8" height="262" rx="3" fill="rgba(0,0,0,0.3)"/>
+    <rect x="582" y="308" width="8" height="110" rx="3" fill="#10B981" opacity="0.75"/>
+    <!-- Gold stripe -->
+    <rect x="565" y="210" width="120" height="5" fill="url(#goldG)" opacity="0.55"/>
+    <!-- Labels -->
+    <text x="625" y="262" text-anchor="middle" font-family="Arial Black" font-size="11" fill="rgba(255,255,255,0.7)" letter-spacing="1">GAS</text>
+    <text x="625" y="278" text-anchor="middle" font-family="Arial" font-size="9" fill="#F59E0B">غاز B</text>
+    <!-- Badge -->
+    <rect x="650" y="295" width="44" height="26" rx="7" fill="rgba(0,0,0,0.5)"/>
+    <text x="672" y="312" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#10B981">٥٨٪</text>
+    <!-- Valve top -->
+    <rect x="617" y="114" width="16" height="30" rx="4" fill="url(#valveG)"/>
+    <rect x="610" y="110" width="30" height="9" rx="3" fill="#6B7280"/>
+    <!-- Gauge -->
+    <circle cx="566" cy="176" r="16" fill="#111827" stroke="#4B5563" stroke-width="2"/>
+    <circle cx="566" cy="176" r="10" fill="#1F2937"/>
+    <line x1="566" y1="169" x2="566" y2="164" stroke="#4B5563" stroke-width="1"/>
+    <line x1="566" y1="183" x2="566" y2="188" stroke="#4B5563" stroke-width="1"/>
+    <line x1="559" y1="176" x2="554" y2="176" stroke="#4B5563" stroke-width="1"/>
+    <line x1="573" y1="176" x2="578" y2="176" stroke="#4B5563" stroke-width="1"/>
+    <!-- Needle (mid) -->
+    <line x1="566" y1="176" x2="570" y2="169" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== CONNECTING PIPE MANIFOLD ===== -->
+  <!-- Main horizontal pipe -->
+  <rect x="155" y="408" width="475" height="10" rx="5" fill="#374151"/>
+  <!-- Pipe highlight -->
+  <rect x="155" y="408" width="475" height="3" rx="2" fill="rgba(255,255,255,0.07)"/>
+  <!-- Branch connectors down from cylinders -->
+  <rect x="150" y="395" width="10" height="25" rx="3" fill="#4B5563"/>
+  <rect x="385" y="395" width="10" height="25" rx="3" fill="#4B5563"/>
+  <rect x="620" y="395" width="10" height="25" rx="3" fill="#4B5563"/>
+  <!-- Valves on pipe -->
+  <circle cx="270" cy="413" r="11" fill="#4B5563" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="263" y1="413" x2="277" y2="413" stroke="#F59E0B" stroke-width="2.5"/>
+  <circle cx="510" cy="413" r="11" fill="#4B5563" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="503" y1="413" x2="517" y2="413" stroke="#F59E0B" stroke-width="2.5"/>
+
+  <!-- ===== CONTROL / REGULATOR PANEL ===== -->
+  <rect x="30" y="240" width="62" height="160" rx="10" fill="#022C22" stroke="#059669" stroke-width="1.5"/>
+  <!-- Display -->
+  <rect x="38" y="250" width="46" height="38" rx="5" fill="#011a12"/>
+  <text x="61" y="263" text-anchor="middle" font-family="Arial" font-size="7" fill="#059669">PRESSURE</text>
+  <text x="61" y="277" text-anchor="middle" font-family="Arial Black" font-size="11" fill="#10B981">4.2</text>
+  <text x="61" y="286" text-anchor="middle" font-family="Arial" font-size="6" fill="rgba(255,255,255,0.4)">bar</text>
+  <!-- LEDs -->
+  <circle cx="45" cy="306" r="5" fill="#10B981" opacity="0.9"/>
+  <circle cx="61" cy="306" r="5" fill="#10B981" opacity="0.5"/>
+  <circle cx="77" cy="306" r="5" fill="#374151"/>
+  <!-- Dial -->
+  <circle cx="61" cy="336" r="15" fill="#011a12" stroke="#374151" stroke-width="2"/>
+  <line x1="61" y1="324" x2="61" y2="319" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="61" y1="348" x2="61" y2="353" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="48" y1="336" x2="43" y2="336" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="74" y1="336" x2="79" y2="336" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="61" y1="336" x2="57" y2="327" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Button -->
+  <rect x="44" y="362" width="34" height="28" rx="5" fill="#064E3B" stroke="#059669" stroke-width="1"/>
+  <text x="61" y="380" text-anchor="middle" font-family="Arial" font-size="7" fill="#10B981">تشغيل</text>
+
+  <!-- ===== DELIVERY HOSE (far right) ===== -->
+  <path d="M680 370 Q730 360 740 380 Q750 400 720 410" fill="none" stroke="#374151" stroke-width="10" stroke-linecap="round"/>
+  <path d="M680 370 Q730 360 740 380 Q750 400 720 410" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="6" stroke-linecap="round"/>
+  <!-- Nozzle -->
+  <rect x="710" y="405" width="36" height="14" rx="5" fill="#4B5563"/>
+  <rect x="740" y="402" width="14" height="20" rx="4" fill="#374151"/>
+  <circle cx="716" cy="412" r="7" fill="#059669" stroke="#F59E0B" stroke-width="1.5"/>
+  <!-- Meter box on hose -->
+  <rect x="670" y="352" width="55" height="36" rx="6" fill="#022C22" stroke="#059669" stroke-width="1.5"/>
+  <text x="697" y="364" text-anchor="middle" font-family="Arial" font-size="7" fill="rgba(255,255,255,0.5)">FLOW</text>
+  <text x="697" y="378" text-anchor="middle" font-family="Arial Black" font-size="11" fill="#F59E0B">١٢٠</text>
+  <text x="697" y="386" text-anchor="middle" font-family="Arial" font-size="6" fill="rgba(255,255,255,0.3)">m³/h</text>
+
+  <!-- ===== FLOATING INFO CARD ===== -->
+  <rect x="300" y="30" width="200" height="60" rx="12" fill="#011a12" stroke="#10B981" stroke-width="1.5"/>
+  <circle cx="320" cy="60" r="6" fill="#10B981" opacity="0.9"/>
+  <circle cx="320" cy="60" r="3" fill="#34D399"/>
+  <text x="336" y="53" font-family="Arial Black" font-size="9" fill="white">سعة إجمالية</text>
+  <text x="336" y="68" font-family="Arial Black" font-size="16" fill="#10B981">٣٢٠,٠٠٠</text>
+  <text x="452" y="68" font-family="Arial" font-size="9" fill="rgba(255,255,255,0.4)">m³</text>
+  <!-- Arrow down to center cylinder -->
+  <line x1="400" y1="90" x2="400" y2="100" stroke="#10B981" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.5"/>
+</svg>

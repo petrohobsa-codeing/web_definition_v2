@@ -24,7 +24,7 @@ export const siteImages = {
 
     /** الصورة الجانبية في الهيرو (شاحنة وقود، مبنى المنشأة، إلخ)
      *  ضع الملف في: public/images/hero/truck.jpg (800×600px) */
-    side: null as string | null,
+    side: "/images/hero/truck.svg" as string | null,
   },
 
   about: {
@@ -39,10 +39,10 @@ export const siteImages = {
 
   services: {
     /** صور بطاقات الخدمات — ضعها في public/images/services/ */
-    diesel:     null as string | null,  // public/images/services/diesel.jpg
-    gas:        null as string | null,  // public/images/services/gas.jpg
-    sensors:    null as string | null,  // public/images/services/sensors.jpg
-    monitoring: null as string | null,  // public/images/services/monitoring.jpg
+    diesel:     "/images/services/diesel.svg" as string | null,
+    gas:        "/images/services/gas.svg" as string | null,
+    sensors:    "/images/services/sensors.svg" as string | null,
+    monitoring: "/images/services/monitoring.svg" as string | null,
   },
 
   /** صورة قسم "لماذا بترونير"

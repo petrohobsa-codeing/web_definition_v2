@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#022C22"/>
+      <stop offset="100%" stop-color="#064E3B"/>
+    </linearGradient>
+    <linearGradient id="tank1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="tank2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#065F46"/>
+    </linearGradient>
+    <linearGradient id="tank3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="dp" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="9" r="0.8" fill="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#dp)"/>
+
+  <!-- Ground -->
+  <rect x="0" y="430" width="800" height="70" fill="#011a12" opacity="0.7"/>
+  <rect x="0" y="430" width="800" height="2" fill="#059669" opacity="0.3"/>
+
+  <!-- Glow effects -->
+  <ellipse cx="200" cy="430" rx="80" ry="15" fill="#059669" opacity="0.12"/>
+  <ellipse cx="400" cy="430" rx="90" ry="15" fill="#059669" opacity="0.10"/>
+  <ellipse cx="590" cy="430" rx="80" ry="15" fill="#059669" opacity="0.12"/>
+
+  <!-- ===== STORAGE TANK 1 (large, center) ===== -->
+  <!-- Legs -->
+  <rect x="345" y="390" width="15" height="40" rx="3" fill="#374151"/>
+  <rect x="440" y="390" width="15" height="40" rx="3" fill="#374151"/>
+  <rect x="320" y="425" width="160" height="8" rx="3" fill="#4B5563"/>
+  <!-- Body -->
+  <rect x="320" y="120" width="160" height="275" rx="8" fill="url(#tank2)"/>
+  <!-- Top dome -->
+  <ellipse cx="400" cy="120" rx="80" ry="22" fill="#10B981"/>
+  <!-- Bottom -->
+  <ellipse cx="400" cy="395" rx="80" ry="18" fill="#047857"/>
+  <!-- Highlight -->
+  <rect x="325" y="128" width="30" height="260" rx="4" fill="rgba(255,255,255,0.12)"/>
+  <!-- Fill level indicator -->
+  <rect x="330" y="130" width="8" height="260" rx="3" fill="rgba(0,0,0,0.2)"/>
+  <rect x="330" y="238" width="8" height="152" rx="3" fill="#F59E0B" opacity="0.8"/>
+  <!-- Fill % badge -->
+  <rect x="450" y="230" width="58" height="32" rx="8" fill="rgba(0,0,0,0.4)"/>
+  <text x="479" y="251" text-anchor="middle" font-family="Arial Black" font-size="14" fill="#F59E0B" font-weight="900">٦٨٪</text>
+  <!-- Bands -->
+  <line x1="320" y1="200" x2="480" y2="200" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+  <line x1="320" y1="280" x2="480" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+  <line x1="320" y1="360" x2="480" y2="360" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+  <!-- Gold stripe -->
+  <rect x="320" y="155" width="160" height="6" fill="url(#goldG)" opacity="0.7"/>
+  <!-- Label -->
+  <text x="400" y="175" text-anchor="middle" font-family="Arial Black" font-size="13" fill="rgba(255,255,255,0.9)" letter-spacing="2">DIESEL</text>
+  <text x="400" y="193" text-anchor="middle" font-family="Arial" font-size="11" fill="#F59E0B">ديزل A</text>
+  <!-- Manhole -->
+  <ellipse cx="400" cy="100" rx="28" ry="7" fill="#064E3B" stroke="#F59E0B" stroke-width="2"/>
+  <!-- Vent pipe -->
+  <rect x="390" y="68" width="8" height="35" rx="3" fill="#374151"/>
+  <rect x="386" y="64" width="16" height="6" rx="3" fill="#4B5563"/>
+  <!-- Pipe out bottom -->
+  <rect x="380" y="400" width="40" height="10" rx="4" fill="#374151"/>
+  <rect x="355" y="406" width="85" height="8" rx="3" fill="#4B5563"/>
+
+  <!-- ===== STORAGE TANK 2 (small, left) ===== -->
+  <rect x="105" y="350" width="12" height="80" rx="3" fill="#374151"/>
+  <rect x="193" y="350" width="12" height="80" rx="3" fill="#374151"/>
+  <rect x="90" y="425" width="130" height="8" rx="3" fill="#4B5563"/>
+  <rect x="90" y="185" width="130" height="170" rx="6" fill="url(#tank1)"/>
+  <ellipse cx="155" cy="185" rx="65" ry="18" fill="#34D399"/>
+  <ellipse cx="155" cy="355" rx="65" ry="14" fill="#047857"/>
+  <rect x="95" y="192" width="22" height="163" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <!-- Fill level -->
+  <rect x="103" y="197" width="6" height="163" rx="2" fill="rgba(0,0,0,0.2)"/>
+  <rect x="103" y="277" width="6" height="83" rx="2" fill="#10B981" opacity="0.8"/>
+  <text x="155" y="250" text-anchor="middle" font-family="Arial Black" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="1">DIESEL</text>
+  <text x="155" y="265" text-anchor="middle" font-family="Arial" font-size="9" fill="#F59E0B">ديزل B</text>
+  <rect x="180" y="278" width="46" height="26" rx="6" fill="rgba(0,0,0,0.4)"/>
+  <text x="203" y="295" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#F59E0B">٤٢٪</text>
+  <line x1="90" y1="240" x2="220" y2="240" stroke="rgba(255,255,255,0.08)" stroke-width="2.5"/>
+  <line x1="90" y1="300" x2="220" y2="300" stroke="rgba(255,255,255,0.08)" stroke-width="2.5"/>
+  <rect x="90" y="215" width="130" height="5" fill="url(#goldG)" opacity="0.6"/>
+  <ellipse cx="155" cy="167" rx="22" ry="6" fill="#064E3B" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="149" y="148" width="7" height="22" rx="2.5" fill="#374151"/>
+
+  <!-- ===== STORAGE TANK 3 (medium, right) ===== -->
+  <rect x="575" y="370" width="12" height="60" rx="3" fill="#374151"/>
+  <rect x="653" y="370" width="12" height="60" rx="3" fill="#374151"/>
+  <rect x="558" y="425" width="120" height="8" rx="3" fill="#4B5563"/>
+  <rect x="558" y="165" width="120" height="210" rx="6" fill="url(#tank3)"/>
+  <ellipse cx="618" cy="165" rx="60" ry="16" fill="#34D399" opacity="0.9"/>
+  <ellipse cx="618" cy="375" rx="60" ry="13" fill="#047857"/>
+  <rect x="562" y="172" width="20" height="203" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="570" y="175" width="6" height="200" rx="2" fill="rgba(0,0,0,0.2)"/>
+  <rect x="570" y="175" width="6" height="130" rx="2" fill="#10B981" opacity="0.8"/>
+  <text x="618" y="248" text-anchor="middle" font-family="Arial Black" font-size="12" fill="rgba(255,255,255,0.9)" letter-spacing="1">DIESEL</text>
+  <text x="618" y="264" text-anchor="middle" font-family="Arial" font-size="9" fill="#F59E0B">ديزل C</text>
+  <rect x="645" y="260" width="46" height="26" rx="6" fill="rgba(0,0,0,0.4)"/>
+  <text x="668" y="277" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#10B981">٩١٪</text>
+  <line x1="558" y1="225" x2="678" y2="225" stroke="rgba(255,255,255,0.08)" stroke-width="2.5"/>
+  <line x1="558" y1="300" x2="678" y2="300" stroke="rgba(255,255,255,0.08)" stroke-width="2.5"/>
+  <rect x="558" y="192" width="120" height="5" fill="url(#goldG)" opacity="0.6"/>
+  <ellipse cx="618" cy="148" rx="25" ry="7" fill="#064E3B" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="612" y="128" width="7" height="22" rx="2.5" fill="#374151"/>
+  <rect x="606" y="123" width="18" height="7" rx="3" fill="#4B5563"/>
+
+  <!-- Connecting pipes -->
+  <rect x="220" y="408" width="100" height="8" rx="4" fill="#374151"/>
+  <rect x="480" y="408" width="79" height="8" rx="4" fill="#374151"/>
+  <!-- Valve -->
+  <circle cx="300" cy="412" r="10" fill="#4B5563" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="293" y1="412" x2="307" y2="412" stroke="#F59E0B" stroke-width="2.5"/>
+  <circle cx="525" cy="412" r="10" fill="#4B5563" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="518" y1="412" x2="532" y2="412" stroke="#F59E0B" stroke-width="2.5"/>
+
+  <!-- Fuel nozzle left -->
+  <rect x="30" y="318" width="60" height="12" rx="5" fill="#374151"/>
+  <rect x="20" y="320" width="15" height="8" rx="3" fill="#4B5563"/>
+  <rect x="85" y="305" width="10" height="35" rx="4" fill="#4B5563"/>
+  <rect x="30" y="326" width="30" height="25" rx="4" fill="#374151"/>
+  <circle cx="45" cy="352" r="7" fill="#059669" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <!-- Pipe from tank 1 left -->
+  <rect x="35" y="410" width="56" height="8" rx="3" fill="#374151"/>
+
+  <!-- Control panel -->
+  <rect x="675" y="290" width="90" height="120" rx="10" fill="#022C22" stroke="#059669" stroke-width="1.5"/>
+  <rect x="683" y="300" width="74" height="50" rx="6" fill="#011a12"/>
+  <text x="720" y="316" text-anchor="middle" font-family="Arial" font-size="9" fill="#10B981">FLOW RATE</text>
+  <text x="720" y="332" text-anchor="middle" font-family="Arial Black" font-size="14" fill="#F59E0B">٢٤٠</text>
+  <text x="720" y="344" text-anchor="middle" font-family="Arial" font-size="8" fill="rgba(255,255,255,0.4)">L/min</text>
+  <circle cx="695" cy="370" r="8" fill="#10B981" opacity="0.9"/>
+  <circle cx="720" cy="370" r="8" fill="#374151"/>
+  <circle cx="745" cy="370" r="8" fill="#374151"/>
+  <rect x="683" y="385" width="74" height="16" rx="4" fill="#064E3B"/>
+  <text x="720" y="397" text-anchor="middle" font-family="Arial" font-size="9" fill="#F59E0B">تدفق نشط</text>
+</svg>
