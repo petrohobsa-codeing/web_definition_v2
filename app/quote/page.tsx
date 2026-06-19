@@ -5,9 +5,9 @@ import QuoteForm from "@/components/sections/QuoteForm";
 import { ChevronLeft, Clock, CheckCircle2, Headphones } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "اطلب عرض سعر — بترونير",
+  title: "اطلب عرض سعر — Fast Link",
   description:
-    "احصل على عرض سعر مخصّص من بترونير لتزويد الوقود والحساسات الذكية خلال 24 ساعة.",
+    "احصل على عرض سعر مخصّص من Fast Link لخدمات توصيل الوقود والأنظمة الذكية خلال 24 ساعة.",
 };
 
 const promises = [

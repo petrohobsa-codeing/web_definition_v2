@@ -5,16 +5,16 @@ import Button from "@/components/ui/Button";
 import { ChevronLeft, Target, Eye, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "من نحن — بترونير",
+  title: "من نحن — Fast Link",
   description:
-    "تعرّف على بترونير — المنظومة الرائدة في السعودية لإدارة الطاقة الصناعية المدعومة بإنترنت الأشياء منذ 2018.",
+    "تعرّف على Fast Link — شريكك الموثوق في توصيل الوقود وإدارة الطاقة الصناعية في المملكة العربية السعودية.",
 };
 
 const stats = [
-  { value: "500+", label: "عميل نشط" },
-  { value: "99.9%", label: "ضمان التشغيل" },
-  { value: "15M", label: "لتر متتبَّع" },
-  { value: "24h", label: "دعم ميداني" },
+  { value: "600+", label: "منشأة نخدمها" },
+  { value: "99.9%", label: "دقة التسليم" },
+  { value: "20M+", label: "لتر موثَّق" },
+  { value: "24/7", label: "دعم ميداني" },
 ];
 
 const values = [
@@ -22,21 +22,21 @@ const values = [
     icon: Heart,
     title: "نزاهة مطلقة",
     description:
-      "شفافية في كل لتر يُسلَّم وكل نقطة بيانات تُسجَّل.",
+      "كل لتر يُسلَّم موثَّق بفاتورة ضريبية وسجل رقمي لا يُمحى.",
     color: "from-rose-500 to-rose-400",
   },
   {
     icon: Target,
     title: "مرونة صناعية",
     description:
-      "استجابة سريعة لأكثر الجداول الزمنية تطلباً في المملكة.",
+      "أسطول توصيل جاهز للتحرّك خلال ساعات من أي طلب طارئ.",
     color: "from-brand-green to-brand-green-mid",
   },
   {
     icon: Eye,
     title: "اتصال ذكي",
     description:
-      "توظيف أحدث تقنيات إنترنت الأشياء لتبسيط الخدمات اللوجستية المعقّدة.",
+      "أجهزة استشعار متصلة بالسحابة تحوّل بيانات الخزانات إلى قرارات ذكية.",
     color: "from-blue-500 to-blue-400",
   },
 ];
@@ -67,11 +67,10 @@ export default function AboutPage() {
               منذ 2018
             </Badge>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-5 leading-tight">
-              نُعيد ابتكار إدارة الوقود
+              نوصّل الطاقة، نُحقّق الاستمرارية
             </h1>
             <p className="text-white/70 text-xl leading-relaxed">
-              المنظومة الرائدة في السعودية لإدارة الطاقة الصناعية المدعومة
-              بإنترنت الأشياء.
+              شريكك الاستراتيجي في توصيل الوقود وإدارة الطاقة بتقنيات إنترنت الأشياء.
             </p>
           </div>
         </div>
@@ -84,14 +83,10 @@ export default function AboutPage() {
             <div>
               <Badge className="mb-5">قصتنا</Badge>
               <h2 className="text-4xl font-black text-brand-charcoal mb-6">
-                منذ 2018 — قصتنا
+                شركة نشأت من الميدان
               </h2>
               <p className="text-brand-charcoal-light leading-loose text-lg mb-8">
-                وُلدت بترونير من ملاحظة بسيطة: المنشآت تخسر آلاف الريالات
-                يومياً بسبب توقّف العمليات عند نفاد الوقود، أو بسبب الهدر
-                والسرقة غير المراقبة. فجمعنا بين خبرة الإمداد اللوجستي
-                وتقنيات الاستشعار الذكية لنبني منظومة تضمن ألّا يتوقّف عمل
-                عملائنا أبداً.
+                انطلقت فاست لينك من فكرة محورية: أن توقّف المولّدات بسبب نفاد الوقود يكلّف المنشآت ملايين الريالات سنوياً دون مبرر. جمعنا خبراء اللوجستيات مع مهندسي إنترنت الأشياء لبناء منظومة متكاملة تضمن وصول الوقود قبل الحاجة إليه، وتتيح للمديرين رؤية كاملة للاستهلاك في الوقت الفعلي.
               </p>
               <blockquote className="border-r-4 border-brand-gold pr-6 py-2 italic text-brand-charcoal text-xl font-bold leading-loose">
                 &ldquo;الدقة ليست مجرد مقياس لدينا — بل هي أساس الثقة.&rdquo;
@@ -129,9 +124,7 @@ export default function AboutPage() {
                 رؤيتنا
               </h3>
               <p className="text-brand-charcoal-light leading-loose">
-                أن نكون الجهاز العصبي المركزي لإدارة الطاقة الصناعية في
-                السعودية، ممكّنين مستقبلاً خالياً من الهدر ومبنياً على
-                البيانات لكل مشروع بنية تحتية كبير.
+                أن نكون المرجع الأول لكل منشأة تبحث عن إمداد وقود موثوق ومنظومة رقمية شفافة تُمكّنها من اتخاذ قرارات مدروسة مبنية على البيانات.
               </p>
             </div>
 
@@ -144,8 +137,7 @@ export default function AboutPage() {
                 رسالتنا
               </h3>
               <p className="text-brand-charcoal-light leading-loose">
-                تمكين المنشآت بحساسات إنترنت الأشياء اللحظية وسلاسل إمداد
-                ديزل سلسة تضمن صفر توقّف وأقصى كفاءة.
+                تقديم خدمات توصيل وقود موثوقة وأنظمة مراقبة ذكية تضمن للمنشآت السعودية صفر انقطاع وتحكّماً كاملاً في تكاليف الطاقة.
               </p>
             </div>
           </div>
@@ -190,11 +182,10 @@ export default function AboutPage() {
         <div className="absolute inset-0 dot-bg opacity-10" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-6">
           <h2 className="text-4xl font-black text-white">
-            انضم إلى عائلة بترونير
+            انضم إلى أكثر من 600 منشأة تثق بنا
           </h2>
           <p className="text-white/70 leading-relaxed text-lg">
-            كن جزءاً من أكثر من 500 منشأة تثق بنا لتأمين طاقتها على مدار
-            الساعة.
+            وفّر طاقتك وخفّض تكاليفك مع فاست لينك — شريكك في الإمداد الذكي على مدار الساعة.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Button href="/quote" variant="gold" size="lg">

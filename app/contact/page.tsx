@@ -5,9 +5,9 @@ import ContactForm from "@/components/sections/ContactForm";
 import { ChevronLeft, Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "اتصل بنا — بترونير",
+  title: "اتصل بنا — Fast Link",
   description:
-    "تواصل مع فريق بترونير. الرقم الموحّد، واتساب للأعمال، والبريد الإلكتروني. فريقنا جاهز للرد خلال ساعات العمل.",
+    "تواصل مع فريق Fast Link. الرقم الموحّد، واتساب للأعمال، والبريد الإلكتروني. فريقنا جاهز للرد خلال ساعات العمل.",
 };
 
 const contactInfo = [
@@ -28,8 +28,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "البريد الإلكتروني",
-    value: "info@petronear.sa",
-    href: "mailto:info@petronear.sa",
+    value: "info@fastlink.sa",
+    href: "mailto:info@fastlink.sa",
     color: "bg-blue-500",
   },
   {

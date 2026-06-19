@@ -45,13 +45,12 @@ export default function CTABanner() {
             </h2>
 
             <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              انضم إلى مئات المنشآت التي تعتمد على بترونير لضمان استمرارية أعمالها
-              بأذكى الوسائل التقنية.
+              أكثر من 600 منشأة في المملكة تعتمد على فاست لينك لضمان وصول الوقود قبل النفاد بأنظمة ذكية ودعم لا ينقطع.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 pt-2">
               <Button href="/quote" variant="gold" size="lg" className="shadow-2xl shadow-brand-gold/30">
-                ابدأ مع بترونير اليوم
+                ابدأ مع فاست لينك اليوم
               </Button>
               <Button href="/contact" variant="outline" size="lg">
                 <Phone size={16} />
@@ -62,7 +61,7 @@ export default function CTABanner() {
             {/* Social proof */}
             <div className="flex flex-wrap justify-center items-center gap-8 pt-6 border-t border-white/10">
               {[
-                { v: "+500", l: "منشأة عميلة" },
+                { v: "+600", l: "منشأة عميلة" },
                 { v: "99.8٪", l: "رضا العملاء" },
                 { v: "24/7", l: "دعم متواصل" },
               ].map((s) => (

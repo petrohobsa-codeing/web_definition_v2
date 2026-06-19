@@ -6,18 +6,18 @@ import { CheckCircle2, Award, Users, BarChart3 } from "lucide-react";
 import { siteImages } from "@/lib/images";
 
 const points = [
-  "إمداد منتظم وموثوق لأي موقع في المملكة",
-  "تقنية IoT متقدمة لمراقبة الخزانات لحظياً",
-  "فواتير إلكترونية متوافقة مع هيئة الزكاة والضريبة",
-  "فريق دعم ميداني جاهز على مدار الساعة",
-  "تقارير استهلاك مفصّلة وشفافة",
-  "امتثال كامل لاشتراطات الجهات الحكومية",
+  "توصيل الوقود في الوقت المحدد لأي موقع في المملكة",
+  "حساسات IoT دقيقة لمراقبة مستوى الخزانات لحظياً",
+  "فواتير ضريبية إلكترونية متوافقة مع متطلبات هيئة الزكاة",
+  "دعم فني ميداني متاح على مدار الساعة طوال الأسبوع",
+  "تقارير استهلاك مفصّلة تُساعدك على تخفيض التكاليف",
+  "امتثال تام لاشتراطات الدفاع المدني والجهات الرسمية",
 ];
 
 const badges = [
-  { icon: Award, title: "معتمد رسمياً", desc: "من الجهات الحكومية" },
-  { icon: Users, title: "+500 عميل", desc: "يثقون بنا يومياً" },
-  { icon: BarChart3, title: "99.9٪ كفاءة", desc: "في كل عملية توصيل" },
+  { icon: Award, title: "معتمد رسمياً", desc: "من الجهات المختصة" },
+  { icon: Users, title: "+600 منشأة", desc: "تثق بنا يومياً" },
+  { icon: BarChart3, title: "99.9٪ دقة", desc: "في كل عملية توصيل" },
 ];
 
 export default function WhyUs() {
@@ -36,17 +36,17 @@ export default function WhyUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="mb-5">لماذا بترونير</Badge>
+            <Badge className="mb-5">لماذا Fast Link</Badge>
             <h2
               id="whyus-title"
               className="text-4xl md:text-5xl font-black text-brand-charcoal mb-5 leading-tight"
             >
               لماذا تختار
-              <span className="text-brand-green block">بترونير؟</span>
+              <span className="text-brand-green block">Fast Link؟</span>
             </h2>
             <p className="text-brand-charcoal-light leading-loose text-lg mb-8">
               نحن لا نوفّر الوقود فحسب، بل نوفّر راحة البال. نظامنا مصمّم
-              ليكون شريكك الخفي الذي يضمن استدامة عملك في السوق السعودي.
+              ليكون شريكك الاستراتيجي الذي يضمن استمرارية عملياتك وتحكّمك الكامل في تكاليف الطاقة.
             </p>
             <div className="space-y-3 mb-10">
               {points.map((point, i) => (
@@ -95,7 +95,7 @@ export default function WhyUs() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-brand-green/10 border border-gray-100">
                 <Image
                   src={siteImages.whyUs}
-                  alt="لماذا بترونير"
+                  alt="لماذا Fast Link"
                   width={600}
                   height={500}
                   className="object-cover w-full h-auto"

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetail from "@/components/sections/ServiceDetail";
 
 export const metadata: Metadata = {
-  title: "تزويد الغاز — بترونير",
+  title: "تزويد الغاز — Fast Link",
   description:
     "حلول غاز آمنة وموثوقة للمنشآت الصناعية والتجارية مع فحص دوري وامتثال لاشتراطات الدفاع المدني.",
 };

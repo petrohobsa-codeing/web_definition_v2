@@ -34,7 +34,7 @@ export default function ContactForm() {
           تم إرسال رسالتك!
         </h3>
         <p className="text-brand-charcoal-light max-w-sm">
-          شكراً لتواصلك مع بترونير. سيتصل بك فريقنا خلال ساعات العمل.
+          شكراً لتواصلك مع Fast Link. سيتصل بك فريقنا خلال ساعات العمل.
         </p>
       </div>
     );

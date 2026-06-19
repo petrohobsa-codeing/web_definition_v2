@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetail from "@/components/sections/ServiceDetail";
 
 export const metadata: Metadata = {
-  title: "حلول المراقبة عن بُعد — بترونير",
+  title: "حلول المراقبة عن بُعد — Fast Link",
   description:
     "لوحة تحكم سحابية لمراقبة جميع خزاناتك ومواقعك لحظياً مع تقارير متقدمة وتنبيهات ذكية وصلاحيات متعددة المستخدمين.",
 };

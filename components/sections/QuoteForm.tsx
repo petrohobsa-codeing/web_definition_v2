@@ -61,7 +61,7 @@ export default function QuoteForm() {
           تم إرسال طلبك!
         </h3>
         <p className="text-brand-charcoal-light max-w-md">
-          شكراً لك. سيتواصل معك فريق المبيعات لدى بترونير خلال 24 ساعة بعرض
+          شكراً لك. سيتواصل معك فريق المبيعات لدى Fast Link خلال 24 ساعة بعرض
           سعر مخصّص لاحتياجاتك.
         </p>
       </div>

@@ -12,10 +12,10 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { label: "تزويد الديزل", href: "/services/diesel-supply" },
+  { label: "توصيل الديزل", href: "/services/diesel-supply" },
   { label: "تزويد الغاز", href: "/services/gas-supply" },
-  { label: "حساسات ذكية", href: "/services/smart-sensors" },
-  { label: "المراقبة عن بُعد", href: "/services/remote-monitoring" },
+  { label: "حساسات القياس الذكي", href: "/services/smart-sensors" },
+  { label: "إدارة الطاقة الرقمية", href: "/services/remote-monitoring" },
 ];
 
 const socials = [
@@ -56,11 +56,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-5" aria-label="بترونير">
+            <Link href="/" className="flex items-center gap-3 mb-5" aria-label="Fast Link">
               {siteImages.logo ? (
                 <Image
                   src={siteImages.logo}
-                  alt="بترونير"
+                  alt="Fast Link"
                   width={130}
                   height={42}
                   className="h-10 w-auto object-contain brightness-0 invert"
@@ -70,12 +70,12 @@ export default function Footer() {
                   <div className="w-11 h-11 rounded-xl bg-brand-green flex items-center justify-center shadow-lg shadow-brand-green/30">
                     <Fuel size={22} className="text-white" />
                   </div>
-                  <span className="text-2xl font-black">بترونير</span>
+                  <span className="text-2xl font-black">Fast Link</span>
                 </>
               )}
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
-              وقودك لا ينفد بعد اليوم — المنظومة الرائدة في السعودية لإدارة الطاقة الصناعية.
+              شريكك الموثوق في توصيل الوقود وإدارة الطاقة بتقنيات ذكية، في أي وقت وأي موقع.
             </p>
 
             {/* Social */}
@@ -143,13 +143,13 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:info@petronear.sa"
+                  href="mailto:info@fastlink.sa"
                   className="flex items-center gap-3 text-white/60 hover:text-white text-sm transition-colors duration-200 group"
                 >
                   <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green transition-colors">
                     <Mail size={15} />
                   </div>
-                  info@petronear.sa
+                  info@fastlink.sa
                 </a>
               </li>
               <li>
@@ -188,7 +188,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} بترونير. جميع الحقوق محفوظة.
+            © {new Date().getFullYear()} Fast Link. جميع الحقوق محفوظة.
           </p>
           <div className="flex items-center gap-4">
             <Link href="/admin" className="text-white/20 hover:text-white/40 text-xs transition-colors flex items-center gap-1">

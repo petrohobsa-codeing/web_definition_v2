@@ -11,9 +11,9 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  title: "بترونير - تزويد الوقود الذكي",
+  title: "Fast Link - تزويد الوقود الذكي",
   description:
-    "بترونير — المنظومة الرائدة في السعودية لإدارة وتزويد الوقود الذكي.",
+    "Fast Link — المنظومة الرائدة في السعودية لإدارة وتزويد الوقود الذكي.",
 };
 
 export default function RootLayout({

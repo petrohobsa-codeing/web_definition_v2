@@ -9,9 +9,9 @@ import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "بترونير — تزويد الوقود الذكي في السعودية",
+  title: "Fast Link — تزويد الوقود الذكي في السعودية",
   description:
-    "بترونير — المنظومة الرائدة في السعودية لإدارة وتزويد الوقود الذكي. ديزل وغاز لجميع المنشآت مع حساسات IoT ومراقبة لحظية على مدار الساعة.",
+    "Fast Link — المنظومة الرائدة في السعودية لإدارة وتزويد الوقود الذكي. ديزل وغاز لجميع المنشآت مع حساسات IoT ومراقبة لحظية على مدار الساعة.",
 };
 
 export default function HomePage() {

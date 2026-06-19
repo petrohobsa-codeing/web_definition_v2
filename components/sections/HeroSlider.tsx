@@ -185,7 +185,7 @@ export default function HeroSlider() {
                       <div className="w-3 h-3 rounded-full bg-amber-400/70" />
                       <div className="w-3 h-3 rounded-full bg-green-400/70" />
                     </div>
-                    <span className="text-white/40 text-xs font-mono">petronear.dashboard</span>
+                    <span className="text-white/40 text-xs font-mono">fastlink.dashboard</span>
                     <span className="inline-flex items-center gap-1.5 bg-brand-green/30 text-green-300 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                       مباشر

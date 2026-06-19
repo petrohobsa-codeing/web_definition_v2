@@ -95,7 +95,7 @@ export default function AdminShell({ children, title }: Props) {
               <Fuel size={20} className="text-white" />
             </div>
             <div>
-              <p className="text-white font-black text-lg leading-none">بترونير</p>
+              <p className="text-white font-black text-lg leading-none">Fast Link</p>
               <p className="text-white/40 text-xs mt-0.5">لوحة التحكم</p>
             </div>
           </div>

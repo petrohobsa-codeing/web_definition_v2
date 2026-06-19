@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetail from "@/components/sections/ServiceDetail";
 
 export const metadata: Metadata = {
-  title: "تزويد الديزل — بترونير",
+  title: "تزويد الديزل — Fast Link",
   description:
     "توصيل الديزل عالي الجودة لجميع المنشآت بأي كمية وفي الوقت المحدد. فواتير إلكترونية متوافقة مع هيئة الزكاة والضريبة وتتبّع لحظي.",
 };

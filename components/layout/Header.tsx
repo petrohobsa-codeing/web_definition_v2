@@ -8,10 +8,11 @@ import Button from "@/components/ui/Button";
 import { siteImages } from "@/lib/images";
 
 const services = [
-  { label: "تزويد الديزل", href: "/services/diesel-supply" },
+  { label: "جميع الخدمات ←", href: "/services" },
+  { label: "توصيل الديزل", href: "/services/diesel-supply" },
   { label: "تزويد الغاز", href: "/services/gas-supply" },
-  { label: "حساسات ذكية", href: "/services/smart-sensors" },
-  { label: "المراقبة عن بُعد", href: "/services/remote-monitoring" },
+  { label: "حساسات القياس الذكي", href: "/services/smart-sensors" },
+  { label: "إدارة الطاقة الرقمية", href: "/services/remote-monitoring" },
 ];
 
 const navLinks = [
@@ -56,12 +57,12 @@ export default function Header() {
             <Link
               href="/"
               className="flex items-center gap-3 group"
-              aria-label="بترونير - الصفحة الرئيسية"
+              aria-label="فاست لينك - الصفحة الرئيسية"
             >
               {siteImages.logo ? (
                 <Image
                   src={siteImages.logo}
-                  alt="بترونير"
+                  alt="Fast Link"
                   width={140}
                   height={44}
                   className="h-11 w-auto object-contain"
@@ -78,14 +79,14 @@ export default function Header() {
                         scrolled ? "text-brand-green-dark" : "text-white"
                       }`}
                     >
-                      بترونير
+                      Fast Link
                     </span>
                     <span
                       className={`block text-xs font-medium leading-none transition-colors duration-300 ${
                         scrolled ? "text-brand-charcoal-light" : "text-white/70"
                       }`}
                     >
-                      Petronear
+                      فاست لينك للطاقة
                     </span>
                   </div>
                 </>
@@ -214,7 +215,7 @@ export default function Header() {
                 <Fuel size={18} className="text-white" />
               </div>
               <span className="text-xl font-black text-brand-green-dark">
-                بترونير
+                Fast Link
               </span>
             </Link>
             <button

@@ -14,7 +14,7 @@ export default function StatsSection() {
   return (
     <section
       className="relative bg-brand-green-dark overflow-hidden py-20"
-      aria-label="إحصائيات بترونير"
+      aria-label="إحصائيات Fast Link"
     >
       {/* Background pattern */}
       <div className="absolute inset-0 dot-bg opacity-10" />
