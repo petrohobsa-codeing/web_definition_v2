@@ -1,9 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, Fuel } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { siteImages } from "@/lib/images";
 
 const services = [
   { label: "تزويد الديزل", href: "/services/diesel-supply" },
@@ -56,25 +58,38 @@ export default function Header() {
               className="flex items-center gap-3 group"
               aria-label="بترونير - الصفحة الرئيسية"
             >
-              <div className="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center group-hover:bg-brand-green-mid transition-colors duration-300">
-                <Fuel size={20} className="text-white" />
-              </div>
-              <div>
-                <span
-                  className={`text-2xl font-black tracking-tight transition-colors duration-300 ${
-                    scrolled ? "text-brand-green-dark" : "text-white"
-                  }`}
-                >
-                  بترونير
-                </span>
-                <span
-                  className={`block text-xs font-medium leading-none transition-colors duration-300 ${
-                    scrolled ? "text-brand-charcoal-light" : "text-white/70"
-                  }`}
-                >
-                  Petronear
-                </span>
-              </div>
+              {siteImages.logo ? (
+                <Image
+                  src={siteImages.logo}
+                  alt="بترونير"
+                  width={140}
+                  height={44}
+                  className="h-11 w-auto object-contain"
+                  priority
+                />
+              ) : (
+                <>
+                  <div className="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center group-hover:bg-brand-green-mid transition-colors duration-300 shadow-lg shadow-brand-green/20">
+                    <Fuel size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <span
+                      className={`text-2xl font-black tracking-tight transition-colors duration-300 ${
+                        scrolled ? "text-brand-green-dark" : "text-white"
+                      }`}
+                    >
+                      بترونير
+                    </span>
+                    <span
+                      className={`block text-xs font-medium leading-none transition-colors duration-300 ${
+                        scrolled ? "text-brand-charcoal-light" : "text-white/70"
+                      }`}
+                    >
+                      Petronear
+                    </span>
+                  </div>
+                </>
+              )}
             </Link>
 
             {/* Desktop Nav */}
