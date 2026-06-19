@@ -12,10 +12,8 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { label: "توصيل الديزل", href: "/services/diesel-supply" },
-  { label: "تزويد الغاز", href: "/services/gas-supply" },
-  { label: "حساسات القياس الذكي", href: "/services/smart-sensors" },
-  { label: "إدارة الطاقة الرقمية", href: "/services/remote-monitoring" },
+  { label: "تزويد الديزل", href: "/services/diesel-supply" },
+  { label: "تزويد البترول", href: "/services/gas-supply" },
 ];
 
 const socials = [

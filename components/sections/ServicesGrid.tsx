@@ -13,9 +13,7 @@ const iconMap = { Fuel, Cpu, Flame, MonitorCheck } as const;
 
 const serviceImages: Record<string, string | null> = {
   "1": siteImages.services.diesel,
-  "2": siteImages.services.sensors,
-  "3": siteImages.services.gas,
-  "4": siteImages.services.monitoring,
+  "2": siteImages.services.gas,
 };
 
 const cardColors = [
