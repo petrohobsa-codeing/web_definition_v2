@@ -11,6 +11,14 @@ const activityTypes = [
   "الزراعة",
   "العقارات والمجمّعات",
   "محطات توليد الطاقة",
+  "أخرى",
+];
+
+const serviceOptions = [
+  { val: "petroleum", label: "منتجات بترولية (بنزين / ديزل / غاز)" },
+  { val: "sewage", label: "سحب بيارات وصرف صحي" },
+  { val: "water", label: "إمداد مائي (مياه تحلية / شرب)" },
+  { val: "generators", label: "تأجير مولدات كهربائية" },
 ];
 
 export default function QuoteForm() {
@@ -61,8 +69,7 @@ export default function QuoteForm() {
           تم إرسال طلبك!
         </h3>
         <p className="text-brand-charcoal-light max-w-md">
-          شكراً لك. سيتواصل معك فريق المبيعات لدى Fast Link خلال 24 ساعة بعرض
-          سعر مخصّص لاحتياجاتك.
+          شكراً لك. سيتواصل معك فريق فاست لينك خلال 24 ساعة بعرض سعر مخصّص لاحتياجاتك.
         </p>
       </div>
     );
@@ -80,7 +87,7 @@ export default function QuoteForm() {
             id="q-name"
             type="text"
             required
-            placeholder="اسم المنشأة"
+            placeholder="اسم الشخص أو المنشأة"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             className={inputClass}
@@ -133,9 +140,7 @@ export default function QuoteForm() {
           >
             <option value="">اختر نوع النشاط</option>
             {activityTypes.map((a) => (
-              <option key={a} value={a}>
-                {a}
-              </option>
+              <option key={a} value={a}>{a}</option>
             ))}
           </select>
         </div>
@@ -145,29 +150,28 @@ export default function QuoteForm() {
           <label htmlFor="q-city" className="block text-sm font-bold text-brand-charcoal mb-2">
             الموقع / المدينة
           </label>
-          <input
+          <select
             id="q-city"
-            type="text"
-            placeholder="الرياض، جدة، الدمام..."
             value={form.city}
             onChange={(e) => setForm({ ...form, city: e.target.value })}
-            className={inputClass}
-          />
+            className={`${inputClass} cursor-pointer`}
+          >
+            <option value="">اختر المدينة</option>
+            {["الرياض", "مكة المكرمة", "المدينة المنورة", "ينبع", "تبوك", "أخرى"].map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
         </div>
       </div>
 
-      {/* Fuel type */}
+      {/* Service type */}
       <div>
-        <p className="text-sm font-bold text-brand-charcoal mb-3">نوع الوقود</p>
-        <div className="flex flex-wrap gap-4">
-          {[
-            { val: "diesel", label: "ديزل" },
-            { val: "gas", label: "غاز" },
-            { val: "both", label: "كلاهما" },
-          ].map((opt) => (
+        <p className="text-sm font-bold text-brand-charcoal mb-3">الخدمة المطلوبة</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {serviceOptions.map((opt) => (
             <label
               key={opt.val}
-              className={`flex items-center gap-2 px-5 py-3 rounded-xl border-2 cursor-pointer transition-all duration-200 font-medium ${
+              className={`flex items-center gap-2 px-4 py-3 rounded-xl border-2 cursor-pointer transition-all duration-200 font-medium text-sm ${
                 form.fuelType === opt.val
                   ? "border-brand-green bg-brand-green-light text-brand-green"
                   : "border-gray-200 text-brand-charcoal-mid hover:border-brand-green/30"
@@ -190,60 +194,27 @@ export default function QuoteForm() {
       {/* Quantity */}
       <div>
         <label htmlFor="q-quantity" className="block text-sm font-bold text-brand-charcoal mb-2">
-          الكمية الشهرية التقديرية (لتر)
+          الكمية أو الحجم التقديري
         </label>
         <input
           id="q-quantity"
-          type="number"
-          placeholder="مثال: 5000"
-          min="200"
+          type="text"
+          placeholder="مثال: 5000 لتر / 3 صهاريج / 500 KVA"
           value={form.quantity}
           onChange={(e) => setForm({ ...form, quantity: e.target.value })}
           className={inputClass}
         />
       </div>
 
-      {/* Sensors */}
-      <div>
-        <p className="text-sm font-bold text-brand-charcoal mb-3">
-          هل ترغب بحساسات ذكية؟
-        </p>
-        <div className="flex gap-4">
-          {[
-            { val: "yes", label: "نعم" },
-            { val: "no", label: "لا" },
-          ].map((opt) => (
-            <label
-              key={opt.val}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl border-2 cursor-pointer transition-all duration-200 font-medium ${
-                form.sensors === opt.val
-                  ? "border-brand-green bg-brand-green-light text-brand-green"
-                  : "border-gray-200 text-brand-charcoal-mid hover:border-brand-green/30"
-              }`}
-            >
-              <input
-                type="radio"
-                name="sensors"
-                value={opt.val}
-                checked={form.sensors === opt.val}
-                onChange={(e) => setForm({ ...form, sensors: e.target.value })}
-                className="sr-only"
-              />
-              {opt.label}
-            </label>
-          ))}
-        </div>
-      </div>
-
       {/* Message */}
       <div>
         <label htmlFor="q-message" className="block text-sm font-bold text-brand-charcoal mb-2">
-          رسالتك
+          تفاصيل إضافية
         </label>
         <textarea
           id="q-message"
           rows={4}
-          placeholder="أي تفاصيل إضافية تود إضافتها..."
+          placeholder="أي تفاصيل أخرى تودّ إضافتها عن طلبك..."
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className={`${inputClass} resize-none`}
@@ -270,8 +241,7 @@ export default function QuoteForm() {
       </Button>
 
       <p className="text-xs text-brand-charcoal-light text-center leading-relaxed">
-        بإرسالك هذا النموذج فإنك توافق على سياسة الخصوصية لدينا. لن نشارك
-        بياناتك مع أي طرف ثالث.
+        بإرسالك هذا النموذج فإنك توافق على سياسة الخصوصية لدينا. لن نشارك بياناتك مع أي طرف ثالث.
       </p>
     </form>
   );

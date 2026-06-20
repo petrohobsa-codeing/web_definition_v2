@@ -2,28 +2,28 @@
 import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
 import StepCard from "@/components/ui/StepCard";
-import { Building2, Cpu, Fuel, Truck } from "lucide-react";
+import { Phone, ClipboardList, Truck, CheckCircle2 } from "lucide-react";
 
 const steps = [
   {
-    icon: Building2,
-    title: "سجّل منشأتك",
-    description: "إنشاء حساب وإضافة مواقع الخزانات",
+    icon: Phone,
+    title: "تواصل معنا",
+    description: "اتصل أو أرسل طلبك عبر النموذج الإلكتروني",
   },
   {
-    icon: Cpu,
-    title: "ركّب الحساس",
-    description: "تركيب حساسات IoT لمراقبة المستوى",
-  },
-  {
-    icon: Fuel,
-    title: "اطلب الوقود",
-    description: "اطلب يدوياً أو دع النظام يطلب تلقائياً",
+    icon: ClipboardList,
+    title: "حدّد احتياجك",
+    description: "أخبرنا بالخدمة المطلوبة والكمية والموقع",
   },
   {
     icon: Truck,
-    title: "استلم وقودك",
-    description: "توصيل سريع مع تتبّع حي للصهريج",
+    title: "نُنسّق التوريد",
+    description: "نتواصل مع الموردين المناسبين وننسّق التسليم",
+  },
+  {
+    icon: CheckCircle2,
+    title: "استلم خدمتك",
+    description: "توصيل سريع إلى موقعك مع فاتورة ضريبية رسمية",
   },
 ];
 
@@ -33,7 +33,6 @@ export default function HowItWorks() {
       className="py-24 bg-brand-green-dark relative overflow-hidden"
       aria-labelledby="how-title"
     >
-      {/* Decorative elements */}
       <div className="absolute inset-0 dot-bg opacity-10" />
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-brand-gold/10 blur-3xl" />
@@ -53,10 +52,10 @@ export default function HowItWorks() {
             id="how-title"
             className="text-4xl md:text-5xl font-black text-white mb-4"
           >
-            خطوات بسيطة لإمداد مستمر
+            خطوات بسيطة للحصول على خدمتك
           </h2>
           <p className="text-white/60 max-w-xl mx-auto leading-relaxed">
-            ابدأ في دقائق وتمتّع بإمداد وقود لا ينقطع من أول يوم.
+            نربط احتياجاتك بالموردين المناسبين في أقصر وقت ممكن.
           </p>
         </motion.div>
 

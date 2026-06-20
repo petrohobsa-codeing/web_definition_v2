@@ -9,9 +9,9 @@ import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Fast Link — تزويد الوقود الذكي في السعودية",
+  title: "Fast Link — خدمات لوجستية وبترولية في المملكة",
   description:
-    "Fast Link — المنظومة الرائدة في السعودية لإدارة وتزويد الوقود الذكي. ديزل وغاز لجميع المنشآت مع حساسات IoT ومراقبة لحظية على مدار الساعة.",
+    "شركة فاست لينك للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تربط الموردين بالعملاء. منتجات بترولية، حلول بيئية، إمداد مائي، ومولدات كهربائية في الرياض ومكة والمدينة وينبع وتبوك.",
 };
 
 export default function HomePage() {

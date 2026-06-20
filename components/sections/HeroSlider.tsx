@@ -18,9 +18,9 @@ const gradients = [
 ];
 
 const trustItems = [
-  { icon: Shield, text: "معتمد ومرخّص", sub: "من الجهات الرسمية" },
-  { icon: Clock, text: "استجابة أقل من ساعتين", sub: "في أي وقت" },
-  { icon: TrendingUp, text: "+500 منشأة", sub: "تثق بنا يومياً" },
+  { icon: Shield, text: "موردون موثوقون", sub: "شبكة واسعة من الموردين المعتمدين" },
+  { icon: Clock, text: "استجابة سريعة", sub: "للطلبات العاجلة على مدار الساعة" },
+  { icon: TrendingUp, text: "5 مناطق تغطية", sub: "الرياض، مكة، المدينة، ينبع، تبوك" },
 ];
 
 export default function HeroSlider() {
@@ -185,7 +185,7 @@ export default function HeroSlider() {
                       <div className="w-3 h-3 rounded-full bg-amber-400/70" />
                       <div className="w-3 h-3 rounded-full bg-green-400/70" />
                     </div>
-                    <span className="text-white/40 text-xs font-mono">fastlink.dashboard</span>
+                    <span className="text-white/40 text-xs font-mono">fastlink.sa</span>
                     <span className="inline-flex items-center gap-1.5 bg-brand-green/30 text-green-300 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                       مباشر
@@ -194,32 +194,30 @@ export default function HeroSlider() {
 
                   <div className="p-6 space-y-5">
                     <div>
-                      <p className="text-white/40 text-xs mb-1">إجمالي الاستهلاك هذا الشهر</p>
-                      <p className="text-white text-3xl font-black">٢٤٧,٥٠٠ <span className="text-white/50 text-base font-normal">لتر</span></p>
+                      <p className="text-white/40 text-xs mb-1">خدماتنا اللوجستية</p>
+                      <p className="text-white text-xl font-black">شركة فاست لينك</p>
                       <p className="text-green-400 text-xs font-bold mt-1 flex items-center gap-1">
-                        <TrendingUp size={11} /> ↑ ١٢٪ عن الشهر الماضي
+                        <TrendingUp size={11} /> وساطة تجارية ولوجستية
                       </p>
                     </div>
 
                     <div className="space-y-3">
                       {[
-                        { name: "موقع A — الرياض", pct: 82, color: "from-brand-green to-emerald-400" },
-                        { name: "موقع B — جدة", pct: 35, color: "from-amber-500 to-amber-300" },
-                        { name: "موقع C — الدمام", pct: 67, color: "from-brand-green to-emerald-400" },
-                        { name: "موقع D — الخبر", pct: 91, color: "from-brand-green to-emerald-400" },
+                        { name: "الخدمات البترولية والغاز", color: "from-brand-green to-emerald-400" },
+                        { name: "الحلول البيئية والصرف", color: "from-blue-500 to-blue-400" },
+                        { name: "الإمداد المائي", color: "from-cyan-600 to-cyan-400" },
+                        { name: "الطاقة البديلة (المولدات)", color: "from-amber-500 to-amber-300" },
                       ].map((item) => (
                         <div key={item.name}>
                           <div className="flex justify-between text-xs mb-1.5">
                             <span className="text-white/70">{item.name}</span>
-                            <span className={`font-bold ${item.pct < 40 ? "text-amber-300" : "text-green-300"}`}>
-                              {item.pct}٪
-                            </span>
+                            <span className="font-bold text-green-300">متوفر</span>
                           </div>
                           <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
                             <motion.div
                               className={`h-full rounded-full bg-gradient-to-l ${item.color}`}
                               initial={{ width: 0 }}
-                              animate={{ width: `${item.pct}%` }}
+                              animate={{ width: "100%" }}
                               transition={{ duration: 1.2, delay: 0.5 }}
                             />
                           </div>
@@ -229,9 +227,9 @@ export default function HeroSlider() {
 
                     <div className="grid grid-cols-3 gap-3 pt-2 border-t border-white/10">
                       {[
-                        { v: "٤", l: "طلبات نشطة" },
-                        { v: "٩٩٪", l: "وقت التشغيل" },
-                        { v: "٣ دقائق", l: "آخر تحديث" },
+                        { v: "٤", l: "خدمات" },
+                        { v: "٥", l: "مناطق" },
+                        { v: "٢٤/٧", l: "طوارئ" },
                       ].map((s) => (
                         <div key={s.l} className="text-center">
                           <p className="text-white font-black text-sm">{s.v}</p>

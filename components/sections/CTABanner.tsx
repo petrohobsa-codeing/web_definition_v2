@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import { Zap, Phone } from "lucide-react";
+import { Handshake, Phone } from "lucide-react";
 
 export default function CTABanner() {
   return (
@@ -17,7 +17,6 @@ export default function CTABanner() {
       </div>
 
       <div className="bg-gradient-to-br from-brand-green-dark via-brand-green-mid to-brand-green py-28 relative">
-        {/* Background */}
         <div className="absolute inset-0 dot-bg opacity-10" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-gold/10 blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/5 blur-3xl" />
@@ -32,38 +31,38 @@ export default function CTABanner() {
           >
             {/* Pill */}
             <div className="inline-flex items-center gap-2 bg-brand-gold/20 text-brand-gold px-5 py-2.5 rounded-full text-sm font-bold border border-brand-gold/30">
-              <Zap size={14} className="fill-brand-gold" />
-              ابدأ اليوم مجاناً
+              <Handshake size={14} />
+              شريكك اللوجستي الموثوق
             </div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-              جاهز لإمداد
+              احصل على ما تحتاجه
               <span className="relative inline-block mx-3">
-                <span className="relative z-10">لا ينقطع؟</span>
+                <span className="relative z-10">بسرعة وكفاءة</span>
                 <span className="absolute bottom-1 left-0 right-0 h-3 bg-brand-gold/30 rounded-full -z-0" />
               </span>
             </h2>
 
             <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              أكثر من 600 منشأة في المملكة تعتمد على فاست لينك لضمان وصول الوقود قبل النفاد بأنظمة ذكية ودعم لا ينقطع.
+              سواء كنت تحتاج منتجات بترولية، سحب صرف، مياه تحلية، أو مولدات كهربائية — فاست لينك يربطك بالمورّد المناسب في أقصر وقت.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 pt-2">
               <Button href="/quote" variant="gold" size="lg" className="shadow-2xl shadow-brand-gold/30">
-                ابدأ مع فاست لينك اليوم
+                اطلب عرض سعر الآن
               </Button>
               <Button href="/contact" variant="outline" size="lg">
                 <Phone size={16} />
-                تحدّث مع خبير
+                تواصل معنا
               </Button>
             </div>
 
-            {/* Social proof */}
+            {/* Info row */}
             <div className="flex flex-wrap justify-center items-center gap-8 pt-6 border-t border-white/10">
               {[
-                { v: "+600", l: "منشأة عميلة" },
-                { v: "99.8٪", l: "رضا العملاء" },
-                { v: "24/7", l: "دعم متواصل" },
+                { v: "4", l: "خدمات لوجستية" },
+                { v: "5", l: "مناطق تغطية" },
+                { v: "24/7", l: "استجابة طارئة" },
               ].map((s) => (
                 <div key={s.l} className="text-center">
                   <p className="text-2xl font-black text-white">{s.v}</p>

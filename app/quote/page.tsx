@@ -7,7 +7,7 @@ import { ChevronLeft, Clock, CheckCircle2, Headphones } from "lucide-react";
 export const metadata: Metadata = {
   title: "اطلب عرض سعر — Fast Link",
   description:
-    "احصل على عرض سعر مخصّص من Fast Link لخدمات توصيل الوقود والأنظمة الذكية خلال 24 ساعة.",
+    "احصل على عرض سعر مخصّص من فاست لينك للخدمات اللوجستية والبترولية. منتجات بترولية، حلول بيئية، إمداد مائي، ومولدات كهربائية.",
 };
 
 const promises = [
@@ -88,13 +88,16 @@ export default function QuotePage() {
                 </div>
               ))}
 
-              {/* Trust badge */}
+              {/* Coverage badge */}
               <div className="bg-gradient-to-br from-brand-green-dark to-brand-green-mid rounded-3xl p-7 text-white">
-                <p className="font-black text-brand-gold text-lg mb-3">
-                  يثق بنا أكثر من
-                </p>
-                <p className="text-5xl font-black mb-2">500+</p>
-                <p className="text-white/70">منشأة في المملكة العربية السعودية</p>
+                <p className="font-black text-brand-gold text-lg mb-4">مناطق التغطية</p>
+                <div className="flex flex-wrap gap-2">
+                  {["الرياض", "مكة المكرمة", "المدينة المنورة", "ينبع", "تبوك"].map((city) => (
+                    <span key={city} className="bg-white/15 text-white text-sm font-bold px-3 py-1.5 rounded-full">
+                      {city}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 

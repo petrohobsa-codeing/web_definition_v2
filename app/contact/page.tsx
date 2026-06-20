@@ -7,7 +7,7 @@ import { ChevronLeft, Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-r
 export const metadata: Metadata = {
   title: "اتصل بنا — Fast Link",
   description:
-    "تواصل مع فريق Fast Link. الرقم الموحّد، واتساب للأعمال، والبريد الإلكتروني. فريقنا جاهز للرد خلال ساعات العمل.",
+    "تواصل مع شركة فاست لينك للخدمات اللوجستية والبترولية. نغطي الرياض ومكة المكرمة والمدينة المنورة وينبع وتبوك. فريقنا جاهز للرد على طلباتك.",
 };
 
 const contactInfo = [
@@ -48,7 +48,7 @@ const contactInfo = [
   },
 ];
 
-const cities = ["الرياض", "جدة", "الدمام"];
+const cities = ["الرياض", "مكة المكرمة", "المدينة المنورة", "ينبع", "تبوك"];
 
 export default function ContactPage() {
   return (
@@ -146,8 +146,7 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <p className="text-brand-charcoal-light text-sm mt-4">
-                  نخدم أيضاً مناطق أخرى حسب الطلب — تواصل معنا لمعرفة التغطية
-                  الكاملة.
+                  هذه المناطق هي نطاق التغطية الحالي — تواصل معنا لأي استفسار عن مناطق أخرى.
                 </p>
               </div>
             </div>

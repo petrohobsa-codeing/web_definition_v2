@@ -2,28 +2,27 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Badge from "@/components/ui/Badge";
-import { CheckCircle2, Award, Users, BarChart3 } from "lucide-react";
+import { CheckCircle2, Award, MapPin, Clock } from "lucide-react";
 import { siteImages } from "@/lib/images";
 
 const points = [
-  "توصيل الوقود في الوقت المحدد لأي موقع في المملكة",
-  "حساسات IoT دقيقة لمراقبة مستوى الخزانات لحظياً",
+  "ربط سريع بين الموردين والعملاء في جميع مناطق التغطية",
+  "أسعار تنافسية من موردين معتمدين وموثوقين",
   "فواتير ضريبية إلكترونية متوافقة مع متطلبات هيئة الزكاة",
-  "دعم فني ميداني متاح على مدار الساعة طوال الأسبوع",
-  "تقارير استهلاك مفصّلة تُساعدك على تخفيض التكاليف",
-  "امتثال تام لاشتراطات الدفاع المدني والجهات الرسمية",
+  "تغطية شاملة: الرياض، مكة، المدينة، ينبع، وتبوك",
+  "استجابة سريعة للطلبات الطارئة على مدار الساعة",
+  "خدمة متكاملة تشمل البترول والمياه والبيئة والطاقة",
 ];
 
 const badges = [
-  { icon: Award, title: "معتمد رسمياً", desc: "من الجهات المختصة" },
-  { icon: Users, title: "+600 منشأة", desc: "تثق بنا يومياً" },
-  { icon: BarChart3, title: "99.9٪ دقة", desc: "في كل عملية توصيل" },
+  { icon: Award, title: "موردون معتمدون", desc: "شبكة واسعة من الموردين الموثوقين" },
+  { icon: MapPin, title: "5 مناطق تغطية", desc: "في أهم مدن المملكة" },
+  { icon: Clock, title: "متاحون 24/7", desc: "للطلبات والحالات الطارئة" },
 ];
 
 export default function WhyUs() {
   return (
     <section className="py-24 bg-gray-50 relative overflow-hidden" aria-labelledby="whyus-title">
-      {/* Decorative blobs */}
       <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-brand-green-light/60 blur-3xl" />
       <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-brand-gold-light/30 blur-3xl" />
 
@@ -45,8 +44,7 @@ export default function WhyUs() {
               <span className="text-brand-green block">Fast Link؟</span>
             </h2>
             <p className="text-brand-charcoal-light leading-loose text-lg mb-8">
-              نحن لا نوفّر الوقود فحسب، بل نوفّر راحة البال. نظامنا مصمّم
-              ليكون شريكك الاستراتيجي الذي يضمن استمرارية عملياتك وتحكّمك الكامل في تكاليف الطاقة.
+              نحن لسنا مجرد وسيط — بل شريكك الاستراتيجي الذي يضمن وصول كل ما تحتاجه من مصادر موثوقة، بالوقت المحدد وبأفضل الأسعار.
             </p>
             <div className="space-y-3 mb-10">
               {points.map((point, i) => (
@@ -110,15 +108,15 @@ export default function WhyUs() {
                 <div className="relative z-10">
                   <div className="inline-flex items-center gap-2 bg-brand-gold/20 text-brand-gold px-4 py-2 rounded-full text-sm font-bold mb-8">
                     <span className="w-2 h-2 bg-brand-gold rounded-full animate-pulse" />
-                    شريكك الموثوق منذ 2018
+                    شركة وساطة لوجستية معتمدة
                   </div>
 
                   <div className="grid grid-cols-2 gap-4 mb-8">
                     {[
-                      { v: "500+", l: "عميل نشط" },
-                      { v: "99.9%", l: "ضمان التشغيل" },
-                      { v: "15M", l: "لتر متتبَّع" },
-                      { v: "24/7", l: "دعم ميداني" },
+                      { v: "4", l: "خدمات متكاملة" },
+                      { v: "5+", l: "مناطق تغطية" },
+                      { v: "24/7", l: "طلبات طارئة" },
+                      { v: "100%", l: "التزام بالجودة" },
                     ].map((s) => (
                       <div key={s.l} className="bg-white/10 rounded-2xl p-5 text-center hover:bg-white/15 transition-colors">
                         <p className="text-3xl font-black text-brand-gold mb-1">{s.v}</p>
@@ -128,7 +126,7 @@ export default function WhyUs() {
                   </div>
 
                   <blockquote className="text-white/75 text-base leading-loose border-r-4 border-brand-gold pr-5">
-                    &ldquo;الدقة ليست مجرد مقياس لدينا — بل هي أساس الثقة.&rdquo;
+                    &ldquo;نربط احتياجاتك بالموردين الموثوقين بأسرع طريقة وأعلى كفاءة.&rdquo;
                   </blockquote>
                 </div>
               </div>
@@ -144,8 +142,8 @@ export default function WhyUs() {
                 <CheckCircle2 size={20} className="text-brand-green" />
               </div>
               <div>
-                <p className="font-black text-brand-charcoal text-sm">معتمد ومرخّص</p>
-                <p className="text-brand-charcoal-light text-xs">كل العمليات موثّقة</p>
+                <p className="font-black text-brand-charcoal text-sm">خدمة موثوقة</p>
+                <p className="text-brand-charcoal-light text-xs">موردون معتمدون ومرخّصون</p>
               </div>
             </motion.div>
           </motion.div>
