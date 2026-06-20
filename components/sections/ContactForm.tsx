@@ -14,14 +14,20 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    try {
       addMessage({ name: form.name, phone: form.phone, email: form.email, message: form.message });
+      await fetch("/api/send-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } finally {
       setLoading(false);
       setSuccess(true);
-    }, 800);
+    }
   };
 
   if (success) {

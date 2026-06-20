@@ -36,10 +36,10 @@ export default function QuoteForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    try {
       addQuote({
         name: form.name,
         phone: form.phone,
@@ -51,9 +51,15 @@ export default function QuoteForm() {
         sensors: form.sensors,
         message: form.message,
       });
+      await fetch("/api/send-quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } finally {
       setLoading(false);
       setSuccess(true);
-    }, 800);
+    }
   };
 
   const inputClass =
