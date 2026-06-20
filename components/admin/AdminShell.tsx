@@ -22,12 +22,16 @@ import {
   Menu,
   ExternalLink,
   ChevronRight,
+  FolderOpen,
+  Newspaper,
 } from "lucide-react";
 
 const navItems = [
   { href: "/admin/dashboard", label: "لوحة التحكم", icon: LayoutDashboard },
   { href: "/admin/slides", label: "شرائح الرئيسية", icon: Layers },
   { href: "/admin/services", label: "الخدمات", icon: Briefcase },
+  { href: "/admin/projects", label: "المشاريع والأعمال", icon: FolderOpen },
+  { href: "/admin/news", label: "الأخبار والمقالات", icon: Newspaper },
   { href: "/admin/testimonials", label: "آراء العملاء", icon: MessageSquare },
   { href: "/admin/stats", label: "الإحصائيات", icon: BarChart2 },
   { href: "/admin/quotes", label: "طلبات الأسعار", icon: FileText, badge: "quotes" },

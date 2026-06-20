@@ -6,6 +6,8 @@ import { siteImages } from "@/lib/images";
 const quickLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "الخدمات", href: "/services" },
+  { label: "أعمالنا", href: "/projects" },
+  { label: "الأخبار", href: "/news" },
   { label: "من نحن", href: "/about" },
   { label: "اتصل بنا", href: "/contact" },
   { label: "اطلب عرض سعر", href: "/quote" },
@@ -75,7 +77,7 @@ export default function Footer() {
               )}
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
-              شريكك الموثوق في توصيل الوقود وإدارة الطاقة بتقنيات ذكية، في أي وقت وأي موقع.
+              شريكك الموثوق في الخدمات اللوجستية والبترولية — نربط الموردين بالعملاء في أنحاء المملكة.
             </p>
 
             {/* Social */}

@@ -31,6 +31,25 @@ export interface StatItem {
   label: string;
 }
 
+export interface ProjectItem {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  city: string;
+  slug: string;
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  category: string;
+  date: string;
+  slug: string;
+}
+
 export interface QuoteRequest {
   id: string;
   name: string;
