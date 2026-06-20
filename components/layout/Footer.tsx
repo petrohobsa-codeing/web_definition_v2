@@ -12,8 +12,10 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { label: "تزويد الديزل", href: "/services/diesel-supply" },
-  { label: "تزويد البترول", href: "/services/gas-supply" },
+  { label: "الخدمات البترولية والغاز", href: "/services/diesel-supply" },
+  { label: "الحلول البيئية والصرف", href: "/services/gas-supply" },
+  { label: "الإمداد المائي", href: "/services/water-supply" },
+  { label: "الطاقة البديلة (مولدات)", href: "/services/generators" },
 ];
 
 const socials = [

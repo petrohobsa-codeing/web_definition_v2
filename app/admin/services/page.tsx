@@ -3,16 +3,19 @@ import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
 import { getServices, setServices } from "@/lib/store";
 import type { ServiceItem } from "@/lib/types";
-import { Plus, Pencil, Trash2, X, Save, Fuel, Cpu, Flame, MonitorCheck } from "lucide-react";
+import { Plus, Pencil, Trash2, X, Save, Fuel, Cpu, Flame, MonitorCheck, Droplets, Zap, Truck } from "lucide-react";
 
 const iconOptions: { value: ServiceItem["iconName"]; label: string }[] = [
   { value: "Fuel", label: "وقود (Fuel)" },
+  { value: "Droplets", label: "قطرات (Droplets)" },
+  { value: "Truck", label: "شاحنة (Truck)" },
+  { value: "Zap", label: "طاقة (Zap)" },
   { value: "Cpu", label: "معالج (Cpu)" },
   { value: "Flame", label: "لهب (Flame)" },
   { value: "MonitorCheck", label: "شاشة (Monitor)" },
 ];
 
-const iconMap = { Fuel, Cpu, Flame, MonitorCheck };
+const iconMap = { Fuel, Cpu, Flame, MonitorCheck, Droplets, Zap, Truck };
 
 const inputCls =
   "w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition-all bg-gray-50 text-brand-charcoal placeholder:text-brand-charcoal-light/50 text-sm";

@@ -7,36 +7,33 @@ import { ChevronLeft, Target, Eye, Heart } from "lucide-react";
 export const metadata: Metadata = {
   title: "من نحن — Fast Link",
   description:
-    "تعرّف على Fast Link — شريكك الموثوق في توصيل الوقود وإدارة الطاقة الصناعية في المملكة العربية السعودية.",
+    "شركة فاست لينك للخدمات اللوجستية والبترولية — شركة وساطة تجارية رائدة في المملكة تربط الموردين بالعملاء بأسرع طريقة وأعلى كفاءة.",
 };
 
 const stats = [
-  { value: "600+", label: "منشأة نخدمها" },
-  { value: "99.9%", label: "دقة التسليم" },
-  { value: "20M+", label: "لتر موثَّق" },
-  { value: "24/7", label: "دعم ميداني" },
+  { value: "4", label: "خدمات لوجستية متكاملة" },
+  { value: "5+", label: "مناطق تغطية في المملكة" },
+  { value: "24/7", label: "متاحون للطلبات الطارئة" },
+  { value: "100%", label: "التزام بالمواعيد والجودة" },
 ];
 
 const values = [
   {
     icon: Heart,
-    title: "نزاهة مطلقة",
-    description:
-      "كل لتر يُسلَّم موثَّق بفاتورة ضريبية وسجل رقمي لا يُمحى.",
+    title: "الموثوقية",
+    description: "نلتزم بمواعيد التسليم وجودة المنتجات لأن ثقة عملائنا هي رأس مالنا الأول.",
     color: "from-rose-500 to-rose-400",
   },
   {
     icon: Target,
-    title: "مرونة صناعية",
-    description:
-      "أسطول توصيل جاهز للتحرّك خلال ساعات من أي طلب طارئ.",
+    title: "السرعة والكفاءة",
+    description: "نربط الموردين بالعملاء بأسرع الطرق وأعلى كفاءة لضمان استمرارية العمليات.",
     color: "from-brand-green to-brand-green-mid",
   },
   {
     icon: Eye,
-    title: "اتصال ذكي",
-    description:
-      "أجهزة استشعار متصلة بالسحابة تحوّل بيانات الخزانات إلى قرارات ذكية.",
+    title: "الشفافية",
+    description: "نتعامل بوضوح تام في الأسعار والمواصفات لنبني علاقات طويلة الأمد مع عملائنا.",
     color: "from-blue-500 to-blue-400",
   },
 ];
@@ -48,29 +45,21 @@ export default function AboutPage() {
       <section className="relative bg-gradient-to-br from-brand-green-dark to-brand-green-mid pt-36 pb-24 overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-20" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[300px] rounded-full bg-brand-gold/10 blur-3xl" />
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Breadcrumb */}
           <nav className="flex items-center gap-2 mb-8 text-white/50 text-sm" aria-label="breadcrumb">
-            <Link href="/" className="hover:text-white transition-colors">
-              الرئيسية
-            </Link>
+            <Link href="/" className="hover:text-white transition-colors">الرئيسية</Link>
             <ChevronLeft size={14} className="rotate-180" />
             <span className="text-white font-medium">من نحن</span>
           </nav>
-
           <div className="max-w-3xl">
-            <Badge
-              variant="gold"
-              className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30"
-            >
-              منذ 2018
+            <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
+              شركة وساطة لوجستية
             </Badge>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-5 leading-tight">
-              نوصّل الطاقة، نُحقّق الاستمرارية
+              نربط الموردين بالعملاء
             </h1>
             <p className="text-white/70 text-xl leading-relaxed">
-              شريكك الاستراتيجي في توصيل الوقود وإدارة الطاقة بتقنيات إنترنت الأشياء.
+              شركة وساطة تجارية ولوجستية رائدة في المملكة العربية السعودية.
             </p>
           </div>
         </div>
@@ -81,28 +70,24 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <Badge className="mb-5">قصتنا</Badge>
+              <Badge className="mb-5">من نحن</Badge>
               <h2 className="text-4xl font-black text-brand-charcoal mb-6">
-                شركة نشأت من الميدان
+                شركة فاست لينك للخدمات اللوجستية والبترولية
               </h2>
+              <p className="text-brand-charcoal-light leading-loose text-lg mb-6">
+                شركة وساطة تجارية ولوجستية رائدة في المملكة العربية السعودية، نعمل كحلقة وصل استراتيجية لربط الموردين بالعملاء بأسرع طريقة وأفضل كفاءة.
+              </p>
               <p className="text-brand-charcoal-light leading-loose text-lg mb-8">
-                انطلقت فاست لينك من فكرة محورية: أن توقّف المولّدات بسبب نفاد الوقود يكلّف المنشآت ملايين الريالات سنوياً دون مبرر. جمعنا خبراء اللوجستيات مع مهندسي إنترنت الأشياء لبناء منظومة متكاملة تضمن وصول الوقود قبل الحاجة إليه، وتتيح للمديرين رؤية كاملة للاستهلاك في الوقت الفعلي.
+                نقدّم خدماتنا في مجالات المنتجات البترولية والغاز، والحلول البيئية وسحب الصرف، والإمداد المائي، وتأجير المولدات الكهربائية — ونغطي شبكة واسعة من المدن والمناطق الحيوية في المملكة.
               </p>
               <blockquote className="border-r-4 border-brand-gold pr-6 py-2 italic text-brand-charcoal text-xl font-bold leading-loose">
-                &ldquo;الدقة ليست مجرد مقياس لدينا — بل هي أساس الثقة.&rdquo;
+                &ldquo;نحن الحلقة التي تربط احتياجاتك بالموردين الموثوقين.&rdquo;
               </blockquote>
             </div>
-
-            {/* Stats grid */}
             <div className="grid grid-cols-2 gap-5">
               {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="bg-gradient-to-br from-brand-green-dark to-brand-green-mid rounded-3xl p-8 text-white text-center"
-                >
-                  <p className="text-4xl md:text-5xl font-black text-brand-gold mb-2">
-                    {s.value}
-                  </p>
+                <div key={s.label} className="bg-gradient-to-br from-brand-green-dark to-brand-green-mid rounded-3xl p-8 text-white text-center">
+                  <p className="text-4xl md:text-5xl font-black text-brand-gold mb-2">{s.value}</p>
                   <p className="text-white/70 font-medium text-sm">{s.label}</p>
                 </div>
               ))}
@@ -111,33 +96,44 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* Coverage */}
       <section className="py-24 bg-brand-green-light/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <Badge className="mb-5">مناطق التغطية</Badge>
+            <h2 className="text-4xl font-black text-brand-charcoal mb-4">نغطي المناطق الحيوية في المملكة</h2>
+            <p className="text-brand-charcoal-light max-w-xl mx-auto">شبكة واسعة من المدن والمناطق لخدمة عملائنا أينما كانوا</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            {["الرياض", "مكة المكرمة", "المدينة المنورة", "ينبع", "تبوك"].map((city) => (
+              <div key={city} className="bg-white rounded-2xl px-8 py-4 border border-brand-green/20 shadow-sm text-center">
+                <p className="text-brand-green-dark font-black text-lg">{city}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Vision */}
             <div className="bg-white rounded-4xl p-10 border border-brand-green/10 hover:shadow-xl hover:shadow-brand-green/10 transition-all duration-300">
               <div className="w-14 h-14 rounded-2xl bg-brand-green flex items-center justify-center mb-6">
                 <Eye size={28} className="text-white" />
               </div>
-              <h3 className="text-2xl font-black text-brand-charcoal mb-4">
-                رؤيتنا
-              </h3>
+              <h3 className="text-2xl font-black text-brand-charcoal mb-4">رؤيتنا</h3>
               <p className="text-brand-charcoal-light leading-loose">
-                أن نكون المرجع الأول لكل منشأة تبحث عن إمداد وقود موثوق ومنظومة رقمية شفافة تُمكّنها من اتخاذ قرارات مدروسة مبنية على البيانات.
+                أن نكون المرجع الأول لخدمات الوساطة اللوجستية والبترولية في المملكة، بشبكة موردين موثوقة وتغطية جغرافية شاملة.
               </p>
             </div>
-
-            {/* Mission */}
             <div className="bg-white rounded-4xl p-10 border border-brand-gold/20 hover:shadow-xl hover:shadow-brand-gold/10 transition-all duration-300">
               <div className="w-14 h-14 rounded-2xl bg-brand-gold flex items-center justify-center mb-6">
                 <Target size={28} className="text-white" />
               </div>
-              <h3 className="text-2xl font-black text-brand-charcoal mb-4">
-                رسالتنا
-              </h3>
+              <h3 className="text-2xl font-black text-brand-charcoal mb-4">رسالتنا</h3>
               <p className="text-brand-charcoal-light leading-loose">
-                تقديم خدمات توصيل وقود موثوقة وأنظمة مراقبة ذكية تضمن للمنشآت السعودية صفر انقطاع وتحكّماً كاملاً في تكاليف الطاقة.
+                تمكين المنشآت والمشاريع من الحصول على كل احتياجاتها اللوجستية من مصدر واحد موثوق، بأسعار تنافسية وخدمة فائقة.
               </p>
             </div>
           </div>
@@ -145,32 +141,21 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <Badge className="mb-5">قيمنا</Badge>
-            <h2 className="text-4xl font-black text-brand-charcoal">
-              قيمنا الأساسية
-            </h2>
+            <h2 className="text-4xl font-black text-brand-charcoal">ما يميّزنا</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((v) => (
-              <div
-                key={v.title}
-                className="relative bg-white rounded-3xl border border-gray-100 p-8 hover:shadow-2xl hover:border-brand-green/20 transition-all duration-400 overflow-hidden group"
-              >
+              <div key={v.title} className="relative bg-white rounded-3xl border border-gray-100 p-8 hover:shadow-2xl hover:border-brand-green/20 transition-all duration-400 overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-brand-green-light/50 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                <div
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${v.color} flex items-center justify-center mb-6`}
-                >
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${v.color} flex items-center justify-center mb-6`}>
                   <v.icon size={28} className="text-white" />
                 </div>
-                <h3 className="text-xl font-black text-brand-charcoal mb-3">
-                  {v.title}
-                </h3>
-                <p className="text-brand-charcoal-light leading-relaxed">
-                  {v.description}
-                </p>
+                <h3 className="text-xl font-black text-brand-charcoal mb-3">{v.title}</h3>
+                <p className="text-brand-charcoal-light leading-relaxed">{v.description}</p>
               </div>
             ))}
           </div>
@@ -181,19 +166,13 @@ export default function AboutPage() {
       <section className="py-20 bg-brand-green-dark relative overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-10" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-6">
-          <h2 className="text-4xl font-black text-white">
-            انضم إلى أكثر من 600 منشأة تثق بنا
-          </h2>
+          <h2 className="text-4xl font-black text-white">تواصل معنا اليوم</h2>
           <p className="text-white/70 leading-relaxed text-lg">
-            وفّر طاقتك وخفّض تكاليفك مع فاست لينك — شريكك في الإمداد الذكي على مدار الساعة.
+            سواء كنت تبحث عن موردٍ للمنتجات البترولية أو تحتاج خدمة لوجستية متخصصة، فريقنا جاهز للمساعدة.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Button href="/quote" variant="gold" size="lg">
-              اطلب عرض سعر
-            </Button>
-            <Button href="/contact" variant="outline" size="lg">
-              اتصل بنا
-            </Button>
+            <Button href="/quote" variant="gold" size="lg">اطلب عرض سعر</Button>
+            <Button href="/contact" variant="outline" size="lg">اتصل بنا</Button>
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ export interface HeroSlide {
 
 export interface ServiceItem {
   id: string;
-  iconName: "Fuel" | "Cpu" | "Flame" | "MonitorCheck";
+  iconName: "Fuel" | "Cpu" | "Flame" | "MonitorCheck" | "Droplets" | "Zap" | "Truck";
   title: string;
   description: string;
   href: string;

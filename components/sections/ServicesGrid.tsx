@@ -4,16 +4,18 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Badge from "@/components/ui/Badge";
-import { Fuel, Cpu, Flame, MonitorCheck, ArrowLeft } from "lucide-react";
+import { Fuel, Cpu, Flame, MonitorCheck, Droplets, Zap, Truck, ArrowLeft } from "lucide-react";
 import { getServices } from "@/lib/store";
 import { siteImages } from "@/lib/images";
 import type { ServiceItem } from "@/lib/types";
 
-const iconMap = { Fuel, Cpu, Flame, MonitorCheck } as const;
+const iconMap = { Fuel, Cpu, Flame, MonitorCheck, Droplets, Zap, Truck } as const;
 
 const serviceImages: Record<string, string | null> = {
   "1": siteImages.services.diesel,
   "2": siteImages.services.gas,
+  "3": siteImages.services.sensors,
+  "4": siteImages.services.monitoring,
 };
 
 const cardColors = [
