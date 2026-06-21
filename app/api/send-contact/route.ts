@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     }
 
     const { error } = await resend.emails.send({
-      from: "Fast Link <onboarding@resend.dev>",
+      from: "Fast Link <delivered@ioostooeld.resend.app>",
       to: process.env.TO_EMAIL || "info@fastlink.sa",
       subject: `رسالة جديدة من ${name}`,
       html: `
