@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getMessages, updateMessageStatus, deleteMessage } from "@/lib/store";
+import { getMessages, updateMessageStatus, deleteMessage } from "@/lib/db";
 import type { ContactMessage } from "@/lib/types";
 import {
   Download,
@@ -30,7 +30,7 @@ export default function MessagesPage() {
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
 
-  const reload = () => setMessagesState(getMessages());
+  const reload = () => { getMessages().then(setMessagesState); };
 
   useEffect(() => {
     reload();
@@ -46,14 +46,14 @@ export default function MessagesPage() {
         (m.email || "").includes(search)
     );
 
-  const handleStatus = (id: string, status: ContactMessage["status"]) => {
-    updateMessageStatus(id, status);
+  const handleStatus = async (id: string, status: ContactMessage["status"]) => {
+    await updateMessageStatus(id, status);
     reload();
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (!confirm("حذف هذه الرسالة نهائياً؟")) return;
-    deleteMessage(id);
+    await deleteMessage(id);
     reload();
   };
 

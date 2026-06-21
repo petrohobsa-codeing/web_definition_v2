@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getSettings, setSettings } from "@/lib/store";
+import { getSettings, setSettings } from "@/lib/db";
 import type { SiteSettings } from "@/lib/types";
 import { Save, Eye, EyeOff } from "lucide-react";
 
@@ -24,9 +24,10 @@ export default function SettingsPage() {
   const [passwordError, setPasswordError] = useState("");
 
   useEffect(() => {
-    const s = getSettings();
-    setForm(s);
-    setConfirmPassword(s.adminPassword);
+    getSettings().then((s) => {
+      setForm(s);
+      setConfirmPassword(s.adminPassword);
+    });
   }, []);
 
   const change = (field: keyof SiteSettings, val: string) => {
@@ -34,7 +35,7 @@ export default function SettingsPage() {
     if (field === "adminPassword") setPasswordError("");
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (form.adminPassword !== confirmPassword) {
       setPasswordError("كلمتا المرور غير متطابقتين");
       return;
@@ -43,7 +44,7 @@ export default function SettingsPage() {
       setPasswordError("كلمة المرور يجب أن تكون 6 أحرف على الأقل");
       return;
     }
-    setSettings(form);
+    await setSettings(form);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };

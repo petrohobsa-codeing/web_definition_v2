@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
 import { Quote } from "lucide-react";
-import { getTestimonials } from "@/lib/store";
+import { getTestimonials } from "@/lib/db";
 import { siteImages } from "@/lib/images";
 import type { Testimonial } from "@/lib/types";
 
@@ -24,7 +24,7 @@ export default function Testimonials() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   useEffect(() => {
-    setTestimonials(getTestimonials());
+    getTestimonials().then(setTestimonials);
   }, []);
 
   return (

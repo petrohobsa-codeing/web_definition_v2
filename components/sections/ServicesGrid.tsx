@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Badge from "@/components/ui/Badge";
 import { Fuel, Cpu, Flame, MonitorCheck, Droplets, Zap, Truck, ArrowLeft } from "lucide-react";
-import { getServices } from "@/lib/store";
+import { getServices } from "@/lib/db";
 import { siteImages } from "@/lib/images";
 import type { ServiceItem } from "@/lib/types";
 
@@ -29,7 +29,7 @@ export default function ServicesGrid() {
   const [services, setServices] = useState<ServiceItem[]>([]);
 
   useEffect(() => {
-    setServices(getServices());
+    getServices().then(setServices);
   }, []);
 
   return (

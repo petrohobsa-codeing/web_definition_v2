@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getPosts, setPosts, addPost, deletePost } from "@/lib/store";
+import { getPosts, setPosts, addPost, deletePost } from "@/lib/db";
 import type { BlogPost } from "@/lib/types";
 import { Plus, Pencil, Trash2, X, Save, Calendar, Tag } from "lucide-react";
 
@@ -22,19 +22,19 @@ export default function AdminNewsPage() {
   const [form, setForm] = useState<Omit<BlogPost, "id">>(empty);
   const [saved, setSaved] = useState(false);
 
-  useEffect(() => { setLocal(getPosts()); }, []);
+  useEffect(() => { getPosts().then(setLocal); }, []);
 
-  const save = () => {
+  const save = async () => {
     if (!form.title.trim()) return;
     const slug = form.slug || slugify(form.title);
     if (editing) {
       const updated = posts.map((p) => p.id === editing.id ? { ...form, slug, id: editing.id } : p);
-      setPosts(updated);
+      await setPosts(updated);
       setLocal(updated);
       setEditing(null);
     } else {
-      addPost({ ...form, slug });
-      setLocal(getPosts());
+      await addPost({ ...form, slug });
+      getPosts().then(setLocal);
       setAdding(false);
     }
     setForm(empty);
@@ -42,10 +42,10 @@ export default function AdminNewsPage() {
     setTimeout(() => setSaved(false), 2000);
   };
 
-  const remove = (id: string) => {
+  const remove = async (id: string) => {
     if (!confirm("حذف هذا المقال؟")) return;
-    deletePost(id);
-    setLocal(getPosts());
+    await deletePost(id);
+    getPosts().then(setLocal);
   };
 
   const startEdit = (p: BlogPost) => {

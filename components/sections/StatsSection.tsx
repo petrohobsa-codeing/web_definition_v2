@@ -1,14 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { getStats } from "@/lib/store";
+import { getStats } from "@/lib/db";
 import type { StatItem } from "@/lib/types";
 
 export default function StatsSection() {
   const [stats, setStats] = useState<StatItem[]>([]);
 
   useEffect(() => {
-    setStats(getStats());
+    getStats().then(setStats);
   }, []);
 
   return (

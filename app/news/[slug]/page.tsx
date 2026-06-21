@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { Calendar, Tag, ChevronLeft, ArrowLeft } from "lucide-react";
-import { getPosts } from "@/lib/store";
+import { getPosts } from "@/lib/db";
 import type { BlogPost } from "@/lib/types";
 
 export default function PostPage() {
@@ -15,10 +15,11 @@ export default function PostPage() {
   const [related, setRelated] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    const all = getPosts();
-    const found = all.find((p) => p.slug === slug) ?? null;
-    setPost(found);
-    if (found) setRelated(all.filter((p) => p.id !== found.id).slice(0, 2));
+    getPosts().then((all) => {
+      const found = all.find((p) => p.slug === slug) ?? null;
+      setPost(found);
+      if (found) setRelated(all.filter((p) => p.id !== found.id).slice(0, 2));
+    });
   }, [slug]);
 
   if (!post) {

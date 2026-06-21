@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getProjects, setProjects, addProject, deleteProject } from "@/lib/store";
+import { getProjects, setProjects, addProject, deleteProject } from "@/lib/db";
 import type { ProjectItem } from "@/lib/types";
 import { Plus, Pencil, Trash2, X, Save, MapPin, Tag } from "lucide-react";
 
@@ -23,19 +23,19 @@ export default function AdminProjectsPage() {
   const [form, setForm] = useState<Omit<ProjectItem, "id">>(empty);
   const [saved, setSaved] = useState(false);
 
-  useEffect(() => { setLocal(getProjects()); }, []);
+  useEffect(() => { getProjects().then(setLocal); }, []);
 
-  const save = () => {
+  const save = async () => {
     if (!form.title.trim()) return;
     const slug = form.slug || slugify(form.title);
     if (editing) {
       const updated = projects.map((p) => p.id === editing.id ? { ...form, slug, id: editing.id } : p);
-      setProjects(updated);
+      await setProjects(updated);
       setLocal(updated);
       setEditing(null);
     } else {
-      addProject({ ...form, slug });
-      setLocal(getProjects());
+      await addProject({ ...form, slug });
+      getProjects().then(setLocal);
       setAdding(false);
     }
     setForm(empty);
@@ -43,10 +43,10 @@ export default function AdminProjectsPage() {
     setTimeout(() => setSaved(false), 2000);
   };
 
-  const remove = (id: string) => {
+  const remove = async (id: string) => {
     if (!confirm("حذف هذا المشروع؟")) return;
-    deleteProject(id);
-    setLocal(getProjects());
+    await deleteProject(id);
+    getProjects().then(setLocal);
   };
 
   const startEdit = (p: ProjectItem) => {

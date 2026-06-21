@@ -5,9 +5,8 @@ import Link from "next/link";
 import {
   checkAuth,
   doLogout,
-  getQuotes,
-  getMessages,
 } from "@/lib/store";
+import { getQuotes, getMessages } from "@/lib/db";
 import {
   LayoutDashboard,
   Layers,
@@ -57,8 +56,8 @@ export default function AdminShell({ children, title }: Props) {
       return;
     }
     const refreshBadges = () => {
-      setNewQuotes(getQuotes().filter((q) => q.status === "new").length);
-      setNewMessages(getMessages().filter((m) => m.status === "new").length);
+      getQuotes().then((quotes) => setNewQuotes(quotes.filter((q) => q.status === "new").length));
+      getMessages().then((messages) => setNewMessages(messages.filter((m) => m.status === "new").length));
     };
     refreshBadges();
     window.addEventListener("focus", refreshBadges);

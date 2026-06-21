@@ -7,7 +7,7 @@ import {
   getSlides,
   getServices,
   getTestimonials,
-} from "@/lib/store";
+} from "@/lib/db";
 import type { QuoteRequest, ContactMessage } from "@/lib/types";
 import Link from "next/link";
 import {
@@ -41,14 +41,20 @@ export default function DashboardPage() {
   });
 
   useEffect(() => {
-    const q = getQuotes();
-    const m = getMessages();
-    setQuotes(q);
-    setMessages(m);
-    setCounts({
-      slides: getSlides().length,
-      services: getServices().length,
-      testimonials: getTestimonials().length,
+    Promise.all([
+      getQuotes(),
+      getMessages(),
+      getSlides(),
+      getServices(),
+      getTestimonials(),
+    ]).then(([q, m, slides, services, testimonials]) => {
+      setQuotes(q);
+      setMessages(m);
+      setCounts({
+        slides: slides.length,
+        services: services.length,
+        testimonials: testimonials.length,
+      });
     });
   }, []);
 

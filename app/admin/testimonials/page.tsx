@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getTestimonials, setTestimonials } from "@/lib/store";
+import { getTestimonials, setTestimonials } from "@/lib/db";
 import type { Testimonial } from "@/lib/types";
 import { Plus, Pencil, Trash2, X, Save, Quote } from "lucide-react";
 
@@ -22,7 +22,7 @@ export default function TestimonialsPage() {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    setItems(getTestimonials());
+    getTestimonials().then(setItems);
   }, []);
 
   const openNew = () => {
@@ -35,19 +35,19 @@ export default function TestimonialsPage() {
     setIsNew(false);
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (!confirm("حذف هذا الرأي؟")) return;
     const updated = items.filter((t) => t.id !== id);
-    setTestimonials(updated);
+    await setTestimonials(updated);
     setItems(updated);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!editing) return;
     const updated = isNew
       ? [...items, editing]
       : items.map((t) => (t.id === editing.id ? editing : t));
-    setTestimonials(updated);
+    await setTestimonials(updated);
     setItems(updated);
     setEditing(null);
     setSaved(true);

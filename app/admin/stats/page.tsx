@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getStats, setStats } from "@/lib/store";
+import { getStats, setStats } from "@/lib/db";
 import type { StatItem } from "@/lib/types";
 import { Save, RotateCcw } from "lucide-react";
 import { defaultStats } from "@/lib/store";
@@ -14,7 +14,7 @@ export default function StatsPage() {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    setItems(getStats());
+    getStats().then(setItems);
   }, []);
 
   const change = (id: string, field: "value" | "label", val: string) => {
@@ -23,15 +23,15 @@ export default function StatsPage() {
     );
   };
 
-  const handleSave = () => {
-    setStats(items);
+  const handleSave = async () => {
+    await setStats(items);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
 
-  const handleReset = () => {
+  const handleReset = async () => {
     if (!confirm("إعادة الإحصائيات للقيم الافتراضية؟")) return;
-    setStats(defaultStats);
+    await setStats(defaultStats);
     setItems(defaultStats);
   };
 

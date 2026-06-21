@@ -4,13 +4,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
 import { Calendar, Tag, ArrowLeft } from "lucide-react";
-import { getPosts } from "@/lib/store";
+import { getPosts } from "@/lib/db";
 import type { BlogPost } from "@/lib/types";
 
 export default function NewsPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
-  useEffect(() => { setPosts(getPosts()); }, []);
+  useEffect(() => { getPosts().then(setPosts); }, []);
 
   return (
     <>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { MapPin, Tag } from "lucide-react";
-import { getProjects } from "@/lib/store";
+import { getProjects } from "@/lib/db";
 import type { ProjectItem } from "@/lib/types";
 
 const categoryColors: Record<string, string> = {
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [filter, setFilter] = useState("الكل");
 
-  useEffect(() => { setProjects(getProjects()); }, []);
+  useEffect(() => { getProjects().then(setProjects); }, []);
 
   const categories = ["الكل", ...Array.from(new Set(projects.map((p) => p.category)))];
   const filtered = filter === "الكل" ? projects : projects.filter((p) => p.category === filter);

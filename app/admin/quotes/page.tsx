@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getQuotes, updateQuoteStatus, deleteQuote } from "@/lib/store";
+import { getQuotes, updateQuoteStatus, deleteQuote } from "@/lib/db";
 import type { QuoteRequest } from "@/lib/types";
 import {
   Download,
@@ -40,7 +40,7 @@ export default function QuotesPage() {
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
 
-  const reload = () => setQuotesState(getQuotes());
+  const reload = () => { getQuotes().then(setQuotesState); };
 
   useEffect(() => {
     reload();
@@ -56,14 +56,14 @@ export default function QuotesPage() {
         q.city.includes(search)
     );
 
-  const handleStatus = (id: string, status: QuoteRequest["status"]) => {
-    updateQuoteStatus(id, status);
+  const handleStatus = async (id: string, status: QuoteRequest["status"]) => {
+    await updateQuoteStatus(id, status);
     reload();
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (!confirm("حذف هذا الطلب نهائياً؟")) return;
-    deleteQuote(id);
+    await deleteQuote(id);
     reload();
   };
 

@@ -2,7 +2,7 @@
 import { useState, FormEvent } from "react";
 import Button from "@/components/ui/Button";
 import { CheckCircle2 } from "lucide-react";
-import { addQuote } from "@/lib/store";
+import { addQuote } from "@/lib/db";
 
 const activityTypes = [
   "المقاولات والإنشاءات",
@@ -40,7 +40,7 @@ export default function QuoteForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      addQuote({
+      await addQuote({
         name: form.name,
         phone: form.phone,
         email: form.email,

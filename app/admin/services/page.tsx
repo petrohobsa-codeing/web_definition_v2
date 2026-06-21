@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getServices, setServices } from "@/lib/store";
+import { getServices, setServices } from "@/lib/db";
 import type { ServiceItem } from "@/lib/types";
 import { Plus, Pencil, Trash2, X, Save, Fuel, Cpu, Flame, MonitorCheck, Droplets, Zap, Truck } from "lucide-react";
 
@@ -34,7 +34,7 @@ export default function ServicesPage() {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    setServicesState(getServices());
+    getServices().then(setServicesState);
   }, []);
 
   const openNew = () => {
@@ -47,19 +47,19 @@ export default function ServicesPage() {
     setIsNew(false);
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (!confirm("هل تريد حذف هذه الخدمة؟")) return;
     const updated = services.filter((s) => s.id !== id);
-    setServices(updated);
+    await setServices(updated);
     setServicesState(updated);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!editing) return;
     const updated = isNew
       ? [...services, editing]
       : services.map((s) => (s.id === editing.id ? editing : s));
-    setServices(updated);
+    await setServices(updated);
     setServicesState(updated);
     setEditing(null);
     setSaved(true);

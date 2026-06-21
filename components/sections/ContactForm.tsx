@@ -2,7 +2,7 @@
 import { useState, FormEvent } from "react";
 import Button from "@/components/ui/Button";
 import { CheckCircle2 } from "lucide-react";
-import { addMessage } from "@/lib/store";
+import { addMessage } from "@/lib/db";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -18,7 +18,7 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      addMessage({ name: form.name, phone: form.phone, email: form.email, message: form.message });
+      await addMessage({ name: form.name, phone: form.phone, email: form.email, message: form.message });
       await fetch("/api/send-contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

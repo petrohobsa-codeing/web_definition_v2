@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import { ChevronRight, ChevronLeft, TrendingUp, Shield, Clock } from "lucide-react";
-import { getSlides } from "@/lib/store";
+import { getSlides } from "@/lib/db";
 import { siteImages } from "@/lib/images";
 import type { HeroSlide } from "@/lib/types";
 
@@ -29,7 +29,7 @@ export default function HeroSlider() {
   const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
-    setSlides(getSlides());
+    getSlides().then(setSlides);
   }, []);
 
   const next = useCallback(() => {

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
-import { getSlides, setSlides } from "@/lib/store";
+import { getSlides, setSlides } from "@/lib/db";
 import type { HeroSlide } from "@/lib/types";
 import { Plus, Pencil, Trash2, X, Save, GripVertical } from "lucide-react";
 
@@ -25,7 +25,7 @@ export default function SlidesPage() {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    setSlidesState(getSlides());
+    getSlides().then(setSlidesState);
   }, []);
 
   const openNew = () => {
@@ -38,14 +38,14 @@ export default function SlidesPage() {
     setIsNew(false);
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (!confirm("هل تريد حذف هذه الشريحة؟")) return;
     const updated = slides.filter((s) => s.id !== id);
-    setSlides(updated);
+    await setSlides(updated);
     setSlidesState(updated);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!editing) return;
     let updated: HeroSlide[];
     if (isNew) {
@@ -53,7 +53,7 @@ export default function SlidesPage() {
     } else {
       updated = slides.map((s) => (s.id === editing.id ? editing : s));
     }
-    setSlides(updated);
+    await setSlides(updated);
     setSlidesState(updated);
     setEditing(null);
     setSaved(true);
