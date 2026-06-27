@@ -22,9 +22,9 @@ const badges = [
 
 export default function WhyUs() {
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden" aria-labelledby="whyus-title">
-      <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-brand-green-light/60 blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-brand-gold-light/30 blur-3xl" />
+    <section className="py-24 bg-brand-green-pale relative overflow-hidden" aria-labelledby="whyus-title">
+      <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-white/60 blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-brand-green-light/60 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

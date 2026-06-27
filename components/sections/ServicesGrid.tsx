@@ -34,10 +34,10 @@ export default function ServicesGrid() {
   }, []);
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden" aria-labelledby="services-title">
+    <section className="py-24 bg-brand-green-light relative overflow-hidden" aria-labelledby="services-title">
       {/* Decorative */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand-green-light/60 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-brand-gold-light/30 blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/60 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-brand-green-pale/50 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}

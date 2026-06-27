@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { getStats } from "@/lib/db";
+import CountUp from "@/components/ui/CountUp";
 import type { StatItem } from "@/lib/types";
 
 export default function StatsSection() {
@@ -51,9 +52,10 @@ export default function StatsSection() {
               className="px-8 py-6 text-center group"
             >
               <div className="relative inline-block mb-3">
-                <p className="text-5xl md:text-6xl font-black text-gasable-gradient group-hover:scale-110 transition-transform duration-300">
-                  {s.value}
-                </p>
+                <CountUp
+                  value={s.value}
+                  className="block text-5xl md:text-6xl font-black text-gasable-gradient group-hover:scale-110 transition-transform duration-300"
+                />
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-brand-green/40 rounded-full" />
               </div>
               <p className="text-brand-charcoal-light font-medium text-sm mt-3">{s.label}</p>
