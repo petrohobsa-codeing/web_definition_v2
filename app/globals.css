@@ -94,3 +94,39 @@ body {
   background: rgba(81, 185, 87, 0.2);
   color: #0E549A;
 }
+
+/* Gasable gradient text (green -> blue) for stat numbers */
+.text-gasable-gradient {
+  background: linear-gradient(135deg, #51B957 0%, #0E549A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Icon grow on hover (Elementor-style) */
+.hover-grow {
+  transition: transform 0.3s ease;
+}
+.group:hover .hover-grow,
+.hover-grow:hover {
+  transform: scale(1.12);
+}
+
+/* Underlined card title accent */
+.title-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+.title-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #51B957, #0E549A);
+}

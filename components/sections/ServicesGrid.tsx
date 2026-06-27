@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Badge from "@/components/ui/Badge";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { Fuel, Cpu, Flame, MonitorCheck, Droplets, Zap, Truck, ArrowLeft } from "lucide-react";
 import { getServices } from "@/lib/db";
 import { siteImages } from "@/lib/images";
@@ -19,10 +20,10 @@ const serviceImages: Record<string, string | null> = {
 };
 
 const cardColors = [
-  { from: "from-brand-green-dark", to: "to-brand-green-mid", light: "bg-brand-green-light", text: "text-brand-green" },
-  { from: "from-[#064E3B]", to: "to-[#059669]", light: "bg-emerald-50", text: "text-emerald-700" },
-  { from: "from-[#065F46]", to: "to-[#047857]", light: "bg-brand-green-light", text: "text-brand-green" },
-  { from: "from-brand-green-mid", to: "to-brand-green", light: "bg-emerald-50", text: "text-emerald-700" },
+  { from: "from-[#51B957]", to: "to-[#0E549A]", light: "bg-brand-green-light", text: "text-brand-green" },
+  { from: "from-[#0E549A]", to: "to-[#51B957]", light: "bg-brand-green-pale", text: "text-brand-green-dark" },
+  { from: "from-[#51B957]", to: "to-[#2E86A8]", light: "bg-brand-green-light", text: "text-brand-green" },
+  { from: "from-[#0E549A]", to: "to-[#357FB0]", light: "bg-brand-green-pale", text: "text-brand-green-dark" },
 ];
 
 export default function ServicesGrid() {
@@ -48,9 +49,7 @@ export default function ServicesGrid() {
           className="text-center mb-16"
         >
           <Badge className="mb-5">خدماتنا</Badge>
-          <h2 id="services-title" className="text-4xl md:text-5xl font-black text-brand-charcoal mb-5">
-            حلول طاقة ذكية ومتكاملة
-          </h2>
+          <SectionHeading id="services-title" text="حلول طاقة ذكية ومتكاملة" className="mb-5" />
           <p className="text-brand-charcoal-light max-w-2xl mx-auto leading-relaxed">
             نجمع بين الخدمات اللوجستية التقليدية وتقنيات الجيل القادم لضمان كفاءة عملياتك.
           </p>
@@ -104,7 +103,7 @@ export default function ServicesGrid() {
 
                     {/* Content */}
                     <div className="p-6">
-                      <div className={`w-10 h-10 rounded-xl ${color.light} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <div className={`w-10 h-10 rounded-xl ${color.light} flex items-center justify-center mb-4 hover-grow`}>
                         <Icon size={20} className={color.text} />
                       </div>
                       <h3 className="text-lg font-black text-brand-charcoal mb-2 group-hover:text-brand-green-dark transition-colors duration-300">
