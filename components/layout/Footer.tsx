@@ -52,7 +52,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-green-dark text-white" role="contentinfo">
+    <footer className="bg-gasable-gradient text-white" role="contentinfo">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -99,7 +99,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="text-sm font-black uppercase tracking-wider text-brand-gold mb-5">
+            <h3 className="text-sm font-black uppercase tracking-wider text-white mb-5">
               روابط سريعة
             </h3>
             <ul className="space-y-3">
@@ -109,7 +109,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-white/60 hover:text-white text-sm font-medium transition-colors duration-200 flex items-center gap-1.5 group"
                   >
-                    <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-200 text-brand-gold">←</span>
+                    <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-200 text-white">←</span>
                     {link.label}
                   </Link>
                 </li>
@@ -119,7 +119,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-black uppercase tracking-wider text-brand-gold mb-5">
+            <h3 className="text-sm font-black uppercase tracking-wider text-white mb-5">
               خدماتنا
             </h3>
             <ul className="space-y-3">
@@ -129,7 +129,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-white/60 hover:text-white text-sm font-medium transition-colors duration-200 flex items-center gap-1.5 group"
                   >
-                    <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-200 text-brand-gold">←</span>
+                    <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-200 text-white">←</span>
                     {link.label}
                   </Link>
                 </li>
@@ -139,7 +139,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-black uppercase tracking-wider text-brand-gold mb-5">
+            <h3 className="text-sm font-black uppercase tracking-wider text-white mb-5">
               تواصل معنا
             </h3>
             <ul className="space-y-4">

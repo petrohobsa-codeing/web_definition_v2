@@ -10,11 +10,11 @@ import { siteImages } from "@/lib/images";
 import type { HeroSlide } from "@/lib/types";
 
 const gradients = [
-  "from-[#022C22] via-[#064E3B] to-[#065F46]",
-  "from-[#064E3B] via-[#047857] to-[#059669]",
-  "from-[#022C22] via-[#064E3B] to-[#065F46]",
-  "from-[#065F46] via-[#059669] to-[#047857]",
-  "from-[#022C22] via-[#064E3B] to-[#059669]",
+  "from-[#51B957] via-[#2E86A8] to-[#0E549A]",
+  "from-[#0E549A] via-[#2E86A8] to-[#51B957]",
+  "from-[#51B957] via-[#2E86A8] to-[#0E549A]",
+  "from-[#0E549A] via-[#357FB0] to-[#51B957]",
+  "from-[#51B957] via-[#2E86A8] to-[#0E549A]",
 ];
 
 const trustItems = [
