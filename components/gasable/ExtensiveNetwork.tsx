@@ -17,7 +17,7 @@ export default function ExtensiveNetwork() {
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
           <span className="text-brand-green">{lang === "ar" ? "شبكتنا" : "Our"}</span>{" "}
           <span className="text-brand-charcoal-mid">{lang === "ar" ? "" : "Extensive"}</span>{" "}
-          <span className="text-brand-green-dark">{lang === "ar" ? "الواسعة" : "Network"}</span>
+          <span className="text-[#C8102E]">{lang === "ar" ? "الواسعة" : "Network"}</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -26,7 +26,7 @@ export default function ExtensiveNetwork() {
               key={i}
               className="bg-[#F0FAF5] rounded-3xl p-10 flex flex-col items-center text-center"
             >
-              <div className="w-28 h-28 rounded-full bg-gasable-gradient flex items-center justify-center mb-6 shadow-lg">
+              <div className="w-28 h-28 rounded-full bg-navy-red-gradient flex items-center justify-center mb-6 shadow-lg">
                 <Icon size={52} className="text-white" strokeWidth={1.5} />
               </div>
               <h3 className="text-[22px] font-semibold text-brand-charcoal-mid mb-6 min-h-[3.5rem] flex items-center">

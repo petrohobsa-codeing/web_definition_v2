@@ -34,6 +34,7 @@ export default function GasableHero() {
           <h1 className="text-white font-extrabold italic text-5xl md:text-7xl drop-shadow-lg leading-none">
             Fast Link
           </h1>
+          <div className="w-20 h-1.5 bg-[#C8102E] rounded-full mt-5" />
           <p className="text-white text-xl md:text-2xl mt-4 font-light drop-shadow">
             {tagline}
           </p>

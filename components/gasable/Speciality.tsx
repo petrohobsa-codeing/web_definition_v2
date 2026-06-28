@@ -37,7 +37,7 @@ export default function Speciality() {
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
           <span className="text-brand-green">{lang === "ar" ? "خدماتنا" : "Our"}</span>{" "}
-          <span className="text-brand-green-dark">{lang === "ar" ? "" : "Services"}</span>
+          <span className="text-[#C8102E]">{lang === "ar" ? "" : "Services"}</span>
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

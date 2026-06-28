@@ -92,10 +92,12 @@ const socials = [
 export default function Footer() {
   return (
     <footer
-      className="text-white"
-      style={{ background: "linear-gradient(151deg, #51B957 0%, #0E549A 89%)" }}
+      className="text-white relative overflow-hidden"
+      style={{ background: "linear-gradient(151deg, #1B355E 0%, #0C1B33 89%)" }}
       role="contentinfo"
     >
+      {/* Red accent bar (the 10%) */}
+      <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
       {/* ── Main columns ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-14 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -123,7 +125,7 @@ export default function Footer() {
             </Link>
 
             {/* Services heading */}
-            <h3 className="text-sm font-bold text-white mb-3">الخدمات</h3>
+            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">الخدمات</h3>
             <ul className="space-y-2 mb-6">
               {services.map((l) => (
                 <li key={l.href}>
@@ -135,7 +137,7 @@ export default function Footer() {
             </ul>
 
             {/* Join Us sub-heading */}
-            <h3 className="text-sm font-bold text-white mb-3">انضم إلينا</h3>
+            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">انضم إلينا</h3>
             <ul className="space-y-2">
               {joinUs.map((l) => (
                 <li key={l.label}>
@@ -163,7 +165,7 @@ export default function Footer() {
 
           {/* Col 3 – Quick links */}
           <div>
-            <h3 className="text-sm font-bold text-white mb-3">روابط سريعة</h3>
+            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">روابط سريعة</h3>
             <ul className="space-y-2 mb-6">
               {quickLinks.map((l) => (
                 <li key={l.href}>
@@ -219,7 +221,7 @@ export default function Footer() {
                 aria-label={s.label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-white hover:text-brand-green-dark transition-all duration-200"
+                className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-[#C8102E] hover:text-white transition-all duration-200"
               >
                 {s.icon}
               </a>

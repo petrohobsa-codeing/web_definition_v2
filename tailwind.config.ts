@@ -47,6 +47,7 @@ const config: Config = {
         "emerald-gradient": "linear-gradient(135deg, #1B355E 0%, #0C1B33 100%)",
         "section-gradient": "linear-gradient(180deg, #F4F6FA 0%, #ffffff 100%)",
         "gasable-gradient": "linear-gradient(151deg, #1B355E 0%, #0C1B33 89%)",
+        "navy-red-gradient": "linear-gradient(135deg, #1B355E 0%, #C8102E 100%)",
       },
     },
   },
