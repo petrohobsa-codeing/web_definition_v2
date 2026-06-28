@@ -1,30 +1,30 @@
 import type { Metadata } from "next";
-import HeroSlider from "@/components/sections/HeroSlider";
-import StatsSection from "@/components/sections/StatsSection";
-import ServicesGrid from "@/components/sections/ServicesGrid";
-import FeaturesSection from "@/components/sections/FeaturesSection";
-import WhyUs from "@/components/sections/WhyUs";
-import HowItWorks from "@/components/sections/HowItWorks";
-import Testimonials from "@/components/sections/Testimonials";
-import CTABanner from "@/components/sections/CTABanner";
+import GasableHero from "@/components/gasable/GasableHero";
+import MissionVisionStory from "@/components/gasable/MissionVisionStory";
+import InFigures from "@/components/gasable/InFigures";
+import Speciality from "@/components/gasable/Speciality";
+import DownloadNow from "@/components/gasable/DownloadNow";
+import ExtensiveNetwork from "@/components/gasable/ExtensiveNetwork";
+import UNContribution from "@/components/gasable/UNContribution";
+import WhereToFindUs from "@/components/gasable/WhereToFindUs";
 
 export const metadata: Metadata = {
-  title: "Fast Link — خدمات لوجستية وبترولية في المملكة",
+  title: "Gasable — Your Sustainable Energy Marketplace",
   description:
-    "شركة فاست لينك للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تربط الموردين بالعملاء. منتجات بترولية، حلول بيئية، إمداد مائي، ومولدات كهربائية في الرياض ومكة والمدينة وينبع وتبوك.",
+    "Gasable — a sustainable energy marketplace delivering cutting-edge, AI-powered energy solutions to over 1.6 million customers.",
 };
 
 export default function HomePage() {
   return (
     <>
-      <HeroSlider />
-      <StatsSection />
-      <ServicesGrid />
-      <FeaturesSection />
-      <WhyUs />
-      <HowItWorks />
-      <Testimonials />
-      <CTABanner />
+      <GasableHero />
+      <MissionVisionStory />
+      <InFigures />
+      <Speciality />
+      <DownloadNow />
+      <ExtensiveNetwork />
+      <UNContribution />
+      <WhereToFindUs />
     </>
   );
 }

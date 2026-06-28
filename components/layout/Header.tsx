@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Fuel } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { siteImages } from "@/lib/images";
 import { useLang } from "@/context/LanguageContext";
@@ -65,19 +65,15 @@ export default function Header() {
                 <Image src={siteImages.logo} alt="Fast Link" width={140} height={44}
                   className="h-11 w-auto object-contain" priority />
               ) : (
-                <>
-                  <div className="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center group-hover:bg-brand-green-mid transition-colors duration-300 shadow-lg shadow-brand-green/20">
-                    <Fuel size={20} className="text-white" />
-                  </div>
-                  <div>
-                    <span className={`text-2xl font-black tracking-tight transition-colors duration-300 ${scrolled ? "text-brand-green-dark" : "text-white"}`}>
-                      Fast Link
-                    </span>
-                    <span className={`block text-xs font-medium leading-none transition-colors duration-300 ${scrolled ? "text-brand-charcoal-light" : "text-white/70"}`}>
-                      {lang === "ar" ? "فاست لينك للطاقة" : "Logistics & Petroleum"}
-                    </span>
-                  </div>
-                </>
+                <div>
+                  <span className="text-3xl font-extrabold tracking-tight">
+                    <span className="text-brand-green">G</span>
+                    <span className={scrolled ? "text-brand-green-dark" : "text-white"}>asable</span>
+                  </span>
+                  <span className={`block text-[11px] font-medium leading-none transition-colors duration-300 ${scrolled ? "text-brand-green-dark/80" : "text-white/80"}`}>
+                    {lang === "ar" ? "سوق الطاقة المستدامة" : "Your Sustainable Energy Marketplace"}
+                  </span>
+                </div>
               )}
             </Link>
 
@@ -173,10 +169,10 @@ export default function Header() {
         >
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
             <Link href="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-              <div className="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center">
-                <Fuel size={18} className="text-white" />
-              </div>
-              <span className="text-xl font-black text-brand-green-dark">Fast Link</span>
+              <span className="text-2xl font-extrabold tracking-tight">
+                <span className="text-brand-green">G</span>
+                <span className="text-brand-green-dark">asable</span>
+              </span>
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-brand-charcoal-light hover:bg-gray-100" aria-label="إغلاق القائمة">
               <X size={20} />
