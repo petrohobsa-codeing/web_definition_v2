@@ -10,17 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          // Gasable palette
-          green: "#51B957",          // primary green
-          "green-dark": "#0E549A",   // dark blue / teal (logo, headings, footer end)
-          "green-mid": "#0E549A",    // deep blue used for hovers
-          "green-light": "#F0FAF5",  // light mint background
-          "green-pale": "#E8F7FC",   // light blue background
-          gold: "#4B78AD",           // steel blue (buttons / accents)
-          "gold-dark": "#3d6494",    // darker steel blue (button hover)
-          "gold-light": "#E8F7FC",   // light blue accent
+          // 60-30-10 palette: white (60%) / navy (30%) / red (10%)
+          green: "#1B355E",          // navy (primary 30% — headings, accents)
+          "green-dark": "#0C1B33",   // deep navy (footer, dark blocks)
+          "green-mid": "#14284B",    // navy mid (hovers)
+          "green-light": "#F4F6FA",  // near-white navy tint (keeps 60% white)
+          "green-pale": "#EAEEF5",   // light navy tint
+          gold: "#C8102E",           // red (accent 10% — buttons)
+          "gold-dark": "#A00C24",    // darker red (button hover)
+          "gold-light": "#FCE9EC",   // light red tint
           charcoal: "#333333",       // body text
-          "charcoal-mid": "#54595F", // headings dark gray
+          "charcoal-mid": "#1B355E", // headings -> navy
           "charcoal-light": "#6B7280",
         },
       },
@@ -40,13 +40,13 @@ const config: Config = {
       },
       backgroundImage: {
         "dot-pattern":
-          "radial-gradient(circle, rgba(81,185,87,0.15) 1px, transparent 1px)",
+          "radial-gradient(circle, rgba(27,53,94,0.12) 1px, transparent 1px)",
         "hero-gradient":
-          "linear-gradient(151deg, #51B957 0%, #0E549A 89%)",
-        "gold-gradient": "linear-gradient(135deg, #4B78AD 0%, #3d6494 100%)",
-        "emerald-gradient": "linear-gradient(135deg, #51B957 0%, #0E549A 100%)",
-        "section-gradient": "linear-gradient(180deg, #F0FAF5 0%, #ffffff 100%)",
-        "gasable-gradient": "linear-gradient(151deg, #51B957 0%, #0E549A 89%)",
+          "linear-gradient(151deg, #1B355E 0%, #0C1B33 89%)",
+        "gold-gradient": "linear-gradient(135deg, #C8102E 0%, #A00C24 100%)",
+        "emerald-gradient": "linear-gradient(135deg, #1B355E 0%, #0C1B33 100%)",
+        "section-gradient": "linear-gradient(180deg, #F4F6FA 0%, #ffffff 100%)",
+        "gasable-gradient": "linear-gradient(151deg, #1B355E 0%, #0C1B33 89%)",
       },
     },
   },

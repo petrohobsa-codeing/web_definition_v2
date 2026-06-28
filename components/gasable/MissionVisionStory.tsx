@@ -5,8 +5,8 @@ import GasableButton from "./GasableButton";
 const grad = (id: string) => (
   <defs>
     <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stopColor="#51B957" />
-      <stop offset="100%" stopColor="#0E549A" />
+      <stop offset="0%" stopColor="#1B355E" />
+      <stop offset="100%" stopColor="#C8102E" />
     </linearGradient>
   </defs>
 );

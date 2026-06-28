@@ -30,7 +30,7 @@ export default function InFigures() {
                 i === 4 ? "col-span-2 lg:col-span-1 lg:col-start-2" : ""
               }`}
             >
-              <div className="w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#51B957]/10 to-[#0E549A]/10 flex items-center justify-center mb-5">
+              <div className="w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#1B355E]/10 to-[#0C1B33]/10 flex items-center justify-center mb-5">
                 <Icon size={52} className="text-brand-green" strokeWidth={1.5} />
               </div>
               <CountUp

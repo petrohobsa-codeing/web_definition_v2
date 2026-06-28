@@ -48,7 +48,7 @@ export default function Speciality() {
                 key={i}
                 className="bg-white rounded-2xl p-8 flex flex-col items-center text-center shadow-sm"
               >
-                <div className="w-[100px] h-[100px] rounded-2xl bg-gradient-to-br from-[#51B957]/10 to-[#0E549A]/10 flex items-center justify-center mb-5">
+                <div className="w-[100px] h-[100px] rounded-2xl bg-gradient-to-br from-[#1B355E]/10 to-[#0C1B33]/10 flex items-center justify-center mb-5">
                   <Icon size={48} className="text-brand-green-dark" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-[22px] font-semibold text-brand-charcoal-mid mb-3">
