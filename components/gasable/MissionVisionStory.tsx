@@ -55,33 +55,33 @@ const cards = [
     Icon: LeafIcon,
     ar: {
       title: "مهمتنا",
-      text: "نقدّم حلول طاقة متطورة مدعومة بالذكاء الاصطناعي، تهدف إلى تعزيز الاستدامة وحماية البيئة.",
+      text: "نعمل كحلقة وصل استراتيجية تربط الموردين بالعملاء بأسرع طريقة وأعلى كفاءة لضمان استمرارية العمليات.",
     },
     en: {
       title: "Our Mission",
-      text: "We deliver cutting-edge energy solutions powered by AI, aimed at enhancing sustainability and safeguarding the environment.",
+      text: "We act as a strategic link connecting suppliers with customers in the fastest, most efficient way to keep operations running.",
     },
   },
   {
     Icon: SunIcon,
     ar: {
       title: "رؤيتنا",
-      text: "هدفنا أن نصبح روّاداً في قطاع الطاقة، نقود مستقبلاً مستداماً ونصنع غداً أكثر إشراقاً.",
+      text: "أن نكون شركة الوساطة اللوجستية الرائدة في المملكة، والخيار الأول للموردين والعملاء على حدّ سواء.",
     },
     en: {
       title: "Our Vision",
-      text: "Our goal is to become a leader in the energy sector, driving a sustainable future and shaping a brighter tomorrow.",
+      text: "To be the leading logistics brokerage in the Kingdom and the first choice for both suppliers and customers.",
     },
   },
   {
     Icon: HouseIcon,
     ar: {
       title: "قصّتنا",
-      text: "قدّمت Gasable حلول طاقة متقدمة لأكثر من 1.6 مليون عميل، محدثةً ثورة في هذا القطاع.",
+      text: "شركة فاست لينك للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تخدم المنشآت والمشاريع في أنحاء المملكة.",
     },
     en: {
       title: "Our Story",
-      text: "Gasable has been providing advanced energy solutions to over 1.6 million customers, revolutionizing the industry.",
+      text: "Fast Link for Logistics & Petroleum Services — a leading commercial brokerage serving facilities and projects across the Kingdom.",
     },
   },
 ];

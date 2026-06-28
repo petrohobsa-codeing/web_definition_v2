@@ -1,28 +1,32 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
 import GasableButton from "./GasableButton";
-import { Recycle, BarChart3, Plug, Cpu } from "lucide-react";
+import { Flame, Droplets, Recycle, Zap } from "lucide-react";
 
 const items = [
   {
+    Icon: Flame,
+    href: "/services/diesel-supply",
+    ar: { title: "الخدمات البترولية والغاز", text: "وساطة وتوريد المنتجات البترولية: بنزين (91، 95)، ديزل، وغاز مسال للمنشآت والمشاريع والأساطيل." },
+    en: { title: "Petroleum & Gas Services", text: "Brokerage and supply of petroleum products: petrol (91, 95), diesel and LPG for facilities, projects and fleets." },
+  },
+  {
     Icon: Recycle,
-    ar: { title: "حلول صديقة للبيئة", text: "نقدّم حلولاً مبتكرة مصمّمة لتقليل الانبعاثات الضارّة بالبيئة." },
-    en: { title: "Eco-Friendly Solutions", text: "We offer innovative solutions designed to minimize harmful environmental emissions." },
+    href: "/services/gas-supply",
+    ar: { title: "الحلول البيئية والصرف", text: "تأمين صهاريج سحب مياه الصرف الصحي والبيارات للمواقع والمنشآت والمجمعات السكنية والتجارية." },
+    en: { title: "Environmental & Sewage Solutions", text: "Sewage and wastewater tanker services for sites, facilities and residential or commercial complexes." },
   },
   {
-    Icon: BarChart3,
-    ar: { title: "التحوّل الرقمي", text: "تبسيط العمليات التشغيلية باستخدام حلول رقمية متقدّمة." },
-    en: { title: "Digital Transformation", text: "Simplifying operational processes using advanced digital solutions." },
+    Icon: Droplets,
+    href: "/services/water-supply",
+    ar: { title: "الإمداد المائي", text: "توزيع وتوريد مياه التحلية ومياه الشرب العذبة للمشاريع والمواقع الإنشائية في مناطق تغطيتنا." },
+    en: { title: "Water Supply", text: "Distribution and supply of desalinated and fresh drinking water for projects and construction sites." },
   },
   {
-    Icon: Plug,
-    ar: { title: "تعزيز الاستدامة", text: "تلبية احتياجات الطاقة الحالية مع الحفاظ على الموارد للأجيال القادمة." },
-    en: { title: "Promoting Sustainability", text: "Addressing today's energy demands while safeguarding resources for future generations." },
-  },
-  {
-    Icon: Cpu,
-    ar: { title: "حلول الذكاء الاصطناعي", text: "استخدام الذكاء الاصطناعي لإنتاج تقارير وبيانات ثاقبة لتحسين الأداء." },
-    en: { title: "Artificial Intelligence Solutions", text: "Utilizing AI to generate insightful reports and data to optimize performance." },
+    Icon: Zap,
+    href: "/services/generators",
+    ar: { title: "الطاقة البديلة (المولدات)", text: "وساطة لتأجير المولدات الكهربائية بمختلف الأحجام والأحمال للمشاريع الإنشائية والفعاليات والمنشآت." },
+    en: { title: "Alternative Energy (Generators)", text: "Brokerage for renting electrical generators of all sizes and loads for projects, events and facilities." },
   },
 ];
 
@@ -32,8 +36,8 @@ export default function Speciality() {
     <section className="bg-[#F0FAF5] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
-          <span className="text-brand-charcoal-mid">{lang === "ar" ? "تخصّصنا" : "Our"}</span>{" "}
-          <span className="text-brand-green-dark">{lang === "ar" ? "" : "Speciality"}</span>
+          <span className="text-brand-green">{lang === "ar" ? "خدماتنا" : "Our"}</span>{" "}
+          <span className="text-brand-green-dark">{lang === "ar" ? "" : "Services"}</span>
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

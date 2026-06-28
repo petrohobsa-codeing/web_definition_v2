@@ -1,14 +1,14 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
 import CountUp from "@/components/ui/CountUp";
-import { Users, MousePointerClick, Star, PackageCheck, Lightbulb } from "lucide-react";
+import { Boxes, MapPin, Clock, BadgeCheck, Truck } from "lucide-react";
 
 const stats = [
-  { Icon: Users, value: "+1.6 M", ar: "العملاء المسجّلون", en: "Registered Customers" },
-  { Icon: MousePointerClick, value: "30 M", ar: "زيارات الموقع", en: "Website Visits" },
-  { Icon: Star, value: "93%", ar: "معدّل رضا العملاء", en: "Customer Satisfaction Rate" },
-  { Icon: PackageCheck, value: "1.8 M", ar: "الطلبات المنفّذة", en: "Orders Fulfilled" },
-  { Icon: Lightbulb, value: "+3", ar: "سنوات الخبرة", en: "Years of Experience" },
+  { Icon: Boxes, value: "4", ar: "خدمات لوجستية متكاملة", en: "Integrated Logistics Services" },
+  { Icon: MapPin, value: "5+", ar: "مناطق تغطية في المملكة", en: "Coverage Regions" },
+  { Icon: Clock, value: "24/7", ar: "متاحون للطلبات الطارئة", en: "Available for Urgent Orders" },
+  { Icon: BadgeCheck, value: "100%", ar: "التزام بالمواعيد والجودة", en: "Commitment to Quality" },
+  { Icon: Truck, value: "50K+", ar: "لتر تُورّد شهرياً", en: "Liters Supplied Monthly" },
 ];
 
 export default function InFigures() {
@@ -17,7 +17,7 @@ export default function InFigures() {
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
-          <span className="text-brand-green">Gasable</span>{" "}
+          <span className="text-brand-green">Fast Link</span>{" "}
           <span className="text-brand-charcoal-mid">{lang === "ar" ? "في" : "in"}</span>{" "}
           <span className="text-brand-green-dark">{lang === "ar" ? "أرقام" : "Figures"}</span>
         </h2>

@@ -4,7 +4,9 @@ import { useLang } from "@/context/LanguageContext";
 export default function GasableHero() {
   const { lang } = useLang();
   const tagline =
-    lang === "ar" ? "لكل احتياجاتك من الطاقة." : "For all your energy needs.";
+    lang === "ar"
+      ? "نربط الموردين بالعملاء في أنحاء المملكة."
+      : "Connecting suppliers with customers across the Kingdom.";
 
   return (
     <section className="relative w-full h-[100vh] min-h-[560px] overflow-hidden">
@@ -30,7 +32,7 @@ export default function GasableHero() {
       <div className="absolute inset-0 flex items-end">
         <div className="max-w-[1200px] mx-auto w-full px-6 pb-24">
           <h1 className="text-white font-extrabold italic text-5xl md:text-7xl drop-shadow-lg leading-none">
-            Gasable
+            Fast Link
           </h1>
           <p className="text-white text-xl md:text-2xl mt-4 font-light drop-shadow">
             {tagline}

@@ -67,11 +67,11 @@ export default function Header() {
               ) : (
                 <div>
                   <span className="text-3xl font-extrabold tracking-tight">
-                    <span className="text-brand-green">G</span>
-                    <span className={scrolled ? "text-brand-green-dark" : "text-white"}>asable</span>
+                    <span className="text-brand-green">Fast</span>
+                    <span className={scrolled ? "text-brand-green-dark" : "text-white"}> Link</span>
                   </span>
                   <span className={`block text-[11px] font-medium leading-none transition-colors duration-300 ${scrolled ? "text-brand-green-dark/80" : "text-white/80"}`}>
-                    {lang === "ar" ? "سوق الطاقة المستدامة" : "Your Sustainable Energy Marketplace"}
+                    {lang === "ar" ? "للخدمات اللوجستية والبترولية" : "Logistics & Petroleum Services"}
                   </span>
                 </div>
               )}
@@ -170,8 +170,8 @@ export default function Header() {
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
             <Link href="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
               <span className="text-2xl font-extrabold tracking-tight">
-                <span className="text-brand-green">G</span>
-                <span className="text-brand-green-dark">asable</span>
+                <span className="text-brand-green">Fast</span>
+                <span className="text-brand-green-dark"> Link</span>
               </span>
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-brand-charcoal-light hover:bg-gray-100" aria-label="إغلاق القائمة">
