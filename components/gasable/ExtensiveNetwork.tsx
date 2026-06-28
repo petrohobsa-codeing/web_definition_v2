@@ -24,10 +24,10 @@ export default function ExtensiveNetwork() {
           {cards.map(({ Icon, ar, en }, i) => (
             <div
               key={i}
-              className="bg-[#F0FAF5] rounded-3xl p-10 flex flex-col items-center text-center"
+              className="bg-[#F4F6FA] rounded-3xl p-10 flex flex-col items-center text-center"
             >
-              <div className="w-28 h-28 rounded-full bg-navy-red-gradient flex items-center justify-center mb-6 shadow-lg">
-                <Icon size={52} className="text-white" strokeWidth={1.5} />
+              <div className="hover-grow mb-6">
+                <Icon size={72} stroke="url(#fl-grad)" strokeWidth={1.5} />
               </div>
               <h3 className="text-[22px] font-semibold text-brand-charcoal-mid mb-6 min-h-[3.5rem] flex items-center">
                 {lang === "ar" ? ar : en}

@@ -89,7 +89,7 @@ const cards = [
 export default function MissionVisionStory() {
   const { lang } = useLang();
   return (
-    <section className="bg-[#F0FAF5] py-[50px]">
+    <section className="bg-[#F4F6FA] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {cards.map(({ Icon, ...c }, i) => {

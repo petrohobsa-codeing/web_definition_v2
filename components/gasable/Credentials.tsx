@@ -48,8 +48,8 @@ export default function Credentials() {
                 key={i}
                 className="rounded-2xl border border-gray-100 p-7 text-center hover:shadow-lg hover:border-[#1B355E]/20 transition-all duration-300"
               >
-                <div className="w-16 h-16 mx-auto rounded-full bg-navy-red-gradient flex items-center justify-center mb-5">
-                  <Icon size={30} className="text-white" />
+                <div className="hover-grow mb-5 flex justify-center">
+                  <Icon size={48} stroke="url(#fl-grad)" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-lg font-bold text-brand-green-dark mb-2">{content.title}</h3>
                 <p className="text-[#54595F] text-sm leading-6">{content.text}</p>

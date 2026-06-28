@@ -30,8 +30,8 @@ export default function InFigures() {
                 i === 4 ? "col-span-2 lg:col-span-1 lg:col-start-2" : ""
               }`}
             >
-              <div className="w-[120px] h-[120px] rounded-full bg-navy-red-gradient flex items-center justify-center mb-5 shadow-lg shadow-[#1B355E]/20">
-                <Icon size={54} className="text-white" strokeWidth={1.5} />
+              <div className="hover-grow mb-5">
+                <Icon size={72} stroke="url(#fl-grad)" strokeWidth={1.5} />
               </div>
               <CountUp
                 value={value}
