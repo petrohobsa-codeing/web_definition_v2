@@ -93,7 +93,7 @@ export default function Footer() {
   return (
     <footer
       className="text-white relative overflow-hidden"
-      style={{ background: "linear-gradient(151deg, #1B355E 0%, #0C1B33 89%)" }}
+      style={{ background: "linear-gradient(151deg, #2A4D85 0%, #1B355E 45%, #0C1B33 100%)" }}
       role="contentinfo"
     >
       {/* Red accent bar (the 10%) */}

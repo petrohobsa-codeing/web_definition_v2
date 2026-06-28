@@ -30,14 +30,14 @@ export default function InFigures() {
                 i === 4 ? "col-span-2 lg:col-span-1 lg:col-start-2" : ""
               }`}
             >
-              <div className="w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#1B355E]/10 to-[#0C1B33]/10 flex items-center justify-center mb-5">
-                <Icon size={52} className="text-brand-green" strokeWidth={1.5} />
+              <div className="w-[120px] h-[120px] rounded-full bg-navy-red-gradient flex items-center justify-center mb-5 shadow-lg shadow-[#1B355E]/20">
+                <Icon size={54} className="text-white" strokeWidth={1.5} />
               </div>
               <CountUp
                 value={value}
-                className="text-5xl md:text-6xl font-black text-gasable-gradient"
+                className="text-6xl md:text-7xl font-black text-gasable-gradient leading-none"
               />
-              <p className="text-[#54595F] font-medium mt-3">{lang === "ar" ? ar : en}</p>
+              <p className="text-[#54595F] font-semibold mt-3 text-lg">{lang === "ar" ? ar : en}</p>
             </div>
           ))}
         </div>
