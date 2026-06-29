@@ -2,6 +2,7 @@
 import { useLang } from "@/context/LanguageContext";
 import GasableButton from "./GasableButton";
 import { Store, Truck, Building2 } from "lucide-react";
+import { StaggerGroup, StaggerItem } from "./Stagger";
 
 const cards = [
   { Icon: Store, ar: "الموردون", en: "Suppliers" },
@@ -20,11 +21,11 @@ export default function ExtensiveNetwork() {
           <span className="text-[#C8102E]">{lang === "ar" ? "الواسعة" : "Network"}</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {cards.map(({ Icon, ar, en }, i) => (
-            <div
+            <StaggerItem
               key={i}
-              className="bg-[#F4F6FA] rounded-3xl p-10 flex flex-col items-center text-center"
+              className="bg-[#F4F6FA] rounded-3xl p-10 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300"
             >
               <div className="hover-grow mb-6">
                 <Icon size={72} stroke="url(#fl-grad)" strokeWidth={1.5} />
@@ -35,9 +36,9 @@ export default function ExtensiveNetwork() {
               <GasableButton href="/contact">
                 {lang === "ar" ? "انضم الآن" : "Join Now"}
               </GasableButton>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

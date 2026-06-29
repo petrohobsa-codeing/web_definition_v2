@@ -1,6 +1,7 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
 import CountUp from "@/components/ui/CountUp";
+import { StaggerGroup, StaggerItem } from "./Stagger";
 import { Boxes, MapPin, Clock, BadgeCheck, Truck } from "lucide-react";
 
 const stats = [
@@ -22,10 +23,11 @@ export default function InFigures() {
           <span className="text-[#C8102E]">{lang === "ar" ? "أرقام" : "Figures"}</span>
         </h2>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerGroup className="grid grid-cols-2 lg:grid-cols-3 gap-8">
           {stats.map(({ Icon, value, ar, en }, i) => (
-            <div
+            <StaggerItem
               key={i}
+              lift={false}
               className={`flex flex-col items-center text-center p-6 ${
                 i === 4 ? "col-span-2 lg:col-span-1 lg:col-start-2" : ""
               }`}
@@ -38,9 +40,9 @@ export default function InFigures() {
                 className="text-6xl md:text-7xl font-black text-gasable-gradient leading-none"
               />
               <p className="text-[#54595F] font-semibold mt-3 text-lg">{lang === "ar" ? ar : en}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

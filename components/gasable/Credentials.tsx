@@ -1,6 +1,7 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
 import { ShieldCheck, FileCheck2, Award, Headset } from "lucide-react";
+import { StaggerGroup, StaggerItem } from "./Stagger";
 
 const items = [
   {
@@ -40,11 +41,11 @@ export default function Credentials() {
             : "We build trust through commitment, accreditation and transparency in every service we provide."}
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map(({ Icon, ...c }, i) => {
             const content = lang === "ar" ? c.ar : c.en;
             return (
-              <div
+              <StaggerItem
                 key={i}
                 className="rounded-2xl border border-gray-100 p-7 text-center hover:shadow-lg hover:border-[#1B355E]/20 transition-all duration-300"
               >
@@ -53,10 +54,10 @@ export default function Credentials() {
                 </div>
                 <h3 className="text-lg font-bold text-brand-green-dark mb-2">{content.title}</h3>
                 <p className="text-[#54595F] text-sm leading-6">{content.text}</p>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

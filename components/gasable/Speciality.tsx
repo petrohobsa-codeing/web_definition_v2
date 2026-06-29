@@ -2,6 +2,7 @@
 import { useLang } from "@/context/LanguageContext";
 import GasableButton from "./GasableButton";
 import { Flame, Droplets, Recycle, Zap } from "lucide-react";
+import { StaggerGroup, StaggerItem } from "./Stagger";
 
 const items = [
   {
@@ -40,13 +41,13 @@ export default function Speciality() {
           <span className="text-[#C8102E]">{lang === "ar" ? "" : "Services"}</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {items.map(({ Icon, ...c }, i) => {
             const content = lang === "ar" ? c.ar : c.en;
             return (
-              <div
+              <StaggerItem
                 key={i}
-                className="bg-white rounded-2xl p-8 flex flex-col items-center text-center shadow-sm"
+                className="bg-white rounded-2xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="hover-grow mb-5">
                   <Icon size={64} stroke="url(#fl-grad)" strokeWidth={1.5} />
@@ -55,10 +56,10 @@ export default function Speciality() {
                   {content.title}
                 </h3>
                 <p className="text-[#54595F] leading-7">{content.text}</p>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerGroup>
 
         <div className="text-center mt-12">
           <GasableButton href="/services">

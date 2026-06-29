@@ -1,36 +1,71 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Fuel, Mail, Phone, MapPin, MessageCircle, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, ExternalLink } from "lucide-react";
 import { siteImages } from "@/lib/images";
+import { useLang } from "@/context/LanguageContext";
 
 const services = [
-  { label: "الخدمات البترولية والغاز", href: "/services/diesel-supply" },
-  { label: "الحلول البيئية والصرف", href: "/services/gas-supply" },
-  { label: "الإمداد المائي", href: "/services/water-supply" },
-  { label: "الطاقة البديلة (مولدات)", href: "/services/generators" },
+  { ar: "الخدمات البترولية والغاز", en: "Petroleum & Gas Services", href: "/services/diesel-supply" },
+  { ar: "الحلول البيئية والصرف", en: "Environmental & Sewage", href: "/services/gas-supply" },
+  { ar: "الإمداد المائي", en: "Water Supply", href: "/services/water-supply" },
+  { ar: "الطاقة البديلة (مولدات)", en: "Alternative Energy", href: "/services/generators" },
 ];
 
 const joinUs = [
-  { label: "الموردون", href: "/contact" },
-  { label: "الشركات والمؤسسات", href: "/contact" },
-  { label: "شركاء اللوجستيات", href: "/contact" },
+  { ar: "الموردون", en: "Suppliers", href: "/contact" },
+  { ar: "الشركات والمؤسسات", en: "Corporates", href: "/contact" },
+  { ar: "شركاء اللوجستيات", en: "Logistics Partners", href: "/contact" },
 ];
 
 const quickLinks = [
-  { label: "من نحن", href: "/about" },
-  { label: "المشاريع", href: "/projects" },
-  { label: "الأخبار", href: "/news" },
-  { label: "اتصل بنا", href: "/contact" },
-  { label: "اطلب عرض سعر", href: "/quote" },
+  { ar: "من نحن", en: "About Us", href: "/about" },
+  { ar: "المشاريع", en: "Projects", href: "/projects" },
+  { ar: "الأخبار", en: "News", href: "/news" },
+  { ar: "اتصل بنا", en: "Contact", href: "/contact" },
+  { ar: "اطلب عرض سعر", en: "Get a Quote", href: "/quote" },
 ];
 
 const products = [
-  { label: "تطبيق العملاء", href: "#" },
-  { label: "تطبيق السائقين", href: "#" },
-  { label: "منصة الأعمال", href: "#" },
-  { label: "منصة الموردين", href: "#" },
-  { label: "منصة اللوجستيات", href: "#" },
+  { ar: "تطبيق العملاء", en: "Customers App", href: "#" },
+  { ar: "تطبيق السائقين", en: "Drivers App", href: "#" },
+  { ar: "منصة الأعمال", en: "Business Platform", href: "#" },
+  { ar: "منصة الموردين", en: "Suppliers Platform", href: "#" },
+  { ar: "منصة اللوجستيات", en: "Logistics Platform", href: "#" },
 ];
+
+const labels = {
+  ar: {
+    services: "الخدمات",
+    joinUs: "انضم إلينا",
+    products: "المنتجات",
+    quickLinks: "روابط سريعة",
+    contact: "تواصل معنا",
+    tagline: "للخدمات اللوجستية والبترولية",
+    whatsapp: "واتساب",
+    address: "طريق الملك فهد، الرياض، المملكة العربية السعودية",
+    social: "تابعنا على وسائل التواصل الاجتماعي",
+    rights: "جميع الحقوق محفوظة.",
+    privacy: "سياسة الخصوصية",
+    terms: "شروط الاستخدام",
+    admin: "لوحة التحكم",
+  },
+  en: {
+    services: "Services",
+    joinUs: "Join Us",
+    products: "Products",
+    quickLinks: "Quick Links",
+    contact: "Contact Us",
+    tagline: "Logistics & Petroleum Services",
+    whatsapp: "WhatsApp",
+    address: "King Fahd Road, Riyadh, Saudi Arabia",
+    social: "Follow us on social media",
+    rights: "All rights reserved.",
+    privacy: "Privacy Policy",
+    terms: "Terms of Use",
+    admin: "Admin Panel",
+  },
+};
 
 const socials = [
   {
@@ -90,6 +125,8 @@ const socials = [
 ];
 
 export default function Footer() {
+  const { lang } = useLang();
+  const L = labels[lang];
   return (
     <footer
       className="text-white relative overflow-hidden"
@@ -115,34 +152,32 @@ export default function Footer() {
                   className="h-10 w-auto object-contain brightness-0 invert"
                 />
               ) : (
-                <>
-                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                    <Fuel size={20} className="text-white" />
-                  </div>
-                  <span className="text-xl font-black tracking-tight">Fast Link</span>
-                </>
+                <span className="text-2xl font-extrabold tracking-tight">
+                  <span className="text-white">Fast</span>
+                  <span className="text-white/80"> Link</span>
+                </span>
               )}
             </Link>
 
             {/* Services heading */}
-            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">الخدمات</h3>
+            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">{L.services}</h3>
             <ul className="space-y-2 mb-6">
               {services.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="text-white/70 hover:text-white text-sm transition-colors duration-200">
-                    {l.label}
+                    {lang === "ar" ? l.ar : l.en}
                   </Link>
                 </li>
               ))}
             </ul>
 
             {/* Join Us sub-heading */}
-            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">انضم إلينا</h3>
+            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">{L.joinUs}</h3>
             <ul className="space-y-2">
               {joinUs.map((l) => (
-                <li key={l.label}>
+                <li key={l.en}>
                   <Link href={l.href} className="text-white/70 hover:text-white text-sm transition-colors duration-200">
-                    {l.label}
+                    {lang === "ar" ? l.ar : l.en}
                   </Link>
                 </li>
               ))}
@@ -151,12 +186,12 @@ export default function Footer() {
 
           {/* Col 2 – Products */}
           <div className="sm:text-center">
-            <h3 className="text-sm font-bold text-white mb-3 sm:text-center">المنتجات</h3>
+            <h3 className="text-sm font-bold text-white mb-3 sm:text-center inline-block border-b-2 border-[#C8102E] pb-1">{L.products}</h3>
             <ul className="space-y-2">
               {products.map((l) => (
-                <li key={l.label}>
+                <li key={l.en}>
                   <Link href={l.href} className="text-white/70 hover:text-white text-sm transition-colors duration-200">
-                    {l.label}
+                    {lang === "ar" ? l.ar : l.en}
                   </Link>
                 </li>
               ))}
@@ -165,12 +200,12 @@ export default function Footer() {
 
           {/* Col 3 – Quick links */}
           <div>
-            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">روابط سريعة</h3>
+            <h3 className="text-sm font-bold text-white mb-3 inline-block border-b-2 border-[#C8102E] pb-1">{L.quickLinks}</h3>
             <ul className="space-y-2 mb-6">
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="text-white/70 hover:text-white text-sm transition-colors duration-200">
-                    {l.label}
+                    {lang === "ar" ? l.ar : l.en}
                   </Link>
                 </li>
               ))}
@@ -179,7 +214,7 @@ export default function Footer() {
 
           {/* Col 4 – Contact */}
           <div>
-            <h3 className="text-sm font-bold text-white mb-4">تواصل معنا</h3>
+            <h3 className="text-sm font-bold text-white mb-4 inline-block border-b-2 border-[#C8102E] pb-1">{L.contact}</h3>
             <ul className="space-y-3">
               <li>
                 <a href="mailto:info@fastlink.sa" className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
@@ -197,13 +232,13 @@ export default function Footer() {
                 <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
                   <MessageCircle size={15} className="flex-shrink-0" />
-                  واتساب: +966 500 000 000
+                  {L.whatsapp}: +966 500 000 000
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-2.5 text-white/70 text-sm">
                   <MapPin size={15} className="flex-shrink-0 mt-0.5" />
-                  <span>طريق الملك فهد، الرياض، المملكة العربية السعودية</span>
+                  <span>{L.address}</span>
                 </div>
               </li>
             </ul>
@@ -212,7 +247,7 @@ export default function Footer() {
 
         {/* ── Social media strip (centered, Gasable-style) ── */}
         <div className="mt-12 pt-8 border-t border-white/15 text-center">
-          <p className="text-white text-sm font-bold mb-4">تابعنا على وسائل التواصل الاجتماعي</p>
+          <p className="text-white text-sm font-bold mb-4">{L.social}</p>
           <div className="flex items-center justify-center gap-3 flex-wrap">
             {socials.map((s) => (
               <a
@@ -232,14 +267,14 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="mt-8 pt-5 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
           <p className="text-white/60">
-            © {new Date().getFullYear()} Fast Link — جميع الحقوق محفوظة.
+            © {new Date().getFullYear()} Fast Link — {L.rights}
           </p>
           <div className="flex items-center gap-5 text-white/60">
-            <Link href="/contact" className="hover:text-white transition-colors">سياسة الخصوصية</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">شروط الاستخدام</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">{L.privacy}</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">{L.terms}</Link>
             <Link href="/admin" className="hover:text-white/40 transition-colors flex items-center gap-1 text-white/20">
               <ExternalLink size={11} />
-              لوحة التحكم
+              {L.admin}
             </Link>
           </div>
         </div>

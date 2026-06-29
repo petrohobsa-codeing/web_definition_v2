@@ -1,6 +1,7 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
 import GasableButton from "./GasableButton";
+import { StaggerGroup, StaggerItem } from "./Stagger";
 
 const grad = (id: string) => (
   <defs>
@@ -91,11 +92,11 @@ export default function MissionVisionStory() {
   return (
     <section className="bg-[#F4F6FA] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {cards.map(({ Icon, ...c }, i) => {
             const content = lang === "ar" ? c.ar : c.en;
             return (
-              <div key={i} className="text-center flex flex-col items-center">
+              <StaggerItem key={i} lift={false} className="text-center flex flex-col items-center">
                 <div className="hover-grow mb-5">
                   <Icon />
                 </div>
@@ -103,10 +104,10 @@ export default function MissionVisionStory() {
                   {content.title}
                 </h3>
                 <p className="text-[#54595F] leading-7 max-w-xs">{content.text}</p>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerGroup>
         <div className="text-center mt-12">
           <GasableButton href="/about">
             {lang === "ar" ? "اقرأ المزيد" : "Read More"}
