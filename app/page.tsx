@@ -11,9 +11,9 @@ import Credentials from "@/components/gasable/Credentials";
 import WhereToFindUs from "@/components/gasable/WhereToFindUs";
 
 export const metadata: Metadata = {
-  title: "Fast Link — خدمات لوجستية وبترولية في المملكة",
+  title: "PetroHop — خدمات لوجستية وبترولية في المملكة",
   description:
-    "شركة فاست لينك للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تربط الموردين بالعملاء. منتجات بترولية، حلول بيئية، إمداد مائي، ومولدات في الرياض ومكة والمدينة وينبع وتبوك.",
+    "شركة بتروهوب للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تربط الموردين بالعملاء. منتجات بترولية، حلول بيئية، إمداد مائي، ومولدات في الرياض ومكة والمدينة وينبع وتبوك.",
 };
 
 export default function HomePage() {

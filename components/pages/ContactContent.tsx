@@ -8,7 +8,7 @@ import { useLang } from "@/context/LanguageContext";
 const contactInfo = [
   { icon: Phone, ar: "الرقم الموحّد", en: "Unified Number", value: "+966500000000", href: "tel:+966500000000", color: "bg-brand-green" },
   { icon: MessageCircle, ar: "واتساب للأعمال", en: "Business WhatsApp", value: "+966500000000", href: "https://wa.me/966500000000", color: "bg-[#25D366]" },
-  { icon: Mail, ar: "البريد الإلكتروني", en: "Email", value: "info@fastlink.sa", href: "mailto:info@fastlink.sa", color: "bg-[#1B355E]" },
+  { icon: Mail, ar: "البريد الإلكتروني", en: "Email", value: "info@petrohop.sa", href: "mailto:info@petrohop.sa", color: "bg-[#1B355E]" },
   { icon: Clock, ar: "ساعات العمل", en: "Working Hours", valueAr: "الأحد – الخميس، 8 ص – 6 م", valueEn: "Sun – Thu, 8 AM – 6 PM", href: undefined, color: "bg-brand-gold" },
   { icon: MapPin, ar: "العنوان", en: "Address", valueAr: "طريق الملك فهد، الرياض، المملكة العربية السعودية", valueEn: "King Fahd Road, Riyadh, Saudi Arabia", href: undefined, color: "bg-[#24487B]" },
 ];

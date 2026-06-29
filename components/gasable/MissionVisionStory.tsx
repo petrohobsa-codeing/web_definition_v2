@@ -78,11 +78,11 @@ const cards = [
     Icon: HouseIcon,
     ar: {
       title: "قصّتنا",
-      text: "شركة فاست لينك للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تخدم المنشآت والمشاريع في أنحاء المملكة.",
+      text: "شركة بتروهوب للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تخدم المنشآت والمشاريع في أنحاء المملكة.",
     },
     en: {
       title: "Our Story",
-      text: "Fast Link for Logistics & Petroleum Services — a leading commercial brokerage serving facilities and projects across the Kingdom.",
+      text: "PetroHop for Logistics & Petroleum Services — a leading commercial brokerage serving facilities and projects across the Kingdom.",
     },
   },
 ];

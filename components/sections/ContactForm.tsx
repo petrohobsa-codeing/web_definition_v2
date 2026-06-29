@@ -8,7 +8,7 @@ import { useLang } from "@/context/LanguageContext";
 const tf = {
   ar: {
     successTitle: "تم إرسال رسالتك!",
-    successBody: "شكراً لتواصلك مع Fast Link. سيتصل بك فريقنا خلال ساعات العمل.",
+    successBody: "شكراً لتواصلك مع PetroHop. سيتصل بك فريقنا خلال ساعات العمل.",
     name: "الاسم", namePh: "اسم المنشأة",
     phone: "رقم الجوال",
     email: "البريد الإلكتروني", emailPh: "example@company.sa",
@@ -18,7 +18,7 @@ const tf = {
   },
   en: {
     successTitle: "Your message has been sent!",
-    successBody: "Thank you for contacting Fast Link. Our team will reach out to you during working hours.",
+    successBody: "Thank you for contacting PetroHop. Our team will reach out to you during working hours.",
     name: "Name", namePh: "Company name",
     phone: "Mobile Number",
     email: "Email", emailPh: "example@company.sa",

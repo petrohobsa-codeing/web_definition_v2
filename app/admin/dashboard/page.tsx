@@ -113,7 +113,7 @@ export default function DashboardPage() {
             <TrendingUp size={20} className="text-brand-gold" />
             <span className="text-brand-gold font-bold text-sm">مرحباً بك</span>
           </div>
-          <h2 className="text-2xl font-black mb-1">لوحة تحكم Fast Link</h2>
+          <h2 className="text-2xl font-black mb-1">لوحة تحكم PetroHop</h2>
           <p className="text-white/60 text-sm">
             إدارة شاملة لكل محتوى الموقع والطلبات الواردة
           </p>

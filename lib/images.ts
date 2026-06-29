@@ -1,6 +1,6 @@
 /**
  * ========================================================
- *   إعدادات الصور — Fast Link
+ *   إعدادات الصور — PetroHop
  * ========================================================
  *
  * ضع صورك في المجلدات المناسبة داخل /public/images/
@@ -45,7 +45,7 @@ export const siteImages = {
     monitoring: "/images/services/monitoring.svg" as string | null,
   },
 
-  /** صورة قسم "لماذا Fast Link"
+  /** صورة قسم "لماذا PetroHop"
    *  ضع الملف في: public/images/why-us.jpg */
   whyUs: null as string | null,
 

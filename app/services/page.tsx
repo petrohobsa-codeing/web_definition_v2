@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ServicesContent from "@/components/pages/ServicesContent";
 
 export const metadata: Metadata = {
-  title: "الخدمات — Fast Link",
+  title: "الخدمات — PetroHop",
   description:
-    "شركة فاست لينك للخدمات اللوجستية والبترولية — منتجات بترولية، حلول بيئية، إمداد مائي، وتأجير مولدات في المملكة.",
+    "شركة بتروهوب للخدمات اللوجستية والبترولية — منتجات بترولية، حلول بيئية، إمداد مائي، وتأجير مولدات في المملكة.",
 };
 
 export default function ServicesPage() {

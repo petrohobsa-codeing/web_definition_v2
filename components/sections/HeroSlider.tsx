@@ -185,7 +185,7 @@ export default function HeroSlider() {
                       <div className="w-3 h-3 rounded-full bg-amber-400/70" />
                       <div className="w-3 h-3 rounded-full bg-green-400/70" />
                     </div>
-                    <span className="text-white/40 text-xs font-mono">fastlink.sa</span>
+                    <span className="text-white/40 text-xs font-mono">petrohop.sa</span>
                     <span className="inline-flex items-center gap-1.5 bg-brand-green/30 text-green-300 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                       مباشر
@@ -195,7 +195,7 @@ export default function HeroSlider() {
                   <div className="p-6 space-y-5">
                     <div>
                       <p className="text-white/40 text-xs mb-1">خدماتنا اللوجستية</p>
-                      <p className="text-white text-xl font-black">شركة فاست لينك</p>
+                      <p className="text-white text-xl font-black">شركة بتروهوب</p>
                       <p className="text-green-400 text-xs font-bold mt-1 flex items-center gap-1">
                         <TrendingUp size={11} /> وساطة تجارية ولوجستية
                       </p>

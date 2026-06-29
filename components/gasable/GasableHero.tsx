@@ -6,8 +6,8 @@ import { useLang } from "@/context/LanguageContext";
 const slides = [
   {
     img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80",
-    ar: { title: "Fast Link", sub: "نربط الموردين بالعملاء في أنحاء المملكة." },
-    en: { title: "Fast Link", sub: "Connecting suppliers with customers across the Kingdom." },
+    ar: { title: "PetroHop", sub: "نربط الموردين بالعملاء في أنحاء المملكة." },
+    en: { title: "PetroHop", sub: "Connecting suppliers with customers across the Kingdom." },
   },
   {
     img: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&fit=crop&w=1920&q=80",

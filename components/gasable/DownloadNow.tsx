@@ -42,7 +42,7 @@ export default function DownloadNow() {
               <div className="w-full h-full rounded-[30px] bg-white overflow-hidden">
                 <div className="bg-gasable-gradient h-24 flex items-end p-4 relative">
                   <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
-                  <span className="text-white font-extrabold italic text-2xl">Fast Link</span>
+                  <span className="text-white font-extrabold italic text-2xl">PetroHop</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 p-3">
                   {categories.map((c, i) => (
@@ -65,8 +65,8 @@ export default function DownloadNow() {
             </h2>
             <p className="text-[#54595F] leading-7 mb-8 max-w-md">
               {lang === "ar"
-                ? "اطلب كل خدماتك اللوجستية والبترولية بسهولة من مكان واحد. حمّل تطبيق Fast Link وتابع طلباتك لحظة بلحظة."
-                : "Order all your logistics and petroleum services easily from one place. Download the Fast Link app and track your orders in real time."}
+                ? "اطلب كل خدماتك اللوجستية والبترولية بسهولة من مكان واحد. حمّل تطبيق PetroHop وتابع طلباتك لحظة بلحظة."
+                : "Order all your logistics and petroleum services easily from one place. Download the PetroHop app and track your orders in real time."}
             </p>
             <div className="flex flex-wrap gap-4">
               <StoreBadge top={lang === "ar" ? "متوفر على" : "GET IT ON"} bottom="Google Play" bg="bg-[#1B355E]" />

@@ -6,10 +6,13 @@ import { siteImages } from "@/lib/images";
 import { useLang } from "@/context/LanguageContext";
 
 const services = [
-  { ar: "الخدمات البترولية والغاز", en: "Petroleum & Gas Services", href: "/services/diesel-supply" },
-  { ar: "الحلول البيئية والصرف", en: "Environmental & Sewage", href: "/services/gas-supply" },
-  { ar: "الإمداد المائي", en: "Water Supply", href: "/services/water-supply" },
-  { ar: "الطاقة البديلة (مولدات)", en: "Alternative Energy", href: "/services/generators" },
+  { ar: "توريد غاز البترول المسال (LPG)", en: "LPG Supply", href: "/services#lpg" },
+  { ar: "المنتجات البترولية", en: "Oil Services", href: "/services#oil" },
+  { ar: "خدمات المياه والبيئة", en: "Water & Environment", href: "/services#water" },
+  { ar: "حلول الطاقة", en: "Energy Solutions", href: "/services#energy" },
+  { ar: "منصة PetroHub IoT", en: "PetroHub IoT", href: "/services#iot" },
+  { ar: "الخدمات اللوجستية", en: "Logistics Services", href: "/services#logistics" },
+  { ar: "أنظمة التتبع ومراقبة المركبات", en: "Vehicle Tracking", href: "/services#tracking" },
 ];
 
 const joinUs = [
@@ -142,19 +145,19 @@ export default function Footer() {
           {/* Col 1 – Logo + Services + Join Us */}
           <div>
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 mb-6" aria-label="Fast Link">
+            <Link href="/" className="flex items-center gap-3 mb-6" aria-label="PetroHop">
               {siteImages.logo ? (
                 <Image
                   src={siteImages.logo}
-                  alt="Fast Link"
+                  alt="PetroHop"
                   width={120}
                   height={38}
                   className="h-10 w-auto object-contain brightness-0 invert"
                 />
               ) : (
                 <span className="text-2xl font-extrabold tracking-tight">
-                  <span className="text-white">Fast</span>
-                  <span className="text-white/80"> Link</span>
+                  <span className="text-white">Petro</span>
+                  <span className="text-white/80">Hop</span>
                 </span>
               )}
             </Link>
@@ -217,9 +220,9 @@ export default function Footer() {
             <h3 className="text-sm font-bold text-white mb-4 inline-block border-b-2 border-[#C8102E] pb-1">{L.contact}</h3>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:info@fastlink.sa" className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
+                <a href="mailto:info@petrohop.sa" className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
                   <Mail size={15} className="flex-shrink-0" />
-                  info@fastlink.sa
+                  info@petrohop.sa
                 </a>
               </li>
               <li>
@@ -267,7 +270,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="mt-8 pt-5 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
           <p className="text-white/60">
-            © {new Date().getFullYear()} Fast Link — {L.rights}
+            © {new Date().getFullYear()} PetroHop — {L.rights}
           </p>
           <div className="flex items-center gap-5 text-white/60">
             <Link href="/contact" className="hover:text-white transition-colors">{L.privacy}</Link>

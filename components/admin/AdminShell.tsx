@@ -97,8 +97,8 @@ export default function AdminShell({ children, title }: Props) {
         <div className="p-5 border-b border-white/10">
           <div className="flex items-center gap-3">
             <span className="text-2xl font-extrabold tracking-tight">
-              <span className="text-white">Fast</span>
-              <span className="text-white/70"> Link</span>
+              <span className="text-white">Petro</span>
+              <span className="text-white/70">Hop</span>
             </span>
           </div>
           <p className="text-white/40 text-xs mt-1">لوحة التحكم</p>

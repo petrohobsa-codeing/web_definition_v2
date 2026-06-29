@@ -18,7 +18,7 @@ export default function InFigures() {
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
-          <span className="text-brand-green">Fast Link</span>{" "}
+          <span className="text-brand-green">PetroHop</span>{" "}
           <span className="text-brand-charcoal-mid">{lang === "ar" ? "في" : "in"}</span>{" "}
           <span className="text-[#C8102E]">{lang === "ar" ? "أرقام" : "Figures"}</span>
         </h2>

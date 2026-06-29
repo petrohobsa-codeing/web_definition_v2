@@ -60,15 +60,15 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group" aria-label="فاست لينك">
+            <Link href="/" className="flex items-center gap-3 group" aria-label="بتروهوب">
               {siteImages.logo ? (
-                <Image src={siteImages.logo} alt="Fast Link" width={140} height={44}
+                <Image src={siteImages.logo} alt="PetroHop" width={140} height={44}
                   className="h-11 w-auto object-contain" priority />
               ) : (
                 <div>
                   <span className="text-3xl font-extrabold tracking-tight">
-                    <span className="text-brand-green">Fast</span>
-                    <span className={scrolled ? "text-brand-green-dark" : "text-white"}> Link</span>
+                    <span className="text-brand-green">Petro</span>
+                    <span className={scrolled ? "text-brand-green-dark" : "text-white"}>Hop</span>
                   </span>
                   <span className={`block text-[11px] font-medium leading-none transition-colors duration-300 ${scrolled ? "text-brand-green-dark/80" : "text-white/80"}`}>
                     {lang === "ar" ? "للخدمات اللوجستية والبترولية" : "Logistics & Petroleum Services"}
@@ -170,8 +170,8 @@ export default function Header() {
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
             <Link href="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
               <span className="text-2xl font-extrabold tracking-tight">
-                <span className="text-brand-green">Fast</span>
-                <span className="text-brand-green-dark"> Link</span>
+                <span className="text-brand-green">Petro</span>
+                <span className="text-brand-green-dark">Hop</span>
               </span>
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-brand-charcoal-light hover:bg-gray-100" aria-label="إغلاق القائمة">
