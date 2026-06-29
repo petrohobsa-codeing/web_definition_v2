@@ -30,7 +30,7 @@ const contactInfo = [
     label: "البريد الإلكتروني",
     value: "info@fastlink.sa",
     href: "mailto:info@fastlink.sa",
-    color: "bg-blue-500",
+    color: "bg-[#1B355E]",
   },
   {
     icon: Clock,
@@ -44,7 +44,7 @@ const contactInfo = [
     label: "العنوان",
     value: "طريق الملك فهد، الرياض، المملكة العربية السعودية",
     href: undefined,
-    color: "bg-purple-500",
+    color: "bg-[#24487B]",
   },
 ];
 

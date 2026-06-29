@@ -8,11 +8,11 @@ import { getProjects } from "@/lib/db";
 import type { ProjectItem } from "@/lib/types";
 
 const categoryColors: Record<string, string> = {
-  "خدمات بترولية": "bg-green-100 text-green-700",
-  "حلول بيئية": "bg-blue-100 text-blue-700",
-  "إمداد مائي": "bg-cyan-100 text-cyan-700",
-  "طاقة بديلة": "bg-amber-100 text-amber-700",
-  "حلول متكاملة": "bg-purple-100 text-purple-700",
+  "خدمات بترولية": "bg-[#EAEEF5] text-[#1B355E]",
+  "حلول بيئية": "bg-[#EAEEF5] text-[#24487B]",
+  "إمداد مائي": "bg-[#EAEEF5] text-[#1B355E]",
+  "طاقة بديلة": "bg-[#FCE9EC] text-[#C8102E]",
+  "حلول متكاملة": "bg-[#FCE9EC] text-[#A00C24]",
 };
 
 export default function ProjectsPage() {

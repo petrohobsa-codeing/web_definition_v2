@@ -17,7 +17,7 @@ const services = [
     description:
       "وساطة وتوريد المنتجات البترولية: بنزين (91 و95)، ديزل، وغاز مسال للمنشآت والمشاريع والأساطيل بأسعار تنافسية من موردين معتمدين.",
     href: "/services/diesel-supply",
-    gradient: "from-brand-green-dark to-brand-green",
+    gradient: "from-[#1B355E] to-[#0C1B33]",
     features: ["بنزين 91 و95", "ديزل وغاز مسال", "فواتير ضريبية"],
   },
   {
@@ -26,7 +26,7 @@ const services = [
     description:
       "تأمين صهاريج سحب مياه الصرف الصحي (البيارات) والمياه العادمة للمواقع والمنشآت والمجمعات السكنية والتجارية.",
     href: "/services/gas-supply",
-    gradient: "from-blue-700 to-blue-500",
+    gradient: "from-[#24487B] to-[#1B355E]",
     features: ["سحب البيارات", "المياه العادمة", "طوارئ 24/7"],
   },
   {
@@ -35,7 +35,7 @@ const services = [
     description:
       "توزيع وتوريد مياه التحلية ومياه الشرب العذبة للمشاريع والمواقع الإنشائية في الرياض، مكة، المدينة، ينبع، وتبوك.",
     href: "/services/water-supply",
-    gradient: "from-cyan-700 to-cyan-500",
+    gradient: "from-[#1B355E] to-[#3A4E8C]",
     features: ["مياه تحلية", "مياه شرب عذبة", "توصيل منتظم"],
   },
   {
@@ -44,7 +44,7 @@ const services = [
     description:
       "وساطة لتأجير المولدات الكهربائية بمختلف الأحجام والأحمال للمشاريع والفعاليات والمنشآت التي تحتاج طاقة بديلة أو احتياطية.",
     href: "/services/generators",
-    gradient: "from-amber-700 to-amber-500",
+    gradient: "from-[#1B355E] to-[#C8102E]",
     features: ["10 KVA – 2000 KVA", "للمشاريع والفعاليات", "تركيب وصيانة"],
   },
 ];
