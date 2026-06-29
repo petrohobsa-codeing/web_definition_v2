@@ -3,25 +3,66 @@ import { useState, FormEvent } from "react";
 import Button from "@/components/ui/Button";
 import { CheckCircle2 } from "lucide-react";
 import { addQuote } from "@/lib/db";
+import { useLang } from "@/context/LanguageContext";
 
 const activityTypes = [
-  "المقاولات والإنشاءات",
-  "الصناعة والمصانع",
-  "اللوجستيات والنقل",
-  "الزراعة",
-  "العقارات والمجمّعات",
-  "محطات توليد الطاقة",
-  "أخرى",
+  { ar: "المقاولات والإنشاءات", en: "Contracting & Construction" },
+  { ar: "الصناعة والمصانع", en: "Industry & Factories" },
+  { ar: "اللوجستيات والنقل", en: "Logistics & Transport" },
+  { ar: "الزراعة", en: "Agriculture" },
+  { ar: "العقارات والمجمّعات", en: "Real Estate & Complexes" },
+  { ar: "محطات توليد الطاقة", en: "Power Generation" },
+  { ar: "أخرى", en: "Other" },
 ];
 
 const serviceOptions = [
-  { val: "petroleum", label: "منتجات بترولية (بنزين / ديزل / غاز)" },
-  { val: "sewage", label: "سحب بيارات وصرف صحي" },
-  { val: "water", label: "إمداد مائي (مياه تحلية / شرب)" },
-  { val: "generators", label: "تأجير مولدات كهربائية" },
+  { val: "petroleum", ar: "منتجات بترولية (بنزين / ديزل / غاز)", en: "Petroleum products (petrol / diesel / gas)" },
+  { val: "sewage", ar: "سحب بيارات وصرف صحي", en: "Septic & sewage pumping" },
+  { val: "water", ar: "إمداد مائي (مياه تحلية / شرب)", en: "Water supply (desalinated / drinking)" },
+  { val: "generators", ar: "تأجير مولدات كهربائية", en: "Generator rental" },
 ];
 
+const cityOptions = [
+  { ar: "الرياض", en: "Riyadh" },
+  { ar: "مكة المكرمة", en: "Makkah" },
+  { ar: "المدينة المنورة", en: "Madinah" },
+  { ar: "ينبع", en: "Yanbu" },
+  { ar: "تبوك", en: "Tabuk" },
+  { ar: "أخرى", en: "Other" },
+];
+
+const tq = {
+  ar: {
+    successTitle: "تم إرسال طلبك!",
+    successBody: "شكراً لك. سيتواصل معك فريق فاست لينك خلال 24 ساعة بعرض سعر مخصّص لاحتياجاتك.",
+    name: "الاسم", namePh: "اسم الشخص أو المنشأة",
+    phone: "رقم الجوال", email: "البريد الإلكتروني", emailPh: "example@company.sa",
+    activity: "نوع النشاط", chooseActivity: "اختر نوع النشاط",
+    city: "الموقع / المدينة", chooseCity: "اختر المدينة",
+    service: "الخدمة المطلوبة",
+    quantity: "الكمية أو الحجم التقديري", quantityPh: "مثال: 5000 لتر / 3 صهاريج / 500 KVA",
+    extra: "تفاصيل إضافية", extraPh: "أي تفاصيل أخرى تودّ إضافتها عن طلبك...",
+    sending: "جارٍ الإرسال...", submit: "إرسال الطلب",
+    consent: "بإرسالك هذا النموذج فإنك توافق على سياسة الخصوصية لدينا. لن نشارك بياناتك مع أي طرف ثالث.",
+  },
+  en: {
+    successTitle: "Your request has been sent!",
+    successBody: "Thank you. The Fast Link team will contact you within 24 hours with a custom quote for your needs.",
+    name: "Name", namePh: "Person or company name",
+    phone: "Mobile Number", email: "Email", emailPh: "example@company.sa",
+    activity: "Activity Type", chooseActivity: "Select activity type",
+    city: "Location / City", chooseCity: "Select city",
+    service: "Required Service",
+    quantity: "Estimated Quantity or Size", quantityPh: "e.g. 5000 L / 3 tankers / 500 KVA",
+    extra: "Additional Details", extraPh: "Any other details you'd like to add about your request...",
+    sending: "Sending...", submit: "Send Request",
+    consent: "By submitting this form you agree to our privacy policy. We will not share your data with any third party.",
+  },
+};
+
 export default function QuoteForm() {
+  const { lang } = useLang();
+  const L = tq[lang];
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -71,12 +112,8 @@ export default function QuoteForm() {
         <div className="w-24 h-24 rounded-full bg-brand-green-light flex items-center justify-center mb-6">
           <CheckCircle2 size={48} className="text-brand-green" />
         </div>
-        <h3 className="text-2xl font-black text-brand-charcoal mb-3">
-          تم إرسال طلبك!
-        </h3>
-        <p className="text-brand-charcoal-light max-w-md">
-          شكراً لك. سيتواصل معك فريق فاست لينك خلال 24 ساعة بعرض سعر مخصّص لاحتياجاتك.
-        </p>
+        <h3 className="text-2xl font-black text-brand-charcoal mb-3">{L.successTitle}</h3>
+        <p className="text-brand-charcoal-light max-w-md">{L.successBody}</p>
       </div>
     );
   }
@@ -87,13 +124,13 @@ export default function QuoteForm() {
         {/* Name */}
         <div>
           <label htmlFor="q-name" className="block text-sm font-bold text-brand-charcoal mb-2">
-            الاسم <span className="text-red-500">*</span>
+            {L.name} <span className="text-red-500">*</span>
           </label>
           <input
             id="q-name"
             type="text"
             required
-            placeholder="اسم الشخص أو المنشأة"
+            placeholder={L.namePh}
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             className={inputClass}
@@ -103,7 +140,7 @@ export default function QuoteForm() {
         {/* Phone */}
         <div>
           <label htmlFor="q-phone" className="block text-sm font-bold text-brand-charcoal mb-2">
-            رقم الجوال <span className="text-red-500">*</span>
+            {L.phone} <span className="text-red-500">*</span>
           </label>
           <input
             id="q-phone"
@@ -120,12 +157,12 @@ export default function QuoteForm() {
       {/* Email */}
       <div>
         <label htmlFor="q-email" className="block text-sm font-bold text-brand-charcoal mb-2">
-          البريد الإلكتروني
+          {L.email}
         </label>
         <input
           id="q-email"
           type="email"
-          placeholder="example@company.sa"
+          placeholder={L.emailPh}
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           className={inputClass}
@@ -136,7 +173,7 @@ export default function QuoteForm() {
         {/* Activity type */}
         <div>
           <label htmlFor="q-activity" className="block text-sm font-bold text-brand-charcoal mb-2">
-            نوع النشاط
+            {L.activity}
           </label>
           <select
             id="q-activity"
@@ -144,9 +181,9 @@ export default function QuoteForm() {
             onChange={(e) => setForm({ ...form, activity: e.target.value })}
             className={`${inputClass} cursor-pointer`}
           >
-            <option value="">اختر نوع النشاط</option>
+            <option value="">{L.chooseActivity}</option>
             {activityTypes.map((a) => (
-              <option key={a} value={a}>{a}</option>
+              <option key={a.en} value={lang === "ar" ? a.ar : a.en}>{lang === "ar" ? a.ar : a.en}</option>
             ))}
           </select>
         </div>
@@ -154,7 +191,7 @@ export default function QuoteForm() {
         {/* City */}
         <div>
           <label htmlFor="q-city" className="block text-sm font-bold text-brand-charcoal mb-2">
-            الموقع / المدينة
+            {L.city}
           </label>
           <select
             id="q-city"
@@ -162,9 +199,9 @@ export default function QuoteForm() {
             onChange={(e) => setForm({ ...form, city: e.target.value })}
             className={`${inputClass} cursor-pointer`}
           >
-            <option value="">اختر المدينة</option>
-            {["الرياض", "مكة المكرمة", "المدينة المنورة", "ينبع", "تبوك", "أخرى"].map((c) => (
-              <option key={c} value={c}>{c}</option>
+            <option value="">{L.chooseCity}</option>
+            {cityOptions.map((c) => (
+              <option key={c.en} value={lang === "ar" ? c.ar : c.en}>{lang === "ar" ? c.ar : c.en}</option>
             ))}
           </select>
         </div>
@@ -172,7 +209,7 @@ export default function QuoteForm() {
 
       {/* Service type */}
       <div>
-        <p className="text-sm font-bold text-brand-charcoal mb-3">الخدمة المطلوبة</p>
+        <p className="text-sm font-bold text-brand-charcoal mb-3">{L.service}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {serviceOptions.map((opt) => (
             <label
@@ -191,7 +228,7 @@ export default function QuoteForm() {
                 onChange={(e) => setForm({ ...form, fuelType: e.target.value })}
                 className="sr-only"
               />
-              {opt.label}
+              {lang === "ar" ? opt.ar : opt.en}
             </label>
           ))}
         </div>
@@ -200,12 +237,12 @@ export default function QuoteForm() {
       {/* Quantity */}
       <div>
         <label htmlFor="q-quantity" className="block text-sm font-bold text-brand-charcoal mb-2">
-          الكمية أو الحجم التقديري
+          {L.quantity}
         </label>
         <input
           id="q-quantity"
           type="text"
-          placeholder="مثال: 5000 لتر / 3 صهاريج / 500 KVA"
+          placeholder={L.quantityPh}
           value={form.quantity}
           onChange={(e) => setForm({ ...form, quantity: e.target.value })}
           className={inputClass}
@@ -215,12 +252,12 @@ export default function QuoteForm() {
       {/* Message */}
       <div>
         <label htmlFor="q-message" className="block text-sm font-bold text-brand-charcoal mb-2">
-          تفاصيل إضافية
+          {L.extra}
         </label>
         <textarea
           id="q-message"
           rows={4}
-          placeholder="أي تفاصيل أخرى تودّ إضافتها عن طلبك..."
+          placeholder={L.extraPh}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className={`${inputClass} resize-none`}
@@ -239,15 +276,15 @@ export default function QuoteForm() {
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-            جارٍ الإرسال...
+            {L.sending}
           </span>
         ) : (
-          "إرسال الطلب"
+          L.submit
         )}
       </Button>
 
       <p className="text-xs text-brand-charcoal-light text-center leading-relaxed">
-        بإرسالك هذا النموذج فإنك توافق على سياسة الخصوصية لدينا. لن نشارك بياناتك مع أي طرف ثالث.
+        {L.consent}
       </p>
     </form>
   );

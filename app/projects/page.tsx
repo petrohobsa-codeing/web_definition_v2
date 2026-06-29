@@ -6,6 +6,24 @@ import Button from "@/components/ui/Button";
 import { MapPin, Tag } from "lucide-react";
 import { getProjects } from "@/lib/db";
 import type { ProjectItem } from "@/lib/types";
+import { useLang } from "@/context/LanguageContext";
+
+const tp = {
+  ar: {
+    badge: "أعمالنا", title: "مشاريعنا وأعمالنا",
+    sub: "نماذج من المشاريع التي خدمناها عبر مناطق المملكة المختلفة.",
+    all: "الكل", empty: "لا توجد مشاريع في هذا التصنيف.",
+    ctaText: "هل تريد أن يكون مشروعك التالي معنا؟",
+    quote: "اطلب عرض سعر", contact: "تواصل معنا",
+  },
+  en: {
+    badge: "Our Work", title: "Our Projects & Work",
+    sub: "Examples of projects we have served across the Kingdom's regions.",
+    all: "All", empty: "No projects in this category.",
+    ctaText: "Want your next project to be with us?",
+    quote: "Get a Quote", contact: "Contact Us",
+  },
+};
 
 const categoryColors: Record<string, string> = {
   "خدمات بترولية": "bg-[#EAEEF5] text-[#1B355E]",
@@ -16,13 +34,15 @@ const categoryColors: Record<string, string> = {
 };
 
 export default function ProjectsPage() {
+  const { lang } = useLang();
+  const L = tp[lang];
   const [projects, setProjects] = useState<ProjectItem[]>([]);
-  const [filter, setFilter] = useState("الكل");
+  const [filter, setFilter] = useState("__all__");
 
   useEffect(() => { getProjects().then(setProjects); }, []);
 
-  const categories = ["الكل", ...Array.from(new Set(projects.map((p) => p.category)))];
-  const filtered = filter === "الكل" ? projects : projects.filter((p) => p.category === filter);
+  const categories = ["__all__", ...Array.from(new Set(projects.map((p) => p.category)))];
+  const filtered = filter === "__all__" ? projects : projects.filter((p) => p.category === filter);
 
   return (
     <>
@@ -32,14 +52,10 @@ export default function ProjectsPage() {
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand-gold/10 blur-3xl" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
-            أعمالنا
+            {L.badge}
           </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            مشاريعنا وأعمالنا
-          </h1>
-          <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">
-            نماذج من المشاريع التي خدمناها عبر مناطق المملكة المختلفة.
-          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">{L.title}</h1>
+          <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">{L.sub}</p>
         </div>
       </section>
 
@@ -58,7 +74,7 @@ export default function ProjectsPage() {
                     : "bg-gray-100 text-brand-charcoal-mid hover:bg-brand-green-light hover:text-brand-green"
                 }`}
               >
-                {cat}
+                {cat === "__all__" ? L.all : cat}
               </button>
             ))}
           </div>
@@ -98,15 +114,15 @@ export default function ProjectsPage() {
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-brand-charcoal-light py-16">لا توجد مشاريع في هذا التصنيف.</p>
+            <p className="text-center text-brand-charcoal-light py-16">{L.empty}</p>
           )}
 
           {/* CTA */}
           <div className="mt-16 text-center">
-            <p className="text-brand-charcoal-light mb-6 text-lg">هل تريد أن يكون مشروعك التالي معنا؟</p>
+            <p className="text-brand-charcoal-light mb-6 text-lg">{L.ctaText}</p>
             <div className="flex justify-center gap-4 flex-wrap">
-              <Button href="/quote" size="lg">اطلب عرض سعر</Button>
-              <Button href="/contact" variant="secondary" size="lg">تواصل معنا</Button>
+              <Button href="/quote" size="lg">{L.quote}</Button>
+              <Button href="/contact" variant="secondary" size="lg">{L.contact}</Button>
             </div>
           </div>
         </div>
