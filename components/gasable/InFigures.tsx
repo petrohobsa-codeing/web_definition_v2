@@ -2,14 +2,14 @@
 import { useLang } from "@/context/LanguageContext";
 import CountUp from "@/components/ui/CountUp";
 import { StaggerGroup, StaggerItem } from "./Stagger";
-import { Boxes, MapPin, Clock, BadgeCheck, Truck } from "lucide-react";
+import { Boxes, MapPin, Clock, Leaf, BadgeCheck } from "lucide-react";
 
 const stats = [
-  { Icon: Boxes, value: "4", ar: "خدمات لوجستية متكاملة", en: "Integrated Logistics Services" },
+  { Icon: Boxes, value: "7", ar: "خدمات وحلول متكاملة", en: "Integrated Services" },
   { Icon: MapPin, value: "5+", ar: "مناطق تغطية في المملكة", en: "Coverage Regions" },
-  { Icon: Clock, value: "24/7", ar: "متاحون للطلبات الطارئة", en: "Available for Urgent Orders" },
-  { Icon: BadgeCheck, value: "100%", ar: "التزام بالمواعيد والجودة", en: "Commitment to Quality" },
-  { Icon: Truck, value: "50K+", ar: "لتر تُورّد شهرياً", en: "Liters Supplied Monthly" },
+  { Icon: Clock, value: "24/7", ar: "تشغيل ومراقبة متواصلة", en: "Operation & Monitoring" },
+  { Icon: Leaf, value: "30%", ar: "خفض في استهلاك الطاقة", en: "Energy Savings" },
+  { Icon: BadgeCheck, value: "100%", ar: "التزام بالجودة والسلامة", en: "Quality & Safety" },
 ];
 
 export default function InFigures() {

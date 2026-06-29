@@ -2,17 +2,17 @@
 import { useLang } from "@/context/LanguageContext";
 
 const categories = [
-  { ar: "بنزين", en: "Petrol" },
-  { ar: "ديزل", en: "Diesel" },
-  { ar: "غاز مسال", en: "LPG" },
-  { ar: "سحب صرف", en: "Sewage" },
-  { ar: "مياه تحلية", en: "Desal. Water" },
-  { ar: "مياه شرب", en: "Drinking Water" },
-  { ar: "مولدات", en: "Generators" },
-  { ar: "صهاريج", en: "Tankers" },
-  { ar: "أساطيل", en: "Fleets" },
-  { ar: "مشاريع", en: "Projects" },
-  { ar: "طوارئ", en: "Emergency" },
+  { ar: "غاز LPG", en: "LPG" },
+  { ar: "منتجات بترولية", en: "Oil" },
+  { ar: "مياه وبيئة", en: "Water" },
+  { ar: "حلول طاقة", en: "Energy" },
+  { ar: "PetroHub IoT", en: "IoT" },
+  { ar: "لوجستيات", en: "Logistics" },
+  { ar: "تتبع المركبات", en: "Tracking" },
+  { ar: "الأساطيل", en: "Fleets" },
+  { ar: "التقارير", en: "Reports" },
+  { ar: "الطلبات", en: "Orders" },
+  { ar: "التنبيهات", en: "Alerts" },
   { ar: "دعم 24/7", en: "24/7 Support" },
 ];
 

@@ -6,18 +6,18 @@ import { StaggerGroup, StaggerItem } from "./Stagger";
 const items = [
   {
     Icon: ShieldCheck,
-    ar: { title: "مرخّصة ومعتمدة", text: "شركة وساطة لوجستية مرخّصة ومعتمدة في المملكة العربية السعودية." },
-    en: { title: "Licensed & Certified", text: "A licensed and certified logistics brokerage in the Kingdom of Saudi Arabia." },
+    ar: { title: "الجودة والسلامة", text: "التزام كامل بأعلى معايير الجودة والسلامة المحلية والدولية في كل خدماتنا." },
+    en: { title: "Quality & Safety", text: "Full commitment to the highest local and international quality and safety standards." },
   },
   {
     Icon: FileCheck2,
-    ar: { title: "فوترة إلكترونية", text: "فواتير ضريبية إلكترونية متوافقة مع متطلبات هيئة الزكاة والضريبة." },
-    en: { title: "E-Invoicing", text: "Compliant electronic tax invoices aligned with ZATCA requirements." },
+    ar: { title: "تقنيات حديثة", text: "حلول رقمية ومنصة PetroHub IoT لمراقبة الاستهلاك واتخاذ قرارات دقيقة." },
+    en: { title: "Modern Technology", text: "Digital solutions and the PetroHub IoT platform for consumption monitoring and accurate decisions." },
   },
   {
     Icon: Award,
-    ar: { title: "موردون موثوقون", text: "شبكة واسعة من الموردين المعتمدين لضمان الجودة والالتزام." },
-    en: { title: "Trusted Suppliers", text: "A wide network of certified suppliers ensuring quality and reliability." },
+    ar: { title: "حلول مستدامة", text: "حلول طاقة تخفض الانبعاثات وتدعم مستهدفات رؤية المملكة 2030." },
+    en: { title: "Sustainable Solutions", text: "Energy solutions that cut emissions and support Saudi Vision 2030 goals." },
   },
   {
     Icon: Headset,

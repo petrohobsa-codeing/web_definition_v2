@@ -56,33 +56,33 @@ const cards = [
     Icon: LeafIcon,
     ar: {
       title: "مهمتنا",
-      text: "نعمل كحلقة وصل استراتيجية تربط الموردين بالعملاء بأسرع طريقة وأعلى كفاءة لضمان استمرارية العمليات.",
+      text: "تقديم خدمات وحلول طاقة موثوقة عالية الجودة تعزز كفاءة الأعمال وتدعم الاستدامة لعملائنا.",
     },
     en: {
       title: "Our Mission",
-      text: "We act as a strategic link connecting suppliers with customers in the fastest, most efficient way to keep operations running.",
+      text: "Delivering reliable, high-quality energy services and solutions that boost business efficiency and support sustainability for our clients.",
     },
   },
   {
     Icon: SunIcon,
     ar: {
       title: "رؤيتنا",
-      text: "أن نكون شركة الوساطة اللوجستية الرائدة في المملكة، والخيار الأول للموردين والعملاء على حدّ سواء.",
+      text: "أن نكون الشريك الأول في حلول الطاقة والخدمات المتكاملة في المملكة، بما يتوافق مع رؤية 2030.",
     },
     en: {
       title: "Our Vision",
-      text: "To be the leading logistics brokerage in the Kingdom and the first choice for both suppliers and customers.",
+      text: "To be the leading partner in integrated energy and services solutions in the Kingdom, aligned with Vision 2030.",
     },
   },
   {
     Icon: HouseIcon,
     ar: {
       title: "قصّتنا",
-      text: "شركة بتروهوب للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تخدم المنشآت والمشاريع في أنحاء المملكة.",
+      text: "PetroHop — منظومة متكاملة للطاقة والخدمات اللوجستية تخدم القطاعات السكنية والتجارية والصناعية بالجودة والابتكار.",
     },
     en: {
       title: "Our Story",
-      text: "PetroHop for Logistics & Petroleum Services — a leading commercial brokerage serving facilities and projects across the Kingdom.",
+      text: "PetroHop — an integrated energy and logistics system serving residential, commercial and industrial sectors with quality and innovation.",
     },
   },
 ];
