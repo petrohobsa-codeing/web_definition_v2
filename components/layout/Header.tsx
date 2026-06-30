@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
+import Logo from "@/components/ui/Logo";
 import { siteImages } from "@/lib/images";
 import { useLang } from "@/context/LanguageContext";
 import { t } from "@/lib/translations";
@@ -65,15 +66,7 @@ export default function Header() {
                 <Image src={siteImages.logo} alt="PetroHop" width={140} height={44}
                   className="h-11 w-auto object-contain" priority />
               ) : (
-                <div>
-                  <span className="text-3xl font-extrabold tracking-tight">
-                    <span className="text-brand-green">Petro</span>
-                    <span className={scrolled ? "text-brand-green-dark" : "text-white"}>Hop</span>
-                  </span>
-                  <span className={`block text-[11px] font-medium leading-none transition-colors duration-300 ${scrolled ? "text-brand-green-dark/80" : "text-white/80"}`}>
-                    {lang === "ar" ? "للخدمات اللوجستية والبترولية" : "Logistics & Petroleum Services"}
-                  </span>
-                </div>
+                <Logo variant={scrolled ? "dark" : "light"} tagline lang={lang} />
               )}
             </Link>
 
@@ -169,10 +162,7 @@ export default function Header() {
         >
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
             <Link href="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-              <span className="text-2xl font-extrabold tracking-tight">
-                <span className="text-brand-green">Petro</span>
-                <span className="text-brand-green-dark">Hop</span>
-              </span>
+              <Logo variant="dark" lang={lang} />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-brand-charcoal-light hover:bg-gray-100" aria-label="إغلاق القائمة">
               <X size={20} />

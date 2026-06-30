@@ -8,12 +8,13 @@ import CoverageRegions from "@/components/gasable/CoverageRegions";
 import DownloadNow from "@/components/gasable/DownloadNow";
 import ExtensiveNetwork from "@/components/gasable/ExtensiveNetwork";
 import Credentials from "@/components/gasable/Credentials";
+import Faq from "@/components/gasable/Faq";
 import WhereToFindUs from "@/components/gasable/WhereToFindUs";
 
 export const metadata: Metadata = {
-  title: "PetroHop — خدمات لوجستية وبترولية في المملكة",
+  title: "PetroHop — حلول متكاملة للطاقة والخدمات اللوجستية",
   description:
-    "شركة بتروهوب للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تربط الموردين بالعملاء. منتجات بترولية، حلول بيئية، إمداد مائي، ومولدات في الرياض ومكة والمدينة وينبع وتبوك.",
+    "PetroHop — حلول متكاملة للطاقة والخدمات اللوجستية: غاز LPG، منتجات بترولية، مياه وبيئة، حلول طاقة، منصة PetroHub IoT، لوجستيات، وأنظمة تتبع المركبات في المملكة العربية السعودية.",
 };
 
 export default function HomePage() {
@@ -27,6 +28,7 @@ export default function HomePage() {
       <Reveal><DownloadNow /></Reveal>
       <Reveal><ExtensiveNetwork /></Reveal>
       <Reveal><Credentials /></Reveal>
+      <Reveal><Faq /></Reveal>
       <Reveal><WhereToFindUs /></Reveal>
     </>
   );
