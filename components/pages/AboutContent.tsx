@@ -2,31 +2,36 @@
 import Link from "next/link";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { ChevronLeft, Target, Eye, Heart } from "lucide-react";
+import { ChevronLeft, Target, Eye, Heart, Leaf } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 
 const stats = [
+  { value: "2004", ar: "عام التأسيس", en: "Established" },
+  { value: "500+", ar: "شريك استراتيجي", en: "Strategic Partners" },
   { value: "7", ar: "خدمات وحلول متكاملة", en: "Integrated Services" },
   { value: "5+", ar: "مناطق تغطية في المملكة", en: "Coverage Regions" },
-  { value: "24/7", ar: "تشغيل ودعم متواصل", en: "Operation & Support" },
-  { value: "100%", ar: "التزام بالجودة والسلامة", en: "Quality & Safety" },
 ];
 
 const values = [
   {
     icon: Heart, color: "from-[#C8102E] to-[#A00C24]",
-    ar: { title: "الجودة والسلامة", description: "نلتزم بأعلى معايير الجودة والسلامة المحلية والدولية في كل خدمة نقدّمها." },
-    en: { title: "Quality & Safety", description: "We uphold the highest local and international quality and safety standards in every service we deliver." },
+    ar: { title: "الموثوقية", description: "التزام كامل بالمواعيد والجودة في كل ما نقدّمه لعملائنا." },
+    en: { title: "Reliability", description: "Full commitment to schedules and quality in everything we provide to our clients." },
   },
   {
     icon: Target, color: "from-[#1B355E] to-[#0C1B33]",
-    ar: { title: "الابتكار", description: "نوظّف التقنيات الحديثة وإنترنت الأشياء لرفع كفاءة التشغيل وخفض الاستهلاك." },
-    en: { title: "Innovation", description: "We leverage modern technologies and IoT to boost operational efficiency and cut consumption." },
+    ar: { title: "الابتكار", description: "حلول تقنية متقدمة وحديثة ترفع كفاءة التشغيل." },
+    en: { title: "Innovation", description: "Advanced, modern technical solutions that boost operational efficiency." },
   },
   {
     icon: Eye, color: "from-[#24487B] to-[#1B355E]",
-    ar: { title: "الاستدامة", description: "نقدّم حلولاً مستدامة تخفض الانبعاثات وتدعم مستهدفات رؤية المملكة 2030." },
-    en: { title: "Sustainability", description: "We deliver sustainable solutions that reduce emissions and support Saudi Vision 2030 goals." },
+    ar: { title: "الشفافية", description: "تواصل واضح وصريح مع العملاء في كل مرحلة." },
+    en: { title: "Transparency", description: "Clear and honest communication with clients at every stage." },
+  },
+  {
+    icon: Leaf, color: "from-[#1B355E] to-[#C8102E]",
+    ar: { title: "الاستدامة", description: "الحفاظ على البيئة والموارد ودعم مستقبل أكثر استدامة." },
+    en: { title: "Sustainability", description: "Protecting the environment and resources and supporting a more sustainable future." },
   },
 ];
 
@@ -40,43 +45,43 @@ const cities = [
 
 const t = {
   ar: {
-    home: "الرئيسية", about: "من نحن", heroBadge: "حلول طاقة وخدمات متكاملة",
-    heroTitle: "نبني مستقبلاً أكثر استدامة",
-    heroSub: "PetroHop — حلول متكاملة للطاقة والخدمات اللوجستية في المملكة العربية السعودية.",
+    home: "الرئيسية", about: "من نحن", heroBadge: "نبذة عن PetroHop",
+    heroTitle: "حلول الطاقة والخدمات اللوجستية المتكاملة",
+    heroSub: "شركة رائدة متخصصة في توفير حلول الطاقة والخدمات اللوجستية المتكاملة محلياً ودولياً.",
     storyBadge: "من نحن",
-    storyTitle: "شركة PetroHop للطاقة والخدمات المتكاملة",
-    storyP1: "تقدم PetroHop مجموعة متكاملة من الخدمات والحلول التي تلبي احتياجات القطاعات السكنية والتجارية والصناعية، من خلال منظومة تشغيل متطورة تعتمد على الجودة والسلامة والابتكار.",
-    storyP2: "تشمل خدماتنا توريد غاز البترول المسال والمنتجات البترولية، وخدمات المياه والبيئة، وحلول الطاقة، ومنصة PetroHub IoT، والخدمات اللوجستية وأنظمة تتبع المركبات — بما يضمن خدمات موثوقة تعزز كفاءة الأعمال وتحقق قيمة مضافة مستدامة.",
-    quote: "لا نقدّم خدمات فحسب، بل نبني شراكات استراتيجية طويلة الأمد مع عملائنا.",
+    storyTitle: "نبذة عن PetroHop",
+    storyP1: "PetroHop شركة رائدة متخصصة في توفير حلول الطاقة والخدمات اللوجستية المتكاملة. منذ تأسيسنا عام 2004، نقدم خدمات موثوقة وابتكارية في قطاع الطاقة محلياً ودولياً. وبفريق متخصص ومؤهل، وشراكات استراتيجية مع أكثر من 500 شركة، نحن ملتزمون بتقديم حلول تلبي احتياجات القطاعات السكنية والتجارية والصناعية.",
+    storyP2: "مع حضورنا في جميع أنحاء المملكة العربية السعودية، والفرع الرئيسي في الرياض، نضمن توصيل خدماتنا بكفاءة وسرعة.",
+    quote: "نمكّن عملاءنا بحلول طاقة مستدامة وآمنة وموثوقة تعزز كفاءة أعمالهم وتقلل التكاليف.",
     coverageBadge: "مناطق التغطية",
-    coverageTitle: "نغطي المناطق الحيوية في المملكة",
-    coverageSub: "شبكة تشغيل واسعة من المدن والمناطق لخدمة عملائنا أينما كانوا",
+    coverageTitle: "حضورنا في جميع أنحاء المملكة",
+    coverageSub: "الفرع الرئيسي في الرياض مع شبكة تشغيل تغطي المناطق الحيوية",
     visionTitle: "رؤيتنا",
-    visionText: "أن نكون الشريك الأول في حلول الطاقة والخدمات المتكاملة في المملكة، بما يتوافق مع مستهدفات رؤية 2030.",
+    visionText: "أن نكون الشريك الأول والموثوق في حلول الطاقة والخدمات اللوجستية في المملكة العربية السعودية.",
     missionTitle: "رسالتنا",
-    missionText: "تقديم خدمات وحلول موثوقة عالية الجودة تعزز كفاءة الأعمال، وتدعم الاستدامة، وتحقق قيمة مضافة لعملائنا.",
-    valuesBadge: "قيمنا", valuesTitle: "ما يميّزنا",
+    missionText: "تمكين العملاء بحلول طاقة مستدامة وآمنة وموثوقة تعزز كفاءة أعمالهم وتقلل التكاليف.",
+    valuesBadge: "القيم الأساسية", valuesTitle: "قيمنا الأساسية",
     ctaTitle: "تواصل معنا اليوم",
     ctaSub: "سواء كنت تبحث عن حلول طاقة أو خدمات لوجستية متخصصة، فريق PetroHop جاهز لمساعدتك.",
     quoteBtn: "اطلب عرض سعر", contactBtn: "اتصل بنا",
   },
   en: {
-    home: "Home", about: "About Us", heroBadge: "Integrated Energy & Services",
-    heroTitle: "Building a More Sustainable Future",
-    heroSub: "PetroHop — integrated energy and logistics solutions in the Kingdom of Saudi Arabia.",
+    home: "Home", about: "About Us", heroBadge: "About PetroHop",
+    heroTitle: "Integrated Energy & Logistics Solutions",
+    heroSub: "A leading company specialized in providing integrated energy and logistics solutions locally and internationally.",
     storyBadge: "About Us",
-    storyTitle: "PetroHop for Energy & Integrated Services",
-    storyP1: "PetroHop offers an integrated range of services and solutions meeting the needs of the residential, commercial and industrial sectors through an advanced operating system built on quality, safety and innovation.",
-    storyP2: "Our services span LPG and petroleum products, water and environmental services, energy solutions, the PetroHub IoT platform, logistics and vehicle-tracking systems — delivering reliable services that boost efficiency and create sustainable added value.",
-    quote: "We don't just provide services — we build long-term strategic partnerships with our clients.",
+    storyTitle: "About PetroHop",
+    storyP1: "PetroHop is a leading company specialized in providing integrated energy and logistics solutions. Since our establishment in 2004, we have delivered reliable and innovative services in the energy sector locally and internationally. With a qualified specialized team and strategic partnerships with over 500 companies, we are committed to solutions that meet the needs of the residential, commercial and industrial sectors.",
+    storyP2: "With our presence across the Kingdom of Saudi Arabia and our head office in Riyadh, we ensure our services are delivered efficiently and quickly.",
+    quote: "We empower our clients with sustainable, safe and reliable energy solutions that boost their business efficiency and reduce costs.",
     coverageBadge: "Coverage Regions",
-    coverageTitle: "We Cover the Vital Regions of the Kingdom",
-    coverageSub: "A wide operational network of cities and regions to serve our customers wherever they are",
+    coverageTitle: "Our Presence Across the Kingdom",
+    coverageSub: "Head office in Riyadh with an operational network covering the vital regions",
     visionTitle: "Our Vision",
-    visionText: "To be the leading partner in integrated energy and services solutions in the Kingdom, aligned with Vision 2030 goals.",
+    visionText: "To be the first and most trusted partner in energy and logistics solutions in the Kingdom of Saudi Arabia.",
     missionTitle: "Our Mission",
-    missionText: "Delivering reliable, high-quality services and solutions that boost business efficiency, support sustainability and create added value for our clients.",
-    valuesBadge: "Our Values", valuesTitle: "What Sets Us Apart",
+    missionText: "Empowering clients with sustainable, safe and reliable energy solutions that boost their business efficiency and reduce costs.",
+    valuesBadge: "Core Values", valuesTitle: "Our Core Values",
     ctaTitle: "Contact Us Today",
     ctaSub: "Whether you need energy solutions or specialized logistics services, the PetroHop team is ready to help.",
     quoteBtn: "Get a Quote", contactBtn: "Contact Us",
@@ -182,7 +187,7 @@ export default function AboutContent() {
             <Badge className="mb-5">{L.valuesBadge}</Badge>
             <h2 className="text-4xl font-black text-brand-charcoal">{L.valuesTitle}</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => {
               const c = lang === "ar" ? v.ar : v.en;
               return (
