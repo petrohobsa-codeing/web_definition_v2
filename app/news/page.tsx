@@ -6,8 +6,16 @@ import Badge from "@/components/ui/Badge";
 import { Calendar, Tag, ArrowLeft } from "lucide-react";
 import { getPosts } from "@/lib/db";
 import type { BlogPost } from "@/lib/types";
+import { useLang } from "@/context/LanguageContext";
+
+const tn = {
+  ar: { badge: "أخبارنا", title: "أخبار بتروهوب", sub: "آخر المستجدات والمقالات من عالم الخدمات اللوجستية والبترولية.", empty: "لا توجد مقالات حالياً.", locale: "ar-SA" },
+  en: { badge: "Our News", title: "PetroHop News", sub: "The latest updates and articles from the world of logistics and petroleum services.", empty: "No articles yet.", locale: "en-US" },
+};
 
 export default function NewsPage() {
+  const { lang } = useLang();
+  const L = tn[lang];
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => { getPosts().then(setPosts); }, []);
@@ -20,14 +28,10 @@ export default function NewsPage() {
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-brand-gold/10 blur-3xl" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
-            أخبارنا
+            {L.badge}
           </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            أخبار فاست لينك
-          </h1>
-          <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">
-            آخر المستجدات والمقالات من عالم الخدمات اللوجستية والبترولية.
-          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">{L.title}</h1>
+          <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">{L.sub}</p>
         </div>
       </section>
 
@@ -35,7 +39,7 @@ export default function NewsPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {posts.length === 0 ? (
-            <p className="text-center text-brand-charcoal-light py-16">لا توجد مقالات حالياً.</p>
+            <p className="text-center text-brand-charcoal-light py-16">{L.empty}</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post, i) => (
@@ -60,7 +64,7 @@ export default function NewsPage() {
                         </span>
                         <span className="text-xs text-brand-charcoal-light flex items-center gap-1">
                           <Calendar size={11} />
-                          {new Date(post.date).toLocaleDateString("ar-SA")}
+                          {new Date(post.date).toLocaleDateString(L.locale)}
                         </span>
                       </div>
                       <h2 className="text-lg font-black text-brand-charcoal mb-3 group-hover:text-brand-green-dark transition-colors duration-300 leading-snug flex-1">
@@ -70,8 +74,8 @@ export default function NewsPage() {
                         {post.excerpt}
                       </p>
                       <div className="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:gap-3 transition-all duration-300">
-                        <span>اقرأ المزيد</span>
-                        <ArrowLeft size={15} className="rotate-180" />
+                        <span>{lang === "ar" ? "اقرأ المزيد" : "Read More"}</span>
+                        <ArrowLeft size={15} className="rtl:rotate-180" />
                       </div>
                     </div>
                   </Link>

@@ -3,8 +3,34 @@ import { useState, FormEvent } from "react";
 import Button from "@/components/ui/Button";
 import { CheckCircle2 } from "lucide-react";
 import { addMessage } from "@/lib/db";
+import { useLang } from "@/context/LanguageContext";
+
+const tf = {
+  ar: {
+    successTitle: "تم إرسال رسالتك!",
+    successBody: "شكراً لتواصلك مع PetroHop. سيتصل بك فريقنا خلال ساعات العمل.",
+    name: "الاسم", namePh: "اسم المنشأة",
+    phone: "رقم الجوال",
+    email: "البريد الإلكتروني", emailPh: "example@company.sa",
+    message: "رسالتك", messagePh: "أكتب رسالتك هنا...",
+    sending: "جارٍ الإرسال...", send: "إرسال",
+    consent: "بإرسالك هذا النموذج فإنك توافق على سياسة الخصوصية لدينا. لن نشارك بياناتك مع أي طرف ثالث.",
+  },
+  en: {
+    successTitle: "Your message has been sent!",
+    successBody: "Thank you for contacting PetroHop. Our team will reach out to you during working hours.",
+    name: "Name", namePh: "Company name",
+    phone: "Mobile Number",
+    email: "Email", emailPh: "example@company.sa",
+    message: "Your Message", messagePh: "Write your message here...",
+    sending: "Sending...", send: "Send",
+    consent: "By submitting this form you agree to our privacy policy. We will not share your data with any third party.",
+  },
+};
 
 export default function ContactForm() {
+  const { lang } = useLang();
+  const L = tf[lang];
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -36,12 +62,8 @@ export default function ContactForm() {
         <div className="w-20 h-20 rounded-full bg-brand-green-light flex items-center justify-center mb-6">
           <CheckCircle2 size={40} className="text-brand-green" />
         </div>
-        <h3 className="text-2xl font-black text-brand-charcoal mb-3">
-          تم إرسال رسالتك!
-        </h3>
-        <p className="text-brand-charcoal-light max-w-sm">
-          شكراً لتواصلك مع Fast Link. سيتصل بك فريقنا خلال ساعات العمل.
-        </p>
+        <h3 className="text-2xl font-black text-brand-charcoal mb-3">{L.successTitle}</h3>
+        <p className="text-brand-charcoal-light max-w-sm">{L.successBody}</p>
       </div>
     );
   }
@@ -53,13 +75,13 @@ export default function ContactForm() {
           htmlFor="contact-name"
           className="block text-sm font-bold text-brand-charcoal mb-2"
         >
-          الاسم <span className="text-red-500">*</span>
+          {L.name} <span className="text-red-500">*</span>
         </label>
         <input
           id="contact-name"
           type="text"
           required
-          placeholder="اسم المنشأة"
+          placeholder={L.namePh}
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
           className="w-full px-5 py-3.5 rounded-2xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition-all duration-200 bg-gray-50 text-brand-charcoal placeholder:text-brand-charcoal-light/50"
@@ -71,7 +93,7 @@ export default function ContactForm() {
           htmlFor="contact-phone"
           className="block text-sm font-bold text-brand-charcoal mb-2"
         >
-          رقم الجوال <span className="text-red-500">*</span>
+          {L.phone} <span className="text-red-500">*</span>
         </label>
         <input
           id="contact-phone"
@@ -89,12 +111,12 @@ export default function ContactForm() {
           htmlFor="contact-email"
           className="block text-sm font-bold text-brand-charcoal mb-2"
         >
-          البريد الإلكتروني
+          {L.email}
         </label>
         <input
           id="contact-email"
           type="email"
-          placeholder="example@company.sa"
+          placeholder={L.emailPh}
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           className="w-full px-5 py-3.5 rounded-2xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition-all duration-200 bg-gray-50 text-brand-charcoal placeholder:text-brand-charcoal-light/50"
@@ -106,12 +128,12 @@ export default function ContactForm() {
           htmlFor="contact-message"
           className="block text-sm font-bold text-brand-charcoal mb-2"
         >
-          رسالتك
+          {L.message}
         </label>
         <textarea
           id="contact-message"
           rows={5}
-          placeholder="أكتب رسالتك هنا..."
+          placeholder={L.messagePh}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className="w-full px-5 py-3.5 rounded-2xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition-all duration-200 bg-gray-50 text-brand-charcoal placeholder:text-brand-charcoal-light/50 resize-none"
@@ -129,16 +151,15 @@ export default function ContactForm() {
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-            جارٍ الإرسال...
+            {L.sending}
           </span>
         ) : (
-          "إرسال"
+          L.send
         )}
       </Button>
 
       <p className="text-xs text-brand-charcoal-light text-center leading-relaxed">
-        بإرسالك هذا النموذج فإنك توافق على سياسة الخصوصية لدينا. لن نشارك
-        بياناتك مع أي طرف ثالث.
+        {L.consent}
       </p>
     </form>
   );

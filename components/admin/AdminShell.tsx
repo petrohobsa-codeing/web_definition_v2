@@ -17,7 +17,6 @@ import {
   Mail,
   Settings,
   LogOut,
-  Fuel,
   Menu,
   ExternalLink,
   ChevronRight,
@@ -87,21 +86,22 @@ export default function AdminShell({ children, title }: Props) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed right-0 top-0 h-full w-64 bg-brand-green-dark flex flex-col z-30 transition-transform duration-300 shadow-2xl ${
+        className={`fixed right-0 top-0 h-full w-64 flex flex-col z-30 transition-transform duration-300 shadow-2xl ${
           sidebarOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"
         }`}
+        style={{ background: "linear-gradient(180deg, #1B355E 0%, #0C1B33 100%)" }}
       >
+        {/* Red accent */}
+        <div className="h-1 bg-[#C8102E] flex-shrink-0" />
         {/* Brand */}
         <div className="p-5 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center flex-shrink-0">
-              <Fuel size={20} className="text-white" />
-            </div>
-            <div>
-              <p className="text-white font-black text-lg leading-none">Fast Link</p>
-              <p className="text-white/40 text-xs mt-0.5">لوحة التحكم</p>
-            </div>
+            <span className="text-2xl font-extrabold tracking-tight">
+              <span className="text-white">Petro</span>
+              <span className="text-white/70">Hop</span>
+            </span>
           </div>
+          <p className="text-white/40 text-xs mt-1">لوحة التحكم</p>
         </div>
 
         {/* Navigation */}

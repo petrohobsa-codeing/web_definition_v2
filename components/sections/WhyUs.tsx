@@ -22,9 +22,9 @@ const badges = [
 
 export default function WhyUs() {
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden" aria-labelledby="whyus-title">
-      <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-brand-green-light/60 blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-brand-gold-light/30 blur-3xl" />
+    <section className="py-24 bg-brand-green-pale relative overflow-hidden" aria-labelledby="whyus-title">
+      <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-white/60 blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-brand-green-light/60 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -35,13 +35,13 @@ export default function WhyUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="mb-5">لماذا Fast Link</Badge>
+            <Badge className="mb-5">لماذا PetroHop</Badge>
             <h2
               id="whyus-title"
               className="text-4xl md:text-5xl font-black text-brand-charcoal mb-5 leading-tight"
             >
               لماذا تختار
-              <span className="text-brand-green block">Fast Link؟</span>
+              <span className="text-brand-green block">PetroHop؟</span>
             </h2>
             <p className="text-brand-charcoal-light leading-loose text-lg mb-8">
               نحن لسنا مجرد وسيط — بل شريكك الاستراتيجي الذي يضمن وصول كل ما تحتاجه من مصادر موثوقة، بالوقت المحدد وبأفضل الأسعار.
@@ -93,7 +93,7 @@ export default function WhyUs() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-brand-green/10 border border-gray-100">
                 <Image
                   src={siteImages.whyUs}
-                  alt="لماذا Fast Link"
+                  alt="لماذا PetroHop"
                   width={600}
                   height={500}
                   className="object-cover w-full h-auto"

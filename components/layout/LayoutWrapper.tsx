@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
+import IconGradientDefs from "@/components/gasable/IconGradientDefs";
 
 export default function LayoutWrapper({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -15,6 +16,7 @@ export default function LayoutWrapper({ children }: { children: ReactNode }) {
 
   return (
     <>
+      <IconGradientDefs />
       <Header />
       <main>{children}</main>
       <Footer />

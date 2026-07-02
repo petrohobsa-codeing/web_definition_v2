@@ -52,7 +52,7 @@ export default function SettingsPage() {
   const fields: { key: keyof SiteSettings; label: string; placeholder: string; type?: string }[] = [
     { key: "phone", label: "رقم الهاتف", placeholder: "+966500000000", type: "tel" },
     { key: "whatsapp", label: "رقم واتساب", placeholder: "+966500000000", type: "tel" },
-    { key: "email", label: "البريد الإلكتروني", placeholder: "info@fastlink.sa", type: "email" },
+    { key: "email", label: "البريد الإلكتروني", placeholder: "info@petrohop.sa", type: "email" },
     { key: "address", label: "العنوان", placeholder: "طريق الملك فهد، الرياض" },
     { key: "workingHours", label: "ساعات العمل", placeholder: "الأحد – الخميس، 8 صباحاً – 6 مساءً" },
     { key: "cities", label: "المدن التي نخدمها", placeholder: "الرياض، جدة، الدمام" },

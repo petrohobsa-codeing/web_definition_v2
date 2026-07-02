@@ -16,7 +16,7 @@ interface ButtonProps {
 
 const variantClasses = {
   primary:
-    "bg-brand-green text-white hover:bg-brand-green-mid shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40",
+    "bg-brand-green text-white hover:bg-brand-green-mid shadow-lg shadow-brand-green/25 hover:shadow-brand-green/40",
   secondary:
     "bg-white text-brand-green-dark border-2 border-brand-green hover:bg-brand-green-light",
   outline:
@@ -24,7 +24,7 @@ const variantClasses = {
   ghost:
     "bg-transparent text-brand-green hover:bg-brand-green-light",
   gold:
-    "bg-brand-gold text-brand-green-dark hover:bg-brand-gold-dark shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50",
+    "bg-brand-gold text-white hover:bg-brand-gold-dark shadow-lg shadow-brand-gold/30 hover:shadow-brand-gold/50",
 };
 
 const sizeClasses = {

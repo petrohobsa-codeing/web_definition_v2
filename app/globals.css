@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #111827;
+  --foreground: #333333;
 }
 
 * {
@@ -32,13 +32,13 @@ body {
   background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #059669;
+  background: #1B355E;
   border-radius: 3px;
 }
 
 /* Dot pattern utility */
 .dot-bg {
-  background-image: radial-gradient(circle, rgba(5, 150, 105, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(27, 53, 94, 0.12) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -50,7 +50,7 @@ body {
 }
 
 .glass-dark {
-  background: rgba(6, 78, 59, 0.75);
+  background: rgba(14, 84, 154, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -91,6 +91,42 @@ body {
 
 /* Selection */
 ::selection {
-  background: rgba(5, 150, 105, 0.2);
-  color: #064E3B;
+  background: rgba(27, 53, 94, 0.18);
+  color: #0C1B33;
+}
+
+/* Gradient text (navy) for stat numbers */
+.text-gasable-gradient {
+  background: linear-gradient(135deg, #1B355E 0%, #0C1B33 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Icon grow on hover (Elementor-style) */
+.hover-grow {
+  transition: transform 0.3s ease;
+}
+.group:hover .hover-grow,
+.hover-grow:hover {
+  transform: scale(1.12);
+}
+
+/* Underlined card title accent */
+.title-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+.title-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #1B355E, #C8102E);
 }

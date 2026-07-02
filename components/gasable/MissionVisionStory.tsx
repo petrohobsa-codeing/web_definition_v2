@@ -1,0 +1,119 @@
+"use client";
+import { useLang } from "@/context/LanguageContext";
+import GasableButton from "./GasableButton";
+import { StaggerGroup, StaggerItem } from "./Stagger";
+
+const grad = (id: string) => (
+  <defs>
+    <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#1B355E" />
+      <stop offset="100%" stopColor="#C8102E" />
+    </linearGradient>
+  </defs>
+);
+
+const LeafIcon = () => (
+  <svg viewBox="0 0 100 100" className="w-[100px] h-[100px]" fill="none" strokeWidth="3">
+    {grad("g1")}
+    <circle cx="50" cy="50" r="38" stroke="url(#g1)" />
+    <path
+      d="M38 60c0-14 11-26 26-28-1 15-11 27-26 28z"
+      stroke="url(#g1)"
+      strokeLinejoin="round"
+    />
+    <path d="M40 58c6-6 13-11 22-13" stroke="url(#g1)" strokeLinecap="round" />
+  </svg>
+);
+
+const SunIcon = () => (
+  <svg viewBox="0 0 100 100" className="w-[100px] h-[100px]" fill="none" strokeWidth="3">
+    {grad("g2")}
+    <circle cx="50" cy="50" r="18" stroke="url(#g2)" />
+    {Array.from({ length: 8 }).map((_, i) => {
+      const a = (i * Math.PI) / 4;
+      const x1 = 50 + Math.cos(a) * 26;
+      const y1 = 50 + Math.sin(a) * 26;
+      const x2 = 50 + Math.cos(a) * 36;
+      const y2 = 50 + Math.sin(a) * 36;
+      return (
+        <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="url(#g2)" strokeLinecap="round" />
+      );
+    })}
+  </svg>
+);
+
+const HouseIcon = () => (
+  <svg viewBox="0 0 100 100" className="w-[100px] h-[100px]" fill="none" strokeWidth="3">
+    {grad("g3")}
+    <path d="M22 48 50 24l28 24" stroke="url(#g3)" strokeLinejoin="round" strokeLinecap="round" />
+    <path d="M30 46v28h40V46" stroke="url(#g3)" strokeLinejoin="round" />
+    <path d="M50 70c0-8 5-15 13-16-1 9-6 16-13 16z" stroke="url(#g3)" strokeLinejoin="round" />
+  </svg>
+);
+
+const cards = [
+  {
+    Icon: LeafIcon,
+    ar: {
+      title: "مهمتنا",
+      text: "تقديم خدمات وحلول طاقة موثوقة عالية الجودة تعزز كفاءة الأعمال وتدعم الاستدامة لعملائنا.",
+    },
+    en: {
+      title: "Our Mission",
+      text: "Delivering reliable, high-quality energy services and solutions that boost business efficiency and support sustainability for our clients.",
+    },
+  },
+  {
+    Icon: SunIcon,
+    ar: {
+      title: "رؤيتنا",
+      text: "أن نكون الشريك الأول في حلول الطاقة والخدمات المتكاملة في المملكة، بما يتوافق مع رؤية 2030.",
+    },
+    en: {
+      title: "Our Vision",
+      text: "To be the leading partner in integrated energy and services solutions in the Kingdom, aligned with Vision 2030.",
+    },
+  },
+  {
+    Icon: HouseIcon,
+    ar: {
+      title: "قصّتنا",
+      text: "PetroHop — منظومة متكاملة للطاقة والخدمات اللوجستية تخدم القطاعات السكنية والتجارية والصناعية بالجودة والابتكار.",
+    },
+    en: {
+      title: "Our Story",
+      text: "PetroHop — an integrated energy and logistics system serving residential, commercial and industrial sectors with quality and innovation.",
+    },
+  },
+];
+
+export default function MissionVisionStory() {
+  const { lang } = useLang();
+  return (
+    <section className="bg-[#F4F6FA] py-[50px]">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {cards.map(({ Icon, ...c }, i) => {
+            const content = lang === "ar" ? c.ar : c.en;
+            return (
+              <StaggerItem key={i} lift={false} className="text-center flex flex-col items-center">
+                <div className="hover-grow mb-5">
+                  <Icon />
+                </div>
+                <h3 className="title-underline text-[22px] font-semibold text-brand-charcoal-mid mb-5">
+                  {content.title}
+                </h3>
+                <p className="text-[#54595F] leading-7 max-w-xs">{content.text}</p>
+              </StaggerItem>
+            );
+          })}
+        </StaggerGroup>
+        <div className="text-center mt-12">
+          <GasableButton href="/about">
+            {lang === "ar" ? "اقرأ المزيد" : "Read More"}
+          </GasableButton>
+        </div>
+      </div>
+    </section>
+  );
+}

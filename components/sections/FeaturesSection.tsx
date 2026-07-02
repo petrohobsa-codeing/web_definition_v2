@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { Handshake, BadgeCheck, MapPin, HeadphonesIcon } from "lucide-react";
 
 const features = [
@@ -53,11 +54,11 @@ export default function FeaturesSection() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="relative rounded-4xl overflow-hidden bg-gradient-to-br from-brand-green-dark to-brand-green-mid p-1">
+            <div className="relative rounded-4xl overflow-hidden bg-gradient-to-br from-brand-green to-brand-green-dark p-1">
               <div className="rounded-3xl bg-brand-green-dark/90 p-8 space-y-4">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <p className="text-white/50 text-xs font-medium">فاست لينك</p>
+                    <p className="text-white/50 text-xs font-medium">بتروهوب</p>
                     <p className="text-white font-black">خدماتنا اللوجستية</p>
                   </div>
                   <span className="bg-brand-green/30 text-green-300 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
@@ -112,13 +113,13 @@ export default function FeaturesSection() {
               transition={{ duration: 0.5 }}
               className="mb-10"
             >
-              <Badge className="mb-4">لماذا فاست لينك</Badge>
-              <h2
+              <Badge className="mb-4">لماذا بتروهوب</Badge>
+              <SectionHeading
                 id="features-title"
-                className="text-4xl md:text-5xl font-black text-brand-charcoal mb-4"
-              >
-                الوصل الأمثل بين الموردين والعملاء
-              </h2>
+                text="الوصل الأمثل بين الموردين والعملاء"
+                align="right"
+                className="mb-4"
+              />
               <p className="text-brand-charcoal-light leading-relaxed">
                 نضمن حصولك على ما تحتاجه بالسرعة المطلوبة وبأسعار تنافسية من موردين معتمدين.
               </p>
@@ -137,7 +138,7 @@ export default function FeaturesSection() {
                   <div className="w-12 h-12 rounded-xl bg-brand-green-light flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green transition-colors duration-300">
                     <f.icon
                       size={22}
-                      className="text-brand-green group-hover:text-white transition-colors duration-300"
+                      className="text-brand-green group-hover:text-white hover-grow transition-colors duration-300"
                     />
                   </div>
                   <div>

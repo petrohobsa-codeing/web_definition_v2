@@ -2,7 +2,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { doLogin, checkAuth } from "@/lib/store";
-import { Fuel, Eye, EyeOff, Lock, ShieldCheck } from "lucide-react";
+import { Eye, EyeOff, Lock, ShieldCheck } from "lucide-react";
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
@@ -43,11 +43,12 @@ export default function AdminLoginPage() {
         {/* Card */}
         <div className="bg-white rounded-4xl shadow-2xl shadow-brand-green-dark/30 overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-br from-brand-green-dark to-brand-green-mid p-8 text-center">
-            <div className="w-16 h-16 rounded-2xl bg-brand-green mx-auto mb-4 flex items-center justify-center shadow-lg">
-              <Fuel size={30} className="text-white" />
-            </div>
-            <h1 className="text-2xl font-black text-white mb-1">Fast Link</h1>
+          <div className="bg-gradient-to-br from-brand-green-dark to-brand-green-mid p-8 text-center relative">
+            <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
+            <h1 className="text-3xl font-extrabold tracking-tight mb-1">
+              <span className="text-white">Petro</span>
+              <span className="text-white/70">Hop</span>
+            </h1>
             <p className="text-white/60 text-sm">لوحة التحكم الإدارية</p>
           </div>
 
@@ -123,10 +124,7 @@ export default function AdminLoginPage() {
             </form>
 
             <p className="mt-6 text-center text-xs text-brand-charcoal-light">
-              كلمة المرور الافتراضية:{" "}
-              <code className="bg-gray-100 px-2 py-0.5 rounded font-mono text-brand-green font-bold">
-                fastlink2024
-              </code>
+              منطقة محمية — مخصّصة لموظفي PetroHop المصرّح لهم فقط.
             </p>
           </div>
         </div>

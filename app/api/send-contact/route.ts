@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body = await req.json();
     const { name, phone, email, message } = body;
@@ -13,14 +14,14 @@ export async function POST(req: NextRequest) {
     }
 
     const { error } = await resend.emails.send({
-      from: "Fast Link <delivered@ioostooeld.resend.app>",
-      to: process.env.TO_EMAIL || "info@fastlink.sa",
+      from: "PetroHop <delivered@ioostooeld.resend.app>",
+      to: process.env.TO_EMAIL || "info@petrohop.sa",
       subject: `رسالة جديدة من ${name}`,
       html: `
         <div dir="rtl" style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f9fafb; padding: 24px; border-radius: 16px;">
           <div style="background: #064E3B; padding: 24px; border-radius: 12px; margin-bottom: 24px; text-align: center;">
             <h1 style="color: #ffffff; margin: 0; font-size: 22px;">رسالة جديدة من الموقع</h1>
-            <p style="color: #6EE7B7; margin: 8px 0 0;">شركة فاست لينك للخدمات اللوجستية والبترولية</p>
+            <p style="color: #6EE7B7; margin: 8px 0 0;">شركة بتروهوب للخدمات اللوجستية والبترولية</p>
           </div>
 
           <div style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #E5E7EB;">
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
           </div>
 
           <p style="text-align: center; color: #9CA3AF; font-size: 12px; margin-top: 20px;">
-            تم إرسال هذه الرسالة من موقع فاست لينك — fastlink.sa
+            تم إرسال هذه الرسالة من موقع بتروهوب — petrohop.sa
           </p>
         </div>
       `,

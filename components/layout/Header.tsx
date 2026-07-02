@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Fuel } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
+import Logo from "@/components/ui/Logo";
 import { siteImages } from "@/lib/images";
 import { useLang } from "@/context/LanguageContext";
 import { t } from "@/lib/translations";
@@ -60,24 +61,12 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group" aria-label="فاست لينك">
+            <Link href="/" className="flex items-center gap-3 group" aria-label="بتروهوب">
               {siteImages.logo ? (
-                <Image src={siteImages.logo} alt="Fast Link" width={140} height={44}
+                <Image src={siteImages.logo} alt="PetroHop" width={140} height={44}
                   className="h-11 w-auto object-contain" priority />
               ) : (
-                <>
-                  <div className="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center group-hover:bg-brand-green-mid transition-colors duration-300 shadow-lg shadow-brand-green/20">
-                    <Fuel size={20} className="text-white" />
-                  </div>
-                  <div>
-                    <span className={`text-2xl font-black tracking-tight transition-colors duration-300 ${scrolled ? "text-brand-green-dark" : "text-white"}`}>
-                      Fast Link
-                    </span>
-                    <span className={`block text-xs font-medium leading-none transition-colors duration-300 ${scrolled ? "text-brand-charcoal-light" : "text-white/70"}`}>
-                      {lang === "ar" ? "فاست لينك للطاقة" : "Logistics & Petroleum"}
-                    </span>
-                  </div>
-                </>
+                <Logo variant={scrolled ? "dark" : "light"} tagline lang={lang} />
               )}
             </Link>
 
@@ -173,10 +162,7 @@ export default function Header() {
         >
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
             <Link href="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-              <div className="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center">
-                <Fuel size={18} className="text-white" />
-              </div>
-              <span className="text-xl font-black text-brand-green-dark">Fast Link</span>
+              <Logo variant="dark" lang={lang} />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-brand-charcoal-light hover:bg-gray-100" aria-label="إغلاق القائمة">
               <X size={20} />

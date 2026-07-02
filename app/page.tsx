@@ -1,30 +1,35 @@
 import type { Metadata } from "next";
-import HeroSlider from "@/components/sections/HeroSlider";
-import StatsSection from "@/components/sections/StatsSection";
-import ServicesGrid from "@/components/sections/ServicesGrid";
-import FeaturesSection from "@/components/sections/FeaturesSection";
-import WhyUs from "@/components/sections/WhyUs";
-import HowItWorks from "@/components/sections/HowItWorks";
-import Testimonials from "@/components/sections/Testimonials";
-import CTABanner from "@/components/sections/CTABanner";
+import GasableHero from "@/components/gasable/GasableHero";
+import Reveal from "@/components/gasable/Reveal";
+import MissionVisionStory from "@/components/gasable/MissionVisionStory";
+import InFigures from "@/components/gasable/InFigures";
+import Speciality from "@/components/gasable/Speciality";
+import CoverageRegions from "@/components/gasable/CoverageRegions";
+import DownloadNow from "@/components/gasable/DownloadNow";
+import ExtensiveNetwork from "@/components/gasable/ExtensiveNetwork";
+import Credentials from "@/components/gasable/Credentials";
+import Faq from "@/components/gasable/Faq";
+import WhereToFindUs from "@/components/gasable/WhereToFindUs";
 
 export const metadata: Metadata = {
-  title: "Fast Link — خدمات لوجستية وبترولية في المملكة",
+  title: "PetroHop — حلول متكاملة للطاقة والخدمات اللوجستية",
   description:
-    "شركة فاست لينك للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تربط الموردين بالعملاء. منتجات بترولية، حلول بيئية، إمداد مائي، ومولدات كهربائية في الرياض ومكة والمدينة وينبع وتبوك.",
+    "PetroHop — حلول متكاملة للطاقة والخدمات اللوجستية: غاز LPG، منتجات بترولية، مياه وبيئة، حلول طاقة، منصة PetroHub IoT، لوجستيات، وأنظمة تتبع المركبات في المملكة العربية السعودية.",
 };
 
 export default function HomePage() {
   return (
     <>
-      <HeroSlider />
-      <StatsSection />
-      <ServicesGrid />
-      <FeaturesSection />
-      <WhyUs />
-      <HowItWorks />
-      <Testimonials />
-      <CTABanner />
+      <GasableHero />
+      <Reveal><MissionVisionStory /></Reveal>
+      <Reveal><InFigures /></Reveal>
+      <Reveal><Speciality /></Reveal>
+      <Reveal><CoverageRegions /></Reveal>
+      <Reveal><DownloadNow /></Reveal>
+      <Reveal><ExtensiveNetwork /></Reveal>
+      <Reveal><Credentials /></Reveal>
+      <Reveal><Faq /></Reveal>
+      <Reveal><WhereToFindUs /></Reveal>
     </>
   );
 }
