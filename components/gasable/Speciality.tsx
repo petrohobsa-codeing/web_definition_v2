@@ -47,7 +47,7 @@ export default function Speciality() {
                   <h3 className="text-lg font-bold text-brand-green-dark mb-3 leading-snug">
                     {c.title}
                   </h3>
-                  <p className="text-[#54595F] text-sm leading-6 line-clamp-3">{c.intro}</p>
+                  <p className="text-[#54595F] text-sm leading-6">{c.intro}</p>
                 </Link>
               </StaggerItem>
             );
