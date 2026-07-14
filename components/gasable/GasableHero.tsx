@@ -10,7 +10,7 @@ const slides = [
     en: { title: "Petrohub", sub: "Smart solutions… energy delivered with trust." },
   },
   {
-    img: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&fit=crop&w=1920&q=80",
+    img: "/images/hero/facility.jpg",
     ar: { title: "غاز ومنتجات بترولية", sub: "توريد غاز البترول المسال والمنتجات البترولية بأعلى معايير السلامة." },
     en: { title: "LPG & Petroleum", sub: "LPG and petroleum products supply to the highest safety standards." },
   },

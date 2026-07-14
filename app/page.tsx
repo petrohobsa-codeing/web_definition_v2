@@ -9,7 +9,6 @@ import DownloadNow from "@/components/gasable/DownloadNow";
 import ExtensiveNetwork from "@/components/gasable/ExtensiveNetwork";
 import Credentials from "@/components/gasable/Credentials";
 import Faq from "@/components/gasable/Faq";
-import BrandBanner from "@/components/gasable/BrandBanner";
 import WhereToFindUs from "@/components/gasable/WhereToFindUs";
 
 export const metadata: Metadata = {
@@ -30,7 +29,6 @@ export default function HomePage() {
       <Reveal><ExtensiveNetwork /></Reveal>
       <Reveal><Credentials /></Reveal>
       <Reveal><Faq /></Reveal>
-      <Reveal><BrandBanner /></Reveal>
       <Reveal><WhereToFindUs /></Reveal>
     </>
   );
