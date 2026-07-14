@@ -10,7 +10,7 @@ const slides = [
     en: { title: "Petrohub", sub: "Smart solutions… energy delivered with trust." },
   },
   {
-    img: "/images/hero/facility.jpg",
+    img: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&fit=crop&w=1920&q=80",
     ar: { title: "غاز ومنتجات بترولية", sub: "توريد غاز البترول المسال والمنتجات البترولية بأعلى معايير السلامة." },
     en: { title: "LPG & Petroleum", sub: "LPG and petroleum products supply to the highest safety standards." },
   },
@@ -18,6 +18,11 @@ const slides = [
     img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=80",
     ar: { title: "طاقة وتقنية ذكية", sub: "حلول طاقة مستدامة ومنصة PetroHub IoT لمراقبة الاستهلاك." },
     en: { title: "Smart Energy & Tech", sub: "Sustainable energy solutions and the PetroHub IoT platform." },
+  },
+  {
+    img: "/images/hero/facility.jpg",
+    ar: { title: "منشآتنا وأسطولنا", sub: "منشآت حديثة وأسطول متكامل لخدمات الطاقة والمياه واللوجستيات." },
+    en: { title: "Our Facilities & Fleet", sub: "Modern facilities and a full fleet for energy, water, and logistics services." },
   },
 ];
 
