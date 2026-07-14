@@ -10,12 +10,12 @@ const slides = [
     en: { title: "Petrohub", sub: "Smart solutions… energy delivered with trust." },
   },
   {
-    img: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&fit=crop&w=1920&q=80",
+    img: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&fit=crop&w=1920&h=1080&q=80",
     ar: { title: "غاز ومنتجات بترولية", sub: "توريد غاز البترول المسال والمنتجات البترولية بأعلى معايير السلامة." },
     en: { title: "LPG & Petroleum", sub: "LPG and petroleum products supply to the highest safety standards." },
   },
   {
-    img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=80",
+    img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&h=1080&q=80",
     ar: { title: "طاقة وتقنية ذكية", sub: "حلول طاقة مستدامة ومنصة PetroHub IoT لمراقبة الاستهلاك." },
     en: { title: "Smart Energy & Tech", sub: "Sustainable energy solutions and the PetroHub IoT platform." },
   },
@@ -41,7 +41,7 @@ export default function GasableHero() {
   const content = lang === "ar" ? slide.ar : slide.en;
 
   return (
-    <section className="relative w-full h-[100vh] min-h-[560px] overflow-hidden">
+    <section className="relative w-full aspect-video min-h-[560px] max-h-[100vh] overflow-hidden">
       {/* Rotating background images */}
       <AnimatePresence mode="sync">
         <motion.div
