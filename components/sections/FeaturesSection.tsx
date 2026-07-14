@@ -58,7 +58,7 @@ export default function FeaturesSection() {
               <div className="rounded-3xl bg-brand-green-dark/90 p-8 space-y-4">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <p className="text-white/50 text-xs font-medium">بتروهوب</p>
+                    <p className="text-white/50 text-xs font-medium">بتروهب</p>
                     <p className="text-white font-black">خدماتنا اللوجستية</p>
                   </div>
                   <span className="bg-brand-green/30 text-green-300 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
@@ -113,7 +113,7 @@ export default function FeaturesSection() {
               transition={{ duration: 0.5 }}
               className="mb-10"
             >
-              <Badge className="mb-4">لماذا بتروهوب</Badge>
+              <Badge className="mb-4">لماذا بتروهب</Badge>
               <SectionHeading
                 id="features-title"
                 text="الوصل الأمثل بين الموردين والعملاء"

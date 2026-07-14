@@ -13,11 +13,11 @@ const cities = [
 export default function CoverageRegions() {
   const { lang } = useLang();
   return (
-    <section className="bg-[#EAEEF5] py-[50px]">
+    <section className="bg-[#E8EEF9] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6 text-center">
         <h2 className="font-bold text-4xl md:text-[45px] mb-4">
           <span className="text-brand-green">{lang === "ar" ? "مناطق" : "Our"}</span>{" "}
-          <span className="text-[#C8102E]">{lang === "ar" ? "التغطية" : "Coverage"}</span>
+          <span className="text-[#0067E3]">{lang === "ar" ? "التغطية" : "Coverage"}</span>
         </h2>
         <p className="text-[#54595F] max-w-xl mx-auto mb-12">
           {lang === "ar"

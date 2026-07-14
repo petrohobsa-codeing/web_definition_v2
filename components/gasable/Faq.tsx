@@ -5,8 +5,8 @@ import { useLang } from "@/context/LanguageContext";
 
 const faqs = [
   {
-    ar: { q: "ما الخدمات التي تقدّمها PetroHop؟", a: "نقدّم سبع خدمات متكاملة: توريد غاز البترول المسال (LPG)، المنتجات البترولية، خدمات المياه والبيئة، حلول الطاقة، منصة PetroHub IoT، الخدمات اللوجستية، وأنظمة تتبع ومراقبة المركبات." },
-    en: { q: "What services does PetroHop offer?", a: "We provide seven integrated services: LPG supply, petroleum products, water & environmental services, energy solutions, the PetroHub IoT platform, logistics services, and vehicle tracking & monitoring systems." },
+    ar: { q: "ما الخدمات التي تقدّمها Petrohub؟", a: "نقدّم سبع خدمات متكاملة: توريد غاز البترول المسال (LPG)، المنتجات البترولية، خدمات المياه والبيئة، حلول الطاقة، منصة PetroHub IoT، الخدمات اللوجستية، وأنظمة تتبع ومراقبة المركبات." },
+    en: { q: "What services does Petrohub offer?", a: "We provide seven integrated services: LPG supply, petroleum products, water & environmental services, energy solutions, the PetroHub IoT platform, logistics services, and vehicle tracking & monitoring systems." },
   },
   {
     ar: { q: "ما المناطق التي تغطّيها خدماتكم؟", a: "نغطّي شبكة تشغيل واسعة تشمل الرياض، مكة المكرمة، المدينة المنورة، ينبع، وتبوك، مع إمكانية التنسيق لمناطق أخرى حسب الطلب." },
@@ -35,12 +35,12 @@ export default function Faq() {
       <div className="max-w-3xl mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-3">
           <span className="text-brand-green">{lang === "ar" ? "الأسئلة" : "Frequently Asked"}</span>{" "}
-          <span className="text-[#C8102E]">{lang === "ar" ? "الشائعة" : "Questions"}</span>
+          <span className="text-[#0067E3]">{lang === "ar" ? "الشائعة" : "Questions"}</span>
         </h2>
         <p className="text-center text-[#54595F] mb-12">
           {lang === "ar"
-            ? "إجابات على أكثر الأسئلة شيوعاً حول خدمات PetroHop."
-            : "Answers to the most common questions about PetroHop's services."}
+            ? "إجابات على أكثر الأسئلة شيوعاً حول خدمات Petrohub."
+            : "Answers to the most common questions about Petrohub's services."}
         </p>
 
         <div className="space-y-4">
@@ -51,7 +51,7 @@ export default function Faq() {
               <div
                 key={i}
                 className={`rounded-2xl border transition-colors duration-300 ${
-                  isOpen ? "border-[#1B355E]/30 bg-[#F4F6FA]" : "border-gray-100 bg-white"
+                  isOpen ? "border-[#0C2D6B]/30 bg-[#F3F6FC]" : "border-gray-100 bg-white"
                 }`}
               >
                 <button
@@ -62,7 +62,7 @@ export default function Faq() {
                   <span className="font-bold text-brand-green-dark">{c.q}</span>
                   <ChevronDown
                     size={20}
-                    className={`flex-shrink-0 text-[#C8102E] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    className={`flex-shrink-0 text-[#0067E3] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                   />
                 </button>
                 <div

@@ -26,11 +26,11 @@ const tp = {
 };
 
 const categoryColors: Record<string, string> = {
-  "خدمات بترولية": "bg-[#EAEEF5] text-[#1B355E]",
-  "حلول بيئية": "bg-[#EAEEF5] text-[#24487B]",
-  "إمداد مائي": "bg-[#EAEEF5] text-[#1B355E]",
-  "طاقة بديلة": "bg-[#FCE9EC] text-[#C8102E]",
-  "حلول متكاملة": "bg-[#FCE9EC] text-[#A00C24]",
+  "خدمات بترولية": "bg-[#E8EEF9] text-[#0C2D6B]",
+  "حلول بيئية": "bg-[#E8EEF9] text-[#24487B]",
+  "إمداد مائي": "bg-[#E8EEF9] text-[#0C2D6B]",
+  "طاقة بديلة": "bg-[#E5F0FF] text-[#0067E3]",
+  "حلول متكاملة": "bg-[#E5F0FF] text-[#004FB0]",
 };
 
 export default function ProjectsPage() {

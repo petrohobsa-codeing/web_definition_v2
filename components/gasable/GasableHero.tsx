@@ -6,8 +6,8 @@ import { useLang } from "@/context/LanguageContext";
 const slides = [
   {
     img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80",
-    ar: { title: "PetroHop", sub: "حلول متكاملة للطاقة والخدمات اللوجستية." },
-    en: { title: "PetroHop", sub: "Integrated energy and logistics solutions." },
+    ar: { title: "Petrohub", sub: "حلول متكاملة للطاقة والخدمات اللوجستية." },
+    en: { title: "Petrohub", sub: "Integrated energy and logistics solutions." },
   },
   {
     img: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&fit=crop&w=1920&q=80",
@@ -51,7 +51,7 @@ export default function GasableHero() {
       </AnimatePresence>
 
       {/* Navy overlay (keeps brand tone) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0C1B33]/85 via-[#0C1B33]/45 to-[#0C1B33]/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#081B45]/85 via-[#081B45]/45 to-[#081B45]/25" />
 
       {/* Text overlay – bottom start */}
       <div className="absolute inset-0 flex items-end">
@@ -67,7 +67,7 @@ export default function GasableHero() {
               <h1 className="text-white font-extrabold italic text-5xl md:text-7xl drop-shadow-lg leading-none">
                 {content.title}
               </h1>
-              <div className="w-20 h-1.5 bg-[#C8102E] rounded-full mt-5" />
+              <div className="w-20 h-1.5 bg-[#0067E3] rounded-full mt-5" />
               <p className="text-white text-xl md:text-2xl mt-4 font-light drop-shadow max-w-xl">
                 {content.sub}
               </p>
@@ -84,7 +84,7 @@ export default function GasableHero() {
             onClick={() => setCurrent(i)}
             aria-label={`Slide ${i + 1}`}
             className={`h-2 rounded-full transition-all duration-300 ${
-              i === current ? "w-8 bg-[#C8102E]" : "w-2 bg-white/50 hover:bg-white/80"
+              i === current ? "w-8 bg-[#0067E3]" : "w-2 bg-white/50 hover:bg-white/80"
             }`}
           />
         ))}

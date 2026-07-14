@@ -12,9 +12,9 @@ import Faq from "@/components/gasable/Faq";
 import WhereToFindUs from "@/components/gasable/WhereToFindUs";
 
 export const metadata: Metadata = {
-  title: "PetroHop — حلول متكاملة للطاقة والخدمات اللوجستية",
+  title: "Petrohub — حلول متكاملة للطاقة والخدمات اللوجستية",
   description:
-    "PetroHop — حلول متكاملة للطاقة والخدمات اللوجستية: غاز LPG، منتجات بترولية، مياه وبيئة، حلول طاقة، منصة PetroHub IoT، لوجستيات، وأنظمة تتبع المركبات في المملكة العربية السعودية.",
+    "Petrohub — حلول متكاملة للطاقة والخدمات اللوجستية: غاز LPG، منتجات بترولية، مياه وبيئة، حلول طاقة، منصة PetroHub IoT، لوجستيات، وأنظمة تتبع المركبات في المملكة العربية السعودية.",
 };
 
 export default function HomePage() {

@@ -34,7 +34,7 @@ const cityOptions = [
 const tq = {
   ar: {
     successTitle: "تم إرسال طلبك!",
-    successBody: "شكراً لك. سيتواصل معك فريق بتروهوب خلال 24 ساعة بعرض سعر مخصّص لاحتياجاتك.",
+    successBody: "شكراً لك. سيتواصل معك فريق بتروهب خلال 24 ساعة بعرض سعر مخصّص لاحتياجاتك.",
     name: "الاسم", namePh: "اسم الشخص أو المنشأة",
     phone: "رقم الجوال", email: "البريد الإلكتروني", emailPh: "example@company.sa",
     activity: "نوع النشاط", chooseActivity: "اختر نوع النشاط",
@@ -47,7 +47,7 @@ const tq = {
   },
   en: {
     successTitle: "Your request has been sent!",
-    successBody: "Thank you. The PetroHop team will contact you within 24 hours with a custom quote for your needs.",
+    successBody: "Thank you. The Petrohub team will contact you within 24 hours with a custom quote for your needs.",
     name: "Name", namePh: "Person or company name",
     phone: "Mobile Number", email: "Email", emailPh: "example@company.sa",
     activity: "Activity Type", chooseActivity: "Select activity type",

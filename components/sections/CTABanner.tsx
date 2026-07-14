@@ -44,7 +44,7 @@ export default function CTABanner() {
             </h2>
 
             <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              سواء كنت تحتاج منتجات بترولية، سحب صرف، مياه تحلية، أو مولدات كهربائية — بتروهوب يربطك بالمورّد المناسب في أقصر وقت.
+              سواء كنت تحتاج منتجات بترولية، سحب صرف، مياه تحلية، أو مولدات كهربائية — بتروهب يربطك بالمورّد المناسب في أقصر وقت.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 pt-2">

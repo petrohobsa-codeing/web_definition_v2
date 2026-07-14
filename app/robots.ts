@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/admin/",
     },
-    sitemap: "https://petrohop.sa/sitemap.xml",
+    sitemap: "https://petrohub.sa/sitemap.xml",
   };
 }

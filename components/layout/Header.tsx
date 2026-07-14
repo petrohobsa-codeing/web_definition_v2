@@ -61,9 +61,9 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group" aria-label="بتروهوب">
+            <Link href="/" className="flex items-center gap-3 group" aria-label="بتروهب">
               {siteImages.logo ? (
-                <Image src={siteImages.logo} alt="PetroHop" width={140} height={44}
+                <Image src={siteImages.logo} alt="Petrohub" width={140} height={44}
                   className="h-11 w-auto object-contain" priority />
               ) : (
                 <Logo variant={scrolled ? "dark" : "light"} tagline lang={lang} />

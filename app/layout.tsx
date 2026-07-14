@@ -12,14 +12,14 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://petrohop.sa"),
+  metadataBase: new URL("https://petrohub.sa"),
   title: {
-    default: "PetroHop — خدمات لوجستية وبترولية في المملكة",
-    template: "%s | PetroHop",
+    default: "Petrohub — خدمات لوجستية وبترولية في المملكة",
+    template: "%s | Petrohub",
   },
   description:
-    "شركة بتروهوب للخدمات اللوجستية والبترولية — وساطة تجارية رائدة تربط الموردين بالعملاء. منتجات بترولية، حلول بيئية, إمداد مائي، ومولدات في الرياض ومكة والمدينة وينبع وتبوك.",
-  keywords: ["بتروهوب", "PetroHop", "خدمات بترولية", "مياه تحلية", "سحب بيارات", "مولدات كهربائية", "لوجستيات السعودية"],
+    "بتروهب — شركة سعودية متخصصة في حلول الطاقة الذكية والمياه والخدمات اللوجستية. منتجات بترولية، حلول بيئية، إمداد مائي، ومولدات في الرياض ومكة والمدينة وينبع وتبوك. حلول ذكية... وطاقة تصل بثقة.",
+  keywords: ["بتروهب", "Petrohub", "خدمات بترولية", "مياه تحلية", "سحب بيارات", "مولدات كهربائية", "لوجستيات السعودية"],
   alternates: { canonical: "/" },
   robots: {
     index: true,
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ar_SA",
-    url: "https://petrohop.sa",
-    siteName: "PetroHop",
-    title: "PetroHop — خدمات لوجستية وبترولية",
+    url: "https://petrohub.sa",
+    siteName: "Petrohub",
+    title: "Petrohub — خدمات لوجستية وبترولية",
     description: "شركة وساطة لوجستية رائدة في المملكة العربية السعودية",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PetroHop — خدمات لوجستية وبترولية",
+    title: "Petrohub — خدمات لوجستية وبترولية",
     description: "شركة وساطة لوجستية رائدة في المملكة العربية السعودية",
   },
 };
@@ -53,9 +53,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "PetroHop",
-              alternateName: "بتروهوب",
-              url: "https://petrohop.sa",
+              name: "Petrohub",
+              alternateName: "بتروهب",
+              url: "https://petrohub.sa",
               description:
                 "شركة وساطة تجارية ولوجستية رائدة في المملكة العربية السعودية للخدمات البترولية والبيئية والمائية والطاقة البديلة.",
               areaServed: ["Riyadh", "Makkah", "Madinah", "Yanbu", "Tabuk"],

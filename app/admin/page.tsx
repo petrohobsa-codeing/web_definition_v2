@@ -44,7 +44,7 @@ export default function AdminLoginPage() {
         <div className="bg-white rounded-4xl shadow-2xl shadow-brand-green-dark/30 overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-br from-brand-green-dark to-brand-green-mid p-8 text-center relative">
-            <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
+            <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
             <h1 className="text-3xl font-extrabold tracking-tight mb-1">
               <span className="text-white">Petro</span>
               <span className="text-white/70">Hop</span>
@@ -124,7 +124,7 @@ export default function AdminLoginPage() {
             </form>
 
             <p className="mt-6 text-center text-xs text-brand-charcoal-light">
-              منطقة محمية — مخصّصة لموظفي PetroHop المصرّح لهم فقط.
+              منطقة محمية — مخصّصة لموظفي Petrohub المصرّح لهم فقط.
             </p>
           </div>
         </div>

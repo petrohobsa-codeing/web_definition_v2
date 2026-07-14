@@ -14,22 +14,22 @@ const stats = [
 
 const values = [
   {
-    icon: Heart, color: "from-[#C8102E] to-[#A00C24]",
+    icon: Heart, color: "from-[#0067E3] to-[#004FB0]",
     ar: { title: "الموثوقية", description: "التزام كامل بالمواعيد والجودة في كل ما نقدّمه لعملائنا." },
     en: { title: "Reliability", description: "Full commitment to schedules and quality in everything we provide to our clients." },
   },
   {
-    icon: Target, color: "from-[#1B355E] to-[#0C1B33]",
+    icon: Target, color: "from-[#0C2D6B] to-[#081B45]",
     ar: { title: "الابتكار", description: "حلول تقنية متقدمة وحديثة ترفع كفاءة التشغيل." },
     en: { title: "Innovation", description: "Advanced, modern technical solutions that boost operational efficiency." },
   },
   {
-    icon: Eye, color: "from-[#24487B] to-[#1B355E]",
+    icon: Eye, color: "from-[#24487B] to-[#0C2D6B]",
     ar: { title: "الشفافية", description: "تواصل واضح وصريح مع العملاء في كل مرحلة." },
     en: { title: "Transparency", description: "Clear and honest communication with clients at every stage." },
   },
   {
-    icon: Leaf, color: "from-[#1B355E] to-[#C8102E]",
+    icon: Leaf, color: "from-[#0C2D6B] to-[#0067E3]",
     ar: { title: "الاستدامة", description: "الحفاظ على البيئة والموارد ودعم مستقبل أكثر استدامة." },
     en: { title: "Sustainability", description: "Protecting the environment and resources and supporting a more sustainable future." },
   },
@@ -45,12 +45,12 @@ const cities = [
 
 const t = {
   ar: {
-    home: "الرئيسية", about: "من نحن", heroBadge: "نبذة عن PetroHop",
+    home: "الرئيسية", about: "من نحن", heroBadge: "نبذة عن Petrohub",
     heroTitle: "حلول الطاقة والخدمات اللوجستية المتكاملة",
     heroSub: "شركة رائدة متخصصة في توفير حلول الطاقة والخدمات اللوجستية المتكاملة محلياً ودولياً.",
     storyBadge: "من نحن",
-    storyTitle: "نبذة عن PetroHop",
-    storyP1: "PetroHop شركة رائدة متخصصة في توفير حلول الطاقة والخدمات اللوجستية المتكاملة. منذ تأسيسنا عام 2004، نقدم خدمات موثوقة وابتكارية في قطاع الطاقة محلياً ودولياً. وبفريق متخصص ومؤهل، وشراكات استراتيجية مع أكثر من 500 شركة، نحن ملتزمون بتقديم حلول تلبي احتياجات القطاعات السكنية والتجارية والصناعية.",
+    storyTitle: "نبذة عن Petrohub",
+    storyP1: "Petrohub شركة رائدة متخصصة في توفير حلول الطاقة والخدمات اللوجستية المتكاملة. منذ تأسيسنا عام 2004، نقدم خدمات موثوقة وابتكارية في قطاع الطاقة محلياً ودولياً. وبفريق متخصص ومؤهل، وشراكات استراتيجية مع أكثر من 500 شركة، نحن ملتزمون بتقديم حلول تلبي احتياجات القطاعات السكنية والتجارية والصناعية.",
     storyP2: "مع حضورنا في جميع أنحاء المملكة العربية السعودية، والفرع الرئيسي في الرياض، نضمن توصيل خدماتنا بكفاءة وسرعة.",
     quote: "نمكّن عملاءنا بحلول طاقة مستدامة وآمنة وموثوقة تعزز كفاءة أعمالهم وتقلل التكاليف.",
     coverageBadge: "مناطق التغطية",
@@ -62,16 +62,16 @@ const t = {
     missionText: "تمكين العملاء بحلول طاقة مستدامة وآمنة وموثوقة تعزز كفاءة أعمالهم وتقلل التكاليف.",
     valuesBadge: "القيم الأساسية", valuesTitle: "قيمنا الأساسية",
     ctaTitle: "تواصل معنا اليوم",
-    ctaSub: "سواء كنت تبحث عن حلول طاقة أو خدمات لوجستية متخصصة، فريق PetroHop جاهز لمساعدتك.",
+    ctaSub: "سواء كنت تبحث عن حلول طاقة أو خدمات لوجستية متخصصة، فريق Petrohub جاهز لمساعدتك.",
     quoteBtn: "اطلب عرض سعر", contactBtn: "اتصل بنا",
   },
   en: {
-    home: "Home", about: "About Us", heroBadge: "About PetroHop",
+    home: "Home", about: "About Us", heroBadge: "About Petrohub",
     heroTitle: "Integrated Energy & Logistics Solutions",
     heroSub: "A leading company specialized in providing integrated energy and logistics solutions locally and internationally.",
     storyBadge: "About Us",
-    storyTitle: "About PetroHop",
-    storyP1: "PetroHop is a leading company specialized in providing integrated energy and logistics solutions. Since our establishment in 2004, we have delivered reliable and innovative services in the energy sector locally and internationally. With a qualified specialized team and strategic partnerships with over 500 companies, we are committed to solutions that meet the needs of the residential, commercial and industrial sectors.",
+    storyTitle: "About Petrohub",
+    storyP1: "Petrohub is a leading company specialized in providing integrated energy and logistics solutions. Since our establishment in 2004, we have delivered reliable and innovative services in the energy sector locally and internationally. With a qualified specialized team and strategic partnerships with over 500 companies, we are committed to solutions that meet the needs of the residential, commercial and industrial sectors.",
     storyP2: "With our presence across the Kingdom of Saudi Arabia and our head office in Riyadh, we ensure our services are delivered efficiently and quickly.",
     quote: "We empower our clients with sustainable, safe and reliable energy solutions that boost their business efficiency and reduce costs.",
     coverageBadge: "Coverage Regions",
@@ -83,7 +83,7 @@ const t = {
     missionText: "Empowering clients with sustainable, safe and reliable energy solutions that boost their business efficiency and reduce costs.",
     valuesBadge: "Core Values", valuesTitle: "Our Core Values",
     ctaTitle: "Contact Us Today",
-    ctaSub: "Whether you need energy solutions or specialized logistics services, the PetroHop team is ready to help.",
+    ctaSub: "Whether you need energy solutions or specialized logistics services, the Petrohub team is ready to help.",
     quoteBtn: "Get a Quote", contactBtn: "Contact Us",
   },
 };
@@ -97,7 +97,7 @@ export default function AboutContent() {
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-brand-green-dark to-brand-green-mid pt-36 pb-24 overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-20" />
-        <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[300px] rounded-full bg-brand-gold/10 blur-3xl" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-8 text-white/50 text-sm" aria-label="breadcrumb">
@@ -208,7 +208,7 @@ export default function AboutContent() {
       {/* CTA */}
       <section className="py-20 bg-brand-green-dark relative overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-10" />
-        <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-6">
           <h2 className="text-4xl font-black text-white">{L.ctaTitle}</h2>
           <p className="text-white/70 leading-relaxed text-lg">{L.ctaSub}</p>
