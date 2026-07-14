@@ -70,16 +70,19 @@ export default function HeroSlider() {
         />
       </AnimatePresence>
 
-      {/* Hero background image */}
+      {/* Hero background image (Petrohub HQ render from brand identity) */}
       {siteImages.hero.background && (
         <div className="absolute inset-0">
           <Image
             src={siteImages.hero.background}
-            alt="خلفية"
+            alt="مقر بتروهب"
             fill
-            className="object-cover opacity-20 mix-blend-luminosity"
+            className="object-cover"
             priority
           />
+          {/* Dark overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-l from-[#081B45]/85 via-[#081B45]/65 to-[#081B45]/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#081B45]/80 via-transparent to-transparent" />
         </div>
       )}
 

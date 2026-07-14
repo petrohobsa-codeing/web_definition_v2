@@ -18,9 +18,9 @@ export const siteImages = {
   logo: null as string | null,
 
   hero: {
-    /** خلفية قسم الهيرو (تظهر خلف المحتوى مع طبقة شفافة خضراء)
+    /** خلفية قسم الهيرو (تظهر خلف المحتوى مع طبقة داكنة)
      *  ضع الملف في: public/images/hero/bg.jpg (1920×1080px) */
-    background: null as string | null,
+    background: "/images/hero/bg.jpg" as string | null,
 
     /** الصورة الجانبية في الهيرو (شاحنة وقود، مبنى المنشأة، إلخ)
      *  ضع الملف في: public/images/hero/truck.jpg (800×600px) */
