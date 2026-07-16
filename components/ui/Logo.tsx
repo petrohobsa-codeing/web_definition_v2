@@ -1,5 +1,7 @@
+import Image from "next/image";
+
 interface LogoProps {
-  /** "dark" for light backgrounds (navy text), "light" for dark backgrounds (white text) */
+  /** "dark" for light backgrounds (black wordmark), "light" for dark backgrounds (white wordmark) */
   variant?: "dark" | "light";
   /** show the tagline under the wordmark */
   tagline?: boolean;
@@ -8,8 +10,8 @@ interface LogoProps {
 }
 
 /**
- * PetroHop brand logo: a droplet mark (navy -> red gradient) + wordmark
- * "Petro" (navy/white) + "Hop" (red). Pure SVG/CSS, no image asset needed.
+ * Petrohub (بتروهب) brand logo — official identity assets:
+ * gradient droplet + lightning mark with AR/EN wordmark.
  */
 export default function Logo({
   variant = "dark",
@@ -17,44 +19,40 @@ export default function Logo({
   className = "",
   lang = "ar",
 }: LogoProps) {
-  const petroColor = variant === "light" ? "#FFFFFF" : "#1B355E";
+  const src =
+    lang === "ar"
+      ? variant === "light"
+        ? "/images/brand/logo-ar-white.png"
+        : "/images/brand/logo-ar.png"
+      : variant === "light"
+        ? "/images/brand/logo-en-white.png"
+        : "/images/brand/logo-en.png";
+
   const subColor = variant === "light" ? "rgba(255,255,255,0.7)" : "#54595F";
 
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`} aria-label="PetroHop">
-      {/* Mark */}
-      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" className="flex-shrink-0">
-        <defs>
-          <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#1B355E" />
-            <stop offset="100%" stopColor="#C8102E" />
-          </linearGradient>
-        </defs>
-        {/* droplet */}
-        <path
-          d="M20 3C20 3 32 16 32 25a12 12 0 11-24 0C8 16 20 3 20 3z"
-          fill="url(#logo-grad)"
-        />
-        {/* spark / hop accent */}
-        <path
-          d="M19 17l-4 7h4l-1 6 6-9h-4l3-4z"
-          fill="#fff"
-          fillOpacity="0.95"
-        />
-      </svg>
-
-      {/* Wordmark */}
-      <span className="leading-none">
-        <span className="text-2xl font-extrabold tracking-tight">
-          <span style={{ color: petroColor }}>Petro</span>
-          <span style={{ color: "#C8102E" }}>Hop</span>
+    <span
+      className={`inline-flex flex-col items-start gap-1 ${className}`}
+      aria-label="Petrohub بتروهب"
+    >
+      <Image
+        src={src}
+        alt={lang === "ar" ? "بتروهب" : "Petrohub"}
+        width={800}
+        height={116}
+        priority
+        className="h-9 w-auto"
+      />
+      {tagline && (
+        <span
+          className="block text-[10px] font-medium"
+          style={{ color: subColor }}
+        >
+          {lang === "ar"
+            ? "حلول ذكية... وطاقة تصل بثقة"
+            : "Smart solutions… energy delivered with trust"}
         </span>
-        {tagline && (
-          <span className="block text-[10px] font-medium mt-0.5" style={{ color: subColor }}>
-            {lang === "ar" ? "للطاقة والخدمات المتكاملة" : "Energy & Integrated Services"}
-          </span>
-        )}
-      </span>
+      )}
     </span>
   );
 }

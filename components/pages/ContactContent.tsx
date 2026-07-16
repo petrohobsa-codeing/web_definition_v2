@@ -8,7 +8,7 @@ import { useLang } from "@/context/LanguageContext";
 const contactInfo = [
   { icon: Phone, ar: "الرقم الموحّد", en: "Unified Number", value: "+966500000000", href: "tel:+966500000000", color: "bg-brand-green" },
   { icon: MessageCircle, ar: "واتساب للأعمال", en: "Business WhatsApp", value: "+966500000000", href: "https://wa.me/966500000000", color: "bg-[#25D366]" },
-  { icon: Mail, ar: "البريد الإلكتروني", en: "Email", value: "info@petrohop.sa", href: "mailto:info@petrohop.sa", color: "bg-[#1B355E]" },
+  { icon: Mail, ar: "البريد الإلكتروني", en: "Email", value: "info@petrohub.sa", href: "mailto:info@petrohub.sa", color: "bg-[#0C2D6B]" },
   { icon: Clock, ar: "ساعات العمل", en: "Working Hours", valueAr: "الأحد – الخميس، 8 ص – 6 م", valueEn: "Sun – Thu, 8 AM – 6 PM", href: undefined, color: "bg-brand-gold" },
   { icon: MapPin, ar: "العنوان", en: "Address", valueAr: "طريق الملك فهد، الرياض، المملكة العربية السعودية", valueEn: "King Fahd Road, Riyadh, Saudi Arabia", href: undefined, color: "bg-[#24487B]" },
 ];
@@ -46,7 +46,7 @@ export default function ContactContent() {
     <>
       <section className="relative bg-gradient-to-br from-brand-green-dark to-brand-green-mid pt-36 pb-20 overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-20" />
-        <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-8 text-white/50 text-sm" aria-label="breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">{L.home}</Link>

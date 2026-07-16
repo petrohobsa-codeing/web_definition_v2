@@ -70,16 +70,19 @@ export default function HeroSlider() {
         />
       </AnimatePresence>
 
-      {/* Hero background image */}
+      {/* Hero background image (Petrohub HQ render from brand identity) */}
       {siteImages.hero.background && (
         <div className="absolute inset-0">
           <Image
             src={siteImages.hero.background}
-            alt="خلفية"
+            alt="مقر بتروهب"
             fill
-            className="object-cover opacity-20 mix-blend-luminosity"
+            className="object-cover"
             priority
           />
+          {/* Dark overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-l from-[#081B45]/85 via-[#081B45]/65 to-[#081B45]/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#081B45]/80 via-transparent to-transparent" />
         </div>
       )}
 
@@ -185,7 +188,7 @@ export default function HeroSlider() {
                       <div className="w-3 h-3 rounded-full bg-amber-400/70" />
                       <div className="w-3 h-3 rounded-full bg-green-400/70" />
                     </div>
-                    <span className="text-white/40 text-xs font-mono">petrohop.sa</span>
+                    <span className="text-white/40 text-xs font-mono">petrohub.sa</span>
                     <span className="inline-flex items-center gap-1.5 bg-brand-green/30 text-green-300 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                       مباشر
@@ -195,7 +198,7 @@ export default function HeroSlider() {
                   <div className="p-6 space-y-5">
                     <div>
                       <p className="text-white/40 text-xs mb-1">خدماتنا اللوجستية</p>
-                      <p className="text-white text-xl font-black">شركة بتروهوب</p>
+                      <p className="text-white text-xl font-black">شركة بتروهب</p>
                       <p className="text-green-400 text-xs font-bold mt-1 flex items-center gap-1">
                         <TrendingUp size={11} /> وساطة تجارية ولوجستية
                       </p>

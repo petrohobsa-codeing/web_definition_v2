@@ -9,8 +9,8 @@ import type { BlogPost } from "@/lib/types";
 import { useLang } from "@/context/LanguageContext";
 
 const tn = {
-  ar: { badge: "أخبارنا", title: "أخبار بتروهوب", sub: "آخر المستجدات والمقالات من عالم الخدمات اللوجستية والبترولية.", empty: "لا توجد مقالات حالياً.", locale: "ar-SA" },
-  en: { badge: "Our News", title: "PetroHop News", sub: "The latest updates and articles from the world of logistics and petroleum services.", empty: "No articles yet.", locale: "en-US" },
+  ar: { badge: "أخبارنا", title: "أخبار بتروهب", sub: "آخر المستجدات والمقالات من عالم الخدمات اللوجستية والبترولية.", empty: "لا توجد مقالات حالياً.", locale: "ar-SA" },
+  en: { badge: "Our News", title: "Petrohub News", sub: "The latest updates and articles from the world of logistics and petroleum services.", empty: "No articles yet.", locale: "en-US" },
 };
 
 export default function NewsPage() {

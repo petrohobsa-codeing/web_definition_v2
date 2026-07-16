@@ -1,4 +1,4 @@
-// Central PetroHop services dataset (bilingual). Single source of truth
+// Central Petrohub services dataset (bilingual). Single source of truth
 // used by the home Speciality section and the Services page.
 
 export type IconKey =
@@ -24,7 +24,7 @@ export const services: ServiceContent[] = [
     ar: {
       title: "توريد غاز البترول المسال (LPG)",
       intro:
-        "توفر PetroHop حلولاً متكاملة لتوريد وتوزيع غاز البترول المسال (LPG) وفق أعلى معايير السلامة والجودة، لتلبية احتياجات القطاعات السكنية والتجارية والصناعية. وتعتمد خدماتنا على شبكة توزيع فعّالة وأساطيل نقل مجهزة وفريق متخصص يضمن استمرارية الإمداد وسرعة الاستجابة في جميع أنحاء المملكة.",
+        "توفر Petrohub حلولاً متكاملة لتوريد وتوزيع غاز البترول المسال (LPG) وفق أعلى معايير السلامة والجودة، لتلبية احتياجات القطاعات السكنية والتجارية والصناعية. وتعتمد خدماتنا على شبكة توزيع فعّالة وأساطيل نقل مجهزة وفريق متخصص يضمن استمرارية الإمداد وسرعة الاستجابة في جميع أنحاء المملكة.",
       advantages: [
         "إمدادات مستمرة على مدار الساعة.",
         "التزام كامل بمعايير السلامة المحلية والدولية.",
@@ -42,7 +42,7 @@ export const services: ServiceContent[] = [
     en: {
       title: "Liquefied Petroleum Gas (LPG) Supply",
       intro:
-        "PetroHop provides integrated solutions for supplying and distributing LPG to the highest safety and quality standards, serving residential, commercial and industrial sectors. Our services rely on an effective distribution network, equipped transport fleets and a specialized team ensuring continuous supply and fast response across the Kingdom.",
+        "Petrohub provides integrated solutions for supplying and distributing LPG to the highest safety and quality standards, serving residential, commercial and industrial sectors. Our services rely on an effective distribution network, equipped transport fleets and a specialized team ensuring continuous supply and fast response across the Kingdom.",
       advantages: [
         "Round-the-clock continuous supply.",
         "Full compliance with local and international safety standards.",
@@ -64,7 +64,7 @@ export const services: ServiceContent[] = [
     ar: {
       title: "المنتجات البترولية (Oil Services)",
       intro:
-        "توفر PetroHop حلولاً متكاملة لتوريد المنتجات البترولية لمختلف القطاعات، مع الالتزام بأعلى معايير الجودة والاستدامة. ونوفر سلسلة إمداد مرنة تضمن وصول المنتجات بالكميات المطلوبة وفي الوقت المحدد، بما يدعم استمرارية العمليات التشغيلية ويعزز كفاءة الأداء.",
+        "توفر Petrohub حلولاً متكاملة لتوريد المنتجات البترولية لمختلف القطاعات، مع الالتزام بأعلى معايير الجودة والاستدامة. ونوفر سلسلة إمداد مرنة تضمن وصول المنتجات بالكميات المطلوبة وفي الوقت المحدد، بما يدعم استمرارية العمليات التشغيلية ويعزز كفاءة الأداء.",
       advantages: [
         "منتجات مطابقة للمواصفات القياسية.",
         "حلول توريد مرنة تناسب مختلف المشاريع.",
@@ -82,7 +82,7 @@ export const services: ServiceContent[] = [
     en: {
       title: "Petroleum Products (Oil Services)",
       intro:
-        "PetroHop provides integrated solutions for supplying petroleum products to various sectors with a commitment to the highest quality and sustainability standards. We offer a flexible supply chain ensuring products arrive in the required quantities and on time, supporting operational continuity and performance efficiency.",
+        "Petrohub provides integrated solutions for supplying petroleum products to various sectors with a commitment to the highest quality and sustainability standards. We offer a flexible supply chain ensuring products arrive in the required quantities and on time, supporting operational continuity and performance efficiency.",
       advantages: [
         "Products compliant with standard specifications.",
         "Flexible supply solutions suited to different projects.",
@@ -104,7 +104,7 @@ export const services: ServiceContent[] = [
     ar: {
       title: "خدمات المياه والبيئة",
       intro:
-        "تقدم PetroHop حلولاً متكاملة في قطاع المياه والخدمات البيئية، تشمل توريد المياه الصالحة للشرب والمياه الصناعية، بالإضافة إلى خدمات الصرف الصحي والحلول البيئية، بما يضمن استدامة الخدمات والمحافظة على الصحة العامة والبيئة.",
+        "تقدم Petrohub حلولاً متكاملة في قطاع المياه والخدمات البيئية، تشمل توريد المياه الصالحة للشرب والمياه الصناعية، بالإضافة إلى خدمات الصرف الصحي والحلول البيئية، بما يضمن استدامة الخدمات والمحافظة على الصحة العامة والبيئة.",
       advantages: [
         "توفير المياه بجميع الكميات المطلوبة.",
         "خدمات بيئية متخصصة.",
@@ -122,7 +122,7 @@ export const services: ServiceContent[] = [
     en: {
       title: "Water & Environmental Services",
       intro:
-        "PetroHop offers integrated solutions in the water and environmental sector, including the supply of potable and industrial water alongside sewage services and environmental solutions — ensuring service sustainability and protecting public health and the environment.",
+        "Petrohub offers integrated solutions in the water and environmental sector, including the supply of potable and industrial water alongside sewage services and environmental solutions — ensuring service sustainability and protecting public health and the environment.",
       advantages: [
         "Water supply in all required quantities.",
         "Specialized environmental services.",
@@ -224,7 +224,7 @@ export const services: ServiceContent[] = [
     ar: {
       title: "الخدمات اللوجستية",
       intro:
-        "توفر PetroHop حلولاً لوجستية متكاملة تشمل نقل وتوزيع البضائع والمواد بكفاءة عالية عبر شبكة تشغيل تغطي مختلف مناطق المملكة، مع الالتزام بالمواعيد، وسلامة الشحنات، واستخدام أحدث تقنيات التتبع والإدارة.",
+        "توفر Petrohub حلولاً لوجستية متكاملة تشمل نقل وتوزيع البضائع والمواد بكفاءة عالية عبر شبكة تشغيل تغطي مختلف مناطق المملكة، مع الالتزام بالمواعيد، وسلامة الشحنات، واستخدام أحدث تقنيات التتبع والإدارة.",
       advantages: [
         "شبكة نقل تغطي جميع أنحاء المملكة.",
         "إدارة احترافية لسلسلة الإمداد.",
@@ -242,7 +242,7 @@ export const services: ServiceContent[] = [
     en: {
       title: "Logistics Services",
       intro:
-        "PetroHop provides integrated logistics solutions covering the transport and distribution of goods and materials with high efficiency across an operational network spanning the Kingdom's regions — committed to schedules, shipment safety and the latest tracking and management technologies.",
+        "Petrohub provides integrated logistics solutions covering the transport and distribution of goods and materials with high efficiency across an operational network spanning the Kingdom's regions — committed to schedules, shipment safety and the latest tracking and management technologies.",
       advantages: [
         "Transport network covering the whole Kingdom.",
         "Professional supply-chain management.",
@@ -264,7 +264,7 @@ export const services: ServiceContent[] = [
     ar: {
       title: "أنظمة التتبع ومراقبة المركبات",
       intro:
-        "توفر PetroHop حلولاً ذكية لإدارة الأساطيل تعتمد على تقنيات GPS وGSM وكاميرات Dash Cam، بما يتيح مراقبة المركبات والمعدات لحظياً، وتحليل الأداء، وتحسين كفاءة التشغيل، وتعزيز مستويات السلامة.",
+        "توفر Petrohub حلولاً ذكية لإدارة الأساطيل تعتمد على تقنيات GPS وGSM وكاميرات Dash Cam، بما يتيح مراقبة المركبات والمعدات لحظياً، وتحليل الأداء، وتحسين كفاءة التشغيل، وتعزيز مستويات السلامة.",
       advantages: [
         "تتبع مباشر ودقيق للمركبات.",
         "مراقبة أداء السائقين.",
@@ -284,7 +284,7 @@ export const services: ServiceContent[] = [
     en: {
       title: "Vehicle Tracking & Fleet Monitoring",
       intro:
-        "PetroHop offers smart fleet-management solutions powered by GPS, GSM and dash-cam technologies, enabling real-time vehicle and equipment monitoring, performance analysis, improved operational efficiency and enhanced safety levels.",
+        "Petrohub offers smart fleet-management solutions powered by GPS, GSM and dash-cam technologies, enabling real-time vehicle and equipment monitoring, performance analysis, improved operational efficiency and enhanced safety levels.",
       advantages: [
         "Accurate real-time vehicle tracking.",
         "Driver performance monitoring.",
@@ -306,16 +306,16 @@ export const services: ServiceContent[] = [
 
 export const intro = {
   ar: {
-    title: "خدمات PetroHop",
+    title: "خدمات Petrohub",
     subtitle: "حلول متكاملة للطاقة والخدمات اللوجستية",
     body:
-      "تقدم PetroHop مجموعة متكاملة من الخدمات والحلول التي تلبي احتياجات القطاعات السكنية والتجارية والصناعية، من خلال منظومة تشغيل متطورة تعتمد على الجودة، والسلامة، والابتكار، بما يضمن تقديم خدمات موثوقة تعزز كفاءة الأعمال وتحقق قيمة مضافة مستدامة لعملائنا.",
+      "تقدم Petrohub مجموعة متكاملة من الخدمات والحلول التي تلبي احتياجات القطاعات السكنية والتجارية والصناعية، من خلال منظومة تشغيل متطورة تعتمد على الجودة، والسلامة، والابتكار، بما يضمن تقديم خدمات موثوقة تعزز كفاءة الأعمال وتحقق قيمة مضافة مستدامة لعملائنا.",
   },
   en: {
-    title: "PetroHop Services",
+    title: "Petrohub Services",
     subtitle: "Integrated Energy & Logistics Solutions",
     body:
-      "PetroHop offers an integrated range of services and solutions that meet the needs of the residential, commercial and industrial sectors through an advanced operating system built on quality, safety and innovation — ensuring reliable services that boost business efficiency and deliver sustainable added value to our clients.",
+      "Petrohub offers an integrated range of services and solutions that meet the needs of the residential, commercial and industrial sectors through an advanced operating system built on quality, safety and innovation — ensuring reliable services that boost business efficiency and deliver sustainable added value to our clients.",
   },
 };
 
@@ -323,12 +323,12 @@ export const commitment = {
   ar: {
     title: "التزامنا",
     body:
-      "لا تقتصر خدمات PetroHop على توفير المنتجات والحلول فحسب، بل تمتد إلى بناء شراكات استراتيجية طويلة الأمد مع عملائنا، من خلال تقديم خدمات موثوقة، وتقنيات حديثة، ودعم فني متخصص، بما يضمن استدامة الأعمال وتحقيق أعلى مستويات الكفاءة والجودة.",
+      "لا تقتصر خدمات Petrohub على توفير المنتجات والحلول فحسب، بل تمتد إلى بناء شراكات استراتيجية طويلة الأمد مع عملائنا، من خلال تقديم خدمات موثوقة، وتقنيات حديثة، ودعم فني متخصص، بما يضمن استدامة الأعمال وتحقيق أعلى مستويات الكفاءة والجودة.",
   },
   en: {
     title: "Our Commitment",
     body:
-      "PetroHop's services are not limited to providing products and solutions — they extend to building long-term strategic partnerships with our clients through reliable services, modern technologies and specialized technical support, ensuring business sustainability and the highest levels of efficiency and quality.",
+      "Petrohub's services are not limited to providing products and solutions — they extend to building long-term strategic partnerships with our clients through reliable services, modern technologies and specialized technical support, ensuring business sustainability and the highest levels of efficiency and quality.",
   },
 };
 

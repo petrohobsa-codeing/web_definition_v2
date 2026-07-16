@@ -4,7 +4,7 @@ import { useLang } from "@/context/LanguageContext";
 import GasableButton from "./GasableButton";
 import { StaggerGroup, StaggerItem } from "./Stagger";
 import { Flame, Fuel, Droplets, Leaf, Cpu, Truck, Navigation } from "lucide-react";
-import { services, type IconKey } from "@/lib/petrohopServices";
+import { services, type IconKey } from "@/lib/petrohubServices";
 
 const iconMap: Record<IconKey, typeof Flame> = {
   lpg: Flame,
@@ -19,11 +19,11 @@ const iconMap: Record<IconKey, typeof Flame> = {
 export default function Speciality() {
   const { lang } = useLang();
   return (
-    <section className="bg-[#F4F6FA] py-[50px]">
+    <section className="bg-[#F3F6FC] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-3">
           <span className="text-brand-green">{lang === "ar" ? "خدماتنا" : "Our"}</span>{" "}
-          <span className="text-[#C8102E]">{lang === "ar" ? "" : "Services"}</span>
+          <span className="text-[#0067E3]">{lang === "ar" ? "" : "Services"}</span>
         </h2>
         <p className="text-center text-[#54595F] max-w-2xl mx-auto mb-12">
           {lang === "ar"

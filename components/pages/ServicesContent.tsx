@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import {
   services, intro, commitment, advantagesLabel, valueLabel, type IconKey,
-} from "@/lib/petrohopServices";
+} from "@/lib/petrohubServices";
 
 const iconMap: Record<IconKey, typeof Flame> = {
   lpg: Flame,
@@ -34,7 +34,7 @@ export default function ServicesContent() {
       {/* Intro hero */}
       <section className="relative bg-gradient-to-br from-brand-green-dark to-brand-green-mid pt-36 pb-24 overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-20" />
-        <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand-gold/10 blur-3xl" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
@@ -70,7 +70,7 @@ export default function ServicesContent() {
                       <Icon size={56} stroke="url(#fl-grad)" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <span className="text-sm font-bold text-[#C8102E]">
+                      <span className="text-sm font-bold text-[#0067E3]">
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                       <h2 className="text-2xl md:text-3xl font-black text-brand-green-dark leading-tight">
@@ -84,7 +84,7 @@ export default function ServicesContent() {
 
                   {/* Advantages + Value */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-[#F4F6FA] rounded-2xl p-6">
+                    <div className="bg-[#F3F6FC] rounded-2xl p-6">
                       <h3 className="flex items-center gap-2 font-black text-brand-green-dark mb-4">
                         <CheckCircle2 size={18} className="text-brand-green" />
                         {advantagesLabel[lang]}
@@ -98,15 +98,15 @@ export default function ServicesContent() {
                         ))}
                       </ul>
                     </div>
-                    <div className="bg-[#FCE9EC] rounded-2xl p-6">
-                      <h3 className="flex items-center gap-2 font-black text-[#A00C24] mb-4">
-                        <Sparkles size={18} className="text-[#C8102E]" />
+                    <div className="bg-[#E5F0FF] rounded-2xl p-6">
+                      <h3 className="flex items-center gap-2 font-black text-[#004FB0] mb-4">
+                        <Sparkles size={18} className="text-[#0067E3]" />
                         {valueLabel[lang]}
                       </h3>
                       <ul className="space-y-2.5">
                         {c.value.map((v) => (
                           <li key={v} className="flex items-start gap-2.5 text-[#54595F] text-sm leading-6">
-                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#C8102E] flex-shrink-0" />
+                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0067E3] flex-shrink-0" />
                             {v}
                           </li>
                         ))}
@@ -121,11 +121,11 @@ export default function ServicesContent() {
       </section>
 
       {/* Commitment */}
-      <section className="py-20 bg-[#F4F6FA]">
+      <section className="py-20 bg-[#F3F6FC]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-black mb-5">
             <span className="text-brand-green">{lang === "ar" ? "التزامنا" : "Our"}</span>{" "}
-            <span className="text-[#C8102E]">{lang === "ar" ? "" : "Commitment"}</span>
+            <span className="text-[#0067E3]">{lang === "ar" ? "" : "Commitment"}</span>
           </h2>
           <p className="text-[#54595F] leading-loose text-lg">{C.body}</p>
         </div>

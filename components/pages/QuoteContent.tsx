@@ -52,7 +52,7 @@ export default function QuoteContent() {
     <>
       <section className="relative bg-gradient-to-br from-brand-green-dark to-brand-green-mid pt-36 pb-20 overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-20" />
-        <div className="absolute top-0 inset-x-0 h-1 bg-[#C8102E]" />
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-brand-gold/10 blur-3xl" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-8 text-white/50 text-sm" aria-label="breadcrumb">

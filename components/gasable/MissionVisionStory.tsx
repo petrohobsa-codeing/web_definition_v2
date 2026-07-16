@@ -6,8 +6,8 @@ import { StaggerGroup, StaggerItem } from "./Stagger";
 const grad = (id: string) => (
   <defs>
     <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stopColor="#1B355E" />
-      <stop offset="100%" stopColor="#C8102E" />
+      <stop offset="0%" stopColor="#0C2D6B" />
+      <stop offset="100%" stopColor="#0067E3" />
     </linearGradient>
   </defs>
 );
@@ -78,11 +78,11 @@ const cards = [
     Icon: HouseIcon,
     ar: {
       title: "قصّتنا",
-      text: "PetroHop — منظومة متكاملة للطاقة والخدمات اللوجستية تخدم القطاعات السكنية والتجارية والصناعية بالجودة والابتكار.",
+      text: "Petrohub — منظومة متكاملة للطاقة والخدمات اللوجستية تخدم القطاعات السكنية والتجارية والصناعية بالجودة والابتكار.",
     },
     en: {
       title: "Our Story",
-      text: "PetroHop — an integrated energy and logistics system serving residential, commercial and industrial sectors with quality and innovation.",
+      text: "Petrohub — an integrated energy and logistics system serving residential, commercial and industrial sectors with quality and innovation.",
     },
   },
 ];
@@ -90,7 +90,7 @@ const cards = [
 export default function MissionVisionStory() {
   const { lang } = useLang();
   return (
-    <section className="bg-[#F4F6FA] py-[50px]">
+    <section className="bg-[#F3F6FC] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {cards.map(({ Icon, ...c }, i) => {

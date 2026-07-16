@@ -17,6 +17,12 @@ export default function CTABanner() {
       </div>
 
       <div className="bg-gradient-to-br from-brand-green-dark via-brand-green-mid to-brand-green py-28 relative">
+        {/* Facility banner from brand identity (closing page) */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(/images/banner-facility.jpg)" }}
+        />
+        <div className="absolute inset-0 bg-[#081B45]/60" />
         <div className="absolute inset-0 dot-bg opacity-10" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-gold/10 blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/5 blur-3xl" />
@@ -44,7 +50,7 @@ export default function CTABanner() {
             </h2>
 
             <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              سواء كنت تحتاج منتجات بترولية، سحب صرف، مياه تحلية، أو مولدات كهربائية — بتروهوب يربطك بالمورّد المناسب في أقصر وقت.
+              سواء كنت تحتاج منتجات بترولية، سحب صرف، مياه تحلية، أو مولدات كهربائية — بتروهب يربطك بالمورّد المناسب في أقصر وقت.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 pt-2">

@@ -15,7 +15,7 @@ export default function StatsSection() {
   return (
     <section
       className="relative bg-white overflow-hidden py-20"
-      aria-label="إحصائيات PetroHop"
+      aria-label="إحصائيات Petrohub"
     >
       {/* Background pattern */}
       <div className="absolute inset-0 dot-bg opacity-[0.07]" />

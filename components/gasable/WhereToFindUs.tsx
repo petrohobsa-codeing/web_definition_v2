@@ -35,7 +35,7 @@ export default function WhereToFindUs() {
 
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#F4F6FA] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[#F3F6FC] flex items-center justify-center">
                   <MessageCircle size={18} className="text-brand-green" />
                 </div>
                 <div>
@@ -46,7 +46,7 @@ export default function WhereToFindUs() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#F4F6FA] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[#F3F6FC] flex items-center justify-center">
                   <Phone size={18} className="text-brand-green-dark" />
                 </div>
                 <div>

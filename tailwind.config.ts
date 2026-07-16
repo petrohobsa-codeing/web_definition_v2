@@ -10,17 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          // 60-30-10 palette: white (60%) / navy (30%) / red (10%)
-          green: "#1B355E",          // navy (primary 30% — headings, accents)
-          "green-dark": "#0C1B33",   // deep navy (footer, dark blocks)
-          "green-mid": "#14284B",    // navy mid (hovers)
-          "green-light": "#F4F6FA",  // near-white navy tint (keeps 60% white)
-          "green-pale": "#EAEEF5",   // light navy tint
-          gold: "#C8102E",           // red (accent 10% — buttons)
-          "gold-dark": "#A00C24",    // darker red (button hover)
-          "gold-light": "#FCE9EC",   // light red tint
+          // Petrohub identity: teal #00D4A7 → blue #0067E3 → purple #701DFF
+          green: "#0C2D6B",          // deep brand blue (primary — headings, accents)
+          "green-dark": "#081B45",   // dark indigo (footer, dark blocks)
+          "green-mid": "#0A2458",    // indigo mid (hovers)
+          "green-light": "#F3F6FC",  // near-white blue tint
+          "green-pale": "#E8EEF9",   // light blue tint
+          gold: "#0067E3",           // brand blue (accent — buttons)
+          "gold-dark": "#004FB0",    // darker blue (button hover)
+          "gold-light": "#E5F0FF",   // light blue tint
+          teal: "#00D4A7",           // brand teal (gradient start)
+          purple: "#701DFF",         // brand purple (gradient end)
           charcoal: "#333333",       // body text
-          "charcoal-mid": "#1B355E", // headings -> navy
+          "charcoal-mid": "#0C2D6B", // headings -> deep blue
           "charcoal-light": "#6B7280",
         },
       },
@@ -40,14 +42,15 @@ const config: Config = {
       },
       backgroundImage: {
         "dot-pattern":
-          "radial-gradient(circle, rgba(27,53,94,0.12) 1px, transparent 1px)",
+          "radial-gradient(circle, rgba(12,45,107,0.12) 1px, transparent 1px)",
         "hero-gradient":
-          "linear-gradient(151deg, #1B355E 0%, #0C1B33 89%)",
-        "gold-gradient": "linear-gradient(135deg, #C8102E 0%, #A00C24 100%)",
-        "emerald-gradient": "linear-gradient(135deg, #1B355E 0%, #0C1B33 100%)",
-        "section-gradient": "linear-gradient(180deg, #F4F6FA 0%, #ffffff 100%)",
-        "gasable-gradient": "linear-gradient(151deg, #1B355E 0%, #0C1B33 89%)",
-        "navy-red-gradient": "linear-gradient(135deg, #1B355E 0%, #C8102E 100%)",
+          "linear-gradient(151deg, #0C2D6B 0%, #081B45 89%)",
+        "gold-gradient": "linear-gradient(135deg, #0067E3 0%, #004FB0 100%)",
+        "emerald-gradient": "linear-gradient(135deg, #0C2D6B 0%, #081B45 100%)",
+        "section-gradient": "linear-gradient(180deg, #F3F6FC 0%, #ffffff 100%)",
+        "gasable-gradient": "linear-gradient(151deg, #0C2D6B 0%, #081B45 89%)",
+        "navy-red-gradient": "linear-gradient(135deg, #00D4A7 0%, #0067E3 50%, #701DFF 100%)",
+        "brand-gradient": "linear-gradient(135deg, #00D4A7 0%, #0067E3 50%, #701DFF 100%)",
       },
     },
   },

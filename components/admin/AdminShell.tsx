@@ -89,10 +89,10 @@ export default function AdminShell({ children, title }: Props) {
         className={`fixed right-0 top-0 h-full w-64 flex flex-col z-30 transition-transform duration-300 shadow-2xl ${
           sidebarOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"
         }`}
-        style={{ background: "linear-gradient(180deg, #1B355E 0%, #0C1B33 100%)" }}
+        style={{ background: "linear-gradient(180deg, #0C2D6B 0%, #081B45 100%)" }}
       >
         {/* Red accent */}
-        <div className="h-1 bg-[#C8102E] flex-shrink-0" />
+        <div className="h-1 bg-[#0067E3] flex-shrink-0" />
         {/* Brand */}
         <div className="p-5 border-b border-white/10">
           <div className="flex items-center gap-3">

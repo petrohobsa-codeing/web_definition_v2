@@ -33,7 +33,7 @@ export default function Credentials() {
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-4">
           <span className="text-brand-green">{lang === "ar" ? "اعتماداتنا" : "Our"}</span>{" "}
-          <span className="text-[#C8102E]">{lang === "ar" ? "وثقتنا" : "Credentials"}</span>
+          <span className="text-[#0067E3]">{lang === "ar" ? "وثقتنا" : "Credentials"}</span>
         </h2>
         <p className="text-center text-[#54595F] max-w-xl mx-auto mb-12">
           {lang === "ar"
@@ -47,7 +47,7 @@ export default function Credentials() {
             return (
               <StaggerItem
                 key={i}
-                className="rounded-2xl border border-gray-100 p-7 text-center hover:shadow-lg hover:border-[#1B355E]/20 transition-all duration-300"
+                className="rounded-2xl border border-gray-100 p-7 text-center hover:shadow-lg hover:border-[#0C2D6B]/20 transition-all duration-300"
               >
                 <div className="hover-grow mb-5 flex justify-center">
                   <Icon size={48} stroke="url(#fl-grad)" strokeWidth={1.5} />
