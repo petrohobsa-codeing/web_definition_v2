@@ -1,14 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AdminShell from "@/components/admin/AdminShell";
 import { getSlides, setSlides } from "@/lib/db";
+import { uploadImage } from "@/lib/upload";
 import type { HeroSlide } from "@/lib/types";
-import { Plus, Pencil, Trash2, X, Save, GripVertical } from "lucide-react";
+import { Plus, Pencil, Trash2, X, Save, GripVertical, Image as ImageIcon } from "lucide-react";
 
 const empty: Omit<HeroSlide, "id"> = {
   badge: "",
   heading: "",
   description: "",
+  image: "",
   cta1Label: "",
   cta1Href: "/quote",
   cta2Label: "",
@@ -23,6 +25,8 @@ export default function SlidesPage() {
   const [editing, setEditing] = useState<HeroSlide | null>(null);
   const [isNew, setIsNew] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     getSlides().then(setSlidesState);
@@ -43,6 +47,18 @@ export default function SlidesPage() {
     const updated = slides.filter((s) => s.id !== id);
     await setSlides(updated);
     setSlidesState(updated);
+  };
+
+  const handleFile = async (file: File) => {
+    setUploading(true);
+    try {
+      const url = await uploadImage(file);
+      setEditing((e) => (e ? { ...e, image: url } : e));
+    } catch (err: any) {
+      alert(err?.message || "فشل رفع الصورة");
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSave = async () => {
@@ -93,6 +109,9 @@ export default function SlidesPage() {
             className="bg-white rounded-2xl border border-gray-100 p-5 hover:border-brand-green/20 hover:shadow-md transition-all duration-200"
           >
             <div className="flex items-start gap-4">
+              {slide.image && (
+                <img src={slide.image} alt="" className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
+              )}
               <div className="flex items-center gap-3 flex-shrink-0">
                 <GripVertical size={16} className="text-gray-300" />
                 <div className="w-8 h-8 rounded-lg bg-brand-green flex items-center justify-center text-white font-black text-sm">
@@ -159,6 +178,29 @@ export default function SlidesPage() {
               </button>
             </div>
             <div className="p-6 space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-brand-charcoal mb-1.5">
+                  صورة الشريحة (البانر)
+                </label>
+                <input
+                  ref={fileRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => { const f = e.target.files?.[0]; if (f) handleFile(f); }}
+                />
+                <button
+                  type="button"
+                  onClick={() => fileRef.current?.click()}
+                  className="flex items-center gap-2 bg-gray-100 text-brand-charcoal px-4 py-2.5 rounded-xl font-bold text-sm hover:bg-gray-200 transition-colors"
+                >
+                  <ImageIcon size={15} />
+                  {uploading ? "جارٍ الرفع..." : editing.image ? "تغيير الصورة" : "رفع صورة"}
+                </button>
+                {editing.image && (
+                  <img src={editing.image} alt="" className="mt-3 w-full h-40 object-cover rounded-xl border border-gray-100" />
+                )}
+              </div>
               <div>
                 <label className="block text-xs font-bold text-brand-charcoal mb-1.5">
                   الشارة (Badge)
@@ -243,7 +285,8 @@ export default function SlidesPage() {
             <div className="flex gap-3 p-6 border-t border-gray-100">
               <button
                 onClick={handleSave}
-                className="flex items-center gap-2 bg-brand-green text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-green-mid transition-colors shadow-lg shadow-brand-green/20"
+                disabled={uploading}
+                className="flex items-center gap-2 bg-brand-green text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-green-mid transition-colors shadow-lg shadow-brand-green/20 disabled:opacity-50"
               >
                 <Save size={16} />
                 حفظ
