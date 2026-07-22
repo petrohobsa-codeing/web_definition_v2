@@ -54,8 +54,8 @@ export default function SlidesPage() {
     try {
       const url = await uploadImage(file);
       setEditing((e) => (e ? { ...e, image: url } : e));
-    } catch (err: any) {
-      alert(err?.message || "فشل رفع الصورة");
+    } catch (err: unknown) {
+      alert(err instanceof Error ? err.message : "فشل رفع الصورة");
     } finally {
       setUploading(false);
     }
