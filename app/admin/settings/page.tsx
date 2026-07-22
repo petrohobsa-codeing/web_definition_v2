@@ -26,7 +26,7 @@ export default function SettingsPage() {
   useEffect(() => {
     getSettings().then((s) => {
       setForm(s);
-      setConfirmPassword(s.adminPassword);
+      setConfirmPassword(s.adminPassword || "");
     });
   }, []);
 
