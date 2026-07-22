@@ -40,6 +40,7 @@ export async function getSlides(): Promise<HeroSlide[]> {
     await setSlides(defaultSlides);
     return defaultSlides;
   }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   return data.map((r: any) => ({
     id: r.id,
     badge: r.badge || "",
@@ -79,6 +80,7 @@ export async function getServices(): Promise<ServiceItem[]> {
     await setServices(defaultServices);
     return defaultServices;
   }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   return data.map((r: any) => ({ id: r.id, iconName: r.icon_name, title: r.title, description: r.description, href: r.href }));
 }
 
@@ -98,6 +100,7 @@ export async function getTestimonials(): Promise<Testimonial[]> {
     await setTestimonials(defaultTestimonials);
     return defaultTestimonials;
   }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   return data.map((r: any) => ({ id: r.id, text: r.text, name: r.name, role: r.role, company: r.company }));
 }
 
@@ -115,6 +118,7 @@ export async function getStats(): Promise<StatItem[]> {
     await setStats(defaultStats);
     return defaultStats;
   }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   return data.map((r: any) => ({ id: r.id, value: r.value, label: r.label }));
 }
 
@@ -143,6 +147,7 @@ export async function getProjects(): Promise<ProjectItem[]> {
     await setProjects(defaultProjects);
     return defaultProjects;
   }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   return data.map((r: any) => ({ id: r.id, title: r.title, description: r.description, category: r.category, city: r.city, slug: r.slug, image: r.image || undefined }));
 }
 
@@ -169,6 +174,7 @@ export async function getPosts(): Promise<BlogPost[]> {
     await setPosts(defaultPosts);
     return defaultPosts;
   }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   return data.map((r: any) => ({ id: r.id, title: r.title, excerpt: r.excerpt, content: r.content, category: r.category, date: r.date, slug: r.slug, image: r.image || undefined }));
 }
 
@@ -191,6 +197,7 @@ export async function deletePost(id: string): Promise<void> {
 
 export async function getActivities(): Promise<ActivityItem[]> {
   const { data } = await supabase.from("activities").select("*").order("created_at", { ascending: false });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (data || []).map((r: any) => ({ id: r.id, title: r.title, description: r.description, category: r.category, date: r.date, image: r.image || undefined }));
 }
 
