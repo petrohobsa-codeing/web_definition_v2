@@ -50,8 +50,8 @@ export async function POST(req: NextRequest) {
       } else {
         emailSent = true;
       }
-    } catch (e: any) {
-      emailError = e?.message || "تعذر إرسال البريد";
+    } catch (e: unknown) {
+      emailError = e instanceof Error ? e.message : "تعذر إرسال البريد";
     }
   }
 
