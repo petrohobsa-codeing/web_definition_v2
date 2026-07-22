@@ -27,8 +27,8 @@ export default function AdminActivitiesPage() {
     try {
       const url = await uploadImage(file);
       setForm((f) => ({ ...f, image: url }));
-    } catch (e: any) {
-      alert(e?.message || "فشل رفع الصورة");
+    } catch (e: unknown) {
+      alert(e instanceof Error ? e.message : "فشل رفع الصورة");
     } finally {
       setUploading(false);
     }
