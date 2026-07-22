@@ -15,18 +15,17 @@ export default function AdminLoginPage() {
     if (checkAuth()) router.push("/admin/dashboard");
   }, [router]);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setTimeout(() => {
-      if (doLogin(password)) {
-        router.push("/admin/dashboard");
-      } else {
-        setError("كلمة المرور غير صحيحة. يرجى المحاولة مجدداً.");
-        setLoading(false);
-      }
-    }, 600);
+    const ok = await doLogin(password);
+    if (ok) {
+      router.push("/admin/dashboard");
+    } else {
+      setError("كلمة المرور غير صحيحة. يرجى المحاولة مجدداً.");
+      setLoading(false);
+    }
   };
 
   return (
