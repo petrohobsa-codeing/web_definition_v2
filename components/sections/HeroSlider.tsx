@@ -70,8 +70,15 @@ export default function HeroSlider() {
         />
       </AnimatePresence>
 
-      {/* Hero background image (Petrohub HQ render from brand identity) */}
-      {siteImages.hero.background && (
+      {/* Hero background image — per-slide image (uploaded by admin) takes priority, falls back to default brand image */}
+      {slide.image ? (
+        <div className="absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={slide.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#081B45]/85 via-[#081B45]/65 to-[#081B45]/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#081B45]/80 via-transparent to-transparent" />
+        </div>
+      ) : siteImages.hero.background ? (
         <div className="absolute inset-0">
           <Image
             src={siteImages.hero.background}
@@ -84,7 +91,7 @@ export default function HeroSlider() {
           <div className="absolute inset-0 bg-gradient-to-l from-[#081B45]/85 via-[#081B45]/65 to-[#081B45]/35" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#081B45]/80 via-transparent to-transparent" />
         </div>
-      )}
+      ) : null}
 
       {/* Dot pattern */}
       <div className="absolute inset-0 dot-bg opacity-15" />
