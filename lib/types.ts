@@ -3,6 +3,7 @@ export interface HeroSlide {
   badge: string;
   heading: string;
   description: string;
+  image?: string;
   cta1Label: string;
   cta1Href: string;
   cta2Label: string;
@@ -38,6 +39,7 @@ export interface ProjectItem {
   category: string;
   city: string;
   slug: string;
+  image?: string;
 }
 
 export interface BlogPost {
@@ -48,6 +50,16 @@ export interface BlogPost {
   category: string;
   date: string;
   slug: string;
+  image?: string;
+}
+
+export interface ActivityItem {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  date: string;
+  image?: string;
 }
 
 export interface QuoteRequest {
@@ -72,6 +84,8 @@ export interface ContactMessage {
   email: string;
   message: string;
   status: "new" | "read";
+  replyText?: string;
+  repliedAt?: string;
   createdAt: string;
 }
 
@@ -82,5 +96,5 @@ export interface SiteSettings {
   address: string;
   workingHours: string;
   cities: string;
-  adminPassword: string;
+  adminPassword?: string;
 }
