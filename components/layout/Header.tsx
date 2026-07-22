@@ -45,6 +45,7 @@ export default function Header() {
     { label: tr.nav.services, href: "/services", dropdown: true },
     { label: tr.nav.projects, href: "/projects" },
     { label: tr.nav.news, href: "/news" },
+    { label: tr.nav.activities, href: "/activities" },
     { label: tr.nav.about, href: "/about" },
     { label: tr.nav.contact, href: "/contact" },
   ];
