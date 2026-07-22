@@ -78,8 +78,8 @@ export default function MessagesPage() {
       }
       setReplyDrafts((d) => ({ ...d, [id]: "" }));
       reload();
-    } catch (e: any) {
-      setReplyResult((r) => ({ ...r, [id]: e?.message || "تعذر إرسال الرد" }));
+    } catch (e: unknown) {
+      setReplyResult((r) => ({ ...r, [id]: e instanceof Error ? e.message : "تعذر إرسال الرد" }));
     } finally {
       setSendingReply(null);
     }
