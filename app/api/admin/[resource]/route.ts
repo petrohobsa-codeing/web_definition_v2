@@ -14,6 +14,7 @@ function unauthorized() {
   return NextResponse.json({ error: "غير مصرح" }, { status: 401 });
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function rowToMessage(r: any) {
   return {
     id: r.id,
@@ -28,6 +29,7 @@ function rowToMessage(r: any) {
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function rowToQuote(r: any) {
   return {
     id: r.id,
@@ -45,6 +47,7 @@ function rowToQuote(r: any) {
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function rowToSettings(r: any) {
   return {
     phone: r.phone,
