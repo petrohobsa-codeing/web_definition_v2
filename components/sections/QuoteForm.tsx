@@ -75,33 +75,23 @@ export default function QuoteForm() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await addQuote({
-        name: form.name,
-        phone: form.phone,
-        email: form.email,
-        activity: form.activity,
-        fuelType: form.fuelType,
-        quantity: form.quantity,
-        city: form.city,
-        sensors: form.sensors,
-        message: form.message,
-      });
-      await fetch("/api/send-quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-    } finally {
-      setLoading(false);
-      setSuccess(true);
-    }
-  };
+      e.preventDefault();
+      setLoading(true);
+      setError("");
+      try {
+            await addQuote({
+                    name: form.name,
+                    phone: form.phone,
+                    email: form.email,
+                    activity: form.activity,
+                    fuelType: form.fuelType,
+                    quantity: form.quantity,
+                    city: form.city,
+                    sensors: form.sensors,
 
   const inputClass =
     "w-full px-5 py-3.5 rounded-2xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition-all duration-200 bg-gray-50 text-brand-charcoal placeholder:text-brand-charcoal-light/50";
@@ -264,6 +254,7 @@ export default function QuoteForm() {
         />
       </div>
 
+      {error && <p className="text-sm text-red-600 text-center font-bold">{error}</p>}
       <Button
         type="submit"
         disabled={loading || !form.name || !form.phone}
