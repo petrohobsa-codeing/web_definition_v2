@@ -102,8 +102,8 @@ const [success, setSuccess] = useState(false);
           });
         } catch {}
         setSuccess(true);
-      } catch (err: any) {
-        setError(err?.message || "حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى");
+      } catch (err: unknown) {
+setError(err instanceof Error ? err.message : "حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى");
       } finally {
         setLoading(false);
       }
