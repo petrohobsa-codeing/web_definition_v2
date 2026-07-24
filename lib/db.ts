@@ -224,20 +224,15 @@ export async function getQuotes(): Promise<QuoteRequest[]> {
 }
 
 export async function addQuote(q: Omit<QuoteRequest, "id" | "status" | "createdAt">): Promise<void> {
-  const id = Date.now().toString();
-  await supabase.from("quotes").insert({
-    id,
-    name: q.name,
-    phone: q.phone,
-    email: q.email,
-    activity: q.activity,
-    fuel_type: q.fuelType,
-    quantity: q.quantity,
-    city: q.city,
-    sensors: q.sensors,
-    message: q.message,
-    status: "new",
-  });
+    const res = await fetch("/api/quote", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(q),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data?.ok) {
+          throw new Error(data?.error || "فشل حفظ الطلب");
+    }
 }
 
 export async function updateQuoteStatus(id: string, status: QuoteRequest["status"]): Promise<void> {
