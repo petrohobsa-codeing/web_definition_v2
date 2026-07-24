@@ -92,6 +92,22 @@ const [success, setSuccess] = useState(false);
                     quantity: form.quantity,
                     city: form.city,
                     sensors: form.sensors,
+              message: form.message,
+            });
+        try {
+          await fetch("/api/send-quote", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form),
+          });
+        } catch {}
+        setSuccess(true);
+      } catch (err: any) {
+        setError(err?.message || "حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى");
+      } finally {
+        setLoading(false);
+      }
+  };
 
   const inputClass =
     "w-full px-5 py-3.5 rounded-2xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition-all duration-200 bg-gray-50 text-brand-charcoal placeholder:text-brand-charcoal-light/50";
