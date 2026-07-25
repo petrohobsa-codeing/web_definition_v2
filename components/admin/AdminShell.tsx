@@ -65,7 +65,10 @@ export default function AdminShell({ children, title }: Props) {
     return () => window.removeEventListener("focus", refreshBadges);
   }, [router, pathname]);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin/auth", { method: "DELETE" });
+    } catch {}
     doLogout();
     router.push("/admin");
   };
