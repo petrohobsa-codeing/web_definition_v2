@@ -1,10 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { getSettings } from "@/lib/db";
 
 export default function WhatsAppButton() {
+  const [whatsapp, setWhatsapp] = useState("966500000000");
+  useEffect(() => {
+      getSettings().then((s) => {
+            if (s?.whatsapp) setWhatsapp(s.whatsapp.replace(/[^0-9]/g, ""));
+      });
+  }, []);
   return (
     <motion.a
-      href="https://wa.me/966500000000"
+      href={`https://wa.me/${whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="تواصل معنا عبر واتساب"
