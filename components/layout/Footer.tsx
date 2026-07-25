@@ -5,6 +5,9 @@ import { Mail, Phone, MapPin, MessageCircle, ExternalLink } from "lucide-react";
 import { siteImages } from "@/lib/images";
 import { useLang } from "@/context/LanguageContext";
 import Logo from "@/components/ui/Logo";
+import { useState, useEffect } from "react";
+import { getSettings } from "@/lib/db";
+import type { SiteSettings } from "@/lib/types";
 
 const services = [
   { ar: "توريد غاز البترول المسال (LPG)", en: "LPG Supply", href: "/services#lpg" },
@@ -104,6 +107,10 @@ const socials = [
 export default function Footer() {
   const { lang } = useLang();
   const L = labels[lang];
+  const [settings, setSettings] = useState<SiteSettings | null>(null);
+  useEffect(() => {
+      getSettings().then(setSettings);
+  }, []);
   return (
     <footer
       className="text-white relative overflow-hidden"
@@ -191,28 +198,28 @@ export default function Footer() {
             <h3 className="text-sm font-bold text-white mb-4 inline-block border-b-2 border-[#0067E3] pb-1">{L.contact}</h3>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:info@petrohub.sa" className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
+                <a href={`mailto:${settings?.email || "info@petrohub.sa"}`} className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
                   <Mail size={15} className="flex-shrink-0" />
                   info@petrohub.sa
                 </a>
               </li>
               <li>
-                <a href="tel:+966500000000" className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
+                <a href={`tel:${settings?.phone || settings?.whatsapp || "+966500000000"}`} className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
                   <Phone size={15} className="flex-shrink-0" />
-                  +966 500 000 000
+                  {settings?.phone || settings?.whatsapp || "+966 500 000 000"}
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
+                <a href={`https://wa.me/${(settings?.whatsapp || "+966500000000").replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 text-white/70 hover: text-white text-sm transition-colors duration-200">
                   <MessageCircle size={15} className="flex-shrink-0" />
-                  {L.whatsapp}: +966 500 000 000
+                  {L.whatsapp}: {settings?.whatsapp || "+966 500 000 000"}
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-2.5 text-white/70 text-sm">
                   <MapPin size={15} className="flex-shrink-0 mt-0.5" />
-                  <span>{L.address}</span>
+                  <span>{settings?.address || L.address}/span>
                 </div>
               </li>
             </ul>
