@@ -1,45 +1,28 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLang } from "@/context/LanguageContext";
-
-const slides = [
-  {
-    img: "/images/hero/bg.jpg",
-    ar: { title: "Petrohub", sub: "حلول ذكية... وطاقة تصل بثقة." },
-    en: { title: "Petrohub", sub: "Smart solutions… energy delivered with trust." },
-  },
-  {
-    img: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&fit=crop&w=1920&h=1080&q=80",
-    ar: { title: "غاز ومنتجات بترولية", sub: "توريد غاز البترول المسال والمنتجات البترولية بأعلى معايير السلامة." },
-    en: { title: "LPG & Petroleum", sub: "LPG and petroleum products supply to the highest safety standards." },
-  },
-  {
-    img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&h=1080&q=80",
-    ar: { title: "طاقة وتقنية ذكية", sub: "حلول طاقة مستدامة ومنصة PetroHub IoT لمراقبة الاستهلاك." },
-    en: { title: "Smart Energy & Tech", sub: "Sustainable energy solutions and the PetroHub IoT platform." },
-  },
-  {
-    img: "/images/hero/facility.jpg",
-    ar: { title: "منشآتنا وأسطولنا", sub: "منشآت حديثة وأسطول متكامل لخدمات الطاقة والمياه واللوجستيات." },
-    en: { title: "Our Facilities & Fleet", sub: "Modern facilities and a full fleet for energy, water, and logistics services." },
-  },
-];
+import { getSlides } from "@/lib/db";
+import type { HeroSlide } from "@/lib/types";
 
 export default function GasableHero() {
-  const { lang } = useLang();
+  const [slides, setSlides] = useState<HeroSlide[]>([]);
   const [current, setCurrent] = useState(0);
 
+useEffect(() => {
+    getSlides().then(setSlides);
+}, []);
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % slides.length);
-    }, 5500);
-    return () => clearInterval(timer);
-  }, []);
+      if (slides.length === 0) return;
+      const timer = setInterval(() => {
+            setCurrent((c) => (c + 1) % slides.length);
+      }, 5500);
+      return () => clearInterval(timer);
+  }, [slides.length]);
 
+  if (slides.length === 0) return null;
   const slide = slides[current];
-  const content = lang === "ar" ? slide.ar : slide.en;
-
+  
   return (
     <section className="relative w-full aspect-video min-h-[560px] max-h-[100vh] overflow-hidden">
       {/* Rotating background images */}
@@ -47,7 +30,7 @@ export default function GasableHero() {
         <motion.div
           key={current}
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${slide.img})` }}
+          style={{ backgroundImage: `url(${slide.image || "/images/hero/bg.jpg"})` }}
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
@@ -70,11 +53,11 @@ export default function GasableHero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-white font-extrabold italic text-5xl md:text-7xl drop-shadow-lg leading-none">
-                {content.title}
+                {slide.heading}
               </h1>
               <div className="w-20 h-1.5 bg-[#0067E3] rounded-full mt-5" />
               <p className="text-white text-xl md:text-2xl mt-4 font-light drop-shadow max-w-xl">
-                {content.sub}
+                {slide.description}
               </p>
             </motion.div>
           </AnimatePresence>
