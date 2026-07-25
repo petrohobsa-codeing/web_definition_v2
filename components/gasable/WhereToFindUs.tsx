@@ -1,9 +1,16 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
 import { MessageCircle, Phone } from "lucide-react";
+import { useState, useEffect } from "react";
+import { getSettings } from "@/lib/db";
+import type { SiteSettings } from "@/lib/types";
 
 export default function WhereToFindUs() {
   const { lang } = useLang();
+  const [settings, setSettings] = useState<SiteSettings | null>(null);
+  useEffect(() => {
+      getSettings().then(setSettings);
+  }, []);
   return (
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -27,11 +34,9 @@ export default function WhereToFindUs() {
             <p className="text-brand-charcoal-mid font-bold text-lg mb-1">
               {lang === "ar" ? "الرياض - المملكة العربية السعودية" : "Riyadh - Saudi Arabia"}
             </p>
-            <p className="text-[#54595F] mb-6">
-              {lang === "ar"
-                ? "طريق أبو بكر الصديق – المعذر"
-                : "Abu Bakr Al Siddiq Road – Al Masif"}
-            </p>
+<p className="text-[#54595F] mb-6">
+  {settings?.address || (lang === "ar" ? "طريق أبو بكر الصديق – المعذر" : "Abu Bakr Al Siddiq Road – Al Masif")}
+</p>
 
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -40,8 +45,8 @@ export default function WhereToFindUs() {
                 </div>
                 <div>
                   <p className="text-[#54595F] text-sm">{lang === "ar" ? "واتساب" : "WhatsApp"}</p>
-                  <a href="tel:+966112160308" className="text-brand-charcoal-mid font-bold" dir="ltr">
-                    +966 11 2160308
+                  <a href={`tel:${settings?.whatsapp || "+966112160308"}`} className="text-brand-charcoal-mid font-bold" dir="ltr">
+                {settings?.whatsapp || "+966 11 2160308"}
                   </a>
                 </div>
               </div>
@@ -53,8 +58,8 @@ export default function WhereToFindUs() {
                   <p className="text-[#54595F] text-sm">
                     {lang === "ar" ? "الرقم الموحّد" : "Unified number"}
                   </p>
-                  <a href="tel:920005469" className="text-brand-charcoal-mid font-bold" dir="ltr">
-                    920005469
+                  <a href={`tel:${settings?.phone || "920005469"}`} className="text-brand-charcoal-mid font-bold" dir="ltr">
+                    {settings?.phone || "920005469"}
                   </a>
                 </div>
               </div>
