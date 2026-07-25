@@ -19,11 +19,22 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const ok = await doLogin(password);
-    if (ok) {
-      router.push("/admin/dashboard");
-    } else {
-      setError("كلمة المرور غير صحيحة. يرجى المحاولة مجدداً.");
+    try {
+      const res = await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        doLogin(password);
+        router.push("/admin/dashboard");
+      } else {
+        setError(data.error || "كلمة المرور غير صحيحة. يرجى المحاولة مجدداً.");
+        setLoading(false);
+      }
+    } catch {
+      setError("حدث خطأ في الاتصال بالخادم. حاول مرة أخرى.");
       setLoading(false);
     }
   };
