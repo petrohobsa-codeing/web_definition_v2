@@ -10,6 +10,11 @@ import type {
   ProjectItem,
   BlogPost,
   ActivityItem,
+    MissionCard,
+    RegionItem,
+    NetworkCard,
+    CredentialItem,
+    FaqItem,
 } from "./types";
 import {
   defaultSlides,
@@ -18,6 +23,11 @@ import {
   defaultStats,
   defaultProjects,
   defaultPosts,
+    defaultMissionCards,
+    defaultRegions,
+    defaultNetworkCards,
+    defaultCredentials,
+    defaultFaqs,
 } from "./store";
 
 async function adminFetch(path: string, options: RequestInit = {}) {
@@ -266,4 +276,105 @@ export async function deleteMessage(id: string): Promise<void> {
 export async function replyMessage(id: string, replyText: string): Promise<{ emailSent: boolean; emailError?: string }> {
   const data = await adminFetch("messages/reply", { method: "POST", body: JSON.stringify({ id, replyText }) });
   return { emailSent: !!data.emailSent, emailError: data.emailError };
+}
+
+
+// ── Mission / Vision / Story ─────────────────────────────────────────────────
+
+export async function getMissionCards(): Promise<MissionCard[]> {
+    const { data } = await supabase.from("mission_cards").select("*").order("sort_order", { ascending: true });
+    if (!data || data.length === 0) {
+          await setMissionCards(defaultMissionCards);
+          return defaultMissionCards;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return data.map((r: any) => ({ id: r.id, title: r.title, description: r.description }));
+}
+
+export async function setMissionCards(items: MissionCard[]): Promise<void> {
+    await supabase.from("mission_cards").delete().neq("id", "__none__");
+    if (items.length === 0) return;
+    await supabase.from("mission_cards").insert(
+          items.map((m, i) => ({ id: m.id, title: m.title, description: m.description, sort_order: i }))
+        );
+}
+
+// ── Coverage regions ──────────────────────────────────────────────────────────
+
+export async function getRegions(): Promise<RegionItem[]> {
+    const { data } = await supabase.from("regions").select("*").order("sort_order", { ascending: true });
+    if (!data || data.length === 0) {
+          await setRegions(defaultRegions);
+          return defaultRegions;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return data.map((r: any) => ({ id: r.id, name: r.name }));
+}
+
+export async function setRegions(items: RegionItem[]): Promise<void> {
+    await supabase.from("regions").delete().neq("id", "__none__");
+    if (items.length === 0) return;
+    await supabase.from("regions").insert(
+          items.map((r, i) => ({ id: r.id, name: r.name, sort_order: i }))
+        );
+}
+
+// ── Extensive network cards ───────────────────────────────────────────────────
+
+export async function getNetworkCards(): Promise<NetworkCard[]> {
+    const { data } = await supabase.from("network_cards").select("*").order("sort_order", { ascending: true });
+    if (!data || data.length === 0) {
+          await setNetworkCards(defaultNetworkCards);
+          return defaultNetworkCards;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return data.map((r: any) => ({ id: r.id, iconName: r.icon_name, title: r.title }));
+}
+
+export async function setNetworkCards(items: NetworkCard[]): Promise<void> {
+    await supabase.from("network_cards").delete().neq("id", "__none__");
+    if (items.length === 0) return;
+    await supabase.from("network_cards").insert(
+          items.map((n, i) => ({ id: n.id, icon_name: n.iconName, title: n.title, sort_order: i }))
+        );
+}
+
+// ── Credentials ────────────────────────────────────────────────────────────────
+
+export async function getCredentials(): Promise<CredentialItem[]> {
+    const { data } = await supabase.from("credentials").select("*").order("sort_order", { ascending: true });
+    if (!data || data.length === 0) {
+          await setCredentials(defaultCredentials);
+          return defaultCredentials;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return data.map((r: any) => ({ id: r.id, iconName: r.icon_name, title: r.title, description: r.description }));
+}
+
+export async function setCredentials(items: CredentialItem[]): Promise<void> {
+    await supabase.from("credentials").delete().neq("id", "__none__");
+    if (items.length === 0) return;
+    await supabase.from("credentials").insert(
+          items.map((c, i) => ({ id: c.id, icon_name: c.iconName, title: c.title, description: c.description, sort_order: i }))
+        );
+}
+
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+
+export async function getFaqs(): Promise<FaqItem[]> {
+    const { data } = await supabase.from("faqs").select("*").order("sort_order", { ascending: true });
+    if (!data || data.length === 0) {
+          await setFaqs(defaultFaqs);
+          return defaultFaqs;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return data.map((r: any) => ({ id: r.id, question: r.question, answer: r.answer }));
+}
+
+export async function setFaqs(items: FaqItem[]): Promise<void> {
+    await supabase.from("faqs").delete().neq("id", "__none__");
+    if (items.length === 0) return;
+    await supabase.from("faqs").insert(
+          items.map((f, i) => ({ id: f.id, question: f.question, answer: f.answer, sort_order: i }))
+        );
 }
