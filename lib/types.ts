@@ -98,3 +98,34 @@ export interface SiteSettings {
   cities: string;
   adminPassword?: string;
 }
+
+
+export interface MissionCard {
+    id: string;
+    title: string;
+    description: string;
+}
+
+export interface RegionItem {
+    id: string;
+    name: string;
+}
+
+export interface NetworkCard {
+    id: string;
+    iconName: "Store" | "Truck" | "Building2";
+    title: string;
+}
+
+export interface CredentialItem {
+    id: string;
+    iconName: "ShieldCheck" | "FileCheck2" | "Award" | "Headset";
+    title: string;
+    description: string;
+}
+
+export interface FaqItem {
+    id: string;
+    question: string;
+    answer: string;
+}
