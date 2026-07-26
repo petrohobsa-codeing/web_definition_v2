@@ -13,7 +13,7 @@ export default function InFigures() {
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
           <span className="text-brand-green">Petrohub</span>{" "}
-                  <span className="text-brand-charcoal-mid">في</</span>{" "}
+                  <span className="text-brand-charcoal-mid">في</span>{" "}
           <span className="text-[#0067E3]">أرقام</span>
         </h2>
 
