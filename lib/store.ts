@@ -8,6 +8,11 @@ import type {
   ContactMessage,
   ProjectItem,
   BlogPost,
+    MissionCard,
+    RegionItem,
+    NetworkCard,
+    CredentialItem,
+    FaqItem,
 } from "./types";
 
 const K = {
@@ -364,3 +369,39 @@ export const doLogin = (password: string): boolean => {
 export const doLogout = (): void => {
   if (typeof window !== "undefined") sessionStorage.removeItem(AUTH_KEY);
 };
+
+
+export const defaultMissionCards: MissionCard[] = [
+  { id: "1", title: "مهمتنا", description: "تقديم خدمات وحلول طاقة موثوقة عالية الجودة تعزز كفاءة الأعمال وتدعم الاستدامة لعملائنا." },
+  { id: "2", title: "رؤيتنا", description: "أن نكون الشريك الأول في حلول الطاقة والخدمات المتكاملة في المملكة، بما يتوافق مع رؤية 2030." },
+  { id: "3", title: "قصتنا", description: "Petrohub — منظومة متكاملة للطاقة والخدمات اللوجستية تخدم القطاعات السكنية والتجارية والصناعية بالجودة والابتكار." },
+  ];
+
+export const defaultRegions: RegionItem[] = [
+  { id: "1", name: "الرياض" },
+  { id: "2", name: "مكة المكرمة" },
+  { id: "3", name: "المدينة المنورة" },
+  { id: "4", name: "ينبع" },
+  { id: "5", name: "تبوك" },
+  ];
+
+export const defaultNetworkCards: NetworkCard[] = [
+  { id: "1", iconName: "Store", title: "الموردون" },
+  { id: "2", iconName: "Truck", title: "شركات اللوجستيات والسائقون" },
+  { id: "3", iconName: "Building2", title: "الشركات والمؤسسات" },
+  ];
+
+export const defaultCredentials: CredentialItem[] = [
+  { id: "1", iconName: "ShieldCheck", title: "الجودة والسلامة", description: "التزام كامل بأعلى معايير الجودة والسلامة المحلية والدولية في كل خدماتنا." },
+  { id: "2", iconName: "FileCheck2", title: "تقنيات حديثة", description: "حلول رقمية ومنصة PetroHub IoT لمراقبة الاستهلاك واتخاذ قرارات دقيقة." },
+  { id: "3", iconName: "Award", title: "حلول مستدامة", description: "حلول طاقة تخفض الانبعاثات وتدعم مستهدفات رؤية المملكة 2030." },
+  { id: "4", iconName: "Headset", title: "دعم على مدار الساعة", description: "فريق متاح 24/7 للطلبات الطارئة والاستفسارات في أي وقت." },
+  ];
+
+export const defaultFaqs: FaqItem[] = [
+  { id: "1", question: "ما الخدمات التي تقدمها Petrohub؟", answer: "نقدم سبع خدمات متكاملة: توريد غاز البترول المسال (LPG)، المنتجات البترولية، خدمات المياه والبيئة، حلول الطاقة، منصة PetroHub IoT، الخدمات اللوجستية، وأنظمة تتبع ومراقبة المركبات." },
+  { id: "2", question: "ما المناطق التي تغطيها خدماتكم؟", answer: "نغطي شبكة تشغيل واسعة تشمل الرياض، مكة المكرمة، المدينة المنورة، ينبع، وتبوك، مع إمكانية التنسيق لمناطق أخرى حسب الطلب." },
+  { id: "3", question: "كيف تضمنون معايير السلامة والجودة؟", answer: "نلتزم بأعلى معايير السلامة المحلية والدولية في جميع مراحل النقل والتسليم، باستخدام أسطول حديث مجهز بأحدث أنظمة الأمان وفرق متخصصة مدربة." },
+  { id: "4", question: "ما هي منصة PetroHub IoT؟", answer: "منصة رقمية ذكية لمراقبة استهلاك الطاقة والمعدات في الوقت الفعلي، تساعد على خفض الاستهلاك حتى 30% وتقليل الأعطال عبر الصيانة الوقائية والتنبيهات الذكية." },
+  { id: "5", question: "كيف أحصل على عرض سعر؟", answer: "يمكنك طلب عرض سعر مخصص عبر صفحة اطلب عرض سعر، وسيتواصل معك فريقنا خلال 24 ساعة بعرض مصمم وفق احتياجاتك." },
+  ];
