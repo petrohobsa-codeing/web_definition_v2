@@ -23,7 +23,7 @@ import {
   FolderOpen,
   Newspaper,
   CalendarDays,
-} from "lucide-react";
+Target, MapPinned, Share2, Award, HelpCircle, } from "lucide-react";
 
 const navItems = [
   { href: "/admin/dashboard", label: "لوحة التحكم", icon: LayoutDashboard },
@@ -34,6 +34,11 @@ const navItems = [
   { href: "/admin/activities", label: "الأنشطة", icon: CalendarDays },
   { href: "/admin/testimonials", label: "آراء العملاء", icon: MessageSquare },
   { href: "/admin/stats", label: "الإحصائيات", icon: BarChart2 },
+  { href: "/admin/mission", label: "المهمة والرؤية", icon: Target },
+  { href: "/admin/regions", label: "مناطق التغطية", icon: MapPinned },
+  { href: "/admin/network", label: "شبكتنا", icon: Share2 },
+  { href: "/admin/credentials", label: "اعتماداتنا", icon: Award },
+  { href: "/admin/faqs", label: "الأسئلة الشائعة", icon: HelpCircle },
   { href: "/admin/quotes", label: "طلبات الأسعار", icon: FileText, badge: "quotes" },
   { href: "/admin/messages", label: "رسائل التواصل", icon: Mail, badge: "messages" },
   { href: "/admin/settings", label: "الإعدادات", icon: Settings },
