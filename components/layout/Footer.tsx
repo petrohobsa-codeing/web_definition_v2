@@ -211,7 +211,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href={`https://wa.me/${(settings?.whatsapp || "+966500000000").replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-white/70 hover: text-white text-sm transition-colors duration-200">
+                  className="flex items-center gap-2.5 text-white/70 hover:text-white text-sm transition-colors duration-200">
                   <MessageCircle size={15} className="flex-shrink-0" />
                   {L.whatsapp}: {settings?.whatsapp || "+966 500 000 000"}
                 </a>
@@ -219,7 +219,7 @@ export default function Footer() {
               <li>
                 <div className="flex items-start gap-2.5 text-white/70 text-sm">
                   <MapPin size={15} className="flex-shrink-0 mt-0.5" />
-                  <span>{settings?.address || L.address}/span>
+                  <span>{settings?.address || L.address}</span>
                 </div>
               </li>
             </ul>
