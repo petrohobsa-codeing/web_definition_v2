@@ -1,53 +1,41 @@
 "use client";
 import Link from "next/link";
-import { useLang } from "@/context/LanguageContext";
+import { useState, useEffect } from "react";
 import GasableButton from "./GasableButton";
 import { StaggerGroup, StaggerItem } from "./Stagger";
-import { Flame, Fuel, Droplets, Leaf, Cpu, Truck, Navigation } from "lucide-react";
-import { services, type IconKey } from "@/lib/petrohubServices";
+import { Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck } from "lucide-react";
+import { getServices } from "@/lib/db"; import type { ServiceItem } from "@/lib/types";
 
-const iconMap: Record<IconKey, typeof Flame> = {
-  lpg: Flame,
-  oil: Fuel,
-  water: Droplets,
-  energy: Leaf,
-  iot: Cpu,
-  logistics: Truck,
-  tracking: Navigation,
-};
+const iconMap: Record<string, typeof Flame> = { Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck };
 
 export default function Speciality() {
-  const { lang } = useLang();
+  const [services, setServices] = useState<ServiceItem[]>([]); useEffect(() => { getServices().then(setServices); }, []); if (services.length === 0) return null;
   return (
     <section className="bg-[#F3F6FC] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-3">
-          <span className="text-brand-green">{lang === "ar" ? "خدماتنا" : "Our"}</span>{" "}
-          <span className="text-[#0067E3]">{lang === "ar" ? "" : "Services"}</span>
+                    <span className="text-brand-green">خدماتنا</span>
         </h2>
         <p className="text-center text-[#54595F] max-w-2xl mx-auto mb-12">
-          {lang === "ar"
-            ? "حلول متكاملة للطاقة والخدمات اللوجستية تلبي احتياجات القطاعات السكنية والتجارية والصناعية."
-            : "Integrated energy and logistics solutions serving the residential, commercial and industrial sectors."}
+                    حلول متكاملة للطاقة والخدمات اللوجستية تلبي احتياجات القطاعات السكنية والتجارية والصناعية.
         </p>
 
         <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => {
-            const c = lang === "ar" ? s.ar : s.en;
-            const Icon = iconMap[s.icon];
+                    const Icon = iconMap[s.iconName] || Flame;
             return (
               <StaggerItem
-                key={s.slug}
+                key={s.id}
                 className="bg-white rounded-2xl p-7 text-center shadow-sm hover:shadow-xl transition-shadow duration-300"
               >
-                <Link href={`/services#${s.slug}`} className="flex flex-col items-center h-full">
+                <Link href={s.href} className="flex flex-col items-center h-full">
                   <div className="hover-grow mb-5">
                     <Icon size={56} stroke="url(#fl-grad)" strokeWidth={1.5} />
                   </div>
                   <h3 className="text-lg font-bold text-brand-green-dark mb-3 leading-snug">
-                    {c.title}
+                    {s.title}
                   </h3>
-                  <p className="text-[#54595F] text-sm leading-6">{c.intro}</p>
+                  <p className="text-[#54595F] text-sm leading-6">{s.description}</p>
                 </Link>
               </StaggerItem>
             );
@@ -56,7 +44,7 @@ export default function Speciality() {
 
         <div className="text-center mt-12">
           <GasableButton href="/services">
-            {lang === "ar" ? "اكتشف جميع خدماتنا" : "Explore All Services"}
+            اكتشف جميع خدماتنا
           </GasableButton>
         </div>
       </div>
