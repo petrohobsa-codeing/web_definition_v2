@@ -27,7 +27,7 @@ export default function CoverageRegions() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-5">
-          {cities.map((c, i) => (
+          {cities.map((c) => (
             <div
 key={c.id}
               className="bg-white rounded-2xl px-8 py-6 shadow-sm flex flex-col items-center min-w-[160px] hover:shadow-md transition-shadow"
