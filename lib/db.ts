@@ -7,6 +7,7 @@ import type {
   SiteSettings,
   QuoteRequest,
   ContactMessage,
+  ServiceDetailItem,
   ProjectItem,
   BlogPost,
   ActivityItem,
@@ -28,6 +29,7 @@ import {
     defaultNetworkCards,
     defaultCredentials,
     defaultFaqs,
+  defaultServiceDetails,
 } from "./store";
 
 async function adminFetch(path: string, options: RequestInit = {}) {
@@ -376,5 +378,26 @@ export async function setFaqs(items: FaqItem[]): Promise<void> {
     if (items.length === 0) return;
     await supabase.from("faqs").insert(
           items.map((f, i) => ({ id: f.id, question: f.question, answer: f.answer, sort_order: i }))
+        );
+}
+
+
+// ── Service details (تفاصيل الخدمات) ──────────────────────────────────────────
+
+export async function getServiceDetails(): Promise<ServiceDetailItem[]> {
+    const { data } = await supabase.from("service_details").select("*").order("sort_order", { ascending: true });
+    if (!data || data.length === 0) {
+          await setServiceDetails(defaultServiceDetails);
+          return defaultServiceDetails;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return data.map((r: any) => ({ id: r.id, slug: r.slug, iconName: r.icon_name, title: r.title, intro: r.intro, advantages: r.advantages || [], value: r.value || [] }));
+}
+
+export async function setServiceDetails(items: ServiceDetailItem[]): Promise<void> {
+    await supabase.from("service_details").delete().neq("id", "__none__");
+    if (items.length === 0) return;
+    await supabase.from("service_details").insert(
+          items.map((s, i) => ({ id: s.id, slug: s.slug, icon_name: s.iconName, title: s.title, intro: s.intro, advantages: s.advantages, value: s.value, sort_order: i }))
         );
 }
