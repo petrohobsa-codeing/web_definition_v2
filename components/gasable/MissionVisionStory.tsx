@@ -4,7 +4,6 @@ import GasableButton from "./GasableButton";
 import { StaggerGroup, StaggerItem } from "./Stagger";
 import { useEffect, useState } from "react";
 import { getMissionCards } from "@/lib/db";
-import type { MissionCard } from "@/lib/types";
 import { defaultMissionCards } from "@/lib/store";
 
 const grad = (id: string) => (
