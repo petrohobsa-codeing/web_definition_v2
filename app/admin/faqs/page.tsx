@@ -74,7 +74,7 @@ export default function FaqsPage() {
                                     </div>
                                     <div className="space-y-4">
                                                     <div>
-                                                                      <label className="block text-xs font-bold text-brand-charcoal mb-1.5">السؤال</label>label>
+                                                                      <label className="block text-xs font-bold text-brand-charcoal mb-1.5">السؤال</label>
                                                                       <input
                                                                                             className={inputCls}
                                                                                             value={item.question}
@@ -83,7 +83,7 @@ export default function FaqsPage() {
                                                                                           />
                                                     </div>
                                                     <div>
-                                                                      <label className="block text-xs font-bold text-brand-charcoal mb-1.5">الإجابة</label>label>
+                                                                      <label className="block text-xs font-bold text-brand-charcoal mb-1.5">الإجابة</label>
                                                                       <textarea
                                                                                             className={inputCls}
                                                                                             rows={3}
