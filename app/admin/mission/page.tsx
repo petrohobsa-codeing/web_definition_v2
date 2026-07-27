@@ -57,7 +57,7 @@ export default function MissionPage() {
                                     </div>
                                     <div className="space-y-4">
                                                     <div>
-                                                                      <label className="block text-xs font-bold text-brand-charcoal mb-1.5">العنوان</label>label>
+                                                                      <label className="block text-xs font-bold text-brand-charcoal mb-1.5">العنوان</label>
                                                                       <input
                                                                                             className={inputCls}
                                                                                             value={item.title}
@@ -66,7 +66,7 @@ export default function MissionPage() {
                                                                                           />
                                                     </div>
                                                     <div>
-                                                                      <label className="block text-xs font-bold text-brand-charcoal mb-1.5">الوصف</label>label>
+                                                                      <label className="block text-xs font-bold text-brand-charcoal mb-1.5">الوصف</label>
                                                                       <textarea
                                                                                             className={inputCls}
                                                                                             rows={3}
@@ -100,4 +100,3 @@ export default function MissionPage() {
         </AdminShell>
       );
 }
-</AdminShell>
