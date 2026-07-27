@@ -1,22 +1,18 @@
 "use client";
+import { useState, useEffect } from "react";
+import { getServiceDetails } from "@/lib/db";
+import { defaultServiceDetails } from "@/lib/store";
+import type { ServiceDetailItem } from "@/lib/types";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { CheckCircle2, Sparkles, Flame, Fuel, Droplets, Leaf, Cpu, Truck, Navigation } from "lucide-react";
+import { CheckCircle2, Sparkles, Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import {
-  services, intro, commitment, advantagesLabel, valueLabel, type IconKey,
+    intro, commitment, advantagesLabel, valueLabel,
 } from "@/lib/petrohubServices";
 
-const iconMap: Record<IconKey, typeof Flame> = {
-  lpg: Flame,
-  oil: Fuel,
-  water: Droplets,
-  energy: Leaf,
-  iot: Cpu,
-  logistics: Truck,
-  tracking: Navigation,
-};
+const iconMap: Record<string, typeof Flame> = { Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck };
 
 const ui = {
   ar: { badge: "خدماتنا", quote: "اطلب عرض سعر", contact: "تواصل معنا", cta: "هل تريد حلاً مخصّصاً لمنشأتك؟" },
@@ -28,6 +24,8 @@ export default function ServicesContent() {
   const L = ui[lang];
   const I = intro[lang];
   const C = commitment[lang];
+  const [services, setServices] = useState<ServiceDetailItem[]>(defaultServiceDetails);
+  useEffect(() => { getServiceDetails().then(setServices); }, []);
 
   return (
     <>
@@ -50,8 +48,7 @@ export default function ServicesContent() {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
           {services.map((s, idx) => {
-            const c = lang === "ar" ? s.ar : s.en;
-            const Icon = iconMap[s.icon];
+            const Icon = iconMap[s.iconName] || Flame;
             return (
               <motion.article
                 id={s.slug}
@@ -74,13 +71,13 @@ export default function ServicesContent() {
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                       <h2 className="text-2xl md:text-3xl font-black text-brand-green-dark leading-tight">
-                        {c.title}
+                        {s.title}
                       </h2>
                     </div>
                   </div>
 
                   {/* Intro */}
-                  <p className="text-[#54595F] leading-loose mb-8">{c.intro}</p>
+                                  <p className="text-[#54595F] leading-loose mb-8">{s.intro}</p>
 
                   {/* Advantages + Value */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -90,7 +87,7 @@ export default function ServicesContent() {
                         {advantagesLabel[lang]}
                       </h3>
                       <ul className="space-y-2.5">
-                        {c.advantages.map((a) => (
+                        {s.advantages.map((a) => (
                           <li key={a} className="flex items-start gap-2.5 text-[#54595F] text-sm leading-6">
                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-green flex-shrink-0" />
                             {a}
@@ -104,7 +101,7 @@ export default function ServicesContent() {
                         {valueLabel[lang]}
                       </h3>
                       <ul className="space-y-2.5">
-                        {c.value.map((v) => (
+                        {s.value.map((v) => (
                           <li key={v} className="flex items-start gap-2.5 text-[#54595F] text-sm leading-6">
                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0067E3] flex-shrink-0" />
                             {v}
