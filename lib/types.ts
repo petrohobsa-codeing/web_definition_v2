@@ -129,3 +129,14 @@ export interface FaqItem {
     question: string;
     answer: string;
 }
+
+
+export interface ServiceDetailItem {
+  id: string;
+  slug: string;
+  iconName: string;
+  title: string;
+  intro: string;
+  advantages: string[];
+  value: string[];
+}
