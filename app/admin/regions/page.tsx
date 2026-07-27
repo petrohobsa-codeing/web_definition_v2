@@ -46,7 +46,7 @@ export default function RegionsPage() {
               <div className="max-w-2xl">
                       <p className="text-brand-charcoal-light text-sm mb-6">
                                 هذه المدن تظهر في قسم مناطق التغطية بالصفحة الرئيسية.
-                      </p>p>
+                      </p>
               
                 {saved && (
                     <div className="mb-4 bg-brand-green-light border border-brand-green/20 text-brand-green px-4 py-3 rounded-xl text-sm font-bold">
@@ -104,4 +104,3 @@ export default function RegionsPage() {
         </AdminShell>
       );
 }
-</AdminShell>
