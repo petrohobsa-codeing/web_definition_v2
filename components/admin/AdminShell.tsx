@@ -23,12 +23,13 @@ import {
   FolderOpen,
   Newspaper,
   CalendarDays,
-Target, MapPinned, Share2, Award, HelpCircle, } from "lucide-react";
+  Target, MapPinned, Share2, Award, HelpCircle, ListChecks, } from "lucide-react";
 
 const navItems = [
   { href: "/admin/dashboard", label: "لوحة التحكم", icon: LayoutDashboard },
   { href: "/admin/slides", label: "شرائح الرئيسية", icon: Layers },
   { href: "/admin/services", label: "الخدمات", icon: Briefcase },
+  { href: "/admin/service-details", label: "تفاصيل الخدمات", icon: ListChecks },
   { href: "/admin/projects", label: "المشاريع والأعمال", icon: FolderOpen },
   { href: "/admin/news", label: "الأخبار والمقالات", icon: Newspaper },
   { href: "/admin/activities", label: "الأنشطة", icon: CalendarDays },
