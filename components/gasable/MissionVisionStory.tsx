@@ -2,6 +2,10 @@
 import { useLang } from "@/context/LanguageContext";
 import GasableButton from "./GasableButton";
 import { StaggerGroup, StaggerItem } from "./Stagger";
+import { useEffect, useState } from "react";
+import { getMissionCards } from "@/lib/db";
+import type { MissionCard } from "@/lib/types";
+import { defaultMissionCards } from "@/lib/store";
 
 const grad = (id: string) => (
   <defs>
@@ -51,59 +55,29 @@ const HouseIcon = () => (
   </svg>
 );
 
-const cards = [
-  {
-    Icon: LeafIcon,
-    ar: {
-      title: "مهمتنا",
-      text: "تقديم خدمات وحلول طاقة موثوقة عالية الجودة تعزز كفاءة الأعمال وتدعم الاستدامة لعملائنا.",
-    },
-    en: {
-      title: "Our Mission",
-      text: "Delivering reliable, high-quality energy services and solutions that boost business efficiency and support sustainability for our clients.",
-    },
-  },
-  {
-    Icon: SunIcon,
-    ar: {
-      title: "رؤيتنا",
-      text: "أن نكون الشريك الأول في حلول الطاقة والخدمات المتكاملة في المملكة، بما يتوافق مع رؤية 2030.",
-    },
-    en: {
-      title: "Our Vision",
-      text: "To be the leading partner in integrated energy and services solutions in the Kingdom, aligned with Vision 2030.",
-    },
-  },
-  {
-    Icon: HouseIcon,
-    ar: {
-      title: "قصّتنا",
-      text: "Petrohub — منظومة متكاملة للطاقة والخدمات اللوجستية تخدم القطاعات السكنية والتجارية والصناعية بالجودة والابتكار.",
-    },
-    en: {
-      title: "Our Story",
-      text: "Petrohub — an integrated energy and logistics system serving residential, commercial and industrial sectors with quality and innovation.",
-    },
-  },
-];
+const icons = [LeafIcon, SunIcon, HouseIcon];
 
 export default function MissionVisionStory() {
   const { lang } = useLang();
+  const [cards, setCards] = useState(defaultMissionCards);
+  useEffect(() => {
+    getMissionCards().then(setCards);
+  }, []);
   return (
     <section className="bg-[#F3F6FC] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {cards.map(({ Icon, ...c }, i) => {
-            const content = lang === "ar" ? c.ar : c.en;
+          {cards.map((c, i) => {
+            const Icon = icons[i] || LeafIcon;
             return (
-              <StaggerItem key={i} lift={false} className="text-center flex flex-col items-center">
+              <StaggerItem key={c.id} lift={false} className="text-center flex flex-col items-center">
                 <div className="hover-grow mb-5">
                   <Icon />
                 </div>
                 <h3 className="title-underline text-[22px] font-semibold text-brand-charcoal-mid mb-5">
-                  {content.title}
+                  {c.title}
                 </h3>
-                <p className="text-[#54595F] leading-7 max-w-xs">{content.text}</p>
+                <p className="text-[#54595F] leading-7 max-w-xs">{c.description}</p>
               </StaggerItem>
             );
           })}
