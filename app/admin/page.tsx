@@ -9,6 +9,8 @@ export default function AdminLoginPage() {
   const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [forgotLoading, setForgotLoading] = useState(false);
+  const [forgotMsg, setForgotMsg] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -36,6 +38,24 @@ export default function AdminLoginPage() {
     } catch {
       setError("حدث خطأ في الاتصال بالخادم. حاول مرة أخرى.");
       setLoading(false);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    setForgotLoading(true);
+    setForgotMsg("");
+    try {
+      const res = await fetch("/api/admin/forgot-password", { method: "POST" });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        setForgotMsg("تم إرسال رابط إعادة تعيين كلمة المرور إلى بريد الإدارة.");
+      } else {
+        setForgotMsg(data.error || "تعذر إرسال رابط إعادة التعيين.");
+      }
+    } catch {
+      setForgotMsg("حدث خطأ في الاتصال بالخادم.");
+    } finally {
+      setForgotLoading(false);
     }
   };
 
@@ -121,11 +141,11 @@ export default function AdminLoginPage() {
               >
                 {loading ? (
                   <>
-                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
                     </svg>
-                    جارٍ التحقق...
+                    جاري التحقق...
                   </>
                 ) : (
                   "دخول"
@@ -133,8 +153,23 @@ export default function AdminLoginPage() {
               </button>
             </form>
 
+            <div className="mt-4 text-center">
+              <button
+                type="button"
+                onClick={handleForgotPassword}
+                disabled={forgotLoading}
+                className="text-sm text-brand-green hover:text-brand-green-mid font-bold transition-colors disabled:opacity-50"
+              >
+                {forgotLoading ? "جارٍ الإرسال..." : "نسيت كلمة المرور؟"}
+              </button>
+              {forgotMsg && (
+                <p className="mt-2 text-xs text-brand-charcoal-light">{forgotMsg}</p>
+              )}
+            </div>
+
             <p className="mt-6 text-center text-xs text-brand-charcoal-light">
-              منطقة محمية — مخصّصة لموظفي Petrohub المصرّح لهم فقط.
+              المصرح لهم فقط Petrohub منطقة محمية – مخصصة لموظفي
+              .
             </p>
           </div>
         </div>
