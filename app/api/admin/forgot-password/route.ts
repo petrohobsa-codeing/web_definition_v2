@@ -25,13 +25,12 @@ export async function POST(req: NextRequest) {
 
     if (error) {
       console.error("Resend error (forgot-password):", error);
-      return NextResponse.json({ ok: false, error: "تعذر إرسال بريد إعادة التعيين", detail: error }, { status: 500 });
+      return NextResponse.json({ ok: false, error: "تعذر إرسال بريد إعادة التعيين" }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("forgot-password route error:", err);
-    const detail = err instanceof Error ? err.message : String(err);
-    return NextResponse.json({ ok: false, error: "حدث خطأ في الخادم", detail }, { status: 500 });
+    return NextResponse.json({ ok: false, error: "حدث خطأ في الخادم" }, { status: 500 });
   }
 }
