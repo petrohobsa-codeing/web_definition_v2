@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "Petrohub <delivered@ioostooeld.resend.app>",
-      to: process.env.TO_EMAIL || "info@petrohub.sa",
+        to: process.env.TO_EMAIL || "petrohob.sa@gmail.com",
       subject: `طلب عرض سعر جديد — ${name}`,
       html: `
         <div dir="rtl" style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f9fafb; padding: 24px; border-radius: 16px;">
@@ -88,11 +88,13 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) {
+              console.error("Resend error:", error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err) {
+          console.error("send-quote route error:", err);
     return NextResponse.json({ error: "حدث خطأ أثناء الإرسال" }, { status: 500 });
   }
 }
