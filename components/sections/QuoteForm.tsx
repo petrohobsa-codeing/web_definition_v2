@@ -100,9 +100,12 @@ const [success, setSuccess] = useState(false);
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form),
           });
-        } catch {}
+        } catch (emailErr) {
+                    console.error("Failed to send quote email:", emailErr);
+        }
         setSuccess(true);
       } catch (err: unknown) {
+        
 setError(err instanceof Error ? err.message : "حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى");
       } finally {
         setLoading(false);
