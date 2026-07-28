@@ -22,6 +22,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const { lang, toggle } = useLang();
   const tr = t[lang];
@@ -35,6 +36,7 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
     setDropdownOpen(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   const isActive = (href: string) =>
@@ -174,11 +176,17 @@ export default function Header() {
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div key={link.href}>
-                  <Link href={link.href}
-                    className={`flex items-center px-4 py-3 rounded-xl font-bold mb-1 ${isActive(link.href) ? "text-brand-green bg-brand-green-light" : "text-brand-charcoal hover:bg-gray-50"}`}>
+                  <button
+                    onClick={() => setMobileServicesOpen((prev) => !prev)}
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-bold mb-1 ${isActive(link.href) ? "text-brand-green bg-brand-green-light" : "text-brand-charcoal hover:bg-gray-50"}`}
+                    aria-expanded={mobileServicesOpen}
+                  >
                     {link.label}
-                  </Link>
-                  <div className="mr-4 border-r-2 border-brand-green-pale pr-4 mb-2">
+                    <ChevronDown size={16} className={`transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  <div
+                    className={`mr-4 border-r-2 border-brand-green-pale pr-4 overflow-hidden transition-all duration-300 ${mobileServicesOpen ? "max-h-96 opacity-100 mb-2" : "max-h-0 opacity-0"}`}
+                  >
                     {serviceLinks.map((s) => (
                       <Link key={s.href} href={s.href}
                         className="flex items-center px-3 py-2.5 rounded-xl text-sm font-medium text-brand-charcoal-mid hover:text-brand-green hover:bg-brand-green-light mb-0.5">
