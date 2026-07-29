@@ -31,5 +31,4 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "حدث خطأ في الخادم" }, { status: 500 });
   }
 }
-  }
   
