@@ -1,17 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
-import { ADMIN_COOKIE_NAME, verifySessionToken } from "@/lib/adminAuth";
+import { ADMIN_COOKIE_NAME, verifySessionToken, hasPermission, AdminSession } from "@/lib/adminAuth";
 
 export const dynamic = "force-dynamic";
 
-function isAuthed(): boolean {
+const RESOURCE_PERMISSION: Record<string, string> = {
+  messages: "messages",
+  quotes: "quotes",
+  settings: "settings",
+};
+
+function getSession(): AdminSession | null {
   const token = cookies().get(ADMIN_COOKIE_NAME)?.value;
   return verifySessionToken(token);
 }
 
 function unauthorized() {
   return NextResponse.json({ error: "غير مصرح" }, { status: 401 });
+}
+
+function canAccess(session: AdminSession | null, resource: string): boolean {
+  if (!session) return false;
+  const permKey = RESOURCE_PERMISSION[resource];
+  if (!permKey) return false;
+  return hasPermission(session, permKey);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -61,14 +74,15 @@ function rowToSettings(r: any) {
 }
 
 export async function GET(_req: NextRequest, context: { params: { resource: string } }) {
-  if (!isAuthed()) return unauthorized();
+  const session = getSession();
   const resource = context.params.resource;
+  if (!canAccess(session, resource)) return unauthorized();
 
-  if (resource === "messages") {
-    const { data, error } = await supabaseAdmin.from("messages").select("*").order("created_at", { ascending: false });
-    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-    return NextResponse.json({ items: (data || []).map(rowToMessage) });
-  }
+if (resource === "messages") {
+  const { data, error } = await supabaseAdmin.from("messages").select("*").order("created_at", { ascending: false });
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ items: (data || []).map(rowToMessage) });
+}
   if (resource === "quotes") {
     const { data, error } = await supabaseAdmin.from("quotes").select("*").order("created_at", { ascending: false });
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
@@ -83,15 +97,16 @@ export async function GET(_req: NextRequest, context: { params: { resource: stri
 }
 
 export async function PUT(req: NextRequest, context: { params: { resource: string } }) {
-  if (!isAuthed()) return unauthorized();
+  const session = getSession();
   const resource = context.params.resource;
+  if (!canAccess(session, resource)) return unauthorized();
   const body = await req.json();
 
-  if (resource === "messages" || resource === "quotes") {
-    const { error } = await supabaseAdmin.from(resource).update({ status: body.status }).eq("id", body.id);
-    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-    return NextResponse.json({ ok: true });
-  }
+if (resource === "messages" || resource === "quotes") {
+  const { error } = await supabaseAdmin.from(resource).update({ status: body.status }).eq("id", body.id);
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ ok: true });
+}
   if (resource === "settings") {
     const row: Record<string, unknown> = {};
     if (body.phone !== undefined) row.phone = body.phone;
@@ -109,14 +124,15 @@ export async function PUT(req: NextRequest, context: { params: { resource: strin
 }
 
 export async function DELETE(req: NextRequest, context: { params: { resource: string } }) {
-  if (!isAuthed()) return unauthorized();
+  const session = getSession();
   const resource = context.params.resource;
+  if (!canAccess(session, resource)) return unauthorized();
   const body = await req.json();
 
-  if (resource === "messages" || resource === "quotes") {
-    const { error } = await supabaseAdmin.from(resource).delete().eq("id", body.id);
-    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-    return NextResponse.json({ ok: true });
-  }
+if (resource === "messages" || resource === "quotes") {
+  const { error } = await supabaseAdmin.from(resource).delete().eq("id", body.id);
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ ok: true });
+}
   return NextResponse.json({ error: "unknown resource" }, { status: 404 });
 }
