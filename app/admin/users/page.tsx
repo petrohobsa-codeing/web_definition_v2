@@ -240,6 +240,13 @@ if (loading) {
             )}
           </div>
         </section>
+
+
+                {/* Users List Section */}
+                        <section className="space-y-6">
+                                  <h2 className="text-2xl font-bold">قائمة المستخدمين</h2>
+                                            <UsersList users={users} onUpdate={setUsers} />
+                                                    </section>
       </div>
     </AdminShell>
   );
