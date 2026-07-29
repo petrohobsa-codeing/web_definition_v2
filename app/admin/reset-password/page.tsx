@@ -7,7 +7,6 @@ import { supabase } from "@/lib/supabaseClient";
 function ResetPasswordForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const token = searchParams.get("token") || "";
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
