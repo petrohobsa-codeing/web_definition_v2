@@ -2,6 +2,7 @@
 import { useState, FormEvent, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Eye, EyeOff, Lock, ShieldCheck } from "lucide-react";
+import { supabase } from "@/lib/supabaseClient";
 
 function ResetPasswordForm() {
   const searchParams = useSearchParams();
@@ -19,10 +20,6 @@ function ResetPasswordForm() {
     e.preventDefault();
     setError("");
 
-    if (!token) {
-      setError("رابط إعادة التعيين غير صالح.");
-      return;
-    }
     if (newPassword !== confirmPassword) {
       setError("كلمتا المرور غير متطابقتين.");
       return;
@@ -30,17 +27,12 @@ function ResetPasswordForm() {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/admin/reset-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token, newPassword }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && data.ok) {
+      const { error } = await supabase.auth.updateUser({ password: newPassword });
+      if (!error) {
         setSuccess(true);
         setTimeout(() => router.push("/admin"), 2000);
       } else {
-        setError(data.error || "تعذر إعادة تعيين كلمة المرور.");
+        setError(error.message || "تعذر إعادة تعيين كلمة المرور");
       }
     } catch {
       setError("حدث خطأ في الاتصال بالخادم. حاول مرة أخرى.");
