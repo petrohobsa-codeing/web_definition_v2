@@ -194,6 +194,52 @@ if (loading) {
           </div>
           {inviteMsg && <p className="text-sm text-brand-charcoal-light">{inviteMsg}</p>}
         </section>
+
+        <section className="bg-white rounded-2xl border border-gray-200 p-5">
+          <h2 className="font-bold text-brand-charcoal mb-4">المستخدمون الحاليون</h2>
+          <div className="space-y-4">
+            {users.map((u) => (
+              <div key={u.id} className="border border-gray-200 rounded-xl p-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                  <span className="font-bold text-brand-charcoal" dir="ltr">{u.email}</span>
+                  <div className="flex items-center gap-3">
+                    <select
+                      value={u.role}
+                      onChange={(e) => updateUserRole(u, e.target.value)}
+                      className="rounded-xl border border-gray-200 px-3 py-1 text-sm"
+                    >
+                      <option value="staff">موظف</option>
+                      <option value="owner">مالك</option>
+                    </select>
+                    <button
+                      onClick={() => deleteUser(u)}
+                      className="text-red-600 text-sm font-bold"
+                    >
+                      حذف
+                    </button>
+                  </div>
+                </div>
+                {u.role !== "owner" && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                    {PERMISSION_KEYS.map((key) => (
+                      <label key={key} className="flex items-center gap-2 text-sm text-brand-charcoal">
+                        <input
+                          type="checkbox"
+                          checked={!!u.permissions[key]}
+                          onChange={(e) => updateUserPermission(u, key, e.target.checked)}
+                        />
+                        {PERMISSION_LABELS[key]}
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+            {users.length === 0 && (
+              <p className="text-sm text-brand-charcoal-light">لا يوجد مستخدمون حتى الآن.</p>
+            )}
+          </div>
+        </section>
       </div>
     </AdminShell>
   );
