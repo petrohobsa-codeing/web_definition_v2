@@ -6,6 +6,7 @@ import { Eye, EyeOff, Lock, ShieldCheck } from "lucide-react";
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -25,11 +26,11 @@ export default function AdminLoginPage() {
       const res = await fetch("/api/admin/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ email, password }),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
-        doLogin(password);
+        doLogin();
         router.push("/admin/dashboard");
       } else {
         setError(data.error || "كلمة المرور غير صحيحة. يرجى المحاولة مجدداً.");
@@ -42,10 +43,14 @@ export default function AdminLoginPage() {
   };
 
   const handleForgotPassword = async () => {
+    if (!email) {
+      setForgotMsg("يرجى إدخال البريد الإلكتروني أولاً");
+      return;
+    }
     setForgotLoading(true);
     setForgotMsg("");
     try {
-      const res = await fetch("/api/admin/forgot-password", { method: "POST" });
+      const res = await fetch("/api/admin/forgot-password", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email }) });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
         setForgotMsg("تم إرسال رابط إعادة تعيين كلمة المرور إلى بريد الإدارة.");
@@ -98,6 +103,25 @@ export default function AdminLoginPage() {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
+              <label
+                htmlFor="admin-email"
+                className="block text-sm font-bold text-brand-charcoal mb-2"
+                >
+              البريد الإلكتروني
+              </label>
+                <input
+                  id="admin-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoFocus
+                  dir="ltr"
+                  className="w-full rounded-xl border border-brand-charcoal/15 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green"
+                  placeholder="you@example.com"
+                  />
+              </div>
+              <div>
                 <label
                   htmlFor="admin-pw"
                   className="block text-sm font-bold text-brand-charcoal mb-2"
@@ -136,7 +160,7 @@ export default function AdminLoginPage() {
 
               <button
                 type="submit"
-                disabled={loading || !password}
+                disabled={loading || !email || !password}
                 className="w-full bg-brand-green text-white font-black py-4 rounded-2xl hover:bg-brand-green-mid transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-brand-green/30"
               >
                 {loading ? (
