@@ -8,6 +8,7 @@ import {
 } from "@/lib/store";
 import { getQuotes, getMessages } from "@/lib/db";
 import {
+  Users,
   LayoutDashboard,
   Layers,
   Briefcase,
@@ -43,6 +44,7 @@ const navItems = [
   { href: "/admin/quotes", label: "طلبات الأسعار", icon: FileText, badge: "quotes" },
   { href: "/admin/messages", label: "رسائل التواصل", icon: Mail, badge: "messages" },
   { href: "/admin/settings", label: "الإعدادات", icon: Settings },
+  { href: "/admin/users", label: "المستخدمون", icon: Users },
 ];
 
 interface Props {
@@ -56,12 +58,25 @@ export default function AdminShell({ children, title }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [newQuotes, setNewQuotes] = useState(0);
   const [newMessages, setNewMessages] = useState(0);
+  const [role, setRole] = useState<string>("staff");
+  const [permissions, setPermissions] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     if (!checkAuth()) {
       router.push("/admin");
       return;
     }
+    fetch("/api/admin/auth")
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data || !data.authed) {
+        router.push("/admin");
+        return;
+      }
+      setRole(data.role || "staff");
+      setPermissions(data.permissions || {});
+    })
+    .catch(() => router.push("/admin"));
     const refreshBadges = () => {
       getQuotes().then((quotes) => setNewQuotes(quotes.filter((q) => q.status === "new").length));
       getMessages().then((messages) => setNewMessages(messages.filter((m) => m.status === "new").length));
@@ -84,6 +99,13 @@ export default function AdminShell({ children, title }: Props) {
     if (key === "messages") return newMessages;
     return 0;
   };
+
+  const keyFromHref = (href: string) => href.replace("/admin/", "").replace(/-/g, "_");
+  const visibleNavItems = navItems.filter((item) => {
+    const key = keyFromHref(item.href);
+    if (key === "users") return role === "owner";
+    return role === "owner" || permissions[key];
+  });
 
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden font-arabic" dir="rtl">
@@ -117,7 +139,7 @@ export default function AdminShell({ children, title }: Props) {
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-          {navItems.map((item) => {
+          {visibleNavItems.map((item) => {
             const isActive = pathname === item.href;
             const badge = getBadge(item.badge);
             return (
