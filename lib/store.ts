@@ -353,18 +353,8 @@ export const checkAuth = (): boolean => {
   return sessionStorage.getItem(AUTH_KEY) === "true";
 };
 
-export const doLogin = (password: string): boolean => {
-  // Try cached password from Firestore (set by getSettings in db.ts)
-  const cachedPassword =
-    typeof window !== "undefined"
-      ? localStorage.getItem("pn_cached_password")
-      : null;
-  const expectedPassword = cachedPassword ?? defaultSettings.adminPassword;
-  if (password === expectedPassword) {
-    sessionStorage.setItem(AUTH_KEY, "true");
-    return true;
-  }
-  return false;
+export const doLogin = (): void => {
+  if (typeof window !== "undefined") sessionStorage.setItem(AUTH_KEY, "true");
 };
 
 export const doLogout = (): void => {
