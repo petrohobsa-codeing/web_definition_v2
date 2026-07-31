@@ -13,6 +13,13 @@ interface User {
   createdAt: string;
 }
 
+interface UserFormData {
+  id?: string;
+  name: string;
+  email: string;
+  role: "admin" | "editor" | "viewer";
+}
+
 export default function UsersPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -38,7 +45,7 @@ export default function UsersPage() {
     fetchUsers();
   }, []);
 
-  const handleAdd = async (data: User) => {
+  const handleAdd = async (data: UserFormData) => {
     const response = await fetch("/api/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -49,7 +56,7 @@ export default function UsersPage() {
     setIsAdding(false);
   };
 
-  const handleUpdate = async (data: User) => {
+  const handleUpdate = async (data: UserFormData) => {
     const response = await fetch(`/api/users/${editingUser?.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
