@@ -14,6 +14,13 @@ interface User {
   createdAt: string;
 }
 
+interface UserFormData {
+  id?: string;
+  name: string;
+  email: string;
+  role: "admin" | "editor" | "viewer";
+}
+
 export default function UserDetailPage() {
   const router = useRouter();
   const params = useParams();
@@ -43,7 +50,7 @@ export default function UserDetailPage() {
     if (userId) fetchUser();
   }, [userId]);
 
-  const handleUpdate = async (data: User) => {
+  const handleUpdate = async (data: UserFormData) => {
     const response = await fetch(`/api/users/${userId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
