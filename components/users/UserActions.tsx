@@ -9,6 +9,7 @@ interface UserActionsProps {
     onEdit?: () => void;
     onDelete?: () => void;
     isLoading?: boolean;
+    canDelete?: boolean;
 }
 
 export default function UserActions({
@@ -16,6 +17,7 @@ export default function UserActions({
     onEdit,
     onDelete,
     isLoading = false,
+    canDelete = true,
 }: UserActionsProps) {
     return (
         <div className="flex gap-2">
@@ -34,6 +36,7 @@ export default function UserActions({
         <Pencil size={14} />
         تعديل
         </button>
+            {canDelete && (
         <button
             onClick={onDelete}
             className="flex items-center gap-1 px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 hover:scale-105 transition text-sm disabled:bg-gray-400 disabled:hover:scale-100"
@@ -42,6 +45,7 @@ export default function UserActions({
         <Trash2 size={14} />
         حذف
         </button>
+            )}
         </div>
         );
 }
