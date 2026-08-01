@@ -3,14 +3,15 @@
 import React, { useState } from "react";
 
 interface User {
-    id?: string;
+  id?: string;
   name: string;
   email: string;
   role: "admin" | "editor" | "viewer";
+  password?: string;
 }
 
 interface UserFormProps {
-    initialData?: User;
+  initialData?: User;
   onSubmit: (data: User) => Promise<void>;
   onCancel: () => void;
   isLoading?: boolean;
@@ -22,11 +23,13 @@ export default function UserForm({
   onCancel,
   isLoading = false,
 }: UserFormProps) {
+  const isEditing = Boolean(initialData?.id);
   const [formData, setFormData] = useState<User>({
     name: initialData?.name || "",
-          email: initialData?.email || "",
-          role: initialData?.role || "viewer",
-      });
+    email: initialData?.email || "",
+    role: initialData?.role || "viewer",
+    password: "",
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -35,7 +38,11 @@ export default function UserForm({
     if (!formData.name.trim()) newErrors.name = "الاسم مطلوب";
     if (!formData.email.trim()) newErrors.email = "البريد مطلوب";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-            newErrors.email = "البريد غير صحيح";
+      newErrors.email = "البريد غير صحيح";
+    if (!isEditing && (!formData.password || formData.password.length < 8))
+      newErrors.password = "كلمة المرور مطلوبة (8 أحرف على الأقل)";
+    if (isEditing && formData.password && formData.password.length < 8)
+      newErrors.password = "كلمة المرور يجب أن تكون 8 أحرف على الأقل";
     return newErrors;
   };
 
@@ -48,91 +55,109 @@ export default function UserForm({
     }
     try {
       setIsSubmitting(true);
-      await onSubmit({
-        ...formData,
-        id: initialData?.id,
-});
+      const payload: User = { ...formData, id: initialData?.id };
+      if (isEditing && !payload.password) delete payload.password;
+      await onSubmit(payload);
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {
-            setIsSubmitting(false);
-}
-};
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 max-w-lg">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              الاسم
-            </label>
-            <input
-              type="text"
-              value={formData.name}
+      <div>
+        <label className="block text-sm font-medium text-gray-700">الاسم</label>
+        <input
+          type="text"
+          value={formData.name}
           onChange={(e) => {
-                        setFormData({ ...formData, name: e.target.value });
+            setFormData({ ...formData, name: e.target.value });
             if (errors.name) setErrors({ ...errors, name: "" });
-              }}
+          }}
           className={`mt-1 w-full px-3 py-2 border rounded-md focus:outline-none ${
             errors.name ? "border-red-500" : "border-gray-300"
-            }`}
+          }`}
         />
-            {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
-                  </div>
-
-          <div>
-        <label className="block text-sm font-medium text-gray-700">
-                      البريد الإلكتروني
-                    </label>
-                    <input
-                      type="email"
-              value={formData.email}
-          onChange={(e) => {
-                        setFormData({ ...formData, email: e.target.value });
-            if (errors.email) setErrors({ ...errors, email: "" });
-            }}
-                      className={`mt-1 w-full px-3 py-2 border rounded-md focus:outline-none ${
-                        errors.email ? "border-red-500" : "border-gray-300"
-            }`}
-                    />
-              {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+        {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
       </div>
 
-                              <div>
-                                <label className="block text-sm font-medium text-gray-700">
-                      الدور
-                    </label>
-                    <select
-                                  value={formData.role}
-                                  onChange={(e) =>
-                        setFormData({
-              ...formData,
-                                      role: e.target.value as "admin" | "editor" | "viewer",
-})
-}
-              className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
-                                >
-                                  <option value="viewer">مشاهد</option>
-          <option value="editor">محرر</option>
-                                  <option value="admin">مسلم</option>
-                                </select>
-          </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          البريد الإلكتروني
+        </label>
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(e) => {
+            setFormData({ ...formData, email: e.target.value });
+            if (errors.email) setErrors({ ...errors, email: "" });
+          }}
+          className={`mt-1 w-full px-3 py-2 border rounded-md focus:outline-none ${
+            errors.email ? "border-red-500" : "border-gray-300"
+          }`}
+        />
+        {errors.email && (
+          <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+        )}
+      </div>
 
-                  <div className="flex gap-3 pt-4">
-                    <button
-                                  type="submit"
-                                  disabled={isSubmitting || isLoading}
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          كلمة المرور{isEditing ? " (اتركها فارغة للإبقاء على الحالية)" : ""}
+        </label>
+        <input
+          type="password"
+          autoComplete="new-password"
+          value={formData.password || ""}
+          onChange={(e) => {
+            setFormData({ ...formData, password: e.target.value });
+            if (errors.password) setErrors({ ...errors, password: "" });
+          }}
+          className={`mt-1 w-full px-3 py-2 border rounded-md focus:outline-none ${
+            errors.password ? "border-red-500" : "border-gray-300"
+          }`}
+        />
+        {errors.password && (
+          <p className="mt-1 text-sm text-red-600">{errors.password}</p>
+        )}
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-700">الدور</label>
+        <select
+          value={formData.role}
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              role: e.target.value as "admin" | "editor" | "viewer",
+            })
+          }
+          className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
+        >
+          <option value="viewer">مشاهد</option>
+          <option value="editor">محرر</option>
+          <option value="admin">مسؤول</option>
+        </select>
+      </div>
+
+      <div className="flex gap-3 pt-4">
+        <button
+          type="submit"
+          disabled={isSubmitting || isLoading}
           className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 transition"
-                    >
-            {isSubmitting ? "جاري..." : initialData ? "تحديث" : "إضافة"}
+        >
+          {isSubmitting ? "جاري..." : initialData ? "تحديث" : "إضافة"}
         </button>
-                    <button
-                      type="button"
-                      onClick={onCancel}
+        <button
+          type="button"
+          onClick={onCancel}
           className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 transition"
-                    >
-                      إلغاء
-                    </button>
-                  </div>
-                </form>
-              );
+        >
+          إلغاء
+        </button>
+      </div>
+    </form>
+  );
 }
