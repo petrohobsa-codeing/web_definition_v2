@@ -103,6 +103,18 @@ export async function DELETE(
         { status: 400 }
       );
     }
+    const { data: target, error: targetError } = await supabaseAdmin
+    .from("app_users")
+    .select("email")
+    .eq("id", params.id)
+    .maybeSingle();
+    if (targetError) throw targetError;
+    if (target?.email?.toLowerCase() === "petrohob.sa@gmail.com") {
+      return NextResponse.json(
+        { error: "لا يمكن حذف حساب مالك النظام" },
+        { status: 403 }
+        );
+    }
     const { data, error } = await supabaseAdmin
       .from("app_users")
       .delete()
