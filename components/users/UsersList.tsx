@@ -127,6 +127,7 @@ export default function UsersList({
                         userId={user.id}
                         onEdit={() => onEdit?.(user)}
                         onDelete={() => onDelete?.(user.id)}
+                        canDelete={user.email.toLowerCase() !== "petrohob.sa@gmail.com"}
                       />
                     </td>
                   </tr>
