@@ -23,7 +23,7 @@ import {
   FolderOpen,
   Newspaper,
   CalendarDays,
-  Target, MapPinned, Share2, Award, HelpCircle, ListChecks, } from "lucide-react";
+  Target, MapPinned, Share2, Award, HelpCircle, ListChecks, Users, } from "lucide-react";
 
 const navItems = [
   { href: "/admin/dashboard", label: "لوحة التحكم", icon: LayoutDashboard },
@@ -42,6 +42,7 @@ const navItems = [
   { href: "/admin/faqs", label: "الأسئلة الشائعة", icon: HelpCircle },
   { href: "/admin/quotes", label: "طلبات الأسعار", icon: FileText, badge: "quotes" },
   { href: "/admin/messages", label: "رسائل التواصل", icon: Mail, badge: "messages" },
+  { href: "/admin/users", label: "إدارة المستخدمين", icon: Users },
   { href: "/admin/settings", label: "الإعدادات", icon: Settings },
 ];
 
