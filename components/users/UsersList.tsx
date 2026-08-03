@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import UserActions from "./UserActions";
 
 interface User {
@@ -9,6 +9,11 @@ interface User {
   name: string;
   role: string;
   createdAt: string;
+}
+
+interface RoleOption {
+  key: string;
+  label: string;
 }
 
 interface UsersListProps {
@@ -31,6 +36,32 @@ export default function UsersList({
   const [searchTerm, setSearchTerm] = useState("");
   const [roleFilter, setRoleFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
+  const [roles, setRoles] = useState<RoleOption[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/roles")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => {
+        if (!active) return;
+        const list = Array.isArray(data)
+          ? data.map((r: { key: string; label: string }) => ({
+              key: r.key,
+              label: r.label,
+            }))
+          : [];
+        setRoles(list);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const roleLabel = (key: string) => {
+    const found = roles.find((r) => r.key === key);
+    return found ? found.label : key;
+  };
 
   const filteredUsers = useMemo(() => {
     return users.filter((user) => {
@@ -86,9 +117,11 @@ export default function UsersList({
           className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
         >
           <option value="all">كل الأدوار</option>
-          <option value="admin">مسلم</option>
-          <option value="editor">محرر</option>
-          <option value="viewer">مشاهد</option>
+          {roles.map((r) => (
+            <option key={r.key} value={r.key}>
+              {r.label}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -116,7 +149,7 @@ export default function UsersList({
                     <td className="px-4 py-3">{user.email}</td>
                     <td className="px-4 py-3">
                       <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">
-                        {user.role}
+                        {roleLabel(user.role)}
                       </span>
                     </td>
                     <td className="px-4 py-3">
@@ -164,3 +197,4 @@ export default function UsersList({
     </div>
   );
 }
+ctrl:End
