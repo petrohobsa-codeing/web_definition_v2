@@ -10,7 +10,7 @@ interface User {
   id: string;
   name: string;
   email: string;
-  role: "admin" | "editor" | "viewer";
+  role: string;
   createdAt: string;
 }
 
@@ -18,7 +18,7 @@ interface UserFormData {
   id?: string;
   name: string;
   email: string;
-  role: "admin" | "editor" | "viewer";
+  role: string;
 }
 
 export default function UserDetailPage() {
