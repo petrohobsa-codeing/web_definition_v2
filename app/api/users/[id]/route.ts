@@ -1,25 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
-import { ADMIN_COOKIE_NAME, getSession } from "@/lib/adminAuth";
+import { requirePermission } from "@/lib/adminAuth";
 import { hashPassword } from "@/lib/passwords";
 
 export const dynamic = "force-dynamic";
-
-function requireAdmin() {
-  const token = cookies().get(ADMIN_COOKIE_NAME)?.value;
-  const session = getSession(token);
-  if (!session) return { error: "غير مصرح", status: 401 as const };
-  if (session.role !== "admin")
-    return { error: "الصلاحية غير كافية", status: 403 as const };
-  return { session };
-}
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const auth = requireAdmin();
+  const auth = requirePermission("users", "read");
   if ("error" in auth)
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   try {
@@ -48,7 +38,7 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const auth = requireAdmin();
+  const auth = requirePermission("users", "update");
   if ("error" in auth)
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   try {
@@ -93,7 +83,7 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const auth = requireAdmin();
+  const auth = requirePermission("users", "delete");
   if ("error" in auth)
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   try {
@@ -104,16 +94,16 @@ export async function DELETE(
       );
     }
     const { data: target, error: targetError } = await supabaseAdmin
-    .from("app_users")
-    .select("email")
-    .eq("id", params.id)
-    .maybeSingle();
+      .from("app_users")
+      .select("email")
+      .eq("id", params.id)
+      .maybeSingle();
     if (targetError) throw targetError;
     if (target?.email?.toLowerCase() === "petrohob.sa@gmail.com") {
       return NextResponse.json(
         { error: "لا يمكن حذف حساب مالك النظام" },
         { status: 403 }
-        );
+      );
     }
     const { data, error } = await supabaseAdmin
       .from("app_users")
