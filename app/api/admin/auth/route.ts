@@ -6,11 +6,25 @@ import {
   ADMIN_COOKIE_MAX_AGE,
   createSessionToken,
   getSession,
-  type AdminRole,
 } from "@/lib/adminAuth";
 import { hashPassword, verifyPassword } from "@/lib/passwords";
+import { allPermissions, sanitizePermissions } from "@/lib/permissions";
+import type { PermissionsMap } from "@/lib/permissions";
 
 export const dynamic = "force-dynamic";
+
+async function getPermissionsForRole(roleKey: string): Promise<PermissionsMap> {
+  const { data } = await supabaseAdmin
+    .from("roles")
+    .select("permissions")
+    .eq("key", roleKey)
+    .maybeSingle();
+  if (data?.permissions) return sanitizePermissions(data.permissions);
+  // Fallback for the built-in admin role, or if the roles table hasn't been
+  // seeded yet: the "admin" role always has full access.
+  if (roleKey === "admin") return allPermissions();
+  return {};
+}
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => ({}));
@@ -26,11 +40,19 @@ export async function POST(req: NextRequest) {
 
   const { data: user } = await supabaseAdmin
     .from("app_users")
-    .select("id, email, role, password_hash")
+    .select("id, email, name, role, password_hash")
     .ilike("email", email)
     .maybeSingle();
 
-  let session: { userId: string; email: string; role: AdminRole } | null = null;
+  let session:
+    | {
+        userId: string;
+        email: string;
+        name: string;
+        role: string;
+        permissions: PermissionsMap;
+      }
+    | null = null;
 
   if (user && user.password_hash) {
     // Normal login path.
@@ -40,10 +62,13 @@ export async function POST(req: NextRequest) {
         { status: 401 }
       );
     }
+    const role = user.role || "viewer";
     session = {
       userId: String(user.id),
       email: user.email,
-      role: (user.role as AdminRole) || "viewer",
+      name: user.name || user.email,
+      role,
+      permissions: await getPermissionsForRole(role),
     };
   } else {
     // First-run bootstrap: if no admin has a password yet, allow the owner to
@@ -67,23 +92,38 @@ export async function POST(req: NextRequest) {
         );
       }
       const password_hash = hashPassword(password);
+      const permissions = await getPermissionsForRole("admin");
       if (user) {
         await supabaseAdmin
           .from("app_users")
           .update({ role: "admin", password_hash })
           .eq("id", user.id);
-        session = { userId: String(user.id), email: user.email, role: "admin" };
+        session = {
+          userId: String(user.id),
+          email: user.email,
+          name: user.name || user.email,
+          role: "admin",
+          permissions,
+        };
       } else {
         const id = Date.now().toString();
         const { data: created } = await supabaseAdmin
           .from("app_users")
-          .insert({ id, name: "Administrator", email, role: "admin", password_hash })
-          .select("id, email, role")
+          .insert({
+            id,
+            name: "Administrator",
+            email,
+            role: "admin",
+            password_hash,
+          })
+          .select("id, email, name, role")
           .single();
         session = {
           userId: String(created?.id ?? id),
           email: created?.email ?? email,
+          name: created?.name ?? "Administrator",
           role: "admin",
+          permissions,
         };
       }
     } else {
@@ -99,6 +139,7 @@ export async function POST(req: NextRequest) {
     ok: true,
     role: session.role,
     email: session.email,
+    name: session.name,
   });
   res.cookies.set(ADMIN_COOKIE_NAME, token, {
     httpOnly: true,
@@ -117,6 +158,9 @@ export async function GET() {
     authed: session !== null,
     role: session?.role ?? null,
     email: session?.email ?? null,
+    userId: session?.userId ?? null,
+    name: session?.name ?? null,
+    permissions: session?.permissions ?? {},
   });
 }
 
