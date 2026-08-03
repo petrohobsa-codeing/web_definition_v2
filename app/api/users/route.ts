@@ -1,22 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
-import { ADMIN_COOKIE_NAME, getSession } from "@/lib/adminAuth";
+import { requirePermission } from "@/lib/adminAuth";
 import { hashPassword } from "@/lib/passwords";
 
 export const dynamic = "force-dynamic";
 
-function requireAdmin() {
-  const token = cookies().get(ADMIN_COOKIE_NAME)?.value;
-  const session = getSession(token);
-  if (!session) return { error: "غير مصرح", status: 401 as const };
-  if (session.role !== "admin")
-    return { error: "الصلاحية غير كافية", status: 403 as const };
-  return { session };
-}
-
 export async function GET() {
-  const auth = requireAdmin();
+  const auth = requirePermission("users", "read");
   if ("error" in auth)
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   try {
@@ -43,7 +33,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const auth = requireAdmin();
+  const auth = requirePermission("users", "create");
   if ("error" in auth)
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   try {
