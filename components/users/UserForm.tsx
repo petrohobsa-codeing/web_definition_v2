@@ -1,12 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+interface RoleOption {
+  key: string;
+  label: string;
+}
 
 interface User {
   id?: string;
   name: string;
   email: string;
-  role: "admin" | "editor" | "viewer";
+  role: string;
   password?: string;
 }
 
@@ -32,6 +37,31 @@ export default function UserForm({
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [roles, setRoles] = useState<RoleOption[]>([]);
+  const [rolesLoading, setRolesLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/roles")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => {
+        if (!active) return;
+        const list = Array.isArray(data)
+          ? data.map((r: { key: string; label: string }) => ({
+              key: r.key,
+              label: r.label,
+            }))
+          : [];
+        setRoles(list);
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (active) setRolesLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -128,18 +158,22 @@ export default function UserForm({
         <label className="block text-sm font-medium text-gray-700">الدور</label>
         <select
           value={formData.role}
-          onChange={(e) =>
-            setFormData({
-              ...formData,
-              role: e.target.value as "admin" | "editor" | "viewer",
-            })
-          }
+          onChange={(e) => setFormData({ ...formData, role: e.target.value })}
           className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
         >
-          <option value="viewer">مشاهد</option>
-          <option value="editor">محرر</option>
-          <option value="admin">مسؤول</option>
+          {rolesLoading && <option value={formData.role}>جار التحميل...</option>}
+          {!rolesLoading && roles.length === 0 && (
+            <option value={formData.role}>{formData.role}</option>
+          )}
+          {roles.map((r) => (
+            <option key={r.key} value={r.key}>
+              {r.label}
+            </option>
+          ))}
         </select>
+        <p className="mt-1 text-xs text-gray-500">
+          يمكنك إدارة الأدوار والصلاحيات المتاحة من صفحة الأدوار والصلاحيات.
+        </p>
       </div>
 
       <div className="flex gap-3 pt-4">
