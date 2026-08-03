@@ -1,10 +1,10 @@
 "use client";
 
-import { createContext, useContext, ReactNode } from "react";
+import { useEffect, useState } from "react";
 import type { PermissionsMap, ResourceKey, Action } from "./permissions";
 import { can } from "./permissions";
 
-interface AdminIdentity {
+export interface AdminIdentity {
   userId: string | null;
   email: string | null;
   name: string | null;
@@ -13,7 +13,7 @@ interface AdminIdentity {
   loading: boolean;
 }
 
-const defaultIdentity: AdminIdentity = {
+const initialIdentity: AdminIdentity = {
   userId: null,
   email: null,
   name: null,
@@ -22,29 +22,36 @@ const defaultIdentity: AdminIdentity = {
   loading: true,
 };
 
-const AdminIdentityContext = createContext<AdminIdentity>(defaultIdentity);
-
-export function AdminIdentityProvider({
-  value,
-  children,
-}: {
-  value: AdminIdentity;
-  children: ReactNode;
-}) {
-  return (
-    <AdminIdentityContext.Provider value={value}>
-      {children}
-    </AdminIdentityContext.Provider>
-      );
-}
-
 export function useAdminIdentity(): AdminIdentity {
-  return useContext(AdminIdentityContext);
+  const [state, setState] = useState<AdminIdentity>(initialIdentity);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/admin/auth")
+      .then((res) => res.json())
+      .then((data) => {
+        if (!active) return;
+        setState({
+          userId: data.userId ?? null,
+          email: data.email ?? null,
+          name: data.name ?? null,
+          role: data.role ?? null,
+          permissions: data.permissions ?? {},
+          loading: false,
+        });
+      })
+      .catch(() => {
+        if (active) setState((s) => ({ ...s, loading: false }));
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  return state;
 }
 
 export function useCan(resource: ResourceKey, action: Action): boolean {
   const { permissions } = useAdminIdentity();
   return can(permissions, resource, action);
 }
-
-export type { AdminIdentity };
