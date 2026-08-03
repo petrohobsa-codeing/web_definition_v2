@@ -1,4 +1,7 @@
 import crypto from "crypto";
+import { cookies } from "next/headers";
+import type { PermissionsMap, ResourceKey, Action } from "./permissions";
+import { can } from "./permissions";
 
 export const ADMIN_COOKIE_NAME = "admin_session";
 export const ADMIN_COOKIE_MAX_AGE = 60 * 60 * 8; // 8 hours
@@ -6,12 +9,12 @@ export const RESET_TOKEN_MAX_AGE = 15 * 60 * 1000; // 15 minutes
 
 const SECRET = process.env.ADMIN_SESSION_SECRET || "dev-secret-change-me";
 
-export type AdminRole = "admin" | "editor" | "viewer";
-
 export interface AdminSession {
   userId: string;
   email: string;
-  role: AdminRole;
+  name: string;
+  role: string;
+  permissions: PermissionsMap;
   expires: number;
 }
 
@@ -30,12 +33,16 @@ function fromB64url(input: string): string {
 export function createSessionToken(session: {
   userId: string;
   email: string;
-  role: AdminRole;
+  name: string;
+  role: string;
+  permissions: PermissionsMap;
 }): string {
   const payload: AdminSession = {
     userId: session.userId,
     email: session.email,
+    name: session.name,
     role: session.role,
+    permissions: session.permissions,
     expires: Date.now() + ADMIN_COOKIE_MAX_AGE * 1000,
   };
   const encoded = b64url(JSON.stringify(payload));
@@ -65,6 +72,31 @@ export function getSession(
 
 export function verifySessionToken(token: string | undefined | null): boolean {
   return getSession(token) !== null;
+}
+
+export function getSessionFromCookies(): AdminSession | null {
+  const token = cookies().get(ADMIN_COOKIE_NAME)?.value;
+  return getSession(token);
+}
+
+export function requireAuth():
+  | { session: AdminSession }
+  | { error: string; status: 401 } {
+  const session = getSessionFromCookies();
+  if (!session) return { error: "غير مصرح", status: 401 };
+  return { session };
+}
+
+export function requirePermission(
+  resource: ResourceKey,
+  action: Action
+): { session: AdminSession } | { error: string; status: 401 | 403 } {
+  const session = getSessionFromCookies();
+  if (!session) return { error: "غير مصرح", status: 401 };
+  if (!can(session.permissions, resource, action)) {
+    return { error: "الصلاحية غير كافية", status: 403 };
+  }
+  return { session };
 }
 
 export function createResetToken(): string {
