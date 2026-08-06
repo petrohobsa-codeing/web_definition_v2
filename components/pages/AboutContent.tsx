@@ -144,25 +144,30 @@ export default function AboutContent() {
           <div className="bg-white rounded-4xl border border-gray-100 shadow-xl shadow-brand-green/5 p-8 md:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-7 order-2 lg:order-1">
-                <Badge variant="gold" className="mb-5 !bg-brand-gold/10 !text-brand-gold !border-brand-gold/20">
+                <h2 className="text-3xl md:text-5xl font-black text-brand-charcoal mb-4 leading-tight">
                   {chairman[lang].badge}
-                </Badge>
-                <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal mb-3 leading-snug">
-                  {chairman[lang].title}
                 </h2>
-                <p className="text-brand-gold font-bold mb-6">{chairman[lang].subtitle}</p>
+                <p className="text-xl md:text-2xl font-bold text-brand-gold mb-3 leading-snug">
+                  {chairman[lang].title}
+                </p>
+                <p className="text-base md:text-lg font-bold text-brand-gold mb-6">{chairman[lang].subtitle}</p>
                 <div className="space-y-4">
-                  <p className="text-brand-charcoal-light leading-loose">{chairman[lang].p1}</p>
-                  <p className="text-brand-charcoal-light leading-loose">{chairman[lang].p2}</p>
+                  <p className="text-brand-charcoal-light leading-loose text-base md:text-lg">{chairman[lang].p1}</p>
+                  <p className="text-brand-charcoal-light leading-loose text-base md:text-lg">{chairman[lang].p2}</p>
                 </div>
                 <div className="mt-8">
-                  <p className="text-brand-charcoal font-black text-lg">{chairman[lang].name}</p>
-                  <p className="text-brand-gold font-bold text-sm">{chairman[lang].role}</p>
+                  <p className="text-brand-charcoal font-black text-xl">{chairman[lang].name}</p>
+                  <p className="text-brand-gold font-bold text-base">{chairman[lang].role}</p>
                 </div>
               </div>
               <div className="lg:col-span-5 order-1 lg:order-2">
-                <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-[4/5] max-w-sm mx-auto">
-                  <Image src={chairman.photo} alt={chairman[lang].name} fill className="object-cover" />
+                <div className="relative rounded-tl-[64px] overflow-hidden shadow-lg aspect-[4/5] max-w-sm mx-auto">
+                  <div
+                    className="relative w-full h-full"
+                    style={{ clipPath: "polygon(0 0, 78% 0, 100% 22%, 100% 100%, 0 100%)" }}
+                  >
+                    <Image src={chairman.photo} alt={chairman[lang].name} fill className="object-cover" />
+                  </div>
                 </div>
               </div>
             </div>
