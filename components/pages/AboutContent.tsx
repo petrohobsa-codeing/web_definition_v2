@@ -172,11 +172,12 @@ export default function AboutContent() {
                 </div>
               </div>
               <div className="lg:col-span-5 order-1 lg:order-2 lg:sticky lg:top-28">
-                <div className="relative max-w-sm mx-auto aspect-[3/4]">
-                  <div className="absolute inset-0 overflow-hidden rounded-tl-[64px] shadow-lg -skew-x-[12deg]">
-                    <div className="relative w-[130%] h-full -ml-[15%] skew-x-[12deg]">
-                      <Image src={chairman.photo} alt={chairman[lang].name} fill className="object-cover" />
-                    </div>
+                <div className="relative max-w-sm mx-auto aspect-[3/4] drop-shadow-lg">
+                  <div
+                    className="relative w-full h-full overflow-hidden"
+                    style={{ clipPath: "polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%)" }}
+                  >
+                    <Image src={chairman.photo} alt={chairman[lang].name} fill className="object-cover" />
                   </div>
                 </div>
               </div>
