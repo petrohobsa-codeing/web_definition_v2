@@ -1,9 +1,32 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { ChevronLeft, Target, Eye, Heart, Leaf } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
+
+const chairman = {
+  photo: "/images/chairman/naif-bin-haidarah.jpg",
+  ar: {
+    badge: "كلمة رئيس مجلس الإدارة",
+    title: "رؤية تبدأ بفهم الواقع، وندعمها بجودة التنفيذ",
+    subtitle: "نحو علاقة أكثر وضوحًا بين المنشآت واحتياجاتها من الطاقة",
+    p1: "يشهد قطاع الطاقة تحولًا متسارعًا؛ فلم تعد احتياجات المنشآت تتوقف عند توافر المنتج، بل أصبحت ترتبط بانتظام الإمداد، ودقة الكميات، وسلامة الإجراءات، وسرعة الوصول إلى المعلومة التي تُبنى عليها القرارات التشغيلية.",
+    p2: "طموحنا أن تكون BetroHob شريكًا مؤسسيًا يُعتمد عليه؛ داخل المملكة العربية السعودية وخارجها، وأن نسهم في بناء نموذج أكثر تطورًا لإدارة الطاقة، يقوم على الوضوح، والدقة، والاستجابة، والقيمة المستدامة.",
+    name: "نايف بن حيدره",
+    role: "رئيس مجلس الإدارة",
+  },
+  en: {
+    badge: "Chairman's Word",
+    title: "A vision that begins with understanding reality, backed by quality execution",
+    subtitle: "Toward a clearer relationship between facilities and their energy needs",
+    p1: "The energy sector is undergoing rapid transformation; facilities' needs are no longer limited to product availability, but now hinge on supply regularity, quantity accuracy, procedural safety, and fast access to the information behind operational decisions.",
+    p2: "Our ambition is for BetroHob to be a dependable institutional partner — inside the Kingdom of Saudi Arabia and beyond — and to contribute to building a more advanced model for energy management, one built on clarity, accuracy, responsiveness and sustainable value.",
+    name: "Naif bin Haidarah",
+    role: "Chairman of the Board",
+  },
+};
 
 const stats = [
   { value: "2004", ar: "عام التأسيس", en: "Established" },
@@ -111,6 +134,38 @@ export default function AboutContent() {
             </Badge>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-5 leading-tight">{L.heroTitle}</h1>
             <p className="text-white/70 text-xl leading-relaxed">{L.heroSub}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Chairman's Word */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="bg-white rounded-4xl border border-gray-100 shadow-xl shadow-brand-green/5 p-8 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7 order-2 lg:order-1">
+                <Badge variant="gold" className="mb-5 !bg-brand-gold/10 !text-brand-gold !border-brand-gold/20">
+                  {chairman[lang].badge}
+                </Badge>
+                <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal mb-3 leading-snug">
+                  {chairman[lang].title}
+                </h2>
+                <p className="text-brand-gold font-bold mb-6">{chairman[lang].subtitle}</p>
+                <div className="space-y-4">
+                  <p className="text-brand-charcoal-light leading-loose">{chairman[lang].p1}</p>
+                  <p className="text-brand-charcoal-light leading-loose">{chairman[lang].p2}</p>
+                </div>
+                <div className="mt-8">
+                  <p className="text-brand-charcoal font-black text-lg">{chairman[lang].name}</p>
+                  <p className="text-brand-gold font-bold text-sm">{chairman[lang].role}</p>
+                </div>
+              </div>
+              <div className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-[4/5] max-w-sm mx-auto">
+                  <Image src={chairman.photo} alt={chairman[lang].name} fill className="object-cover" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
