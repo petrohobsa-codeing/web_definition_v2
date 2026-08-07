@@ -33,8 +33,8 @@ const values = [
   },
   {
     icon: Handshake,
-    ar: { title: "الشراكة والتطوير", description: "نتعامل مع احتياج العميل كمسؤولية مشتركة، ونطوّر أدواتنا باستمرار." },
-    en: { title: "Partnership & Development", description: "We treat client needs as a shared responsibility and continuously improve our tools." },
+    ar: { title: "الشراكة والتطوير", description: "نتعامل مع احتياج العميل كمسؤولية مشتركة، ونطوّر أدواتنا باستمرار لتحسين النتائج." },
+    en: { title: "Partnership & Development", description: "We treat client needs as a shared responsibility and continuously improve our tools to achieve better results." },
   },
   {
     icon: Target,
