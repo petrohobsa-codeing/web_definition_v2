@@ -1,10 +1,6 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
-import GasableButton from "./GasableButton";
 import { StaggerGroup, StaggerItem } from "./Stagger";
-import { useEffect, useState } from "react";
-import { getMissionCards } from "@/lib/db";
-import { defaultMissionCards } from "@/lib/store";
 
 const grad = (id: string) => (
   <defs>
@@ -15,77 +11,101 @@ const grad = (id: string) => (
   </defs>
 );
 
-const LeafIcon = () => (
+const ClarityIcon = () => (
   <svg viewBox="0 0 100 100" className="w-[100px] h-[100px]" fill="none" strokeWidth="3">
-    {grad("g1")}
-    <circle cx="50" cy="50" r="38" stroke="url(#g1)" />
+    {grad("g4")}
+    <circle cx="44" cy="44" r="24" stroke="url(#g4)" />
+    <circle cx="44" cy="44" r="7" stroke="url(#g4)" />
+    <line x1="61" y1="61" x2="80" y2="80" stroke="url(#g4)" strokeLinecap="round" />
+  </svg>
+);
+
+const CredibilityIcon = () => (
+  <svg viewBox="0 0 100 100" className="w-[100px] h-[100px]" fill="none" strokeWidth="3">
+    {grad("g5")}
+    <circle cx="50" cy="50" r="38" stroke="url(#g5)" />
+    <path d="M34 51l11 11 21-22" stroke="url(#g5)" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const PartnershipIcon = () => (
+  <svg viewBox="0 0 100 100" className="w-[100px] h-[100px]" fill="none" strokeWidth="3">
+    {grad("g6")}
+    <circle cx="36" cy="40" r="13" stroke="url(#g6)" />
     <path
-      d="M38 60c0-14 11-26 26-28-1 15-11 27-26 28z"
-      stroke="url(#g1)"
+      d="M45 49l11 11a7.8 7.8 0 0 0 11-11l-15-15"
+      stroke="url(#g6)"
+      strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path d="M40 58c6-6 13-11 22-13" stroke="url(#g1)" strokeLinecap="round" />
+    <path d="M27 60c4-4 9-6 14-4" stroke="url(#g6)" strokeLinecap="round" />
   </svg>
 );
 
-const SunIcon = () => (
+const DisciplineIcon = () => (
   <svg viewBox="0 0 100 100" className="w-[100px] h-[100px]" fill="none" strokeWidth="3">
-    {grad("g2")}
-    <circle cx="50" cy="50" r="18" stroke="url(#g2)" />
-    {Array.from({ length: 8 }).map((_, i) => {
-      const a = (i * Math.PI) / 4;
-      const x1 = 50 + Math.cos(a) * 26;
-      const y1 = 50 + Math.sin(a) * 26;
-      const x2 = 50 + Math.cos(a) * 36;
-      const y2 = 50 + Math.sin(a) * 36;
-      return (
-        <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="url(#g2)" strokeLinecap="round" />
-      );
-    })}
+    {grad("g7")}
+    <circle cx="50" cy="54" r="30" stroke="url(#g7)" />
+    <path d="M50 40v16l13 7" stroke="url(#g7)" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M40 15h20" stroke="url(#g7)" strokeLinecap="round" />
   </svg>
 );
 
-const HouseIcon = () => (
-  <svg viewBox="0 0 100 100" className="w-[100px] h-[100px]" fill="none" strokeWidth="3">
-    {grad("g3")}
-    <path d="M22 48 50 24l28 24" stroke="url(#g3)" strokeLinejoin="round" strokeLinecap="round" />
-    <path d="M30 46v28h40V46" stroke="url(#g3)" strokeLinejoin="round" />
-    <path d="M50 70c0-8 5-15 13-16-1 9-6 16-13 16z" stroke="url(#g3)" strokeLinejoin="round" />
-  </svg>
-);
+const values = [
+  {
+    icon: ClarityIcon,
+    ar: { title: "الوضوح", description: "نجعل حالة الطلب والكميات والمسؤوليات أكثر قابلية للفهم والمتابعة." },
+    en: { title: "Clarity", description: "We make demand status, quantities and responsibilities easier to understand and track." },
+  },
+  {
+    icon: CredibilityIcon,
+    ar: { title: "المصداقية", description: "نقول ما نستطيع تنفيذه، ونلتزم بما نتعهد به." },
+    en: { title: "Credibility", description: "We say what we can deliver, and commit to what we promise." },
+  },
+  {
+    icon: PartnershipIcon,
+    ar: { title: "الشراكة والتطوير", description: "نتعامل مع احتياج العميل كمسؤولية مشتركة، ونطوّر أدواتنا باستمرار." },
+    en: { title: "Partnership & Development", description: "We treat client needs as a shared responsibility and continuously improve our tools." },
+  },
+  {
+    icon: DisciplineIcon,
+    ar: { title: "الانضباط", description: "نبني العمل على إجراءات محددة وتنسيق واضح بين الأطراف." },
+    en: { title: "Discipline", description: "We build our work on defined procedures and clear coordination between parties." },
+  },
+];
 
-const icons = [LeafIcon, SunIcon, HouseIcon];
+const t = {
+  ar: { badge: "قيمنا" },
+  en: { badge: "Our Values" },
+};
 
 export default function MissionVisionStory() {
   const { lang } = useLang();
-  const [cards, setCards] = useState(defaultMissionCards);
-  useEffect(() => {
-    getMissionCards().then(setCards);
-  }, []);
+  const L = t[lang];
+
   return (
-    <section className="bg-[#F3F6FC] py-[50px]">
+    <section className="bg-[#F3F6FC] py-[60px]">
       <div className="max-w-[1200px] mx-auto px-6">
-        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {cards.map((c, i) => {
-            const Icon = icons[i] || LeafIcon;
+        <h2 className="title-underline text-3xl md:text-4xl font-black text-brand-charcoal text-center mb-14 block mx-auto w-fit">
+          {L.badge}
+        </h2>
+        <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+          {values.map((v, i) => {
+            const c = lang === "ar" ? v.ar : v.en;
+            const Icon = v.icon;
             return (
-              <StaggerItem key={c.id} lift={false} className="text-center flex flex-col items-center">
+              <StaggerItem key={i} lift={false} className="text-center flex flex-col items-center">
                 <div className="hover-grow mb-5">
                   <Icon />
                 </div>
-                <h3 className="title-underline text-[22px] font-semibold text-brand-charcoal-mid mb-5">
+                <h3 className="title-underline text-[20px] font-black text-brand-charcoal-mid mb-4">
                   {c.title}
                 </h3>
-                <p className="text-[#54595F] leading-7 max-w-xs">{c.description}</p>
+                <p className="text-[#54595F] leading-7 max-w-xs text-sm">{c.description}</p>
               </StaggerItem>
             );
           })}
         </StaggerGroup>
-        <div className="text-center mt-12">
-          <GasableButton href="/about">
-            {lang === "ar" ? "اقرأ المزيد" : "Read More"}
-          </GasableButton>
-        </div>
       </div>
     </section>
   );
