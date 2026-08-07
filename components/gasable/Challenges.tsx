@@ -61,55 +61,50 @@ export default function Challenges() {
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 -left-32 w-96 h-96 rounded-full bg-[#0067E3]/5 blur-3xl" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="mb-14">
-          <span className="inline-block bg-[#0067E3] text-white font-black text-xl md:text-2xl px-7 py-3.5 rounded-2xl shadow-lg shadow-[#0067E3]/25">
-            {L.badge}
-          </span>
+        <div className="relative w-full h-[260px] md:h-[320px] rounded-4xl overflow-hidden shadow-2xl shadow-brand-charcoal/10 mb-10 group">
+          <Image
+            src="/images/about/control-room.jpg"
+            alt={L.badge}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 p-6 md:p-8">
+            <span className="inline-block bg-[#0067E3] text-white font-black text-lg md:text-2xl px-6 py-3 rounded-2xl shadow-lg shadow-[#0067E3]/30">
+              {L.badge}
+            </span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Right: headline + copy + photo */}
-          <div className="lg:col-span-7">
-            <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal mb-3 leading-snug">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
+          <div className="lg:col-span-5">
+            <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal leading-snug mb-2">
               {L.headline}
             </h2>
-            <p className="text-[#0067E3] font-bold text-base md:text-lg mb-4">{L.subheading}</p>
-            <p className="text-brand-charcoal-light leading-loose text-base mb-8">{L.paragraph}</p>
-
-            <div
-              className="relative w-full aspect-[16/10] overflow-hidden shadow-2xl shadow-brand-charcoal/10 group rounded-tr-3xl rounded-br-3xl rounded-bl-3xl"
-              style={{ borderTopLeftRadius: "140px" }}
-            >
-              <Image
-                src="/images/about/control-room.jpg"
-                alt={L.badge}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-            </div>
+            <p className="text-[#0067E3] font-bold text-base md:text-lg">{L.subheading}</p>
           </div>
-
-          {/* Left: 6-item numbered grid */}
-          <StaggerGroup className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
-            {items.map((item) => {
-              const c = lang === "ar" ? item.ar : item.en;
-              return (
-                <StaggerItem key={item.n} lift={false}>
-                  <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#0067E3]/10 text-[#0067E3] font-black text-sm flex items-center justify-center">
-                      {item.n}
-                    </span>
-                    <div>
-                      <h3 className="font-black text-brand-charcoal text-base mb-1.5">{c.title}</h3>
-                      <p className="text-brand-charcoal-light text-sm leading-relaxed">{c.desc}</p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </StaggerGroup>
+          <div className="lg:col-span-7">
+            <p className="text-brand-charcoal-light leading-loose text-base md:text-lg">{L.paragraph}</p>
+          </div>
         </div>
+
+        <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((item) => {
+            const c = lang === "ar" ? item.ar : item.en;
+            return (
+              <StaggerItem key={item.n}>
+                <div className="group relative h-full bg-gray-50 rounded-3xl border border-gray-100 p-7 hover:bg-white hover:border-[#0067E3]/30 hover:shadow-2xl hover:shadow-[#0067E3]/10 transition-all duration-400 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-28 h-28 rounded-full bg-[#0067E3]/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <span className="relative inline-flex w-10 h-10 rounded-xl bg-[#0067E3]/10 text-[#0067E3] font-black text-base items-center justify-center mb-4 group-hover:bg-[#0067E3] group-hover:text-white transition-colors duration-300">
+                    {item.n}
+                  </span>
+                  <h3 className="relative text-base font-black text-brand-charcoal mb-2">{c.title}</h3>
+                  <p className="relative text-brand-charcoal-light text-sm leading-relaxed">{c.desc}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerGroup>
       </div>
     </section>
   );
