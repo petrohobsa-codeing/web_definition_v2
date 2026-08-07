@@ -6,33 +6,33 @@ import { StaggerGroup, StaggerItem } from "./Stagger";
 const items = [
   {
     n: 1,
-    ar: { title: "مطابقة الكميات", desc: "قياس أوضح وسجل يمكن الرجوع إليه." },
-    en: { title: "Quantity reconciliation", desc: "Clearer measurement and a traceable record." },
+    ar: { title: "مطابقة الكميات", desc: "الفروقات بين المطلوب والمحمّل والمستلم تستدعي قياسًا أوضح وسجلًا يمكن الرجوع إليه." },
+    en: { title: "Quantity reconciliation", desc: "Gaps between requested, loaded and received amounts call for clearer measurement and a traceable record." },
   },
   {
     n: 2,
-    ar: { title: "استقرار الإمداد", desc: "أي تأخر ينعكس على الإنتاج والالتزامات." },
-    en: { title: "Supply stability", desc: "Delays directly affect production and commitments." },
+    ar: { title: "استقرار الإمداد", desc: "أي تأخر أو انقطاع قد ينعكس مباشرة على الإنتاج والخدمة والالتزامات التشغيلية." },
+    en: { title: "Supply stability", desc: "Any delay or interruption can directly affect production, service, and operational commitments." },
   },
   {
     n: 3,
-    ar: { title: "تشتت المتابعة", desc: "تعدد الجهات يستهلك الوقت ويزيد الخطأ." },
-    en: { title: "Scattered follow-up", desc: "Multiple contacts cost time and raise errors." },
+    ar: { title: "تشتت المتابعة", desc: "تعدد الموردين ووسائل التواصل والمستندات يستهلك الوقت ويزيد احتمالات الخطأ." },
+    en: { title: "Scattered follow-up", desc: "Multiple suppliers, communication channels and documents consume time and raise the chance of error." },
   },
   {
     n: 4,
-    ar: { title: "سلامة المنتج", desc: "ضمان مطابقة المواد للمواصفات." },
-    en: { title: "Product integrity", desc: "Ensuring materials meet specification." },
+    ar: { title: "سلامة المنتج", desc: "تحتاج المنشآت إلى ضمان مطابقة المواد للمواصفات والحد من مخاطر الخلط أو التغيير في خصائصها." },
+    en: { title: "Product integrity", desc: "Facilities need assurance that materials meet specification, with the risk of mixing or altered properties minimized." },
   },
   {
     n: 5,
-    ar: { title: "تعدد المواقع والأطراف", desc: "تنسيق محكم ومسؤوليات محددة." },
-    en: { title: "Multiple sites & parties", desc: "Tight coordination and clear ownership." },
+    ar: { title: "تعدد المواقع والأطراف", desc: "ارتفاع عدد نقاط التسليم والجهات المشاركة يتطلب تنسيقًا محكمًا ومسؤوليات محددة." },
+    en: { title: "Multiple sites & parties", desc: "A rising number of delivery points and participating parties requires tight coordination and clear ownership." },
   },
   {
     n: 6,
-    ar: { title: "تأخر المعلومة", desc: "يقلّل دقة التخطيط ويؤخّر الاستجابة." },
-    en: { title: "Delayed information", desc: "Less accurate planning, slower response." },
+    ar: { title: "تأخر المعلومة", desc: "غياب القراءات اللحظية يجعل التخطيط وإعادة الطلب أقل دقة ويؤخّر الاستجابة." },
+    en: { title: "Delayed information", desc: "Without real-time readings, planning and reordering become less accurate and response times slow down." },
   },
 ];
 
@@ -42,14 +42,14 @@ const t = {
     headline: "التحدي ليس في توافر المنتج وحده",
     subheading: "إدارة الطاقة تحتاج إلى رؤية قبل التسليم وأثناءه وبعده",
     paragraph:
-      "تتعامل المنشآت اليوم مع سلسلة مترابطة من الجهات والمواقع والمستندات والقراءات، وكلما اتسعت زادت الحاجة إلى مسؤوليات واضحة وبيانات قابلة للتحقق.",
+      "تتعامل المنشآت اليوم مع سلسلة مترابطة من الجهات والمواقع ووسائل النقل والمستندات والقراءات. وكلما اتسعت هذه السلسلة، ازدادت الحاجة إلى مسؤوليات واضحة، وبيانات قابلة للتحقق، وتحديثات تصل في الوقت المناسب.",
   },
   en: {
     badge: "Challenges Facing Facilities",
     headline: "The challenge isn't product availability alone",
     subheading: "Energy management needs visibility before, during and after delivery",
     paragraph:
-      "Facilities deal with an interconnected chain of parties, sites, documents and readings — the wider it grows, the more it needs clear ownership and verifiable data.",
+      "Facilities today deal with an interconnected chain of parties, sites, transport methods, documents and readings. As this chain grows, so does the need for clear responsibilities, verifiable data, and updates that arrive at the right time.",
   },
 };
 
@@ -59,7 +59,7 @@ export default function Challenges() {
 
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="bg-gray-50 rounded-3xl border border-gray-100 shadow-lg shadow-brand-charcoal/5 p-6 md:p-8">
           <span className="inline-block bg-[#0067E3] text-white font-black text-sm md:text-base px-4 py-2 rounded-xl mb-5">
             {L.badge}
@@ -88,18 +88,18 @@ export default function Challenges() {
             </div>
           </div>
 
-          <StaggerGroup className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {items.map((item) => {
               const c = lang === "ar" ? item.ar : item.en;
               return (
                 <StaggerItem key={item.n} lift={false}>
-                  <div className="flex items-start gap-2 bg-white rounded-xl border border-gray-100 p-3 h-full">
+                  <div className="flex items-start gap-2.5 bg-white rounded-xl border border-gray-100 p-3.5 h-full">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0067E3]/10 text-[#0067E3] font-black text-[11px] flex items-center justify-center">
                       {item.n}
                     </span>
                     <div className="min-w-0">
-                      <h3 className="font-black text-brand-charcoal text-xs mb-0.5 leading-tight">{c.title}</h3>
-                      <p className="text-brand-charcoal-light text-[11px] leading-snug">{c.desc}</p>
+                      <h3 className="font-black text-brand-charcoal text-xs mb-1 leading-tight">{c.title}</h3>
+                      <p className="text-brand-charcoal-light text-[11.5px] leading-snug">{c.desc}</p>
                     </div>
                   </div>
                 </StaggerItem>
