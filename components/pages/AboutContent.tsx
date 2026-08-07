@@ -1,7 +1,10 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
+import Reveal from "@/components/gasable/Reveal";
+import { StaggerGroup, StaggerItem } from "@/components/gasable/Stagger";
 import {
   ChevronLeft,
   Eye,
@@ -12,6 +15,7 @@ import {
   Gauge,
   ShieldCheck,
   Zap,
+  Calendar,
 } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 
@@ -56,6 +60,7 @@ const aboutCompany = {
     headline: "نحو إدارة أكثر وعيًا بكل وحدة طاقة",
     paragraph:
       "BetroHob شركة تتخذ من الرياض مقرًا رئيسيًا، وتمتد خبرتها منذ عام 2004. تعمل داخل المملكة العربية السعودية وخارجها، وتخدم المنشآت والمشروعات عبر مزيج متكامل من إمدادات الطاقة والمياه، والإدارة اللوجستية والتشغيلية، وأنظمة المراقبة والتحكم الذكي. لا ننظر إلى الطلب كعملية منفصلة، بل كدورة تبدأ بفهم الاحتياج، وتمر بالتخطيط والتنفيذ والتحقق، وتنتهي بصورة أوضح تساعد العميل على اتخاذ قرار أفضل.",
+    since: "منذ عام 2004",
     visionLabel: "رؤيتنا",
     visionText:
       "أن نكون من أبرز الشركات في تطوير نماذج متقدمة لإدارة الطاقة، ورفع معايير الوضوح والانضباط والكفاءة في القطاع.",
@@ -70,6 +75,7 @@ const aboutCompany = {
     headline: "Toward managing every unit of energy with greater awareness",
     paragraph:
       "BetroHob is headquartered in Riyadh, with experience dating back to 2004. It operates within and beyond the Kingdom of Saudi Arabia, serving facilities and projects through an integrated mix of energy and water supply, logistics and operational management, and smart monitoring and control systems. We don't see demand as a standalone transaction, but as a cycle that begins with understanding the need, moves through planning, execution and verification, and ends with a clearer picture that helps the client make a better decision.",
+    since: "Since 2004",
     visionLabel: "Our Vision",
     visionText:
       "To be among the leading companies in developing advanced energy management models, raising the sector's standards of clarity, discipline and efficiency.",
@@ -174,55 +180,91 @@ export default function AboutContent() {
         <div className="absolute inset-0 dot-bg opacity-20" />
         <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[300px] rounded-full bg-brand-gold/10 blur-3xl" />
+        <div className="absolute top-10 right-0 w-72 h-72 rounded-full bg-[#0067E3]/10 blur-3xl" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-8 text-white/50 text-sm" aria-label="breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">{L.home}</Link>
             <ChevronLeft size={14} className="rtl:rotate-180" />
             <span className="text-white font-medium">{L.about}</span>
           </nav>
-          <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="max-w-3xl"
+          >
             <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
               {L.heroBadge}
             </Badge>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-5 leading-tight">{L.heroTitle}</h1>
             <p className="text-white/70 text-xl leading-relaxed">{L.heroSub}</p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 1. About the Company — matches "عن الشركة" profile page */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-green-light/40 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7 order-2 lg:order-1">
-              <p className="text-brand-charcoal font-bold text-lg mb-2">{A.eyebrow}</p>
+            <Reveal className="lg:col-span-7 order-2 lg:order-1" delay={0.05}>
+              <p className="text-[#0067E3] font-bold text-lg mb-2 tracking-wide">{A.eyebrow}</p>
               <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal mb-5 leading-snug">
                 {A.headline}
               </h2>
               <p className="text-brand-charcoal-light leading-loose text-base md:text-lg">{A.paragraph}</p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10 pt-8 border-t border-gray-100">
-                <div>
-                  <p className="text-[#0067E3] font-black text-lg mb-2">{A.visionLabel}</p>
-                  <p className="text-brand-charcoal-light leading-relaxed text-sm md:text-base">{A.visionText}</p>
-                </div>
-                <div>
-                  <p className="text-[#0067E3] font-black text-lg mb-2">{A.missionLabel}</p>
-                  <p className="text-brand-charcoal-light leading-relaxed text-sm md:text-base">{A.missionText}</p>
-                </div>
-              </div>
-            </div>
+              <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+                <StaggerItem>
+                  <div className="group h-full bg-white rounded-3xl border border-gray-100 p-7 hover:border-[#0067E3]/30 hover:shadow-2xl hover:shadow-[#0067E3]/10 transition-all duration-400 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0067E3]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                    <div className="relative w-12 h-12 rounded-2xl bg-[#0067E3]/10 flex items-center justify-center mb-5 group-hover:bg-[#0067E3] transition-colors duration-300">
+                      <Eye size={22} className="text-[#0067E3] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <p className="relative text-brand-charcoal font-black text-lg mb-2">{A.visionLabel}</p>
+                    <p className="relative text-brand-charcoal-light leading-relaxed text-sm md:text-base">{A.visionText}</p>
+                  </div>
+                </StaggerItem>
+                <StaggerItem>
+                  <div className="group h-full bg-white rounded-3xl border border-gray-100 p-7 hover:border-brand-gold/40 hover:shadow-2xl hover:shadow-brand-gold/10 transition-all duration-400 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-gold-light/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                    <div className="relative w-12 h-12 rounded-2xl bg-brand-gold-light flex items-center justify-center mb-5 group-hover:bg-brand-gold transition-colors duration-300">
+                      <Target size={22} className="text-brand-gold-dark group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <p className="relative text-brand-charcoal font-black text-lg mb-2">{A.missionLabel}</p>
+                    <p className="relative text-brand-charcoal-light leading-relaxed text-sm md:text-base">{A.missionText}</p>
+                  </div>
+                </StaggerItem>
+              </StaggerGroup>
+            </Reveal>
 
-            <div className="lg:col-span-5 order-1 lg:order-2">
+            <Reveal className="lg:col-span-5 order-1 lg:order-2" delay={0.15}>
               <h2 className="text-4xl md:text-5xl font-black leading-[1.05] mb-6">
                 <span className="block text-brand-charcoal">{A.titleTop}</span>
                 <span className="block text-[#0067E3]">{A.titleBottom}</span>
               </h2>
-              <div className="relative w-full aspect-[4/3] rounded-4xl overflow-hidden shadow-xl">
-                <Image src={aboutCompany.photo} alt={A.titleBottom} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/20" />
+              <div className="relative">
+                <div className="relative w-full aspect-[4/3] rounded-4xl overflow-hidden shadow-2xl shadow-brand-charcoal/10 group">
+                  <Image
+                    src={aboutCompany.photo}
+                    alt={A.titleBottom}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+                <motion.div
+                  className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl shadow-brand-charcoal/10 p-4 border border-gray-100 flex items-center gap-3"
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#0067E3]/10 flex items-center justify-center flex-shrink-0">
+                    <Calendar size={18} className="text-[#0067E3]" />
+                  </div>
+                  <p className="font-black text-brand-charcoal text-sm whitespace-nowrap">{A.since}</p>
+                </motion.div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -230,83 +272,107 @@ export default function AboutContent() {
       {/* 2. Chairman's Word */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="bg-white rounded-4xl border border-gray-100 shadow-xl shadow-brand-green/5 p-8 md:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-              <div className="lg:col-span-7 order-2 lg:order-1">
-                <h2 className="text-3xl md:text-5xl font-black text-brand-charcoal mb-4 leading-tight">
-                  {chairman[lang].badge}
-                </h2>
-                <p className="text-xl md:text-2xl font-bold text-brand-gold mb-3 leading-snug">
-                  {chairman[lang].title}
-                </p>
-                <p className="text-base md:text-lg font-bold text-brand-gold mb-6">{chairman[lang].subtitle}</p>
-                <div className="space-y-4">
-                  {chairman[lang].paragraphs.map((p, i) => (
-                    <p key={i} className="text-brand-charcoal-light leading-loose text-base md:text-lg">{p}</p>
-                  ))}
+          <Reveal>
+            <div className="bg-white rounded-4xl border border-gray-100 shadow-xl shadow-brand-green/5 p-8 md:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                <div className="lg:col-span-7 order-2 lg:order-1">
+                  <h2 className="text-3xl md:text-5xl font-black text-brand-charcoal mb-4 leading-tight">
+                    {chairman[lang].badge}
+                  </h2>
+                  <p className="text-xl md:text-2xl font-bold text-brand-gold mb-3 leading-snug">
+                    {chairman[lang].title}
+                  </p>
+                  <p className="text-base md:text-lg font-bold text-brand-gold mb-6">{chairman[lang].subtitle}</p>
+                  <div className="space-y-4">
+                    {chairman[lang].paragraphs.map((p, i) => (
+                      <p key={i} className="text-brand-charcoal-light leading-loose text-base md:text-lg">{p}</p>
+                    ))}
+                  </div>
+                  <div className="mt-8">
+                    <p className="text-brand-charcoal font-black text-xl">{chairman[lang].name}</p>
+                    <p className="text-brand-gold font-bold text-base">{chairman[lang].role}</p>
+                  </div>
                 </div>
-                <div className="mt-8">
-                  <p className="text-brand-charcoal font-black text-xl">{chairman[lang].name}</p>
-                  <p className="text-brand-gold font-bold text-base">{chairman[lang].role}</p>
-                </div>
-              </div>
-              <div className="lg:col-span-5 order-1 lg:order-2 lg:sticky lg:top-28">
-                <div className="relative max-w-sm mx-auto aspect-[3/4] drop-shadow-lg">
-                  <div
-                    className="relative w-full h-full overflow-hidden"
-                    style={{ clipPath: "polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%)" }}
-                  >
-                    <Image src={chairman.photo} alt={chairman[lang].name} fill className="object-cover" />
+                <div className="lg:col-span-5 order-1 lg:order-2 lg:sticky lg:top-28">
+                  <div className="relative max-w-sm mx-auto aspect-[3/4] drop-shadow-lg group">
+                    <div
+                      className="relative w-full h-full overflow-hidden"
+                      style={{ clipPath: "polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%)" }}
+                    >
+                      <Image
+                        src={chairman.photo}
+                        alt={chairman[lang].name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 3. The Value the Client Gets — matches "القيمة التي يحصل عليها العميل" profile page */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="relative w-full h-[260px] md:h-[340px] rounded-4xl overflow-hidden shadow-xl mb-8">
-            <Image src={customerValue.photo} alt={V.badge} fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-            <div className="absolute bottom-0 inset-x-0 p-6 md:p-8">
-              <span className="inline-block bg-[#0067E3] text-white font-black text-lg md:text-2xl px-6 py-3 rounded-2xl shadow-lg">
-                {V.badge}
-              </span>
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#0067E3]/5 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+          <Reveal>
+            <div className="relative w-full h-[260px] md:h-[340px] rounded-4xl overflow-hidden shadow-2xl shadow-brand-charcoal/10 mb-8 group">
+              <Image
+                src={customerValue.photo}
+                alt={V.badge}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 p-6 md:p-8">
+                <span className="inline-block bg-[#0067E3] text-white font-black text-lg md:text-2xl px-6 py-3 rounded-2xl shadow-lg shadow-[#0067E3]/30">
+                  {V.badge}
+                </span>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
-          <p className="text-brand-charcoal-light text-sm md:text-base mb-10">{V.eyebrow}</p>
+          <Reveal delay={0.1}>
+            <p className="text-brand-charcoal-light text-sm md:text-base mb-10">{V.eyebrow}</p>
+          </Reveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
-            <div className="lg:col-span-5">
-              <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal leading-snug">{V.heading}</h2>
+          <Reveal delay={0.15}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
+              <div className="lg:col-span-5">
+                <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal leading-snug">{V.heading}</h2>
+              </div>
+              <div className="lg:col-span-7">
+                <p className="text-brand-charcoal-light leading-loose text-base md:text-lg">{V.paragraph}</p>
+              </div>
             </div>
-            <div className="lg:col-span-7">
-              <p className="text-brand-charcoal-light leading-loose text-base md:text-lg">{V.paragraph}</p>
-            </div>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
             {customerValueItems.map((item) => {
               const c = lang === "ar" ? item.ar : item.en;
               return (
-                <div key={c.title} className="bg-gray-50 rounded-3xl border border-gray-100 p-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#0067E3]/10 flex items-center justify-center mb-4">
-                    <item.icon size={22} className="text-[#0067E3]" />
+                <StaggerItem key={c.title}>
+                  <div className="group relative h-full bg-gray-50 rounded-3xl border border-gray-100 p-7 hover:bg-white hover:border-[#0067E3]/30 hover:shadow-2xl hover:shadow-[#0067E3]/10 transition-all duration-400 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-28 h-28 rounded-full bg-[#0067E3]/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                    <div className="relative w-12 h-12 rounded-xl bg-[#0067E3]/10 flex items-center justify-center mb-5 group-hover:bg-[#0067E3] transition-colors duration-300">
+                      <item.icon size={22} className="text-[#0067E3] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <h3 className="relative text-base font-black text-brand-charcoal mb-2">{c.title}</h3>
+                    <p className="relative text-brand-charcoal-light text-sm leading-relaxed">{c.desc}</p>
                   </div>
-                  <h3 className="text-base font-black text-brand-charcoal mb-2">{c.title}</h3>
-                  <p className="text-brand-charcoal-light text-sm leading-relaxed">{c.desc}</p>
-                </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerGroup>
 
-          <p className="text-center text-brand-charcoal font-bold text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
-            {V.closing}
-          </p>
+          <Reveal delay={0.1}>
+            <p className="text-center text-brand-charcoal font-bold text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+              {V.closing}
+            </p>
+          </Reveal>
         </div>
       </section>
     </>
