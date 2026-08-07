@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { ChevronLeft, Target, Eye, Heart, Leaf } from "lucide-react";
+import { ChevronLeft, Target, Eye, Search, CheckCircle2, Users, Clock } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 
 const chairman = {
@@ -47,24 +47,24 @@ const stats = [
 
 const values = [
   {
-    icon: Heart, color: "from-[#0067E3] to-[#004FB0]",
-    ar: { title: "الموثوقية", description: "التزام كامل بالمواعيد والجودة في كل ما نقدّمه لعملائنا." },
-    en: { title: "Reliability", description: "Full commitment to schedules and quality in everything we provide to our clients." },
+    icon: Search, color: "from-[#0067E3] to-[#004FB0]",
+    ar: { title: "الوضوح", description: "نجعل حالة الطلب والكميات والمسؤوليات أكثر قابلية للفهم والمتابعة." },
+    en: { title: "Clarity", description: "We make demand status, quantities and responsibilities easier to understand and track." },
   },
   {
-    icon: Target, color: "from-[#0C2D6B] to-[#081B45]",
-    ar: { title: "الابتكار", description: "حلول تقنية متقدمة وحديثة ترفع كفاءة التشغيل." },
-    en: { title: "Innovation", description: "Advanced, modern technical solutions that boost operational efficiency." },
+    icon: CheckCircle2, color: "from-[#0C2D6B] to-[#081B45]",
+    ar: { title: "المصداقية", description: "نقول ما نستطيع تنفيذه، ونلتزم بما نتعهد به." },
+    en: { title: "Credibility", description: "We say what we can deliver, and commit to what we promise." },
   },
   {
-    icon: Eye, color: "from-[#24487B] to-[#0C2D6B]",
-    ar: { title: "الشفافية", description: "تواصل واضح وصريح مع العملاء في كل مرحلة." },
-    en: { title: "Transparency", description: "Clear and honest communication with clients at every stage." },
+    icon: Users, color: "from-[#24487B] to-[#0C2D6B]",
+    ar: { title: "الشراكة والتطوير", description: "نتعامل مع احتياج العميل كمسؤولية مشتركة، ونطوّر أدواتنا باستمرار." },
+    en: { title: "Partnership & Development", description: "We treat client needs as a shared responsibility and continuously improve our tools." },
   },
   {
-    icon: Leaf, color: "from-[#0C2D6B] to-[#0067E3]",
-    ar: { title: "الاستدامة", description: "الحفاظ على البيئة والموارد ودعم مستقبل أكثر استدامة." },
-    en: { title: "Sustainability", description: "Protecting the environment and resources and supporting a more sustainable future." },
+    icon: Clock, color: "from-[#0C2D6B] to-[#0067E3]",
+    ar: { title: "الانضباط", description: "نبني العمل على إجراءات محددة وتنسيق واضح بين الأطراف." },
+    en: { title: "Discipline", description: "We build our work on defined procedures and clear coordination between parties." },
   },
 ];
 
@@ -82,17 +82,17 @@ const t = {
     heroTitle: "حلول الطاقة والخدمات اللوجستية المتكاملة",
     heroSub: "شركة رائدة متخصصة في توفير حلول الطاقة والخدمات اللوجستية المتكاملة محلياً ودولياً.",
     storyBadge: "من نحن",
-    storyTitle: "نبذة عن Petrohub",
-    storyP1: "Petrohub شركة رائدة متخصصة في توفير حلول الطاقة والخدمات اللوجستية المتكاملة. منذ تأسيسنا عام 2004، نقدم خدمات موثوقة وابتكارية في قطاع الطاقة محلياً ودولياً. وبفريق متخصص ومؤهل، وشراكات استراتيجية مع أكثر من 500 شركة، نحن ملتزمون بتقديم حلول تلبي احتياجات القطاعات السكنية والتجارية والصناعية.",
-    storyP2: "مع حضورنا في جميع أنحاء المملكة العربية السعودية، والفرع الرئيسي في الرياض، نضمن توصيل خدماتنا بكفاءة وسرعة.",
-    quote: "نمكّن عملاءنا بحلول طاقة مستدامة وآمنة وموثوقة تعزز كفاءة أعمالهم وتقلل التكاليف.",
+    storyTitle: "عن الشركة",
+    storyP1: "BetroHob شركة تتخذ من الرياض مقرًا رئيسيًا، وتمتد خبرتها منذ عام 2004. تعمل داخل المملكة العربية السعودية وخارجها، وتخدم المنشآت والمشروعات عبر مزيج متكامل من إمدادات الطاقة والمياه، والإدارة اللوجستية والتشغيلية، وأنظمة المراقبة والتحكم الذكي.",
+    storyP2: "لا ننظر إلى الطلب كعملية منفصلة، بل كدورة تبدأ بفهم الاحتياج، وتمر بالتخطيط والتنفيذ والتحقق، وتنتهي بصورة أوضح تساعد العميل على اتخاذ قرار أفضل.",
+    quote: "نحو إدارة أكثر وعيًا بكل وحدة طاقة.",
     coverageBadge: "مناطق التغطية",
     coverageTitle: "حضورنا في جميع أنحاء المملكة",
     coverageSub: "الفرع الرئيسي في الرياض مع شبكة تشغيل تغطي المناطق الحيوية",
     visionTitle: "رؤيتنا",
-    visionText: "أن نكون الشريك الأول والموثوق في حلول الطاقة والخدمات اللوجستية في المملكة العربية السعودية.",
+    visionText: "أن نكون من أبرز الشركات في تطوير نماذج متقدمة لإدارة الطاقة، ورفع معايير الوضوح والانضباط والكفاءة في القطاع.",
     missionTitle: "رسالتنا",
-    missionText: "تمكين العملاء بحلول طاقة مستدامة وآمنة وموثوقة تعزز كفاءة أعمالهم وتقلل التكاليف.",
+    missionText: "تمكين المنشآت من إدارة احتياجاتها بثقة، عبر تنفيذ ميداني منظم، ومتابعة فعالة، وأنظمة تمنحها بيانات أدق وتحكمًا أكبر.",
     valuesBadge: "القيم الأساسية", valuesTitle: "قيمنا الأساسية",
     ctaTitle: "تواصل معنا اليوم",
     ctaSub: "سواء كنت تبحث عن حلول طاقة أو خدمات لوجستية متخصصة، فريق Petrohub جاهز لمساعدتك.",
@@ -103,17 +103,17 @@ const t = {
     heroTitle: "Integrated Energy & Logistics Solutions",
     heroSub: "A leading company specialized in providing integrated energy and logistics solutions locally and internationally.",
     storyBadge: "About Us",
-    storyTitle: "About Petrohub",
-    storyP1: "Petrohub is a leading company specialized in providing integrated energy and logistics solutions. Since our establishment in 2004, we have delivered reliable and innovative services in the energy sector locally and internationally. With a qualified specialized team and strategic partnerships with over 500 companies, we are committed to solutions that meet the needs of the residential, commercial and industrial sectors.",
-    storyP2: "With our presence across the Kingdom of Saudi Arabia and our head office in Riyadh, we ensure our services are delivered efficiently and quickly.",
-    quote: "We empower our clients with sustainable, safe and reliable energy solutions that boost their business efficiency and reduce costs.",
+    storyTitle: "About the Company",
+    storyP1: "BetroHob is headquartered in Riyadh, with experience dating back to 2004. It operates within and beyond the Kingdom of Saudi Arabia, serving facilities and projects through an integrated mix of energy and water supply, logistics and operational management, and smart monitoring and control systems.",
+    storyP2: "We don't see demand as a standalone transaction, but as a cycle that begins with understanding the need, moves through planning, execution and verification, and ends with a clearer picture that helps the client make a better decision.",
+    quote: "Toward managing every unit of energy with greater awareness.",
     coverageBadge: "Coverage Regions",
     coverageTitle: "Our Presence Across the Kingdom",
     coverageSub: "Head office in Riyadh with an operational network covering the vital regions",
     visionTitle: "Our Vision",
-    visionText: "To be the first and most trusted partner in energy and logistics solutions in the Kingdom of Saudi Arabia.",
+    visionText: "To be among the leading companies in developing advanced energy management models, raising the sector's standards of clarity, discipline and efficiency.",
     missionTitle: "Our Mission",
-    missionText: "Empowering clients with sustainable, safe and reliable energy solutions that boost their business efficiency and reduce costs.",
+    missionText: "Enabling facilities to manage their needs with confidence, through organized field execution, effective follow-up, and systems that give them more accurate data and greater control.",
     valuesBadge: "Core Values", valuesTitle: "Our Core Values",
     ctaTitle: "Contact Us Today",
     ctaSub: "Whether you need energy solutions or specialized logistics services, the Petrohub team is ready to help.",
