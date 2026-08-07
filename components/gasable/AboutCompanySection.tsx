@@ -10,11 +10,11 @@ const aboutCompany = {
   photo: "/images/about/team-refinery.jpg",
   ar: {
     titleTop: "عن",
-    titleBottom: "BetroHob",
+    titleBottom: "Petrohob",
     eyebrow: "خبرة ميدانية، تنفيذ منضبط، ومعلومة يمكن الاعتماد عليها",
     headline: "نحو إدارة أكثر وعيًا بكل وحدة طاقة",
     paragraph:
-      "BetroHob شركة تتخذ من الرياض مقرًا رئيسيًا، وتمتد خبرتها منذ عام 2004. تعمل داخل المملكة العربية السعودية وخارجها، وتخدم المنشآت والمشروعات عبر مزيج متكامل من إمدادات الطاقة والمياه، والإدارة اللوجستية والتشغيلية، وأنظمة المراقبة والتحكم الذكي. لا ننظر إلى الطلب كعملية منفصلة، بل كدورة تبدأ بفهم الاحتياج، وتمر بالتخطيط والتنفيذ والتحقق، وتنتهي بصورة أوضح تساعد العميل على اتخاذ قرار أفضل.",
+      "Petrohob شركة تتخذ من الرياض مقرًا رئيسيًا، وتمتد خبرتها منذ عام 2004. تعمل داخل المملكة العربية السعودية وخارجها، وتخدم المنشآت والمشروعات عبر مزيج متكامل من إمدادات الطاقة والمياه، والإدارة اللوجستية والتشغيلية، وأنظمة المراقبة والتحكم الذكي. لا ننظر إلى الطلب كعملية منفصلة، بل كدورة تبدأ بفهم الاحتياج، وتمر بالتخطيط والتنفيذ والتحقق، وتنتهي بصورة أوضح تساعد العميل على اتخاذ قرار أفضل.",
     since: "منذ عام 2004",
     visionLabel: "رؤيتنا",
     visionText:
@@ -25,11 +25,11 @@ const aboutCompany = {
   },
   en: {
     titleTop: "About",
-    titleBottom: "BetroHob",
+    titleBottom: "Petrohob",
     eyebrow: "Field experience, disciplined execution, and information you can rely on",
     headline: "Toward managing every unit of energy with greater awareness",
     paragraph:
-      "BetroHob is headquartered in Riyadh, with experience dating back to 2004. It operates within and beyond the Kingdom of Saudi Arabia, serving facilities and projects through an integrated mix of energy and water supply, logistics and operational management, and smart monitoring and control systems. We don't see demand as a standalone transaction, but as a cycle that begins with understanding the need, moves through planning, execution and verification, and ends with a clearer picture that helps the client make a better decision.",
+      "Petrohob is headquartered in Riyadh, with experience dating back to 2004. It operates within and beyond the Kingdom of Saudi Arabia, serving facilities and projects through an integrated mix of energy and water supply, logistics and operational management, and smart monitoring and control systems. We don't see demand as a standalone transaction, but as a cycle that begins with understanding the need, moves through planning, execution and verification, and ends with a clearer picture that helps the client make a better decision.",
     since: "Since 2004",
     visionLabel: "Our Vision",
     visionText:

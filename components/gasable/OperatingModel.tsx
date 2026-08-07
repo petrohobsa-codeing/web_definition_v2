@@ -38,7 +38,7 @@ const steps = [
 
 const t = {
   ar: {
-    badge: "نموذج BetroHob التشغيلي",
+    badge: "نموذج Petrohob التشغيلي",
     tagline: "من الاحتياج إلى التنفيذ، ومن التنفيذ إلى معلومة قابلة للاستخدام",
     heading: "مسار واحد يربط الإمداد والمتابعة والمراقبة",
     paragraph:
@@ -46,7 +46,7 @@ const t = {
     cycleLabel: "دورة العمل",
   },
   en: {
-    badge: "BetroHob's Operating Model",
+    badge: "Petrohob's Operating Model",
     tagline: "From need to execution, and from execution to usable information",
     heading: "One path that connects supply, follow-up and monitoring",
     paragraph:
