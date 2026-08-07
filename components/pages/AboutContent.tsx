@@ -244,7 +244,10 @@ export default function AboutContent() {
                 <span className="block text-[#0067E3]">{A.titleBottom}</span>
               </h2>
               <div className="relative">
-                <div className="relative w-full aspect-[4/3] rounded-4xl overflow-hidden shadow-2xl shadow-brand-charcoal/10 group">
+                <div
+                  className="relative w-full aspect-[4/3] overflow-hidden shadow-2xl shadow-brand-charcoal/10 group rounded-tr-3xl rounded-br-3xl rounded-bl-3xl"
+                  style={{ borderTopLeftRadius: "140px" }}
+                >
                   <Image
                     src={aboutCompany.photo}
                     alt={A.titleBottom}
