@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import GasableHero from "@/components/gasable/GasableHero";
 import Reveal from "@/components/gasable/Reveal";
+import AboutCompanySection from "@/components/gasable/AboutCompanySection";
+import ChairmanWordSection from "@/components/gasable/ChairmanWordSection";
 import MissionVisionStory from "@/components/gasable/MissionVisionStory";
 import InFigures from "@/components/gasable/InFigures";
 import Challenges from "@/components/gasable/Challenges";
@@ -23,6 +25,8 @@ export default function HomePage() {
   return (
     <>
       <GasableHero />
+      <AboutCompanySection />
+      <ChairmanWordSection />
       <Reveal><MissionVisionStory /></Reveal>
       <Reveal><InFigures /></Reveal>
       <Reveal><Challenges /></Reveal>
