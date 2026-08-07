@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Loader2 } from "lucide-react";
 import { getSlides } from "@/lib/db";
 import type { HeroSlide } from "@/lib/types";
 
@@ -20,7 +21,13 @@ useEffect(() => {
       return () => clearInterval(timer);
   }, [slides.length]);
 
-  if (slides.length === 0) return null;
+  if (slides.length === 0) {
+    return (
+      <section className="relative w-full aspect-video min-h-[560px] max-h-[100vh] overflow-hidden bg-[#081B45] flex items-center justify-center">
+        <Loader2 className="w-10 h-10 text-white/70 animate-spin" />
+      </section>
+    );
+  }
   const slide = slides[current];
   
   return (
