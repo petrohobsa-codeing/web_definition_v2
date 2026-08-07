@@ -55,7 +55,7 @@ const aboutCompany = {
   photo: "/images/about/team-refinery.jpg",
   ar: {
     titleTop: "عن",
-    titleBottom: "الشركة",
+    titleBottom: "BetroHob",
     eyebrow: "خبرة ميدانية، تنفيذ منضبط، ومعلومة يمكن الاعتماد عليها",
     headline: "نحو إدارة أكثر وعيًا بكل وحدة طاقة",
     paragraph:
@@ -70,7 +70,7 @@ const aboutCompany = {
   },
   en: {
     titleTop: "About",
-    titleBottom: "the Company",
+    titleBottom: "BetroHob",
     eyebrow: "Field experience, disciplined execution, and information you can rely on",
     headline: "Toward managing every unit of energy with greater awareness",
     paragraph:
@@ -207,7 +207,7 @@ export default function AboutContent() {
         <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-green-light/40 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <Reveal className="lg:col-span-7 order-2 lg:order-1" delay={0.05}>
+            <Reveal className="lg:col-span-7 order-2 lg:order-2" delay={0.05}>
               <p className="text-[#0067E3] font-bold text-lg mb-2 tracking-wide">{A.eyebrow}</p>
               <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal mb-5 leading-snug">
                 {A.headline}
@@ -238,7 +238,7 @@ export default function AboutContent() {
               </StaggerGroup>
             </Reveal>
 
-            <Reveal className="lg:col-span-5 order-1 lg:order-2" delay={0.15}>
+            <Reveal className="lg:col-span-5 order-1 lg:order-1" delay={0.15}>
               <h2 className="text-4xl md:text-5xl font-black leading-[1.05] mb-6">
                 <span className="block text-brand-charcoal">{A.titleTop}</span>
                 <span className="block text-[#0067E3]">{A.titleBottom}</span>
