@@ -4,6 +4,7 @@ import Reveal from "@/components/gasable/Reveal";
 import MissionVisionStory from "@/components/gasable/MissionVisionStory";
 import InFigures from "@/components/gasable/InFigures";
 import Challenges from "@/components/gasable/Challenges";
+import OperatingModel from "@/components/gasable/OperatingModel";
 import Speciality from "@/components/gasable/Speciality";
 import CoverageRegions from "@/components/gasable/CoverageRegions";
 import DownloadNow from "@/components/gasable/DownloadNow";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Reveal><MissionVisionStory /></Reveal>
       <Reveal><InFigures /></Reveal>
       <Reveal><Challenges /></Reveal>
+      <Reveal><OperatingModel /></Reveal>
       <Reveal><Speciality /></Reveal>
       <Reveal><CoverageRegions /></Reveal>
       <Reveal><DownloadNow /></Reveal>
