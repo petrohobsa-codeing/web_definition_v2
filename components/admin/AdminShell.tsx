@@ -10,9 +10,7 @@ import { getQuotes, getMessages } from "@/lib/db";
 import {
   LayoutDashboard,
   Layers,
-  Briefcase,
   MessageSquare,
-  BarChart2,
   FileText,
   Mail,
   Settings,
@@ -23,23 +21,15 @@ import {
   FolderOpen,
   Newspaper,
   CalendarDays,
-  Target, MapPinned, Share2, Award, HelpCircle, ListChecks, Users, } from "lucide-react";
+  Users, } from "lucide-react";
 
 const navItems = [
   { href: "/admin/dashboard", label: "لوحة التحكم", icon: LayoutDashboard },
   { href: "/admin/slides", label: "شرائح الرئيسية", icon: Layers },
-  { href: "/admin/services", label: "الخدمات", icon: Briefcase },
-  { href: "/admin/service-details", label: "تفاصيل الخدمات", icon: ListChecks },
   { href: "/admin/projects", label: "المشاريع والأعمال", icon: FolderOpen },
   { href: "/admin/news", label: "الأخبار والمقالات", icon: Newspaper },
   { href: "/admin/activities", label: "الأنشطة", icon: CalendarDays },
   { href: "/admin/testimonials", label: "آراء العملاء", icon: MessageSquare },
-  { href: "/admin/stats", label: "الإحصائيات", icon: BarChart2 },
-  { href: "/admin/mission", label: "المهمة والرؤية", icon: Target },
-  { href: "/admin/regions", label: "مناطق التغطية", icon: MapPinned },
-  { href: "/admin/network", label: "شبكتنا", icon: Share2 },
-  { href: "/admin/credentials", label: "اعتماداتنا", icon: Award },
-  { href: "/admin/faqs", label: "الأسئلة الشائعة", icon: HelpCircle },
   { href: "/admin/quotes", label: "طلبات الأسعار", icon: FileText, badge: "quotes" },
   { href: "/admin/messages", label: "رسائل التواصل", icon: Mail, badge: "messages" },
   { href: "/admin/users", label: "إدارة المستخدمين", icon: Users },

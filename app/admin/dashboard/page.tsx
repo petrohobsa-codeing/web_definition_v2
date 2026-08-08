@@ -5,7 +5,6 @@ import {
   getQuotes,
   getMessages,
   getSlides,
-  getServices,
   getTestimonials,
 } from "@/lib/db";
 import type { QuoteRequest, ContactMessage } from "@/lib/types";
@@ -14,7 +13,6 @@ import {
   FileText,
   Mail,
   Layers,
-  Briefcase,
   MessageSquare,
   ArrowLeft,
   TrendingUp,
@@ -36,7 +34,6 @@ export default function DashboardPage() {
   const [messages, setMessages] = useState<ContactMessage[]>([]);
   const [counts, setCounts] = useState({
     slides: 0,
-    services: 0,
     testimonials: 0,
   });
 
@@ -45,14 +42,12 @@ export default function DashboardPage() {
       getQuotes(),
       getMessages(),
       getSlides(),
-      getServices(),
       getTestimonials(),
-    ]).then(([q, m, slides, services, testimonials]) => {
+    ]).then(([q, m, slides, testimonials]) => {
       setQuotes(q);
       setMessages(m);
       setCounts({
         slides: slides.length,
-        services: services.length,
         testimonials: testimonials.length,
       });
     });
@@ -86,13 +81,6 @@ export default function DashboardPage() {
       icon: Layers,
       color: "bg-purple-500",
       href: "/admin/slides",
-    },
-    {
-      label: "الخدمات المعروضة",
-      value: counts.services,
-      icon: Briefcase,
-      color: "bg-amber-500",
-      href: "/admin/services",
     },
     {
       label: "آراء العملاء",
