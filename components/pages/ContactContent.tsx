@@ -1,17 +1,18 @@
 "use client";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import Badge from "@/components/ui/Badge";
 import ContactForm from "@/components/sections/ContactForm";
-import { ChevronLeft, Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { ChevronLeft, Phone, Mail, MapPin, Globe } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
+import { getSettings } from "@/lib/db";
+import type { SiteSettings } from "@/lib/types";
 
-const contactInfo = [
-  { icon: Phone, ar: "الرقم الموحّد", en: "Unified Number", value: "+966500000000", href: "tel:+966500000000", color: "bg-brand-green" },
-  { icon: MessageCircle, ar: "واتساب للأعمال", en: "Business WhatsApp", value: "+966500000000", href: "https://wa.me/966500000000", color: "bg-[#25D366]" },
-  { icon: Mail, ar: "البريد الإلكتروني", en: "Email", value: "info@petrohub.sa", href: "mailto:info@petrohub.sa", color: "bg-[#0C2D6B]" },
-  { icon: Clock, ar: "ساعات العمل", en: "Working Hours", valueAr: "الأحد – الخميس، 8 ص – 6 م", valueEn: "Sun – Thu, 8 AM – 6 PM", href: undefined, color: "bg-brand-gold" },
-  { icon: MapPin, ar: "العنوان", en: "Address", valueAr: "طريق الملك فهد، الرياض، المملكة العربية السعودية", valueEn: "King Fahd Road, Riyadh, Saudi Arabia", href: undefined, color: "bg-[#24487B]" },
-];
+const defaultContact = {
+  phone: "+966 55 885 5824",
+  website: "www.petrohob-sa.com",
+  email: "Info@petrohob-sa.com",
+};
 
 const cities = [
   { ar: "الرياض", en: "Riyadh" },
@@ -28,6 +29,8 @@ const t = {
     info: "معلومات التواصل", citiesTitle: "المدن التي نخدمها",
     citiesNote: "هذه المناطق هي نطاق التغطية الحالي — تواصل معنا لأي استفسار عن مناطق أخرى.",
     send: "أرسل رسالة",
+    hqLabel: "المقر الرئيسي", hqValue: "الرياض - المملكة العربية السعودية",
+    phoneLabel: "رقم التواصل", websiteLabel: "الموقع الإلكتروني", emailLabel: "البريد الإلكتروني",
   },
   en: {
     home: "Home", contact: "Contact", badge: "Get in touch",
@@ -35,12 +38,25 @@ const t = {
     info: "Contact Information", citiesTitle: "Cities We Serve",
     citiesNote: "These regions are our current coverage area — contact us for any inquiry about other regions.",
     send: "Send a Message",
+    hqLabel: "Head Office", hqValue: "Riyadh - Kingdom of Saudi Arabia",
+    phoneLabel: "Phone", websiteLabel: "Website", emailLabel: "Email",
   },
 };
 
 export default function ContactContent() {
   const { lang } = useLang();
   const L = t[lang];
+  const [settings, setSettings] = useState<SiteSettings | null>(null);
+  useEffect(() => {
+    getSettings().then(setSettings).catch(() => {});
+  }, []);
+
+  const contactInfo = [
+    { icon: MapPin, label: L.hqLabel, value: L.hqValue, href: undefined, color: "bg-[#24487B]" },
+    { icon: Phone, label: L.phoneLabel, value: settings?.phone || defaultContact.phone, href: `tel:${(settings?.phone || defaultContact.phone).replace(/\s/g, "")}`, color: "bg-brand-green" },
+    { icon: Globe, label: L.websiteLabel, value: defaultContact.website, href: `https://${defaultContact.website}`, color: "bg-[#0067E3]" },
+    { icon: Mail, label: L.emailLabel, value: settings?.email || defaultContact.email, href: `mailto:${settings?.email || defaultContact.email}`, color: "bg-[#0C2D6B]" },
+  ];
 
   return (
     <>
@@ -71,24 +87,21 @@ export default function ContactContent() {
                 <h2 className="text-2xl font-black text-brand-charcoal mb-6">{L.info}</h2>
                 <div className="space-y-4">
                   {contactInfo.map((info) => {
-                    const label = lang === "ar" ? info.ar : info.en;
-                    const value =
-                      "valueAr" in info ? (lang === "ar" ? info.valueAr : info.valueEn) : info.value;
                     return (
-                      <div key={info.en} className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 hover:border-brand-green/20 hover:shadow-md transition-all duration-200">
+                      <div key={info.label} className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 hover:border-brand-green/20 hover:shadow-md transition-all duration-200">
                         <div className={`w-12 h-12 rounded-xl ${info.color} flex items-center justify-center flex-shrink-0`}>
                           <info.icon size={20} className="text-white" />
                         </div>
                         <div>
-                          <p className="text-brand-charcoal-light text-xs font-medium mb-0.5">{label}</p>
+                          <p className="text-brand-charcoal-light text-xs font-medium mb-0.5">{info.label}</p>
                           {info.href ? (
-                            <a href={info.href} className="text-brand-charcoal font-bold hover:text-brand-green transition-colors"
+                            <a href={info.href} className="text-brand-charcoal font-bold hover:text-brand-green transition-colors" dir="ltr"
                               target={info.href.startsWith("http") ? "_blank" : undefined}
                               rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}>
-                              {value}
+                              {info.value}
                             </a>
                           ) : (
-                            <p className="text-brand-charcoal font-bold">{value}</p>
+                            <p className="text-brand-charcoal font-bold">{info.value}</p>
                           )}
                         </div>
                       </div>
