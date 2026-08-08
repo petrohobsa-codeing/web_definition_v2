@@ -75,39 +75,41 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-10">
-        <Link href="/" className="inline-flex items-center gap-3 mb-3" aria-label="Petrohob">
-          <Image
-            src="/images/brand/logo-ar-white.png"
-            alt="Petrohob"
-            width={140}
-            height={44}
-            className="h-9 w-auto object-contain"
-          />
-        </Link>
-        <p className="text-white/70 text-sm mb-10">{L.tagline}</p>
+        <div className="max-w-xl mr-auto">
+          <Link href="/" className="inline-flex items-center gap-3 mb-3" aria-label="Petrohob">
+            <Image
+              src="/images/brand/logo-ar-white.png"
+              alt="Petrohob"
+              width={140}
+              height={44}
+              className="h-9 w-auto object-contain"
+            />
+          </Link>
+          <p className="text-white/70 text-sm mb-10">{L.tagline}</p>
 
-        <h2 className="text-2xl md:text-4xl font-black mb-5 max-w-xl leading-tight">{L.heading}</h2>
-        <p className="text-white/75 leading-loose text-sm md:text-base max-w-xl mb-10">{L.paragraph}</p>
+          <h2 className="text-2xl md:text-4xl font-black mb-5 leading-tight">{L.heading}</h2>
+          <p className="text-white/75 leading-loose text-sm md:text-base mb-10">{L.paragraph}</p>
 
-        <div className="max-w-xl divide-y divide-white/15 border-t border-b border-white/15 mb-10">
-          {rows.map((r) => (
-            <div key={r.label} className="flex items-center justify-between gap-4 py-3.5">
-              <span className="text-white/60 text-sm font-medium flex items-center gap-2">
-                <r.icon size={15} className="flex-shrink-0" />
-                {r.label}
-              </span>
-              {r.href ? (
-                <a href={r.href} target={r.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="text-white font-bold text-sm hover:text-[#0067E3] transition-colors" dir="ltr">
-                  {r.value}
-                </a>
-              ) : (
-                <span className="text-white font-bold text-sm">{r.value}</span>
-              )}
-            </div>
-          ))}
+          <div className="divide-y divide-white/15 border-t border-b border-white/15 mb-10">
+            {rows.map((r) => (
+              <div key={r.label} className="flex items-center justify-between gap-4 py-3.5">
+                <span className="text-white/60 text-sm font-medium flex items-center gap-2">
+                  <r.icon size={15} className="flex-shrink-0" />
+                  {r.label}
+                </span>
+                {r.href ? (
+                  <a href={r.href} target={r.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="text-white font-bold text-sm hover:text-[#0067E3] transition-colors" dir="ltr">
+                    {r.value}
+                  </a>
+                ) : (
+                  <span className="text-white font-bold text-sm">{r.value}</span>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <p className="text-white/60 text-sm mb-12">{L.closing}</p>
         </div>
-
-        <p className="text-white/60 text-sm max-w-xl mb-12">{L.closing}</p>
 
         <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
           <p className="text-white/40">
