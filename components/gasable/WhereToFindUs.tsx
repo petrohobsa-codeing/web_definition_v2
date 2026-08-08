@@ -1,15 +1,21 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
-import { MessageCircle, Phone } from "lucide-react";
+import { Phone, Globe, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getSettings } from "@/lib/db";
 import type { SiteSettings } from "@/lib/types";
+
+const defaultContact = {
+  phone: "+966 55 885 5824",
+  website: "www.petrohob-sa.com",
+  email: "Info@petrohob-sa.com",
+};
 
 export default function WhereToFindUs() {
   const { lang } = useLang();
   const [settings, setSettings] = useState<SiteSettings | null>(null);
   useEffect(() => {
-      getSettings().then(setSettings);
+      getSettings().then(setSettings).catch(() => {});
   }, []);
   return (
     <section className="bg-white py-[50px]">
@@ -31,35 +37,41 @@ export default function WhereToFindUs() {
             <h2 className="text-[28px] font-bold text-brand-green mb-6">
               {lang === "ar" ? "أين تجدنا؟" : "Where to find us?"}
             </h2>
-            <p className="text-brand-charcoal-mid font-bold text-lg mb-1">
-              {lang === "ar" ? "الرياض - المملكة العربية السعودية" : "Riyadh - Saudi Arabia"}
+            <p className="text-brand-charcoal-mid font-bold text-lg mb-6">
+              {lang === "ar" ? "الرياض - المملكة العربية السعودية" : "Riyadh - Kingdom of Saudi Arabia"}
             </p>
-<p className="text-[#54595F] mb-6">
-  {settings?.address || (lang === "ar" ? "طريق أبو بكر الصديق – المعذر" : "Abu Bakr Al Siddiq Road – Al Masif")}
-</p>
 
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#F3F6FC] flex items-center justify-center">
-                  <MessageCircle size={18} className="text-brand-green" />
+                  <Phone size={18} className="text-brand-green" />
                 </div>
                 <div>
-                  <p className="text-[#54595F] text-sm">{lang === "ar" ? "واتساب" : "WhatsApp"}</p>
-                  <a href={`tel:${settings?.whatsapp || "+966112160308"}`} className="text-brand-charcoal-mid font-bold" dir="ltr">
-                {settings?.whatsapp || "+966 11 2160308"}
+                  <p className="text-[#54595F] text-sm">{lang === "ar" ? "رقم التواصل" : "Phone"}</p>
+                  <a href={`tel:${(settings?.phone || defaultContact.phone).replace(/\s/g, "")}`} className="text-brand-charcoal-mid font-bold" dir="ltr">
+                    {settings?.phone || defaultContact.phone}
                   </a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#F3F6FC] flex items-center justify-center">
-                  <Phone size={18} className="text-brand-green-dark" />
+                  <Globe size={18} className="text-brand-green-dark" />
                 </div>
                 <div>
-                  <p className="text-[#54595F] text-sm">
-                    {lang === "ar" ? "الرقم الموحّد" : "Unified number"}
-                  </p>
-                  <a href={`tel:${settings?.phone || "920005469"}`} className="text-brand-charcoal-mid font-bold" dir="ltr">
-                    {settings?.phone || "920005469"}
+                  <p className="text-[#54595F] text-sm">{lang === "ar" ? "الموقع الإلكتروني" : "Website"}</p>
+                  <a href={`https://${defaultContact.website}`} target="_blank" rel="noopener noreferrer" className="text-brand-charcoal-mid font-bold" dir="ltr">
+                    {defaultContact.website}
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#F3F6FC] flex items-center justify-center">
+                  <Mail size={18} className="text-brand-green-dark" />
+                </div>
+                <div>
+                  <p className="text-[#54595F] text-sm">{lang === "ar" ? "البريد الإلكتروني" : "Email"}</p>
+                  <a href={`mailto:${settings?.email || defaultContact.email}`} className="text-brand-charcoal-mid font-bold" dir="ltr">
+                    {settings?.email || defaultContact.email}
                   </a>
                 </div>
               </div>
