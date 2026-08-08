@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -154,15 +155,25 @@ export default function Header() {
       </header>
 
       {/* Mobile Drawer */}
-      <div className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${mobileOpen ? "visible" : "invisible"}`}>
-        <div
-          className={`absolute inset-0 bg-brand-charcoal/50 backdrop-blur-sm transition-opacity duration-300 ${mobileOpen ? "opacity-100" : "opacity-0"}`}
-          onClick={() => setMobileOpen(false)}
-        />
-        <nav
-          className={`absolute top-0 right-0 h-full w-80 bg-white shadow-2xl transition-transform duration-300 flex flex-col ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
-          aria-label="القائمة المتنقلة"
-        >
+      <AnimatePresence>
+        {mobileOpen && (
+          <div className="fixed inset-0 z-[60] lg:hidden">
+            <motion.div
+              className="absolute inset-0 bg-brand-charcoal/50 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setMobileOpen(false)}
+            />
+            <motion.nav
+              className="absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              aria-label="القائمة المتنقلة"
+            >
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
             <Link href="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
               <Logo variant="dark" lang={lang} />
@@ -210,8 +221,10 @@ export default function Header() {
               {lang === "ar" ? "English" : "العربية"}
             </button>
           </div>
-        </nav>
-      </div>
+            </motion.nav>
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
