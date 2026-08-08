@@ -1,18 +1,11 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
 import { MapPin } from "lucide-react";
-import { useEffect, useState } from "react";
-import { getRegions } from "@/lib/db";
 import { defaultRegions } from "@/lib/store";
-
-
 
 export default function CoverageRegions() {
   const { lang } = useLang();
-  const [cities, setCities] = useState(defaultRegions);
-  useEffect(() => {
-    getRegions().then(setCities);
-  }, []);
+  const cities = defaultRegions;
   return (
     <section className="bg-[#E8EEF9] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6 text-center">

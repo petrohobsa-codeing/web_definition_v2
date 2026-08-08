@@ -2,19 +2,12 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
-import { useEffect } from "react";
-import { getFaqs } from "@/lib/db";
 import { defaultFaqs } from "@/lib/store";
-
-
 
 export default function Faq() {
   const { lang } = useLang();
   const [open, setOpen] = useState<number | null>(0);
-  const [faqs, setFaqs] = useState(defaultFaqs);
-  useEffect(() => {
-    getFaqs().then(setFaqs);
-  }, []);
+  const faqs = defaultFaqs;
 
   return (
     <section className="bg-white py-[50px]">

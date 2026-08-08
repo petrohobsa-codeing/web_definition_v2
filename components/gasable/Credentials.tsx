@@ -2,18 +2,13 @@
 import { useLang } from "@/context/LanguageContext";
 import { ShieldCheck, FileCheck2, Award, Headset } from "lucide-react";
 import { StaggerGroup, StaggerItem } from "./Stagger";
-import { useEffect, useState } from "react";
-import { getCredentials } from "@/lib/db";
 import { defaultCredentials } from "@/lib/store";
 
 const icons = [ShieldCheck, FileCheck2, Award, Headset];
 
 export default function Credentials() {
   const { lang } = useLang();
-  const [items, setItems] = useState(defaultCredentials);
-  useEffect(() => {
-    getCredentials().then(setItems);
-  }, []);
+  const items = defaultCredentials;
   return (
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">

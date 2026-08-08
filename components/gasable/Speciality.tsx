@@ -1,15 +1,14 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import GasableButton from "./GasableButton";
 import { StaggerGroup, StaggerItem } from "./Stagger";
 import { Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck } from "lucide-react";
-import { getServices } from "@/lib/db"; import type { ServiceItem } from "@/lib/types";
+import { defaultServices } from "@/lib/store";
 
 const iconMap: Record<string, typeof Flame> = { Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck };
 
 export default function Speciality() {
-  const [services, setServices] = useState<ServiceItem[]>([]); useEffect(() => { getServices().then(setServices); }, []); if (services.length === 0) return null;
+  const services = defaultServices;
   return (
     <section className="bg-[#F3F6FC] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">

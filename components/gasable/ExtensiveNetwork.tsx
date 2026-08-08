@@ -3,18 +3,13 @@ import { useLang } from "@/context/LanguageContext";
 import GasableButton from "./GasableButton";
 import { Store, Truck, Building2 } from "lucide-react";
 import { StaggerGroup, StaggerItem } from "./Stagger";
-import { useEffect, useState } from "react";
-import { getNetworkCards } from "@/lib/db";
 import { defaultNetworkCards } from "@/lib/store";
 
 const icons = [Store, Truck, Building2];
 
 export default function ExtensiveNetwork() {
   const { lang } = useLang();
-  const [cards, setCards] = useState(defaultNetworkCards);
-  useEffect(() => {
-    getNetworkCards().then(setCards);
-  }, []);
+  const cards = defaultNetworkCards;
   return (
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
