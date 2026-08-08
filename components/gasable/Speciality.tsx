@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import GasableButton from "./GasableButton";
 import { StaggerGroup, StaggerItem } from "./Stagger";
 import { Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck } from "lucide-react";
@@ -25,16 +26,24 @@ export default function Speciality() {
             return (
               <StaggerItem
                 key={s.id}
-                className="bg-white rounded-2xl p-7 text-center shadow-sm hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-2xl overflow-hidden text-center shadow-sm hover:shadow-xl transition-shadow duration-300"
               >
                 <Link href={s.href} className="flex flex-col items-center h-full">
-                  <div className="hover-grow mb-5">
-                    <Icon size={56} stroke="url(#fl-grad)" strokeWidth={1.5} />
+                  {s.image ? (
+                    <div className="relative w-full aspect-[16/9]">
+                      <Image src={s.image} alt={s.title} fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className="hover-grow mt-7 mb-5">
+                      <Icon size={56} stroke="url(#fl-grad)" strokeWidth={1.5} />
+                    </div>
+                  )}
+                  <div className="p-7 pt-5 flex flex-col items-center">
+                    <h3 className="text-lg font-bold text-brand-green-dark mb-3 leading-snug">
+                      {s.title}
+                    </h3>
+                    <p className="text-[#54595F] text-sm leading-6">{s.description}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-brand-green-dark mb-3 leading-snug">
-                    {s.title}
-                  </h3>
-                  <p className="text-[#54595F] text-sm leading-6">{s.description}</p>
                 </Link>
               </StaggerItem>
             );

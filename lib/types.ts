@@ -13,6 +13,7 @@ export interface HeroSlide {
 export interface ServiceItem {
   id: string;
   iconName: "Fuel" | "Cpu" | "Flame" | "MonitorCheck" | "Droplets" | "Zap" | "Truck";
+  image?: string;
   title: string;
   description: string;
   href: string;
@@ -135,6 +136,7 @@ export interface ServiceDetailItem {
   id: string;
   slug: string;
   iconName: string;
+  image?: string;
   title: string;
   intro: string;
   advantages: string[];

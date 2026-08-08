@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { defaultServiceDetails } from "@/lib/store";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
@@ -56,12 +57,19 @@ export default function ServicesContent() {
                 className="scroll-mt-28 rounded-3xl border border-gray-100 bg-white shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden"
               >
                 <div className="h-1.5 bg-navy-red-gradient" />
+                {s.image && (
+                  <div className="relative w-full aspect-[21/9]">
+                    <Image src={s.image} alt={s.title} fill className="object-cover" />
+                  </div>
+                )}
                 <div className="p-7 md:p-10">
                   {/* Header */}
                   <div className="flex items-start gap-5 mb-6">
-                    <div className="hover-grow flex-shrink-0">
-                      <Icon size={56} stroke="url(#fl-grad)" strokeWidth={1.5} />
-                    </div>
+                    {!s.image && (
+                      <div className="hover-grow flex-shrink-0">
+                        <Icon size={56} stroke="url(#fl-grad)" strokeWidth={1.5} />
+                      </div>
+                    )}
                     <div>
                       <span className="text-sm font-bold text-[#0067E3]">
                         {String(idx + 1).padStart(2, "0")}
