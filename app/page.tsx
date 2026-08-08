@@ -10,7 +10,6 @@ import OperatingModel from "@/components/gasable/OperatingModel";
 import SectorsSection from "@/components/gasable/SectorsSection";
 import Speciality from "@/components/gasable/Speciality";
 import CoverageRegions from "@/components/gasable/CoverageRegions";
-import DownloadNow from "@/components/gasable/DownloadNow";
 import ExtensiveNetwork from "@/components/gasable/ExtensiveNetwork";
 import Credentials from "@/components/gasable/Credentials";
 import Faq from "@/components/gasable/Faq";
@@ -35,7 +34,6 @@ export default function HomePage() {
       <Reveal><SectorsSection /></Reveal>
       <Reveal><Speciality /></Reveal>
       <Reveal><CoverageRegions /></Reveal>
-      <Reveal><DownloadNow /></Reveal>
       <Reveal><ExtensiveNetwork /></Reveal>
       <Reveal><Credentials /></Reveal>
       <Reveal><Faq /></Reveal>
