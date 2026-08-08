@@ -38,7 +38,7 @@ export default function WhereToFindUs() {
               {lang === "ar" ? "أين تجدنا؟" : "Where to find us?"}
             </h2>
             <p className="text-brand-charcoal-mid font-bold text-lg mb-6">
-              {lang === "ar" ? "الرياض - المملكة العربية السعودية" : "Riyadh - Kingdom of Saudi Arabia"}
+              {settings?.address || (lang === "ar" ? "الرياض - المملكة العربية السعودية" : "Riyadh - Kingdom of Saudi Arabia")}
             </p>
 
             <div className="space-y-4">

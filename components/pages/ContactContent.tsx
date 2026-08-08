@@ -52,7 +52,7 @@ export default function ContactContent() {
   }, []);
 
   const contactInfo = [
-    { icon: MapPin, label: L.hqLabel, value: L.hqValue, href: undefined, color: "bg-[#24487B]" },
+    { icon: MapPin, label: L.hqLabel, value: settings?.address || L.hqValue, href: undefined, color: "bg-[#24487B]" },
     { icon: Phone, label: L.phoneLabel, value: settings?.phone || defaultContact.phone, href: `tel:${(settings?.phone || defaultContact.phone).replace(/\s/g, "")}`, color: "bg-brand-green" },
     { icon: Globe, label: L.websiteLabel, value: defaultContact.website, href: `https://${defaultContact.website}`, color: "bg-[#0067E3]" },
     { icon: Mail, label: L.emailLabel, value: settings?.email || defaultContact.email, href: `mailto:${settings?.email || defaultContact.email}`, color: "bg-[#0C2D6B]" },

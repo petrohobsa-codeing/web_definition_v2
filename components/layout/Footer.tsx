@@ -53,7 +53,7 @@ export default function Footer() {
   }, []);
 
   const rows = [
-    { label: L.hq, value: L.hqValue, icon: MapPin },
+    { label: L.hq, value: settings?.address || L.hqValue, icon: MapPin },
     { label: L.phoneLabel, value: settings?.phone || defaultContact.phone, icon: Phone, href: `tel:${(settings?.phone || defaultContact.phone).replace(/\s/g, "")}` },
     { label: L.websiteLabel, value: defaultContact.website, icon: Globe, href: `https://${defaultContact.website}` },
     { label: L.emailLabel, value: settings?.email || defaultContact.email, icon: Mail, href: `mailto:${settings?.email || defaultContact.email}` },
