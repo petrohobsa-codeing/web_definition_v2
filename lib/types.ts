@@ -3,6 +3,11 @@ export interface HeroSlide {
   badge: string;
   heading: string;
   description: string;
+  badgeEn?: string;
+  headingEn?: string;
+  descriptionEn?: string;
+  cta1LabelEn?: string;
+  cta2LabelEn?: string;
   image?: string;
   cta1Label: string;
   cta1Href: string;
@@ -16,6 +21,8 @@ export interface ServiceItem {
   image?: string;
   title: string;
   description: string;
+  titleEn?: string;
+  descriptionEn?: string;
   href: string;
 }
 
@@ -31,6 +38,7 @@ export interface StatItem {
   id: string;
   value: string;
   label: string;
+  labelEn?: string;
 }
 
 export interface ProjectItem {
@@ -110,12 +118,14 @@ export interface MissionCard {
 export interface RegionItem {
     id: string;
     name: string;
+    nameEn?: string;
 }
 
 export interface NetworkCard {
     id: string;
     iconName: "Store" | "Truck" | "Building2";
     title: string;
+    titleEn?: string;
 }
 
 export interface CredentialItem {
@@ -123,12 +133,16 @@ export interface CredentialItem {
     iconName: "ShieldCheck" | "FileCheck2" | "Award" | "Headset";
     title: string;
     description: string;
+    titleEn?: string;
+    descriptionEn?: string;
 }
 
 export interface FaqItem {
     id: string;
     question: string;
     answer: string;
+    questionEn?: string;
+    answerEn?: string;
 }
 
 
@@ -141,4 +155,8 @@ export interface ServiceDetailItem {
   intro: string;
   advantages: string[];
   value: string[];
+  titleEn?: string;
+  introEn?: string;
+  advantagesEn?: string[];
+  valueEn?: string[];
 }

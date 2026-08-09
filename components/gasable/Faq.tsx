@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
+import { tr } from "@/lib/i18n";
 import { defaultFaqs } from "@/lib/store";
 
 export default function Faq() {
@@ -37,7 +38,7 @@ const isOpen = open === i;
                   className="w-full flex items-center justify-between gap-4 p-5 text-start"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-bold text-brand-green-dark">{item.question}</span>
+                  <span className="font-bold text-brand-green-dark">{tr(lang, item.question, item.questionEn)}</span>
                   <ChevronDown
                     size={20}
                     className={`flex-shrink-0 text-[#0067E3] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
@@ -47,7 +48,7 @@ const isOpen = open === i;
                   className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-5 text-[#54595F] leading-7">{item.answer}</p>
+                    <p className="px-5 pb-5 text-[#54595F] leading-7">{tr(lang, item.answer, item.answerEn)}</p>
                   </div>
                 </div>
               </div>

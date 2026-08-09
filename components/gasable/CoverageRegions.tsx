@@ -1,5 +1,6 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
+import { tr } from "@/lib/i18n";
 import { MapPin } from "lucide-react";
 import { defaultRegions } from "@/lib/store";
 
@@ -29,7 +30,7 @@ key={c.id}
                 <MapPin size={36} stroke="url(#fl-grad)" strokeWidth={1.5} />
               </div>
               <p className="text-brand-green-dark font-bold text-lg">
-                {c.name}
+                {tr(lang, c.name, c.nameEn)}
               </p>
             </div>
           ))}

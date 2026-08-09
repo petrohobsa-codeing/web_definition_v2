@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import { CheckCircle2, Sparkles, Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
+import { tr } from "@/lib/i18n";
 import {
     intro, commitment, advantagesLabel, valueLabel,
 } from "@/lib/petrohubServices";
@@ -59,7 +60,7 @@ export default function ServicesContent() {
                 <div className="h-1.5 bg-navy-red-gradient" />
                 {s.image && (
                   <div className="relative w-full aspect-[21/9]">
-                    <Image src={s.image} alt={s.title} fill className="object-cover" />
+                    <Image src={s.image} alt={tr(lang, s.title, s.titleEn)} fill className="object-cover" />
                   </div>
                 )}
                 <div className="p-7 md:p-10">
@@ -75,13 +76,13 @@ export default function ServicesContent() {
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                       <h2 className="text-2xl md:text-3xl font-black text-brand-green-dark leading-tight">
-                        {s.title}
+                        {tr(lang, s.title, s.titleEn)}
                       </h2>
                     </div>
                   </div>
 
                   {/* Intro */}
-                                  <p className="text-[#54595F] leading-loose mb-8">{s.intro}</p>
+                                  <p className="text-[#54595F] leading-loose mb-8">{tr(lang, s.intro, s.introEn)}</p>
 
                   {/* Advantages + Value */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -91,7 +92,7 @@ export default function ServicesContent() {
                         {advantagesLabel[lang]}
                       </h3>
                       <ul className="space-y-2.5">
-                        {s.advantages.map((a) => (
+                        {tr(lang, s.advantages, s.advantagesEn).map((a) => (
                           <li key={a} className="flex items-start gap-2.5 text-[#54595F] text-sm leading-6">
                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-green flex-shrink-0" />
                             {a}
@@ -105,7 +106,7 @@ export default function ServicesContent() {
                         {valueLabel[lang]}
                       </h3>
                       <ul className="space-y-2.5">
-                        {s.value.map((v) => (
+                        {tr(lang, s.value, s.valueEn).map((v) => (
                           <li key={v} className="flex items-start gap-2.5 text-[#54595F] text-sm leading-6">
                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0067E3] flex-shrink-0" />
                             {v}

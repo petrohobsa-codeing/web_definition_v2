@@ -1,5 +1,6 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
+import { tr } from "@/lib/i18n";
 import { ShieldCheck, FileCheck2, Award, Headset } from "lucide-react";
 import { StaggerGroup, StaggerItem } from "./Stagger";
 import { defaultCredentials } from "@/lib/store";
@@ -33,8 +34,8 @@ export default function Credentials() {
                 <div className="hover-grow mb-5 flex justify-center">
                   <Icon size={48} stroke="url(#fl-grad)" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-bold text-brand-green-dark mb-2">{c.title}</h3>
-                <p className="text-[#54595F] text-sm leading-6">{c.description}</p>
+                <h3 className="text-lg font-bold text-brand-green-dark mb-2">{tr(lang, c.title, c.titleEn)}</h3>
+                <p className="text-[#54595F] text-sm leading-6">{tr(lang, c.description, c.descriptionEn)}</p>
               </StaggerItem>
             );
           })}

@@ -1,5 +1,6 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
+import { tr } from "@/lib/i18n";
 import GasableButton from "./GasableButton";
 import { Store, Truck, Building2 } from "lucide-react";
 import { StaggerGroup, StaggerItem } from "./Stagger";
@@ -31,7 +32,7 @@ key={c.id}
                 <Icon size={72} stroke="url(#fl-grad)" strokeWidth={1.5} />
               </div>
               <h3 className="text-[22px] font-semibold text-brand-charcoal-mid mb-6 min-h-[3.5rem] flex items-center">
-                {c.title}
+                {tr(lang, c.title, c.titleEn)}
               </h3>
               <GasableButton href="/contact">
                 {lang === "ar" ? "انضم الآن" : "Join Now"}
