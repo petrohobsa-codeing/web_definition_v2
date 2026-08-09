@@ -5,12 +5,14 @@ import { Loader2 } from "lucide-react";
 import { getSlides } from "@/lib/db";
 import { useLang } from "@/context/LanguageContext";
 import { tr } from "@/lib/i18n";
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
 import type { HeroSlide } from "@/lib/types";
 
 export default function GasableHero() {
   const { lang } = useLang();
   const [slides, setSlides] = useState<HeroSlide[]>([]);
   const [current, setCurrent] = useState(0);
+  const at = useAutoTranslate(slides.flatMap((s) => [s.heading, s.description]));
 
 useEffect(() => {
     getSlides().then(setSlides);
@@ -63,11 +65,11 @@ useEffect(() => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-white font-extrabold italic text-5xl md:text-7xl drop-shadow-lg leading-none">
-                {tr(lang, slide.heading, slide.headingEn)}
+                {at(tr(lang, slide.heading, slide.headingEn))}
               </h1>
               <div className="w-20 h-1.5 bg-[#0067E3] rounded-full mt-5" />
               <p className="text-white text-xl md:text-2xl mt-4 font-light drop-shadow max-w-xl">
-                {tr(lang, slide.description, slide.descriptionEn)}
+                {at(tr(lang, slide.description, slide.descriptionEn))}
               </p>
             </motion.div>
           </AnimatePresence>
