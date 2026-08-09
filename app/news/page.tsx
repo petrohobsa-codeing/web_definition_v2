@@ -7,6 +7,7 @@ import { Calendar, Tag, ArrowLeft } from "lucide-react";
 import { getPosts } from "@/lib/db";
 import type { BlogPost } from "@/lib/types";
 import { useLang } from "@/context/LanguageContext";
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
 
 const tn = {
   ar: { badge: "أخبارنا", title: "أخبار بتروهب", sub: "آخر المستجدات والمقالات من عالم الخدمات اللوجستية والبترولية.", empty: "لا توجد مقالات حالياً.", locale: "ar-SA" },
@@ -17,6 +18,7 @@ export default function NewsPage() {
   const { lang } = useLang();
   const L = tn[lang];
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const at = useAutoTranslate(posts.flatMap((p) => [p.title, p.excerpt, p.category]));
 
   useEffect(() => { getPosts().then(setPosts); }, []);
 
@@ -60,7 +62,7 @@ export default function NewsPage() {
                       <div className="flex items-center gap-3 mb-4">
                         <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-brand-green-light text-brand-green flex items-center gap-1.5">
                           <Tag size={11} />
-                          {post.category}
+                          {at(post.category)}
                         </span>
                         <span className="text-xs text-brand-charcoal-light flex items-center gap-1">
                           <Calendar size={11} />
@@ -68,10 +70,10 @@ export default function NewsPage() {
                         </span>
                       </div>
                       <h2 className="text-lg font-black text-brand-charcoal mb-3 group-hover:text-brand-green-dark transition-colors duration-300 leading-snug flex-1">
-                        {post.title}
+                        {at(post.title)}
                       </h2>
                       <p className="text-brand-charcoal-light text-sm leading-relaxed mb-5">
-                        {post.excerpt}
+                        {at(post.excerpt)}
                       </p>
                       <div className="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:gap-3 transition-all duration-300">
                         <span>{lang === "ar" ? "اقرأ المزيد" : "Read More"}</span>

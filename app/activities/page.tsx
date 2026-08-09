@@ -6,6 +6,7 @@ import { Calendar, Tag } from "lucide-react";
 import { getActivities } from "@/lib/db";
 import type { ActivityItem } from "@/lib/types";
 import { useLang } from "@/context/LanguageContext";
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
 
 const tn = {
   ar: { badge: "أنشطتنا", title: "أنشطة بتروهب", sub: "أبرز الفعاليات والأنشطة التي تنظمها أو تشارك بها بتروهب.", empty: "لا توجد أنشطة حالياً." },
@@ -16,6 +17,7 @@ export default function ActivitiesPage() {
   const { lang } = useLang();
   const L = tn[lang];
   const [activities, setActivities] = useState<ActivityItem[]>([]);
+  const at = useAutoTranslate(activities.flatMap((a) => [a.title, a.description, a.category]));
 
   useEffect(() => { getActivities().then(setActivities); }, []);
 
@@ -51,7 +53,7 @@ export default function ActivitiesPage() {
                   className="bg-white rounded-3xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:shadow-brand-green/10 hover:border-brand-green/20 transition-all duration-400 h-full"
                 >
                   {activity.image ? (
-                    <img src={activity.image} alt={activity.title} className="w-full h-44 object-cover" />
+                    <img src={activity.image} alt={at(activity.title)} className="w-full h-44 object-cover" />
                   ) : (
                     <div className="h-2 bg-gradient-to-r from-brand-green-dark to-brand-green" />
                   )}
@@ -60,7 +62,7 @@ export default function ActivitiesPage() {
                       {activity.category && (
                         <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-brand-green-light text-brand-green flex items-center gap-1.5">
                           <Tag size={11} />
-                          {activity.category}
+                          {at(activity.category)}
                         </span>
                       )}
                       {activity.date && (
@@ -71,10 +73,10 @@ export default function ActivitiesPage() {
                       )}
                     </div>
                     <h2 className="text-lg font-black text-brand-charcoal mb-3 leading-snug flex-1">
-                      {activity.title}
+                      {at(activity.title)}
                     </h2>
                     <p className="text-brand-charcoal-light text-sm leading-relaxed">
-                      {activity.description}
+                      {at(activity.description)}
                     </p>
                   </div>
                 </motion.div>

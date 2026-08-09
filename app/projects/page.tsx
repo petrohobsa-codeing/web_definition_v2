@@ -7,6 +7,7 @@ import { MapPin, Tag } from "lucide-react";
 import { getProjects } from "@/lib/db";
 import type { ProjectItem } from "@/lib/types";
 import { useLang } from "@/context/LanguageContext";
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
 
 const tp = {
   ar: {
@@ -38,6 +39,7 @@ export default function ProjectsPage() {
   const L = tp[lang];
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [filter, setFilter] = useState("__all__");
+  const at = useAutoTranslate(projects.flatMap((p) => [p.title, p.description, p.category]));
 
   useEffect(() => { getProjects().then(setProjects); }, []);
 
@@ -95,7 +97,7 @@ export default function ProjectsPage() {
                   <div className="flex items-center gap-3 mb-4">
                     <span className={`text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 ${categoryColors[project.category] ?? "bg-gray-100 text-gray-600"}`}>
                       <Tag size={11} />
-                      {project.category}
+                      {at(project.category)}
                     </span>
                     <span className="text-xs font-medium text-brand-charcoal-light flex items-center gap-1">
                       <MapPin size={11} />
@@ -103,10 +105,10 @@ export default function ProjectsPage() {
                     </span>
                   </div>
                   <h2 className="text-lg font-black text-brand-charcoal mb-3 group-hover:text-brand-green-dark transition-colors duration-300 leading-snug">
-                    {project.title}
+                    {at(project.title)}
                   </h2>
                   <p className="text-brand-charcoal-light text-sm leading-relaxed">
-                    {project.description}
+                    {at(project.description)}
                   </p>
                 </div>
               </motion.div>
