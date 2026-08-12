@@ -26,6 +26,12 @@ body {
 
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-ge-ss), var(--font-bricolage), var(--font-tajawal), sans-serif;
+  /* GE SS Two only ships one weight (Light). Letting the browser fake-bold
+     it to match Tailwind's font-black/font-bold utilities distorts Arabic
+     letterforms, so we render the true face as supplied and rely on size
+     for hierarchy instead. */
+  font-synthesis: none;
+  letter-spacing: 0.01em;
 }
 
 /* Scrollbar */

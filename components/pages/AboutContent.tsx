@@ -6,7 +6,6 @@ import Badge from "@/components/ui/Badge";
 import Reveal from "@/components/gasable/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/gasable/Stagger";
 import AboutCompanySection from "@/components/gasable/AboutCompanySection";
-import ChairmanWordSection from "@/components/gasable/ChairmanWordSection";
 import {
   ChevronLeft,
   Eye,
@@ -139,10 +138,7 @@ export default function AboutContent() {
       {/* 1. About the Company — matches "عن الشركة" profile page */}
       <AboutCompanySection />
 
-      {/* 2. Chairman's Word */}
-      <ChairmanWordSection />
-
-      {/* 3. The Value the Client Gets — matches "القيمة التي يحصل عليها العميل" profile page */}
+      {/* 2. The Value the Client Gets — matches "القيمة التي يحصل عليها العميل" profile page */}
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#3BBA9F]/5 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
