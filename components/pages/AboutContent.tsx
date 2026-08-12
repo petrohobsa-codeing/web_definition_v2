@@ -32,13 +32,13 @@ const customerValue = {
       "شريك واحد يفهم الاحتياج، يتابع التنفيذ، ويوفر الأدوات التي تساعد العميل على السيطرة على الصورة كاملة.",
   },
   en: {
-    badge: "The Value the Client Gets",
-    eyebrow: "The difference shows up in the day-to-day experience, not in marketing lines",
-    heading: "What changes when follow-up becomes more disciplined?",
+    badge: "The Value Received by the Customer",
+    eyebrow: "The distinction is evident in daily experiences, rather than in promotional slogans",
+    heading: "What transformations occur when follow-up becomes more systematic?",
     paragraph:
-      "Petrohub builds its client relationships around observable results in execution, follow-up, and decision-making. The value isn't limited to delivering the product — it extends to reducing effort, raising the level of clarity, and strengthening the ability to act at the right time.",
+      "Petrohub cultivates its relationship with clients through measurable outcomes in execution, follow-up, and decision-making. Value extends beyond mere product delivery; it encompasses minimizing effort, enhancing clarity, and improving the capacity for timely action.",
     closing:
-      "One partner that understands the need, follows up on execution, and provides the tools that help the client stay in control of the full picture.",
+      "One partner comprehends the necessity, monitors the implementation, and supplies the resources that enable the client to gain oversight of the complete scenario.",
   },
 };
 
@@ -46,42 +46,42 @@ const customerValueItems = [
   {
     icon: Eye,
     ar: { title: "حالة طلب واضحة", desc: "معرفة ما تم تنفيذه، وما هو قيد التنفيذ، وما ينتظر إجراء." },
-    en: { title: "Clear order status", desc: "Know what's been completed, what's in progress, and what's pending action." },
+    en: { title: "Clear request status", desc: "Understanding past actions, current initiatives, and forthcoming tasks." },
   },
   {
     icon: UserCheck,
     ar: { title: "عبء متابعة أقل", desc: "فريق متابعة يتولى التنسيق والتحديث بدلاً من تشتيت العميل بين جهات واتصالات متعددة." },
-    en: { title: "Less follow-up burden", desc: "A dedicated team handles coordination and updates instead of the client juggling multiple contacts." },
+    en: { title: "Reduced follow-up burden", desc: "An operations team manages coordination and updates, thereby preventing the client from being dispersed among various parties and contacts." },
   },
   {
     icon: ListChecks,
     ar: { title: "وضوح الكميات", desc: "مستندات وبيانات قياس تساعد على مطابقة الكميات المطلوبة والمحملة والمستلمة." },
-    en: { title: "Clarity of quantities", desc: "Documents and measurement data help reconcile requested, loaded and received quantities." },
+    en: { title: "Precision of quantities", desc: "Documents and measurement data facilitate the alignment of ordered, loaded, and received quantities." },
   },
   {
     icon: Zap,
     ar: { title: "استجابة أسرع", desc: "معالجة الملاحظات والاحتياجات العاجلة في وقت أقصر وبمسؤوليات محددة." },
-    en: { title: "Faster response", desc: "Urgent needs and feedback are handled faster, with clear ownership." },
+    en: { title: "Accelerated response", desc: "Responding to urgent observations and needs more promptly, with clearly delineated responsibilities." },
   },
   {
     icon: ShieldCheck,
     ar: { title: "تقليل فرص التعطل", desc: "التحرك مبكرًا قبل أن يتحول النقص أو التأخير إلى توقف تشغيلي." },
-    en: { title: "Reduced downtime risk", desc: "Acting early before a shortage or delay turns into an operational stoppage." },
+    en: { title: "Minimizing the likelihood of disruption", desc: "Act promptly to prevent a shortage or delay from escalating into an operational shutdown." },
   },
   {
     icon: Target,
     ar: { title: "تخطيط أدق", desc: "الاستفادة من بيانات الاستهلاك والرصيد والتوقيت في توقع الاحتياج القادم." },
-    en: { title: "More accurate planning", desc: "Using consumption, balance and timing data to forecast the next need." },
+    en: { title: "Enhanced planning accuracy", desc: "Leverage consumption, balance, and timing data to forecast future requirements." },
   },
   {
     icon: Gauge,
     ar: { title: "رؤية موحدة للأصول", desc: "ربط أجهزة القياس والتتبع والمراقبة عبر Petrohub Monitor بحسب نطاق المشروع." },
-    en: { title: "Unified view of assets", desc: "Measurement, tracking and monitoring devices connected via Petrohub Monitor, scoped to the project." },
+    en: { title: "A cohesive perspective on assets", desc: "Connecting measurement, tracking, and monitoring devices through Petrohub Monitor in accordance with the project's scope." },
   },
   {
     icon: ClipboardList,
     ar: { title: "سجل قابل للمراجعة", desc: "توثيق المراحل والكميات والقراءات والملاحظات للرجوع إليها عند الحاجة." },
-    en: { title: "Reviewable record", desc: "Stages, quantities, readings and notes are documented for reference whenever needed." },
+    en: { title: "Reviewable documentation", desc: "Documenting the phases, quantities, measurements, and observations for future reference." },
   },
 ];
 

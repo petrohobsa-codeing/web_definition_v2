@@ -19,23 +19,9 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  /* Body copy keeps Tajawal (full weight range); the identity's Arabic face
-     only ships a Light weight, so it is reserved for headings below. */
   font-family: var(--font-tajawal), 'Tajawal', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Brand identity display face for headings — GE SS Two (Arabic) with
-   Bricolage Grotesque covering Latin glyphs in the same run. */
-h1, h2, h3, h4, .font-display {
-  font-family: var(--font-ge-ss), var(--font-bricolage), var(--font-tajawal), sans-serif;
-}
-
-/* Wordmark lockup (PETROHUB) */
-.font-wordmark {
-  font-family: var(--font-conthrax), sans-serif;
-  letter-spacing: 0.02em;
 }
 
 /* Scrollbar */

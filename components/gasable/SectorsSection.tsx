@@ -16,15 +16,15 @@ const sectors = {
     "التجارة والخدمات",
   ],
   en: [
-    "Construction & Contracting",
-    "Industrial",
+    "Construction and Contracting",
+    "Industrial sector",
     "Mining",
-    "Oil & Gas",
-    "Infrastructure & Major Projects",
-    "Government Entities",
+    "Petroleum and natural gas",
+    "Infrastructure and significant initiatives",
+    "Governmental organizations",
     "Healthcare",
-    "Hospitality & Tourism",
-    "Trade & Services",
+    "Hospitality and Tourism",
+    "Commerce and Services",
   ],
 };
 
@@ -32,17 +32,17 @@ const commitments = [
   {
     icon: CheckCircle2,
     ar: { title: "الجودة", desc: "إجراءات واضحة وتنفيذ يراعي المتطلبات الفنية." },
-    en: { title: "Quality", desc: "Clear procedures and execution that respects technical requirements." },
+    en: { title: "Quality", desc: "Clear procedures and implementations that consider technical requirements." },
   },
   {
     icon: ShieldCheck,
     ar: { title: "السلامة والامتثال", desc: "ممارسات تراعي الاشتراطات وتحمي الأفراد والمواقع." },
-    en: { title: "Safety & Compliance", desc: "Practices that meet requirements and protect people and sites." },
+    en: { title: "Safety & Compliance", desc: "Practices that adhere to requirements and safeguard individuals and locations." },
   },
   {
     icon: TrendingUp,
     ar: { title: "التحسين المستمر", desc: "مراجعة الأداء وتطوير الإجراءات والمنتجات التقنية." },
-    en: { title: "Continuous Improvement", desc: "Reviewing performance and developing procedures and technical products." },
+    en: { title: "Ongoing enhancement", desc: "Evaluating performance and formulating technical procedures and products." },
   },
 ];
 
@@ -60,14 +60,14 @@ const t = {
   },
   en: {
     badge: "Sectors We Serve",
-    heading: "Experience that adapts to every activity and site",
+    heading: "Experience tailored to the specific nature of each activity and location",
     paragraph:
-      "We serve facilities and projects with diverse operational requirements. Petrohub's way of working adapts to facility size, number of sites, operational sensitivity, and each project's requirements.",
-    teamsLabel: "Qualified Teams",
-    teamsText: "Teams recruited and equipped to match the sector's, site's and scope's needs.",
-    coverageLabel: "Coverage",
-    coverageText: "All cities across the Kingdom of Saudi Arabia, with the ability to operate abroad depending on the project's nature and requirements.",
-    commitLabel: "Our Commitment",
+      "We cater to facilities and projects with varied operational needs. Petrohub's approach is tailored to the facility's size, the number of locations, the sensitivity of the operation, and the specific requirements of each project.",
+    teamsLabel: "Qualified teams",
+    teamsText: "Teams are assembled and outfitted based on the requirements of the sector, geographical area, and scope of work.",
+    coverageLabel: "Coverage area",
+    coverageText: "All cities within the Kingdom of Saudi Arabia, with the potential to conduct work outside the Kingdom based on the project's nature and requirements.",
+    commitLabel: "Our dedication",
   },
 };
 

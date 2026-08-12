@@ -10,10 +10,8 @@ import OperatingModel from "@/components/gasable/OperatingModel";
 import SectorsSection from "@/components/gasable/SectorsSection";
 import Speciality from "@/components/gasable/Speciality";
 import CoverageRegions from "@/components/gasable/CoverageRegions";
-import ExtensiveNetwork from "@/components/gasable/ExtensiveNetwork";
 import Credentials from "@/components/gasable/Credentials";
 import Faq from "@/components/gasable/Faq";
-import WhereToFindUs from "@/components/gasable/WhereToFindUs";
 
 export const metadata: Metadata = {
   title: "Petrohub — حلول متكاملة للطاقة والخدمات اللوجستية",
@@ -34,10 +32,8 @@ export default function HomePage() {
       <Reveal><SectorsSection /></Reveal>
       <Reveal><Speciality /></Reveal>
       <Reveal><CoverageRegions /></Reveal>
-      <Reveal><ExtensiveNetwork /></Reveal>
       <Reveal><Credentials /></Reveal>
       <Reveal><Faq /></Reveal>
-      <Reveal><WhereToFindUs /></Reveal>
     </>
   );
 }
