@@ -10,6 +10,7 @@ import { getServices } from "@/lib/db";
 import type { ServiceItem } from "@/lib/types";
 import { useLang } from "@/context/LanguageContext";
 import { tr } from "@/lib/i18n";
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
 
 const iconMap: Record<string, typeof Flame> = { Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck };
 
@@ -20,6 +21,8 @@ export default function Speciality() {
   useEffect(() => {
     getServices().then(setServices);
   }, []);
+
+  const at = useAutoTranslate(services.flatMap((s) => [s.title, s.description]));
   return (
     <section className="bg-[#F2F7F6] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -43,7 +46,7 @@ export default function Speciality() {
                 <Link href={s.href} className="flex flex-col items-center h-full">
                   {s.image ? (
                     <div className="relative w-full aspect-[16/9]">
-                      <Image src={s.image} alt={tr(lang, s.title, s.titleEn)} fill className="object-cover" />
+                      <Image src={s.image} alt={at(tr(lang, s.title, s.titleEn))} fill className="object-cover" />
                     </div>
                   ) : (
                     <div className="hover-grow mt-7 mb-5">
@@ -52,9 +55,9 @@ export default function Speciality() {
                   )}
                   <div className="p-7 pt-5 flex flex-col items-center">
                     <h3 className="text-lg font-bold text-brand-green-dark mb-3 leading-snug">
-                      {tr(lang, s.title, s.titleEn)}
+                      {at(tr(lang, s.title, s.titleEn))}
                     </h3>
-                    <p className="text-[#54595F] text-sm leading-6">{tr(lang, s.description, s.descriptionEn)}</p>
+                    <p className="text-[#54595F] text-sm leading-6">{at(tr(lang, s.description, s.descriptionEn))}</p>
                   </div>
                 </Link>
               </StaggerItem>
