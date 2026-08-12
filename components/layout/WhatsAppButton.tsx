@@ -7,7 +7,8 @@ export default function WhatsAppButton() {
   const [whatsapp, setWhatsapp] = useState("966500000000");
   useEffect(() => {
       getSettings().then((s) => {
-            if (s?.whatsapp) setWhatsapp(s.whatsapp.replace(/[^0-9]/g, ""));
+            const number = s?.whatsapp || s?.phone;
+            if (number) setWhatsapp(number.replace(/[^0-9]/g, ""));
       });
   }, []);
   return (
