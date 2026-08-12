@@ -56,8 +56,8 @@ export default function ProjectsPage() {
           <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
             {L.badge}
           </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">{L.title}</h1>
-          <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">{L.sub}</p>
+          <h1 className="text-display font-black text-white mb-6">{L.title}</h1>
+          <p className="text-body-lg text-white/70 max-w-2xl mx-auto leading-relaxed">{L.sub}</p>
         </div>
       </section>
 
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
                     : "bg-gray-100 text-brand-charcoal-mid hover:bg-brand-green-light hover:text-brand-green"
                 }`}
               >
-                {cat === "__all__" ? L.all : cat}
+                {cat === "__all__" ? L.all : at(cat)}
               </button>
             ))}
           </div>
@@ -104,10 +104,10 @@ export default function ProjectsPage() {
                       {project.city}
                     </span>
                   </div>
-                  <h2 className="text-lg font-black text-brand-charcoal mb-3 group-hover:text-brand-green-dark transition-colors duration-300 leading-snug">
+                  <h2 className="text-h4 font-black text-brand-charcoal mb-3 group-hover:text-brand-green-dark transition-colors duration-300 leading-snug">
                     {at(project.title)}
                   </h2>
-                  <p className="text-brand-charcoal-light text-sm leading-relaxed">
+                  <p className="text-body-sm text-brand-charcoal-light leading-relaxed">
                     {at(project.description)}
                   </p>
                 </div>
