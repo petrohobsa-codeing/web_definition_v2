@@ -64,11 +64,11 @@ useEffect(() => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-white font-extrabold italic text-5xl md:text-7xl drop-shadow-lg leading-none">
+              <h1 className="text-display text-white font-extrabold italic drop-shadow-lg leading-none">
                 {at(tr(lang, slide.heading, slide.headingEn))}
               </h1>
               <div className="w-20 h-1.5 bg-[#3BBA9F] rounded-full mt-5" />
-              <p className="text-white text-xl md:text-2xl mt-4 font-light drop-shadow max-w-xl">
+              <p className="text-body-lg text-white mt-4 font-light drop-shadow max-w-xl">
                 {at(tr(lang, slide.description, slide.descriptionEn))}
               </p>
             </motion.div>

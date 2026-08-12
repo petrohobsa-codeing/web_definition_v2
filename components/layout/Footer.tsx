@@ -87,8 +87,8 @@ export default function Footer() {
           </Link>
           <p className="text-white/70 text-sm mb-10">{L.tagline}</p>
 
-          <h2 className="text-2xl md:text-4xl font-black mb-5 leading-tight">{L.heading}</h2>
-          <p className="text-white/75 leading-loose text-sm md:text-base mb-10">{L.paragraph}</p>
+          <h2 className="text-h2 font-black mb-5 leading-tight">{L.heading}</h2>
+          <p className="text-body text-white/75 leading-loose mb-10">{L.paragraph}</p>
 
           <div className="divide-y divide-white/15 border-t border-b border-white/15 mb-10">
             {rows.map((r) => (

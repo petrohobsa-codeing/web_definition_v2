@@ -10,11 +10,11 @@ export default function CoverageRegions() {
   return (
     <section className="bg-[#E4F0EC] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6 text-center">
-        <h2 className="font-bold text-4xl md:text-[45px] mb-4">
+        <h2 className="text-h2 font-bold mb-4">
           <span className="text-brand-green">{lang === "ar" ? "مناطق" : "Our"}</span>{" "}
           <span className="text-[#3BBA9F]">{lang === "ar" ? "التغطية" : "Coverage"}</span>
         </h2>
-        <p className="text-[#54595F] max-w-xl mx-auto mb-12">
+        <p className="text-body-lg text-[#54595F] max-w-xl mx-auto mb-12">
           {lang === "ar"
             ? "نغطّي شبكة واسعة من المدن والمناطق الحيوية في المملكة لخدمة عملائنا أينما كانوا."
             : "We cover a wide network of vital cities and regions across the Kingdom to serve our customers wherever they are."}
@@ -29,7 +29,7 @@ key={c.id}
               <div className="hover-grow mb-3">
                 <MapPin size={36} stroke="url(#fl-grad)" strokeWidth={1.5} />
               </div>
-              <p className="text-brand-green-dark font-bold text-lg">
+              <p className="text-brand-green-dark font-bold text-h4">
                 {tr(lang, c.name, c.nameEn)}
               </p>
             </div>

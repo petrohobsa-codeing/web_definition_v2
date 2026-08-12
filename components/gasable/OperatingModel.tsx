@@ -66,16 +66,16 @@ export default function OperatingModel() {
           <span className="inline-block bg-[#3BBA9F] text-white font-black text-sm md:text-base px-4 py-2 rounded-xl mb-4">
             {L.badge}
           </span>
-          <p className="text-brand-charcoal-light text-xs md:text-sm mb-5">{L.tagline}</p>
+          <p className="text-brand-charcoal-light text-body-sm mb-5">{L.tagline}</p>
 
-          <h2 className="text-lg md:text-xl font-black text-brand-charcoal leading-snug mb-2">
+          <h2 className="text-h3 font-black text-brand-charcoal leading-snug mb-2">
             {L.heading}
           </h2>
-          <p className="text-brand-charcoal-light leading-relaxed text-xs md:text-sm mb-7 md:pl-56">
+          <p className="text-brand-charcoal-light leading-relaxed text-body-sm mb-7 md:pl-56">
             {L.paragraph}
           </p>
 
-          <h3 className="font-black text-brand-charcoal text-base mb-4">{L.cycleLabel}</h3>
+          <h3 className="font-black text-brand-charcoal text-h4 mb-4">{L.cycleLabel}</h3>
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:pl-56">
             {steps.map((step) => {
@@ -87,8 +87,8 @@ export default function OperatingModel() {
                       {step.n}
                     </span>
                     <div className="min-w-0">
-                      <h4 className="font-black text-brand-charcoal text-xs mb-1 leading-tight">{c.title}</h4>
-                      <p className="text-brand-charcoal-light text-[11.5px] leading-snug">{c.desc}</p>
+                      <h4 className="font-black text-brand-charcoal text-h4 mb-1 leading-tight">{c.title}</h4>
+                      <p className="text-brand-charcoal-light text-caption leading-snug">{c.desc}</p>
                     </div>
                   </div>
                 </StaggerItem>

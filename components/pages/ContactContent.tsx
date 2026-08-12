@@ -73,8 +73,8 @@ export default function ContactContent() {
             <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
               {L.badge}
             </Badge>
-            <h1 className="text-5xl font-black text-white mb-4">{L.contact}</h1>
-            <p className="text-white/70 text-lg leading-relaxed">{L.heroDesc}</p>
+            <h1 className="text-display font-black text-white mb-4">{L.contact}</h1>
+            <p className="text-body-lg text-white/70 leading-relaxed">{L.heroDesc}</p>
           </div>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function ContactContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-black text-brand-charcoal mb-6">{L.info}</h2>
+                <h2 className="text-h2 font-black text-brand-charcoal mb-6">{L.info}</h2>
                 <div className="space-y-4">
                   {contactInfo.map((info) => {
                     return (
@@ -111,7 +111,7 @@ export default function ContactContent() {
               </div>
 
               <div className="bg-white rounded-3xl p-7 border border-gray-100">
-                <h3 className="font-black text-brand-charcoal mb-4">{L.citiesTitle}</h3>
+                <h3 className="text-h4 font-black text-brand-charcoal mb-4">{L.citiesTitle}</h3>
                 <div className="flex flex-wrap gap-3">
                   {cities.map((city) => (
                     <span key={city.en} className="px-5 py-2.5 bg-brand-green-light text-brand-green rounded-full font-bold text-sm border border-brand-green/20">
@@ -124,7 +124,7 @@ export default function ContactContent() {
             </div>
 
             <div className="bg-white rounded-4xl p-8 shadow-xl shadow-brand-green/5 border border-gray-100">
-              <h2 className="text-2xl font-black text-brand-charcoal mb-7">{L.send}</h2>
+              <h2 className="text-h2 font-black text-brand-charcoal mb-7">{L.send}</h2>
               <ContactForm />
             </div>
           </div>

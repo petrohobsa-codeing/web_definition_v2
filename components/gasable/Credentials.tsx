@@ -13,11 +13,11 @@ export default function Credentials() {
   return (
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
-        <h2 className="text-center font-bold text-4xl md:text-[45px] mb-4">
+        <h2 className="text-h2 text-center font-bold mb-4">
           <span className="text-brand-green">{lang === "ar" ? "اعتماداتنا" : "Our"}</span>{" "}
           <span className="text-[#3BBA9F]">{lang === "ar" ? "وثقتنا" : "Credentials"}</span>
         </h2>
-        <p className="text-center text-[#54595F] max-w-xl mx-auto mb-12">
+        <p className="text-body-lg text-center text-[#54595F] max-w-xl mx-auto mb-12">
           {lang === "ar"
             ? "نبني الثقة من خلال الالتزام والاعتماد والشفافية في كل خدمة نقدّمها."
             : "We build trust through commitment, accreditation and transparency in every service we provide."}
@@ -34,8 +34,8 @@ export default function Credentials() {
                 <div className="hover-grow mb-5 flex justify-center">
                   <Icon size={48} stroke="url(#fl-grad)" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-bold text-brand-green-dark mb-2">{tr(lang, c.title, c.titleEn)}</h3>
-                <p className="text-[#54595F] text-sm leading-6">{tr(lang, c.description, c.descriptionEn)}</p>
+                <h3 className="text-h4 font-bold text-brand-green-dark mb-2">{tr(lang, c.title, c.titleEn)}</h3>
+                <p className="text-[#54595F] text-body-sm leading-6">{tr(lang, c.description, c.descriptionEn)}</p>
               </StaggerItem>
             );
           })}

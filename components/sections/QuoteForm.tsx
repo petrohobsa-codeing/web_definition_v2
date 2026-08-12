@@ -121,8 +121,8 @@ setError(err instanceof Error ? err.message : "حدث خطأ أثناء إرسا
         <div className="w-24 h-24 rounded-full bg-brand-green-light flex items-center justify-center mb-6">
           <CheckCircle2 size={48} className="text-brand-green" />
         </div>
-        <h3 className="text-2xl font-black text-brand-charcoal mb-3">{L.successTitle}</h3>
-        <p className="text-brand-charcoal-light max-w-md">{L.successBody}</p>
+        <h3 className="text-h3 font-black text-brand-charcoal mb-3">{L.successTitle}</h3>
+        <p className="text-body text-brand-charcoal-light max-w-md">{L.successBody}</p>
       </div>
     );
   }

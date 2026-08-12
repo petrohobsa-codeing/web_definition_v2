@@ -48,9 +48,9 @@ export default function ServicesContent() {
           <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
             {L.badge}
           </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">{I.title}</h1>
-          <p className="text-brand-gold text-xl md:text-2xl font-bold mb-6">{I.subtitle}</p>
-          <p className="text-white/70 text-lg leading-relaxed">{I.body}</p>
+          <h1 className="text-display font-black text-white mb-4">{I.title}</h1>
+          <p className="text-h4 text-brand-gold font-bold mb-6">{I.subtitle}</p>
+          <p className="text-body-lg text-white/70 leading-relaxed">{I.body}</p>
         </div>
       </section>
 
@@ -84,28 +84,28 @@ export default function ServicesContent() {
                       </div>
                     )}
                     <div>
-                      <span className="text-sm font-bold text-[#3BBA9F]">
+                      <span className="text-body-sm font-bold text-[#3BBA9F]">
                         {String(idx + 1).padStart(2, "0")}
                       </span>
-                      <h2 className="text-2xl md:text-3xl font-black text-brand-green-dark leading-tight">
+                      <h2 className="text-h2 font-black text-brand-green-dark leading-tight">
                         {at(tr(lang, s.title, s.titleEn))}
                       </h2>
                     </div>
                   </div>
 
                   {/* Intro */}
-                                  <p className="text-[#54595F] leading-loose mb-8">{at(tr(lang, s.intro, s.introEn))}</p>
+                                  <p className="text-body-lg text-[#54595F] leading-loose mb-8">{at(tr(lang, s.intro, s.introEn))}</p>
 
                   {/* Advantages + Value */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-[#F2F7F6] rounded-2xl p-6">
-                      <h3 className="flex items-center gap-2 font-black text-brand-green-dark mb-4">
+                      <h3 className="text-h4 flex items-center gap-2 font-black text-brand-green-dark mb-4">
                         <CheckCircle2 size={18} className="text-brand-green" />
                         {advantagesLabel[lang]}
                       </h3>
                       <ul className="space-y-2.5">
                         {tr(lang, s.advantages, s.advantagesEn).map((a) => (
-                          <li key={a} className="flex items-start gap-2.5 text-[#54595F] text-sm leading-6">
+                          <li key={a} className="text-body-sm flex items-start gap-2.5 text-[#54595F] leading-6">
                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-green flex-shrink-0" />
                             {at(a)}
                           </li>
@@ -113,13 +113,13 @@ export default function ServicesContent() {
                       </ul>
                     </div>
                     <div className="bg-[#E4F4EF] rounded-2xl p-6">
-                      <h3 className="flex items-center gap-2 font-black text-[#2E9B84] mb-4">
+                      <h3 className="text-h4 flex items-center gap-2 font-black text-[#2E9B84] mb-4">
                         <Sparkles size={18} className="text-[#3BBA9F]" />
                         {valueLabel[lang]}
                       </h3>
                       <ul className="space-y-2.5">
                         {tr(lang, s.value, s.valueEn).map((v) => (
-                          <li key={v} className="flex items-start gap-2.5 text-[#54595F] text-sm leading-6">
+                          <li key={v} className="text-body-sm flex items-start gap-2.5 text-[#54595F] leading-6">
                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#3BBA9F] flex-shrink-0" />
                             {at(v)}
                           </li>
@@ -137,18 +137,18 @@ export default function ServicesContent() {
       {/* Commitment */}
       <section className="py-20 bg-[#F2F7F6]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black mb-5">
+          <h2 className="text-h2 font-black mb-5">
             <span className="text-brand-green">{lang === "ar" ? "التزامنا" : "Our"}</span>{" "}
             <span className="text-[#3BBA9F]">{lang === "ar" ? "" : "Commitment"}</span>
           </h2>
-          <p className="text-[#54595F] leading-loose text-lg">{C.body}</p>
+          <p className="text-body-lg text-[#54595F] leading-loose">{C.body}</p>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-brand-charcoal-light mb-6 text-lg">{L.cta}</p>
+          <p className="text-body-lg text-brand-charcoal-light mb-6">{L.cta}</p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Button href="/quote" size="lg">{L.quote}</Button>
             <Button href="/contact" variant="secondary" size="lg">{L.contact}</Button>

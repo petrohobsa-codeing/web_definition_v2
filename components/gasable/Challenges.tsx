@@ -80,11 +80,11 @@ export default function Challenges() {
               </div>
             </div>
             <div className="md:col-span-8">
-              <h2 className="text-lg md:text-xl font-black text-brand-charcoal leading-snug mb-1.5">
+              <h2 className="text-h3 font-black text-brand-charcoal leading-snug mb-1.5">
                 {L.headline}
               </h2>
-              <p className="text-[#3BBA9F] font-bold text-xs md:text-sm mb-2">{L.subheading}</p>
-              <p className="text-brand-charcoal-light leading-relaxed text-xs md:text-sm">{L.paragraph}</p>
+              <p className="text-[#3BBA9F] font-bold text-body-sm mb-2">{L.subheading}</p>
+              <p className="text-brand-charcoal-light leading-relaxed text-body-sm">{L.paragraph}</p>
             </div>
           </div>
 
@@ -98,8 +98,8 @@ export default function Challenges() {
                       {item.n}
                     </span>
                     <div className="min-w-0">
-                      <h3 className="font-black text-brand-charcoal text-xs mb-1 leading-tight">{c.title}</h3>
-                      <p className="text-brand-charcoal-light text-[11.5px] leading-snug">{c.desc}</p>
+                      <h3 className="font-black text-brand-charcoal text-h4 mb-1 leading-tight">{c.title}</h3>
+                      <p className="text-brand-charcoal-light text-caption leading-snug">{c.desc}</p>
                     </div>
                   </div>
                 </StaggerItem>

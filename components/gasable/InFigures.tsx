@@ -14,7 +14,7 @@ export default function InFigures() {
   return (
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
-        <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
+        <h2 className="text-h2 text-center font-bold mb-12">
           {lang === "ar" ? (
             <>
               <span className="text-[#3BBA9F]">أرقام</span>{" "}
@@ -41,9 +41,9 @@ export default function InFigures() {
               </div>
               <CountUp
                             value={s.value}
-                className="text-6xl md:text-7xl font-black text-gasable-gradient leading-none"
+                className="text-display font-black text-gasable-gradient leading-none"
               />
-              <p className="text-[#54595F] font-semibold mt-3 text-lg">{tr(lang, s.label, s.labelEn)}</p>
+              <p className="text-[#54595F] font-semibold mt-3 text-body-lg">{tr(lang, s.label, s.labelEn)}</p>
             </StaggerItem>
                   );
                                })}

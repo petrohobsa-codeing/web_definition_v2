@@ -84,10 +84,10 @@ export default function SectorsSection() {
             {L.badge}
           </span>
 
-          <h2 className="text-lg md:text-xl font-black text-brand-charcoal leading-snug mb-2">
+          <h2 className="text-h3 font-black text-brand-charcoal leading-snug mb-2">
             {L.heading}
           </h2>
-          <p className="text-brand-charcoal-light leading-relaxed text-xs md:text-sm mb-6 max-w-3xl">
+          <p className="text-brand-charcoal-light leading-relaxed text-body-sm mb-6 max-w-3xl">
             {L.paragraph}
           </p>
 
@@ -95,7 +95,7 @@ export default function SectorsSection() {
             {S.map((s) => (
               <StaggerItem key={s} lift={false}>
                 <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center hover:border-[#3BBA9F]/30 hover:shadow-md transition-all duration-300">
-                  <p className="font-bold text-brand-charcoal text-xs md:text-sm">{s}</p>
+                  <p className="font-bold text-brand-charcoal text-body-sm">{s}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -107,8 +107,8 @@ export default function SectorsSection() {
                 <Users2 size={18} className="text-[#3BBA9F]" />
               </span>
               <div className="min-w-0">
-                <h3 className="font-black text-brand-charcoal text-sm mb-1">{L.teamsLabel}</h3>
-                <p className="text-brand-charcoal-light text-xs leading-relaxed">{L.teamsText}</p>
+                <h3 className="font-black text-brand-charcoal text-h4 mb-1">{L.teamsLabel}</h3>
+                <p className="text-brand-charcoal-light text-body-sm leading-relaxed">{L.teamsText}</p>
               </div>
             </div>
             <div className="bg-white rounded-xl border border-gray-100 p-4 flex items-start gap-3">
@@ -116,13 +116,13 @@ export default function SectorsSection() {
                 <Globe2 size={18} className="text-[#3BBA9F]" />
               </span>
               <div className="min-w-0">
-                <h3 className="font-black text-brand-charcoal text-sm mb-1">{L.coverageLabel}</h3>
-                <p className="text-brand-charcoal-light text-xs leading-relaxed">{L.coverageText}</p>
+                <h3 className="font-black text-brand-charcoal text-h4 mb-1">{L.coverageLabel}</h3>
+                <p className="text-brand-charcoal-light text-body-sm leading-relaxed">{L.coverageText}</p>
               </div>
             </div>
           </div>
 
-          <h3 className="font-black text-brand-charcoal text-base mb-4 text-center">{L.commitLabel}</h3>
+          <h3 className="font-black text-brand-charcoal text-h4 mb-4 text-center">{L.commitLabel}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {commitments.map((c) => {
               const cc = lang === "ar" ? c.ar : c.en;
@@ -131,8 +131,8 @@ export default function SectorsSection() {
                   <div className="w-9 h-9 rounded-lg bg-[#3BBA9F]/10 flex items-center justify-center mx-auto mb-2.5">
                     <c.icon size={18} className="text-[#3BBA9F]" />
                   </div>
-                  <h4 className="font-black text-brand-charcoal text-sm mb-1">{cc.title}</h4>
-                  <p className="text-brand-charcoal-light text-xs leading-relaxed">{cc.desc}</p>
+                  <h4 className="font-black text-brand-charcoal text-h4 mb-1">{cc.title}</h4>
+                  <p className="text-brand-charcoal-light text-body-sm leading-relaxed">{cc.desc}</p>
                 </div>
               );
             })}

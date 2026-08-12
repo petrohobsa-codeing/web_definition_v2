@@ -129,8 +129,8 @@ export default function AboutContent() {
             <Badge variant="gold" className="mb-6 !bg-brand-gold/20 !text-brand-gold !border-brand-gold/30">
               {L.heroBadge}
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-black text-white mb-5 leading-tight">{L.heroTitle}</h1>
-            <p className="text-white/70 text-xl leading-relaxed">{L.heroSub}</p>
+            <h1 className="text-display font-black text-white mb-5 leading-tight">{L.heroTitle}</h1>
+            <p className="text-body-lg text-white/70 leading-relaxed">{L.heroSub}</p>
           </motion.div>
         </div>
       </section>
@@ -160,16 +160,16 @@ export default function AboutContent() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <p className="text-brand-charcoal-light text-sm md:text-base mb-10">{V.eyebrow}</p>
+            <p className="text-body text-brand-charcoal-light mb-10">{V.eyebrow}</p>
           </Reveal>
 
           <Reveal delay={0.15}>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
               <div className="lg:col-span-5">
-                <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal leading-snug">{V.heading}</h2>
+                <h2 className="text-h2 font-black text-brand-charcoal leading-snug">{V.heading}</h2>
               </div>
               <div className="lg:col-span-7">
-                <p className="text-brand-charcoal-light leading-loose text-base md:text-lg">{V.paragraph}</p>
+                <p className="text-body-lg text-brand-charcoal-light leading-loose">{V.paragraph}</p>
               </div>
             </div>
           </Reveal>
@@ -184,8 +184,8 @@ export default function AboutContent() {
                     <div className="relative w-12 h-12 rounded-xl bg-[#3BBA9F]/10 flex items-center justify-center mb-5 group-hover:bg-[#3BBA9F] transition-colors duration-300">
                       <item.icon size={22} className="text-[#3BBA9F] group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h3 className="relative text-base font-black text-brand-charcoal mb-2">{c.title}</h3>
-                    <p className="relative text-brand-charcoal-light text-sm leading-relaxed">{c.desc}</p>
+                    <h3 className="text-h4 relative font-black text-brand-charcoal mb-2">{c.title}</h3>
+                    <p className="text-body-sm relative text-brand-charcoal-light leading-relaxed">{c.desc}</p>
                   </div>
                 </StaggerItem>
               );

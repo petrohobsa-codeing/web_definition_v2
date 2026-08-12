@@ -55,7 +55,7 @@ export default function MissionVisionStory() {
   return (
     <section className="bg-[#F2F7F6] py-[60px]">
       <div className="max-w-[1200px] mx-auto px-6">
-        <h2 className="title-underline text-3xl md:text-4xl font-black text-brand-charcoal text-center mb-14 block mx-auto w-fit">
+        <h2 className="title-underline text-h2 font-black text-brand-charcoal text-center mb-14 block mx-auto w-fit">
           {L.badge}
         </h2>
         <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
@@ -66,10 +66,10 @@ export default function MissionVisionStory() {
                 <div className="hover-grow mb-5">
                   <IconCircle icon={v.icon} />
                 </div>
-                <h3 className="title-underline text-[20px] font-black text-brand-charcoal-mid mb-4">
+                <h3 className="title-underline text-h4 font-black text-brand-charcoal-mid mb-4">
                   {c.title}
                 </h3>
-                <p className="text-[#54595F] leading-7 max-w-xs text-sm">{c.description}</p>
+                <p className="text-[#54595F] leading-7 max-w-xs text-body-sm">{c.description}</p>
               </StaggerItem>
             );
           })}

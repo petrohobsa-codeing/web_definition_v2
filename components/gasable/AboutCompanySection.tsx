@@ -51,7 +51,7 @@ export default function AboutCompanySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <Reveal className="lg:col-span-7 order-2 lg:order-2" delay={0.05}>
             <p className="text-[#3BBA9F] font-bold text-lg mb-2 tracking-wide">{A.eyebrow}</p>
-            <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal mb-5 leading-snug">
+            <h2 className="text-h3 font-black text-brand-charcoal mb-5 leading-snug">
               {A.headline}
             </h2>
             <p className="text-brand-charcoal-light leading-loose text-base md:text-lg">{A.paragraph}</p>
@@ -81,7 +81,7 @@ export default function AboutCompanySection() {
           </Reveal>
 
           <Reveal className="lg:col-span-5 order-1 lg:order-1" delay={0.15}>
-            <h2 className="text-4xl md:text-5xl font-black leading-[1.05] mb-6">
+            <h2 className="text-h1 font-black leading-[1.05] mb-6">
               <span className="block text-brand-charcoal">{A.titleTop}</span>
               <span className="block text-[#3BBA9F]">{A.titleBottom}</span>
             </h2>
