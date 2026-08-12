@@ -10,7 +10,7 @@ const aboutCompany = {
   photo: "/images/hero/petrohub-hq.jpg",
   ar: {
     titleTop: "عن",
-    titleBottom: "Petrohub",
+    titleBottom: "بتروهب",
     eyebrow: "خبرة ميدانية، تنفيذ منضبط، ومعلومة يمكن الاعتماد عليها",
     headline: "نحو إدارة أكثر وعيًا بكل وحدة طاقة",
     paragraph:
