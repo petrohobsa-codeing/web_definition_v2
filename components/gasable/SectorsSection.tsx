@@ -51,7 +51,7 @@ const t = {
     badge: "القطاعات التي نخدمها",
     heading: "خبرة قابلة للتكيف مع طبيعة كل نشاط وموقع",
     paragraph:
-      "نخدم منشآت ومشروعات ذات متطلبات تشغيلية متنوعة. تتكيف طريقة عمل Petrohob مع حجم المنشأة، وعدد المواقع، وحساسية التشغيل، ومتطلبات كل مشروع.",
+      "نخدم منشآت ومشروعات ذات متطلبات تشغيلية متنوعة. تتكيف طريقة عمل Petrohub مع حجم المنشأة، وعدد المواقع، وحساسية التشغيل، ومتطلبات كل مشروع.",
     teamsLabel: "فرق مؤهلة",
     teamsText: "فرق يتم استقطابها وتجهيزها بما يتناسب مع احتياجات القطاع والموقع ونطاق العمل.",
     coverageLabel: "نطاق التغطية",
@@ -62,7 +62,7 @@ const t = {
     badge: "Sectors We Serve",
     heading: "Experience that adapts to every activity and site",
     paragraph:
-      "We serve facilities and projects with diverse operational requirements. Petrohob's way of working adapts to facility size, number of sites, operational sensitivity, and each project's requirements.",
+      "We serve facilities and projects with diverse operational requirements. Petrohub's way of working adapts to facility size, number of sites, operational sensitivity, and each project's requirements.",
     teamsLabel: "Qualified Teams",
     teamsText: "Teams recruited and equipped to match the sector's, site's and scope's needs.",
     coverageLabel: "Coverage",

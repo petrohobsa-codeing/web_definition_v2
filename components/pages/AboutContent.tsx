@@ -27,7 +27,7 @@ const customerValue = {
     eyebrow: "الفرق يظهر في التجربة اليومية، لا في العبارات التسويقية",
     heading: "ماذا يتغير عندما تصبح المتابعة أكثر انضباطًا؟",
     paragraph:
-      "تبني Petrohob علاقتها مع العميل حول نتائج قابلة للملاحظة في التنفيذ والمتابعة والقرار. القيمة لا تقتصر على إيصال المنتج، بل تشمل تقليل الجهد، ورفع مستوى الوضوح، وتعزيز القدرة على التصرف في الوقت المناسب.",
+      "تبني Petrohub علاقتها مع العميل حول نتائج قابلة للملاحظة في التنفيذ والمتابعة والقرار. القيمة لا تقتصر على إيصال المنتج، بل تشمل تقليل الجهد، ورفع مستوى الوضوح، وتعزيز القدرة على التصرف في الوقت المناسب.",
     closing:
       "شريك واحد يفهم الاحتياج، يتابع التنفيذ، ويوفر الأدوات التي تساعد العميل على السيطرة على الصورة كاملة.",
   },
@@ -36,7 +36,7 @@ const customerValue = {
     eyebrow: "The difference shows up in the day-to-day experience, not in marketing lines",
     heading: "What changes when follow-up becomes more disciplined?",
     paragraph:
-      "Petrohob builds its client relationships around observable results in execution, follow-up, and decision-making. The value isn't limited to delivering the product — it extends to reducing effort, raising the level of clarity, and strengthening the ability to act at the right time.",
+      "Petrohub builds its client relationships around observable results in execution, follow-up, and decision-making. The value isn't limited to delivering the product — it extends to reducing effort, raising the level of clarity, and strengthening the ability to act at the right time.",
     closing:
       "One partner that understands the need, follows up on execution, and provides the tools that help the client stay in control of the full picture.",
   },
@@ -75,8 +75,8 @@ const customerValueItems = [
   },
   {
     icon: Gauge,
-    ar: { title: "رؤية موحدة للأصول", desc: "ربط أجهزة القياس والتتبع والمراقبة عبر Petrohob Monitor بحسب نطاق المشروع." },
-    en: { title: "Unified view of assets", desc: "Measurement, tracking and monitoring devices connected via Petrohob Monitor, scoped to the project." },
+    ar: { title: "رؤية موحدة للأصول", desc: "ربط أجهزة القياس والتتبع والمراقبة عبر Petrohub Monitor بحسب نطاق المشروع." },
+    en: { title: "Unified view of assets", desc: "Measurement, tracking and monitoring devices connected via Petrohub Monitor, scoped to the project." },
   },
   {
     icon: ClipboardList,
@@ -90,15 +90,15 @@ const t = {
     home: "الرئيسية",
     about: "من نحن",
     heroBadge: "نبذة عن الشركة",
-    heroTitle: "Petrohob",
+    heroTitle: "Petrohub",
     heroSub: "إعادة تعريف إدارة الطاقة: إمداد منضبط، متابعة تشغيلية، ورؤية موحدة للأصول والاستهلاك.",
   },
   en: {
     home: "Home",
     about: "About Us",
     heroBadge: "About the Company",
-    heroTitle: "Petrohob",
-    heroSub: "Redefining energy management: disciplined supply, operational follow-up, and a unified view of assets and consumption.",
+    heroTitle: "Petrohub",
+    heroSub: "Redefining energy administration: managed supply, operational oversight, and an integrated perspective on assets and consumption.",
   },
 };
 

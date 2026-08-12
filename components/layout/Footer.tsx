@@ -12,13 +12,13 @@ const t = {
     tagline: "ابدأ برؤية أوضح لاحتياجك التشغيلي",
     heading: "القيمة التي يحصل عليها العميل",
     paragraph:
-      "سواء كان احتياجكم مرتبطًا بإمدادات الطاقة والمياه، أو بالتنسيق الميداني والمتابعة التشغيلية، أو ببناء نظام موحد للمراقبة والقياس، يعمل فريق Petrohob على فهم طبيعة عملياتكم وتقديم نطاق يناسب مواقعكم وأولوياتكم ومتطلباتكم.",
+      "سواء كان احتياجكم مرتبطًا بإمدادات الطاقة والمياه، أو بالتنسيق الميداني والمتابعة التشغيلية، أو ببناء نظام موحد للمراقبة والقياس، يعمل فريق Petrohub على فهم طبيعة عملياتكم وتقديم نطاق يناسب مواقعكم وأولوياتكم ومتطلباتكم.",
     hq: "المقر الرئيسي",
     hqValue: "الرياض - المملكة العربية السعودية",
     phoneLabel: "رقم التواصل",
     websiteLabel: "الموقع الإلكتروني",
     emailLabel: "البريد الإلكتروني",
-    closing: "Petrohob — من الاحتياج إلى التنفيذ، ومن التنفيذ إلى رؤية يمكن الاعتماد عليها.",
+    closing: "Petrohub — من الاحتياج إلى التنفيذ، ومن التنفيذ إلى رؤية يمكن الاعتماد عليها.",
     rights: "جميع الحقوق محفوظة.",
     admin: "لوحة التحكم",
   },
@@ -26,13 +26,13 @@ const t = {
     tagline: "Start with a clearer view of your operational need",
     heading: "The Value the Client Gets",
     paragraph:
-      "Whether your need relates to energy and water supply, field coordination and operational follow-up, or building a unified monitoring and measurement system, the Petrohob team works to understand your operations and offer a scope that fits your sites, priorities and requirements.",
+      "Whether your need relates to energy and water supply, field coordination and operational follow-up, or building a unified monitoring and measurement system, the Petrohub team works to understand your operations and offer a scope that fits your sites, priorities and requirements.",
     hq: "Head Office",
     hqValue: "Riyadh - Kingdom of Saudi Arabia",
     phoneLabel: "Phone",
     websiteLabel: "Website",
     emailLabel: "Email",
-    closing: "Petrohob — from need to execution, and from execution to a vision you can rely on.",
+    closing: "Petrohub — from need to execution, and from execution to a vision you can rely on.",
     rights: "All rights reserved.",
     admin: "Admin Panel",
   },
@@ -76,10 +76,10 @@ export default function Footer() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-10">
         <div className="max-w-xl mr-auto">
-          <Link href="/" className="inline-flex items-center gap-3 mb-3" aria-label="Petrohob">
+          <Link href="/" className="inline-flex items-center gap-3 mb-3" aria-label="Petrohub">
             <Image
               src="/images/brand/logo-ar-white.png"
-              alt="Petrohob"
+              alt="Petrohub"
               width={140}
               height={44}
               className="h-9 w-auto object-contain"
@@ -113,7 +113,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
           <p className="text-white/40">
-            © {new Date().getFullYear()} Petrohob — {L.rights}
+            © {new Date().getFullYear()} Petrohub — {L.rights}
           </p>
           <Link href="/admin" className="text-white/25 hover:text-white/50 transition-colors flex items-center gap-1">
             <ExternalLink size={11} />

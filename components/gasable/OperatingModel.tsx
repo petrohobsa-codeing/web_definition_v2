@@ -38,7 +38,7 @@ const steps = [
 
 const t = {
   ar: {
-    badge: "نموذج Petrohob التشغيلي",
+    badge: "نموذج Petrohub التشغيلي",
     tagline: "من الاحتياج إلى التنفيذ، ومن التنفيذ إلى معلومة قابلة للاستخدام",
     heading: "مسار واحد يربط الإمداد والمتابعة والمراقبة",
     paragraph:
@@ -46,11 +46,11 @@ const t = {
     cycleLabel: "دورة العمل",
   },
   en: {
-    badge: "Petrohob's Operating Model",
-    tagline: "From need to execution, and from execution to usable information",
-    heading: "One path that connects supply, follow-up and monitoring",
+    badge: "Petrohub Operational Framework",
+    tagline: "From necessity to execution, and from execution to actionable information",
+    heading: "A singular pathway connecting supply, tracking, and monitoring",
     paragraph:
-      "We designed our way of working so the client gets one connected experience, not a set of separate services. The path starts with understanding the need, then coordinating the source, transport and timing, following the request through delivery and documentation, and using the data to plan and improve performance.",
+      "We have structured our workflow to ensure that the client enjoys a cohesive experience rather than a disjointed array of services. The process commences with a thorough understanding of the client's needs and site specifications, followed by the coordination of sourcing, transport and timing, on-site tracking of the order through delivery and documentation, and the use of that data to plan and improve performance.",
     cycleLabel: "The Work Cycle",
   },
 };

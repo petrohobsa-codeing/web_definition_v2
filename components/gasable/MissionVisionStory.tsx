@@ -24,28 +24,28 @@ const values = [
   {
     icon: Search,
     ar: { title: "الوضوح", description: "نجعل حالة الطلب والكميات والمسؤوليات أكثر قابلية للفهم والمتابعة." },
-    en: { title: "Clarity", description: "We make demand status, quantities and responsibilities easier to understand and track." },
+    en: { title: "Clarity", description: "We enhance the clarity and traceability of order status, quantities, and responsibilities." },
   },
   {
     icon: CheckCircle2,
     ar: { title: "المصداقية", description: "نقول ما نستطيع تنفيذه، ونلتزم بما نتعهد به." },
-    en: { title: "Credibility", description: "We say what we can deliver, and commit to what we promise." },
+    en: { title: "Credibility", description: "We articulate our capabilities and uphold our commitments." },
   },
   {
     icon: Handshake,
     ar: { title: "الشراكة والتطوير", description: "نتعامل مع احتياج العميل كمسؤولية مشتركة، ونطوّر أدواتنا باستمرار لتحسين النتائج." },
-    en: { title: "Partnership & Development", description: "We treat client needs as a shared responsibility and continuously improve our tools to achieve better results." },
+    en: { title: "Collaboration and Advancement", description: "We regard customer needs as a collective responsibility and consistently enhance our tools to optimize outcomes." },
   },
   {
     icon: Target,
     ar: { title: "الانضباط", description: "نبني العمل على إجراءات محددة وتنسيق واضح بين الأطراف." },
-    en: { title: "Discipline", description: "We build our work on defined procedures and clear coordination between parties." },
+    en: { title: "Discipline", description: "Our work is founded on established procedures and clear coordination among the parties involved." },
   },
 ];
 
 const t = {
   ar: { badge: "قيمنا" },
-  en: { badge: "Our Values" },
+  en: { badge: "Our Principles" },
 };
 
 export default function MissionVisionStory() {
