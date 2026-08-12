@@ -96,14 +96,32 @@ export async function getServices(): Promise<ServiceItem[]> {
     return defaultServices;
   }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return data.map((r: any) => ({ id: r.id, iconName: r.icon_name, title: r.title, description: r.description, href: r.href }));
+  return data.map((r: any) => ({
+    id: r.id,
+    iconName: r.icon_name,
+    image: r.image || undefined,
+    title: r.title,
+    description: r.description,
+    titleEn: r.title_en || undefined,
+    descriptionEn: r.description_en || undefined,
+    href: r.href,
+  }));
 }
 
 export async function setServices(services: ServiceItem[]): Promise<void> {
   await supabase.from("services").delete().neq("id", "__none__");
   if (services.length === 0) return;
   await supabase.from("services").insert(
-    services.map((s) => ({ id: s.id, icon_name: s.iconName, title: s.title, description: s.description, href: s.href }))
+    services.map((s) => ({
+      id: s.id,
+      icon_name: s.iconName,
+      image: s.image || null,
+      title: s.title,
+      description: s.description,
+      title_en: s.titleEn || null,
+      description_en: s.descriptionEn || null,
+      href: s.href,
+    }))
   );
 }
 
@@ -394,13 +412,40 @@ export async function getServiceDetails(): Promise<ServiceDetailItem[]> {
           return defaultServiceDetails;
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return data.map((r: any) => ({ id: r.id, slug: r.slug, iconName: r.icon_name, title: r.title, intro: r.intro, advantages: r.advantages || [], value: r.value || [] }));
+  return data.map((r: any) => ({
+    id: r.id,
+    slug: r.slug,
+    iconName: r.icon_name,
+    image: r.image || undefined,
+    title: r.title,
+    intro: r.intro,
+    advantages: r.advantages || [],
+    value: r.value || [],
+    titleEn: r.title_en || undefined,
+    introEn: r.intro_en || undefined,
+    advantagesEn: r.advantages_en || undefined,
+    valueEn: r.value_en || undefined,
+  }));
 }
 
 export async function setServiceDetails(items: ServiceDetailItem[]): Promise<void> {
     await supabase.from("service_details").delete().neq("id", "__none__");
     if (items.length === 0) return;
     await supabase.from("service_details").insert(
-          items.map((s, i) => ({ id: s.id, slug: s.slug, icon_name: s.iconName, title: s.title, intro: s.intro, advantages: s.advantages, value: s.value, sort_order: i }))
+          items.map((s, i) => ({
+            id: s.id,
+            slug: s.slug,
+            icon_name: s.iconName,
+            image: s.image || null,
+            title: s.title,
+            intro: s.intro,
+            advantages: s.advantages,
+            value: s.value,
+            title_en: s.titleEn || null,
+            intro_en: s.introEn || null,
+            advantages_en: s.advantagesEn || null,
+            value_en: s.valueEn || null,
+            sort_order: i,
+          }))
         );
 }

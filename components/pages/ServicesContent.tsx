@@ -1,6 +1,9 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { defaultServiceDetails } from "@/lib/store";
+import { getServiceDetails } from "@/lib/db";
+import type { ServiceDetailItem } from "@/lib/types";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { CheckCircle2, Sparkles, Flame, Fuel, Droplets, Zap, Cpu, Truck, MonitorCheck } from "lucide-react";
@@ -23,7 +26,11 @@ export default function ServicesContent() {
   const L = ui[lang];
   const I = intro[lang];
   const C = commitment[lang];
-  const services = defaultServiceDetails;
+  const [services, setServices] = useState<ServiceDetailItem[]>(defaultServiceDetails);
+
+  useEffect(() => {
+    getServiceDetails().then(setServices);
+  }, []);
 
   return (
     <>
