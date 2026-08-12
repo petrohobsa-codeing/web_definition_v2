@@ -17,8 +17,9 @@ export default function InFigures() {
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
           {lang === "ar" ? (
             <>
-              <span className="text-brand-green">بتروهب</span>{" "}
-              <span className="text-[#3BBA9F]">في أرقام</span>
+              <span className="text-[#3BBA9F]">أرقام</span>{" "}
+              <span className="text-brand-charcoal-mid">في</span>{" "}
+              <span className="text-brand-green">بتروهب</span>
             </>
           ) : (
             <>
