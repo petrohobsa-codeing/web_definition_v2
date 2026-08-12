@@ -15,12 +15,12 @@ export default function InFigures() {
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
-          <span className="text-brand-green">Petrohub</span>{" "}
+          <span className="text-brand-green" dir="ltr">Petrohub</span>{" "}
           <span className="text-brand-charcoal-mid">{lang === "ar" ? "في" : "in"}</span>{" "}
           <span className="text-[#3BBA9F]">{lang === "ar" ? "أرقام" : "Figures"}</span>
         </h2>
 
-        <StaggerGroup className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerGroup className="grid grid-cols-2 sm:grid-cols-4 gap-8">
           {stats.map((s, i) => { const Icon = icons[i % icons.length]; return (
             <StaggerItem
                         key={s.id}
