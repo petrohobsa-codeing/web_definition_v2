@@ -24,6 +24,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-ge-ss), var(--font-bricolage), var(--font-tajawal), sans-serif;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

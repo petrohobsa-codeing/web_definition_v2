@@ -45,12 +45,9 @@ export default function ChairmanWordSection() {
           <div className="bg-white rounded-4xl border border-gray-100 shadow-xl shadow-brand-green/5 p-8 md:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               <div className="lg:col-span-7 order-2 lg:order-1">
-                <h2 className="text-3xl md:text-5xl font-black text-brand-charcoal mb-4 leading-tight">
-                  {chairman[lang].badge}
-                </h2>
-                <p className="text-xl md:text-2xl font-bold text-brand-gold mb-3 leading-snug">
+                <h2 className="text-2xl md:text-4xl font-black text-brand-charcoal mb-3 leading-tight">
                   {chairman[lang].title}
-                </p>
+                </h2>
                 <p className="text-base md:text-lg font-bold text-brand-gold mb-6">{chairman[lang].subtitle}</p>
                 <div className="space-y-4">
                   {chairman[lang].paragraphs.map((p, i) => (
