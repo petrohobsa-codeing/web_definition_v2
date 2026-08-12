@@ -15,7 +15,7 @@ export default function Faq() {
       <div className="max-w-3xl mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-3">
           <span className="text-brand-green">{lang === "ar" ? "الأسئلة" : "Frequently Asked"}</span>{" "}
-          <span className="text-[#0067E3]">{lang === "ar" ? "الشائعة" : "Questions"}</span>
+          <span className="text-[#3BBA9F]">{lang === "ar" ? "الشائعة" : "Questions"}</span>
         </h2>
         <p className="text-center text-[#54595F] mb-12">
           {lang === "ar"
@@ -30,7 +30,7 @@ const isOpen = open === i;
               <div
                 key={item.id}
                 className={`rounded-2xl border transition-colors duration-300 ${
-                  isOpen ? "border-[#0C2D6B]/30 bg-[#F3F6FC]" : "border-gray-100 bg-white"
+                  isOpen ? "border-[#252C5D]/30 bg-[#F2F7F6]" : "border-gray-100 bg-white"
                 }`}
               >
                 <button
@@ -41,7 +41,7 @@ const isOpen = open === i;
                   <span className="font-bold text-brand-green-dark">{tr(lang, item.question, item.questionEn)}</span>
                   <ChevronDown
                     size={20}
-                    className={`flex-shrink-0 text-[#0067E3] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    className={`flex-shrink-0 text-[#3BBA9F] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                   />
                 </button>
                 <div

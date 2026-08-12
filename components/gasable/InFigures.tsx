@@ -17,7 +17,7 @@ export default function InFigures() {
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-12">
           <span className="text-brand-green">Petrohub</span>{" "}
           <span className="text-brand-charcoal-mid">{lang === "ar" ? "في" : "in"}</span>{" "}
-          <span className="text-[#0067E3]">{lang === "ar" ? "أرقام" : "Figures"}</span>
+          <span className="text-[#3BBA9F]">{lang === "ar" ? "أرقام" : "Figures"}</span>
         </h2>
 
         <StaggerGroup className="grid grid-cols-2 lg:grid-cols-3 gap-8">

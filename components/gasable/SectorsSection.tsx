@@ -80,7 +80,7 @@ export default function SectorsSection() {
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="bg-gray-50 rounded-3xl border border-gray-100 shadow-lg shadow-brand-charcoal/5 p-6 md:p-8">
-          <span className="inline-block bg-[#0067E3] text-white font-black text-sm md:text-base px-4 py-2 rounded-xl mb-4">
+          <span className="inline-block bg-[#3BBA9F] text-white font-black text-sm md:text-base px-4 py-2 rounded-xl mb-4">
             {L.badge}
           </span>
 
@@ -94,7 +94,7 @@ export default function SectorsSection() {
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
             {S.map((s) => (
               <StaggerItem key={s} lift={false}>
-                <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center hover:border-[#0067E3]/30 hover:shadow-md transition-all duration-300">
+                <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center hover:border-[#3BBA9F]/30 hover:shadow-md transition-all duration-300">
                   <p className="font-bold text-brand-charcoal text-xs md:text-sm">{s}</p>
                 </div>
               </StaggerItem>
@@ -103,8 +103,8 @@ export default function SectorsSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-7">
             <div className="bg-white rounded-xl border border-gray-100 p-4 flex items-start gap-3">
-              <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-[#0067E3]/10 flex items-center justify-center">
-                <Users2 size={18} className="text-[#0067E3]" />
+              <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-[#3BBA9F]/10 flex items-center justify-center">
+                <Users2 size={18} className="text-[#3BBA9F]" />
               </span>
               <div className="min-w-0">
                 <h3 className="font-black text-brand-charcoal text-sm mb-1">{L.teamsLabel}</h3>
@@ -112,8 +112,8 @@ export default function SectorsSection() {
               </div>
             </div>
             <div className="bg-white rounded-xl border border-gray-100 p-4 flex items-start gap-3">
-              <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-[#0067E3]/10 flex items-center justify-center">
-                <Globe2 size={18} className="text-[#0067E3]" />
+              <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-[#3BBA9F]/10 flex items-center justify-center">
+                <Globe2 size={18} className="text-[#3BBA9F]" />
               </span>
               <div className="min-w-0">
                 <h3 className="font-black text-brand-charcoal text-sm mb-1">{L.coverageLabel}</h3>
@@ -128,8 +128,8 @@ export default function SectorsSection() {
               const cc = lang === "ar" ? c.ar : c.en;
               return (
                 <div key={cc.title} className="bg-white rounded-xl border border-gray-100 p-4 text-center">
-                  <div className="w-9 h-9 rounded-lg bg-[#0067E3]/10 flex items-center justify-center mx-auto mb-2.5">
-                    <c.icon size={18} className="text-[#0067E3]" />
+                  <div className="w-9 h-9 rounded-lg bg-[#3BBA9F]/10 flex items-center justify-center mx-auto mb-2.5">
+                    <c.icon size={18} className="text-[#3BBA9F]" />
                   </div>
                   <h4 className="font-black text-brand-charcoal text-sm mb-1">{cc.title}</h4>
                   <p className="text-brand-charcoal-light text-xs leading-relaxed">{cc.desc}</p>

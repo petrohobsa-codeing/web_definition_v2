@@ -63,7 +63,7 @@ export default function OperatingModel() {
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="relative bg-gray-50 rounded-3xl border border-gray-100 shadow-lg shadow-brand-charcoal/5 p-6 md:p-8 md:pb-8 overflow-hidden">
-          <span className="inline-block bg-[#0067E3] text-white font-black text-sm md:text-base px-4 py-2 rounded-xl mb-4">
+          <span className="inline-block bg-[#3BBA9F] text-white font-black text-sm md:text-base px-4 py-2 rounded-xl mb-4">
             {L.badge}
           </span>
           <p className="text-brand-charcoal-light text-xs md:text-sm mb-5">{L.tagline}</p>
@@ -83,7 +83,7 @@ export default function OperatingModel() {
               return (
                 <StaggerItem key={step.n} lift={false}>
                   <div className="flex items-start gap-2.5 bg-white rounded-xl border border-gray-100 p-3.5 h-full">
-                    <span className="flex-shrink-0 rounded-full bg-[#0067E3]/10 text-[#0067E3] font-black text-[11px] px-2.5 py-1">
+                    <span className="flex-shrink-0 rounded-full bg-[#3BBA9F]/10 text-[#3BBA9F] font-black text-[11px] px-2.5 py-1">
                       {step.n}
                     </span>
                     <div className="min-w-0">

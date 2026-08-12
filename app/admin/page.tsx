@@ -73,7 +73,7 @@ export default function AdminLoginPage() {
       <div className="relative z-10 w-full max-w-md">
         <div className="bg-white rounded-4xl shadow-2xl shadow-brand-green-dark/30 overflow-hidden">
           <div className="bg-gradient-to-br from-brand-green-dark to-brand-green-mid p-8 text-center relative">
-            <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
+            <div className="absolute top-0 inset-x-0 h-1 bg-[#3BBA9F]" />
             <h1 className="text-3xl font-extrabold tracking-tight mb-1">
               <span className="text-white">Petro</span>
               <span className="text-white/70">Hop</span>

@@ -9,13 +9,13 @@ function IconCircle({ icon: Icon }: { icon: LucideIcon }) {
       className="w-[100px] h-[100px] rounded-full flex items-center justify-center"
       style={{
         backgroundImage:
-          "linear-gradient(#F3F6FC, #F3F6FC), linear-gradient(135deg, #0C2D6B, #0067E3)",
+          "linear-gradient(#F2F7F6, #F2F7F6), linear-gradient(135deg, #252C5D, #3BBA9F)",
         backgroundOrigin: "border-box",
         backgroundClip: "content-box, border-box",
         border: "2px solid transparent",
       }}
     >
-      <Icon size={38} strokeWidth={1.75} className="text-[#0067E3]" />
+      <Icon size={38} strokeWidth={1.75} className="text-[#3BBA9F]" />
     </div>
   );
 }
@@ -53,7 +53,7 @@ export default function MissionVisionStory() {
   const L = t[lang];
 
   return (
-    <section className="bg-[#F3F6FC] py-[60px]">
+    <section className="bg-[#F2F7F6] py-[60px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="title-underline text-3xl md:text-4xl font-black text-brand-charcoal text-center mb-14 block mx-auto w-fit">
           {L.badge}

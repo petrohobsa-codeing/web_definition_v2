@@ -14,7 +14,7 @@ export default function Speciality() {
   const { lang } = useLang();
   const services = defaultServices;
   return (
-    <section className="bg-[#F3F6FC] py-[50px]">
+    <section className="bg-[#F2F7F6] py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-center font-bold text-4xl md:text-[45px] mb-3">
                     <span className="text-brand-green">{lang === "ar" ? "خدماتنا" : "Our Services"}</span>

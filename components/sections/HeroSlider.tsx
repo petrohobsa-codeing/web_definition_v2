@@ -75,8 +75,8 @@ export default function HeroSlider() {
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={slide.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#081B45]/85 via-[#081B45]/65 to-[#081B45]/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#081B45]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#1A2047]/85 via-[#1A2047]/65 to-[#1A2047]/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A2047]/80 via-transparent to-transparent" />
         </div>
       ) : siteImages.hero.background ? (
         <div className="absolute inset-0">
@@ -88,8 +88,8 @@ export default function HeroSlider() {
             priority
           />
           {/* Dark overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-l from-[#081B45]/85 via-[#081B45]/65 to-[#081B45]/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#081B45]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#1A2047]/85 via-[#1A2047]/65 to-[#1A2047]/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A2047]/80 via-transparent to-transparent" />
         </div>
       ) : null}
 

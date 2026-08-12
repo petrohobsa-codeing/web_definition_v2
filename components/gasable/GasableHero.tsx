@@ -28,7 +28,7 @@ useEffect(() => {
 
   if (slides.length === 0) {
     return (
-      <section className="relative w-full aspect-video min-h-[560px] max-h-[100vh] overflow-hidden bg-[#081B45] flex items-center justify-center">
+      <section className="relative w-full aspect-video min-h-[560px] max-h-[100vh] overflow-hidden bg-[#1A2047] flex items-center justify-center">
         <Loader2 className="w-10 h-10 text-white/70 animate-spin" />
       </section>
     );
@@ -51,7 +51,7 @@ useEffect(() => {
       </AnimatePresence>
 
       {/* Navy overlay (keeps brand tone) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#081B45]/85 via-[#081B45]/45 to-[#081B45]/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A2047]/85 via-[#1A2047]/45 to-[#1A2047]/25" />
 
       {/* Text overlay – bottom start */}
       <div className="absolute inset-0 flex items-end">
@@ -67,7 +67,7 @@ useEffect(() => {
               <h1 className="text-white font-extrabold italic text-5xl md:text-7xl drop-shadow-lg leading-none">
                 {at(tr(lang, slide.heading, slide.headingEn))}
               </h1>
-              <div className="w-20 h-1.5 bg-[#0067E3] rounded-full mt-5" />
+              <div className="w-20 h-1.5 bg-[#3BBA9F] rounded-full mt-5" />
               <p className="text-white text-xl md:text-2xl mt-4 font-light drop-shadow max-w-xl">
                 {at(tr(lang, slide.description, slide.descriptionEn))}
               </p>
@@ -84,7 +84,7 @@ useEffect(() => {
             onClick={() => setCurrent(i)}
             aria-label={`Slide ${i + 1}`}
             className={`h-2 rounded-full transition-all duration-300 ${
-              i === current ? "w-8 bg-[#0067E3]" : "w-2 bg-white/50 hover:bg-white/80"
+              i === current ? "w-8 bg-[#3BBA9F]" : "w-2 bg-white/50 hover:bg-white/80"
             }`}
           />
         ))}

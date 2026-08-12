@@ -61,7 +61,7 @@ export default function Challenges() {
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="bg-gray-50 rounded-3xl border border-gray-100 shadow-lg shadow-brand-charcoal/5 p-6 md:p-8">
-          <span className="inline-block bg-[#0067E3] text-white font-black text-sm md:text-base px-4 py-2 rounded-xl mb-5">
+          <span className="inline-block bg-[#3BBA9F] text-white font-black text-sm md:text-base px-4 py-2 rounded-xl mb-5">
             {L.badge}
           </span>
 
@@ -83,7 +83,7 @@ export default function Challenges() {
               <h2 className="text-lg md:text-xl font-black text-brand-charcoal leading-snug mb-1.5">
                 {L.headline}
               </h2>
-              <p className="text-[#0067E3] font-bold text-xs md:text-sm mb-2">{L.subheading}</p>
+              <p className="text-[#3BBA9F] font-bold text-xs md:text-sm mb-2">{L.subheading}</p>
               <p className="text-brand-charcoal-light leading-relaxed text-xs md:text-sm">{L.paragraph}</p>
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function Challenges() {
               return (
                 <StaggerItem key={item.n} lift={false}>
                   <div className="flex items-start gap-2.5 bg-white rounded-xl border border-gray-100 p-3.5 h-full">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0067E3]/10 text-[#0067E3] font-black text-[11px] flex items-center justify-center">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3BBA9F]/10 text-[#3BBA9F] font-black text-[11px] flex items-center justify-center">
                       {item.n}
                     </span>
                     <div className="min-w-0">

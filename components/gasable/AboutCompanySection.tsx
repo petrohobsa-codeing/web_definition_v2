@@ -50,7 +50,7 @@ export default function AboutCompanySection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <Reveal className="lg:col-span-7 order-2 lg:order-2" delay={0.05}>
-            <p className="text-[#0067E3] font-bold text-lg mb-2 tracking-wide">{A.eyebrow}</p>
+            <p className="text-[#3BBA9F] font-bold text-lg mb-2 tracking-wide">{A.eyebrow}</p>
             <h2 className="text-2xl md:text-3xl font-black text-brand-charcoal mb-5 leading-snug">
               {A.headline}
             </h2>
@@ -58,10 +58,10 @@ export default function AboutCompanySection() {
 
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
               <StaggerItem>
-                <div className="group h-full bg-white rounded-3xl border border-gray-100 p-7 hover:border-[#0067E3]/30 hover:shadow-2xl hover:shadow-[#0067E3]/10 transition-all duration-400 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0067E3]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  <div className="relative w-12 h-12 rounded-2xl bg-[#0067E3]/10 flex items-center justify-center mb-5 group-hover:bg-[#0067E3] transition-colors duration-300">
-                    <Eye size={22} className="text-[#0067E3] group-hover:text-white transition-colors duration-300" />
+                <div className="group h-full bg-white rounded-3xl border border-gray-100 p-7 hover:border-[#3BBA9F]/30 hover:shadow-2xl hover:shadow-[#3BBA9F]/10 transition-all duration-400 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#3BBA9F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="relative w-12 h-12 rounded-2xl bg-[#3BBA9F]/10 flex items-center justify-center mb-5 group-hover:bg-[#3BBA9F] transition-colors duration-300">
+                    <Eye size={22} className="text-[#3BBA9F] group-hover:text-white transition-colors duration-300" />
                   </div>
                   <p className="relative text-brand-charcoal font-black text-lg mb-2">{A.visionLabel}</p>
                   <p className="relative text-brand-charcoal-light leading-relaxed text-sm md:text-base">{A.visionText}</p>
@@ -83,7 +83,7 @@ export default function AboutCompanySection() {
           <Reveal className="lg:col-span-5 order-1 lg:order-1" delay={0.15}>
             <h2 className="text-4xl md:text-5xl font-black leading-[1.05] mb-6">
               <span className="block text-brand-charcoal">{A.titleTop}</span>
-              <span className="block text-[#0067E3]">{A.titleBottom}</span>
+              <span className="block text-[#3BBA9F]">{A.titleBottom}</span>
             </h2>
             <div className="relative">
               <div
@@ -103,8 +103,8 @@ export default function AboutCompanySection() {
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="w-10 h-10 rounded-xl bg-[#0067E3]/10 flex items-center justify-center flex-shrink-0">
-                  <Calendar size={18} className="text-[#0067E3]" />
+                <div className="w-10 h-10 rounded-xl bg-[#3BBA9F]/10 flex items-center justify-center flex-shrink-0">
+                  <Calendar size={18} className="text-[#3BBA9F]" />
                 </div>
                 <p className="font-black text-brand-charcoal text-sm whitespace-nowrap">{A.since}</p>
               </motion.div>

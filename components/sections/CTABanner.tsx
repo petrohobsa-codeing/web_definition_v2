@@ -22,7 +22,7 @@ export default function CTABanner() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(/images/banner-facility.jpg)" }}
         />
-        <div className="absolute inset-0 bg-[#081B45]/60" />
+        <div className="absolute inset-0 bg-[#1A2047]/60" />
         <div className="absolute inset-0 dot-bg opacity-10" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-gold/10 blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/5 blur-3xl" />

@@ -54,15 +54,15 @@ export default function ContactContent() {
   const contactInfo = [
     { icon: MapPin, label: L.hqLabel, value: settings?.address || L.hqValue, href: undefined, color: "bg-[#24487B]" },
     { icon: Phone, label: L.phoneLabel, value: settings?.phone || defaultContact.phone, href: `tel:${(settings?.phone || defaultContact.phone).replace(/\s/g, "")}`, color: "bg-brand-green" },
-    { icon: Globe, label: L.websiteLabel, value: defaultContact.website, href: `https://${defaultContact.website}`, color: "bg-[#0067E3]" },
-    { icon: Mail, label: L.emailLabel, value: settings?.email || defaultContact.email, href: `mailto:${settings?.email || defaultContact.email}`, color: "bg-[#0C2D6B]" },
+    { icon: Globe, label: L.websiteLabel, value: defaultContact.website, href: `https://${defaultContact.website}`, color: "bg-[#3BBA9F]" },
+    { icon: Mail, label: L.emailLabel, value: settings?.email || defaultContact.email, href: `mailto:${settings?.email || defaultContact.email}`, color: "bg-[#252C5D]" },
   ];
 
   return (
     <>
       <section className="relative bg-gradient-to-br from-brand-green-dark to-brand-green-mid pt-36 pb-20 overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-20" />
-        <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#3BBA9F]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-8 text-white/50 text-sm" aria-label="breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">{L.home}</Link>

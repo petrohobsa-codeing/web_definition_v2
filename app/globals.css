@@ -19,9 +19,23 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Tajawal', sans-serif;
+  /* Body copy keeps Tajawal (full weight range); the identity's Arabic face
+     only ships a Light weight, so it is reserved for headings below. */
+  font-family: var(--font-tajawal), 'Tajawal', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Brand identity display face for headings — GE SS Two (Arabic) with
+   Bricolage Grotesque covering Latin glyphs in the same run. */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-ge-ss), var(--font-bricolage), var(--font-tajawal), sans-serif;
+}
+
+/* Wordmark lockup (PETROHUB) */
+.font-wordmark {
+  font-family: var(--font-conthrax), sans-serif;
+  letter-spacing: 0.02em;
 }
 
 /* Scrollbar */
@@ -32,7 +46,7 @@ body {
   background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0067E3;
+  background: #3BBA9F;
   border-radius: 3px;
 }
 
@@ -92,12 +106,12 @@ body {
 /* Selection */
 ::selection {
   background: rgba(0, 103, 227, 0.18);
-  color: #081B45;
+  color: #1A2047;
 }
 
 /* Gradient text (navy) for stat numbers */
 .text-gasable-gradient {
-  background: linear-gradient(135deg, #00D4A7 0%, #0067E3 50%, #701DFF 100%);
+  background: linear-gradient(135deg, #3BBA9F 0%, #3BBA9F 50%, #6055A4 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -128,5 +142,5 @@ body {
   width: 48px;
   height: 3px;
   border-radius: 3px;
-  background: linear-gradient(90deg, #00D4A7, #0067E3, #701DFF);
+  background: linear-gradient(90deg, #3BBA9F, #3BBA9F, #6055A4);
 }

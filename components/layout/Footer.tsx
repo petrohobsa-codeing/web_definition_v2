@@ -70,7 +70,7 @@ export default function Footer() {
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(90deg, #081B45 15%, rgba(8,27,69,0.75) 45%, rgba(8,27,69,0.25) 75%)" }}
+          style={{ background: "linear-gradient(90deg, #1A2047 15%, rgba(8,27,69,0.75) 45%, rgba(8,27,69,0.25) 75%)" }}
         />
       </div>
 
@@ -98,7 +98,7 @@ export default function Footer() {
                   {r.label}
                 </span>
                 {r.href ? (
-                  <a href={r.href} target={r.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="text-white font-bold text-sm hover:text-[#0067E3] transition-colors" dir="ltr">
+                  <a href={r.href} target={r.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="text-white font-bold text-sm hover:text-[#3BBA9F] transition-colors" dir="ltr">
                     {r.value}
                   </a>
                 ) : (

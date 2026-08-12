@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 /**
  * Primary button (accent — the 10% red):
- * bg #0067E3, white text, radius 3px, padding 12px 24px, hover #004FB0.
+ * bg #3BBA9F, white text, radius 3px, padding 12px 24px, hover #2E9B84.
  */
 export default function GasableButton({
   children,
@@ -17,7 +17,7 @@ export default function GasableButton({
   return (
     <Link
       href={href}
-      className={`inline-block bg-[#0067E3] hover:bg-[#004FB0] text-white text-base font-medium rounded-[3px] px-6 py-3 transition-colors duration-300 ${className}`}
+      className={`inline-block bg-[#3BBA9F] hover:bg-[#2E9B84] text-white text-base font-medium rounded-[3px] px-6 py-3 transition-colors duration-300 ${className}`}
     >
       {children}
     </Link>

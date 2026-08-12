@@ -10,24 +10,30 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          // Petrohub identity: teal #00D4A7 → blue #0067E3 → purple #701DFF
-          green: "#0C2D6B",          // deep brand blue (primary — headings, accents)
-          "green-dark": "#081B45",   // dark indigo (footer, dark blocks)
-          "green-mid": "#0A2458",    // indigo mid (hovers)
-          "green-light": "#F3F6FC",  // near-white blue tint
-          "green-pale": "#E8EEF9",   // light blue tint
-          gold: "#0067E3",           // brand blue (accent — buttons)
-          "gold-dark": "#004FB0",    // darker blue (button hover)
-          "gold-light": "#E5F0FF",   // light blue tint
-          teal: "#00D4A7",           // brand teal (gradient start)
-          purple: "#701DFF",         // brand purple (gradient end)
-          charcoal: "#333333",       // body text
-          "charcoal-mid": "#0C2D6B", // headings -> deep blue
+          /* Petrohub identity — colours sampled from the supplied vector
+             print files (business card / invoice), gradient runs
+             teal #3BBA9F -> blue #306AB2 -> purple #6055A4. */
+          green: "#252C5D",          // brand navy (primary — headings, accents)
+          "green-dark": "#1A2047",   // deepest navy (footer, dark blocks)
+          "green-mid": "#2E3868",    // navy mid (hovers)
+          "green-light": "#F2F7F6",  // near-white teal tint
+          "green-pale": "#E4F0EC",   // light teal tint
+          gold: "#3BBA9F",           // brand teal (accent — buttons)
+          "gold-dark": "#2E9B84",    // darker teal (button hover)
+          "gold-light": "#E4F4EF",   // light teal tint
+          teal: "#3BBA9F",           // gradient start
+          blue: "#306AB2",           // gradient middle
+          purple: "#6055A4",         // gradient end
+          charcoal: "#28355E",       // body text
+          "charcoal-mid": "#252C5D", // headings
           "charcoal-light": "#6B7280",
         },
       },
       fontFamily: {
         arabic: ["var(--font-tajawal)", "Tajawal", "sans-serif"],
+        display: ["var(--font-ge-ss)", "var(--font-bricolage)", "var(--font-tajawal)", "sans-serif"],
+        latin: ["var(--font-poppins)", "var(--font-bricolage)", "sans-serif"],
+        wordmark: ["var(--font-conthrax)", "sans-serif"],
       },
       animation: {
         float: "float 3s ease-in-out infinite",
@@ -42,15 +48,15 @@ const config: Config = {
       },
       backgroundImage: {
         "dot-pattern":
-          "radial-gradient(circle, rgba(12,45,107,0.12) 1px, transparent 1px)",
+          "radial-gradient(circle, rgba(37,44,93,0.12) 1px, transparent 1px)",
         "hero-gradient":
-          "linear-gradient(151deg, #0C2D6B 0%, #081B45 89%)",
-        "gold-gradient": "linear-gradient(135deg, #0067E3 0%, #004FB0 100%)",
-        "emerald-gradient": "linear-gradient(135deg, #0C2D6B 0%, #081B45 100%)",
-        "section-gradient": "linear-gradient(180deg, #F3F6FC 0%, #ffffff 100%)",
-        "gasable-gradient": "linear-gradient(151deg, #0C2D6B 0%, #081B45 89%)",
-        "navy-red-gradient": "linear-gradient(135deg, #00D4A7 0%, #0067E3 50%, #701DFF 100%)",
-        "brand-gradient": "linear-gradient(135deg, #00D4A7 0%, #0067E3 50%, #701DFF 100%)",
+          "linear-gradient(151deg, #252C5D 0%, #1A2047 89%)",
+        "gold-gradient": "linear-gradient(135deg, #3BBA9F 0%, #2E9B84 100%)",
+        "emerald-gradient": "linear-gradient(135deg, #252C5D 0%, #1A2047 100%)",
+        "section-gradient": "linear-gradient(180deg, #F2F7F6 0%, #ffffff 100%)",
+        "gasable-gradient": "linear-gradient(151deg, #252C5D 0%, #1A2047 89%)",
+        "navy-red-gradient": "linear-gradient(135deg, #3BBA9F 0%, #306AB2 50%, #6055A4 100%)",
+        "brand-gradient": "linear-gradient(135deg, #3BBA9F 0%, #306AB2 50%, #6055A4 100%)",
       },
     },
   },

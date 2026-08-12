@@ -112,9 +112,9 @@ export default function AboutContent() {
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-brand-green-dark to-brand-green-mid pt-36 pb-20 overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-20" />
-        <div className="absolute top-0 inset-x-0 h-1 bg-[#0067E3]" />
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#3BBA9F]" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[300px] rounded-full bg-brand-gold/10 blur-3xl" />
-        <div className="absolute top-10 right-0 w-72 h-72 rounded-full bg-[#0067E3]/10 blur-3xl" />
+        <div className="absolute top-10 right-0 w-72 h-72 rounded-full bg-[#3BBA9F]/10 blur-3xl" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <nav className="flex items-center gap-2 mb-8 text-white/50 text-sm" aria-label="breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">{L.home}</Link>
@@ -144,7 +144,7 @@ export default function AboutContent() {
 
       {/* 3. The Value the Client Gets — matches "القيمة التي يحصل عليها العميل" profile page */}
       <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#0067E3]/5 blur-3xl" />
+        <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-[#3BBA9F]/5 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="relative w-full h-[260px] md:h-[340px] rounded-4xl overflow-hidden shadow-2xl shadow-brand-charcoal/10 mb-8 group">
@@ -156,7 +156,7 @@ export default function AboutContent() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute bottom-0 inset-x-0 p-6 md:p-8">
-                <span className="inline-block bg-[#0067E3] text-white font-black text-lg md:text-2xl px-6 py-3 rounded-2xl shadow-lg shadow-[#0067E3]/30">
+                <span className="inline-block bg-[#3BBA9F] text-white font-black text-lg md:text-2xl px-6 py-3 rounded-2xl shadow-lg shadow-[#3BBA9F]/30">
                   {V.badge}
                 </span>
               </div>
@@ -183,10 +183,10 @@ export default function AboutContent() {
               const c = lang === "ar" ? item.ar : item.en;
               return (
                 <StaggerItem key={c.title}>
-                  <div className="group relative h-full bg-gray-50 rounded-3xl border border-gray-100 p-7 hover:bg-white hover:border-[#0067E3]/30 hover:shadow-2xl hover:shadow-[#0067E3]/10 transition-all duration-400 overflow-hidden">
-                    <div className="absolute top-0 right-0 w-28 h-28 rounded-full bg-[#0067E3]/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                    <div className="relative w-12 h-12 rounded-xl bg-[#0067E3]/10 flex items-center justify-center mb-5 group-hover:bg-[#0067E3] transition-colors duration-300">
-                      <item.icon size={22} className="text-[#0067E3] group-hover:text-white transition-colors duration-300" />
+                  <div className="group relative h-full bg-gray-50 rounded-3xl border border-gray-100 p-7 hover:bg-white hover:border-[#3BBA9F]/30 hover:shadow-2xl hover:shadow-[#3BBA9F]/10 transition-all duration-400 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-28 h-28 rounded-full bg-[#3BBA9F]/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                    <div className="relative w-12 h-12 rounded-xl bg-[#3BBA9F]/10 flex items-center justify-center mb-5 group-hover:bg-[#3BBA9F] transition-colors duration-300">
+                      <item.icon size={22} className="text-[#3BBA9F] group-hover:text-white transition-colors duration-300" />
                     </div>
                     <h3 className="relative text-base font-black text-brand-charcoal mb-2">{c.title}</h3>
                     <p className="relative text-brand-charcoal-light text-sm leading-relaxed">{c.desc}</p>
