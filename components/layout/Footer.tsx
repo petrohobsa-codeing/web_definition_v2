@@ -6,6 +6,7 @@ import { useLang } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
 import { getSettings } from "@/lib/db";
 import type { SiteSettings } from "@/lib/types";
+import Logo from "@/components/ui/Logo";
 
 const t = {
   ar: {
@@ -75,15 +76,9 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-10">
-        <div className="max-w-xl mr-auto">
+        <div className="max-w-xl me-auto">
           <Link href="/" className="inline-flex items-center gap-3 mb-3" aria-label="Petrohub">
-            <Image
-              src="/images/brand/logo-ar-white.png"
-              alt="Petrohub"
-              width={140}
-              height={44}
-              className="h-9 w-auto object-contain"
-            />
+            <Logo variant="light" lang={lang} />
           </Link>
           <p className="text-white/70 text-sm mb-10">{L.tagline}</p>
 
