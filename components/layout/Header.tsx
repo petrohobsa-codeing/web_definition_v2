@@ -78,7 +78,12 @@ export default function Header() {
             <nav className="hidden lg:flex items-center gap-1" aria-label="القائمة الرئيسية">
               {navLinks.map((link) =>
                 link.dropdown ? (
-                  <div key={link.href} className="relative">
+                  <div
+                    key={link.href}
+                    className="relative"
+                    onMouseEnter={() => setDropdownOpen(true)}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                  >
                     <button
                       className={`flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-sm transition-all duration-300 ${
                         isActive(link.href)
@@ -87,8 +92,6 @@ export default function Header() {
                           ? "text-brand-charcoal hover:text-brand-green hover:bg-brand-green-light"
                           : "text-white/90 hover:text-white hover:bg-white/10"
                       }`}
-                      onMouseEnter={() => setDropdownOpen(true)}
-                      onMouseLeave={() => setDropdownOpen(false)}
                       onClick={() => setDropdownOpen(!dropdownOpen)}
                       aria-expanded={dropdownOpen}
                       aria-haspopup="true"
@@ -97,17 +100,15 @@ export default function Header() {
                       <ChevronDown size={14} className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                     </button>
                     {dropdownOpen && (
-                      <div
-                        className="absolute top-full right-0 mt-2 w-56 glass rounded-2xl shadow-2xl shadow-brand-green/10 border border-brand-green/10 overflow-hidden py-2"
-                        onMouseEnter={() => setDropdownOpen(true)}
-                        onMouseLeave={() => setDropdownOpen(false)}
-                      >
-                        {serviceLinks.map((item) => (
-                          <Link key={item.href} href={item.href}
-                            className="block px-5 py-3 text-sm font-medium text-brand-charcoal hover:text-brand-green hover:bg-brand-green-light/60 transition-colors duration-200">
-                            {lang === "ar" ? item.ar : item.en}
-                          </Link>
-                        ))}
+                      <div className="absolute top-full right-0 pt-2 w-56">
+                        <div className="glass rounded-2xl shadow-2xl shadow-brand-green/10 border border-brand-green/10 overflow-hidden py-2">
+                          {serviceLinks.map((item) => (
+                            <Link key={item.href} href={item.href}
+                              className="block px-5 py-3 text-sm font-medium text-brand-charcoal hover:text-brand-green hover:bg-brand-green-light/60 transition-colors duration-200">
+                              {lang === "ar" ? item.ar : item.en}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
