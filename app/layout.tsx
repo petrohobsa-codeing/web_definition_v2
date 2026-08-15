@@ -66,15 +66,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ar_SA",
-    url: "https://petrohub.sa",
-    siteName: "Petrohub",
-    title: "Petrohub — خدمات لوجستية وبترولية",
+    url: "https://petrohob-sa.com",
+    siteName: "Petrohub — بتروهب",
+    title: "Petrohub — بتروهب | خدمات لوجستية وبترولية",
     description: "شركة وساطة لوجستية رائدة في المملكة العربية السعودية",
+    images: [{ url: "https://petrohob-sa.com/images/brand/icon-512.png", width: 512, height: 512 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Petrohub — خدمات لوجستية وبترولية",
+    title: "Petrohub — بتروهب | خدمات لوجستية وبترولية",
     description: "شركة وساطة لوجستية رائدة في المملكة العربية السعودية",
+    images: ["https://petrohob-sa.com/images/brand/icon-512.png"],
   },
 };
 
