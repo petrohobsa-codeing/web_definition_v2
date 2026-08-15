@@ -31,8 +31,8 @@ export default function Header() {
   }, []);
 
   const serviceLinks = [
-    { label: lang === "ar" ? "جميع الخدمات ←" : "All Services →", href: "/services" },
-    ...services.map((s) => ({ label: at(tr(lang, s.title, s.titleEn)), href: s.href })),
+    ...services.slice(0, 4).map((s) => ({ label: at(tr(lang, s.title, s.titleEn)), href: s.href })),
+    { label: lang === "ar" ? "أخرى ←" : "Others →", href: "/services" },
   ];
 
   useEffect(() => {
