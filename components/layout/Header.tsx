@@ -10,23 +10,30 @@ import Logo from "@/components/ui/Logo";
 import { siteImages } from "@/lib/images";
 import { useLang } from "@/context/LanguageContext";
 import { t } from "@/lib/translations";
-
-const serviceLinks = [
-  { ar: "جميع الخدمات ←", en: "All Services →", href: "/services" },
-  { ar: "الخدمات البترولية والغاز", en: "Petroleum & Gas", href: "/services/diesel-supply" },
-  { ar: "الحلول البيئية والصرف", en: "Environmental & Sewage", href: "/services/gas-supply" },
-  { ar: "الإمداد المائي", en: "Water Supply", href: "/services/water-supply" },
-  { ar: "الطاقة البديلة (مولدات)", en: "Generators", href: "/services/generators" },
-];
+import { tr } from "@/lib/i18n";
+import { getServices } from "@/lib/db";
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
+import type { ServiceItem } from "@/lib/types";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [services, setServices] = useState<ServiceItem[]>([]);
   const pathname = usePathname();
   const { lang, toggle } = useLang();
-  const tr = t[lang];
+  const tr_ = t[lang];
+  const at = useAutoTranslate(services.flatMap((s) => [s.title]));
+
+  useEffect(() => {
+    getServices().then(setServices);
+  }, []);
+
+  const serviceLinks = [
+    { label: lang === "ar" ? "جميع الخدمات ←" : "All Services →", href: "/services" },
+    ...services.map((s) => ({ label: at(tr(lang, s.title, s.titleEn)), href: s.href })),
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -44,13 +51,13 @@ export default function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   const navLinks = [
-    { label: tr.nav.home, href: "/" },
-    { label: tr.nav.services, href: "/services", dropdown: true },
-    { label: tr.nav.projects, href: "/projects" },
-    { label: tr.nav.news, href: "/news" },
-    { label: tr.nav.activities, href: "/activities" },
-    { label: tr.nav.about, href: "/about" },
-    { label: tr.nav.contact, href: "/contact" },
+    { label: tr_.nav.home, href: "/" },
+    { label: tr_.nav.services, href: "/services", dropdown: true },
+    { label: tr_.nav.projects, href: "/projects" },
+    { label: tr_.nav.news, href: "/news" },
+    { label: tr_.nav.activities, href: "/activities" },
+    { label: tr_.nav.about, href: "/about" },
+    { label: tr_.nav.contact, href: "/contact" },
   ];
 
   return (
@@ -105,7 +112,7 @@ export default function Header() {
                           {serviceLinks.map((item) => (
                             <Link key={item.href} href={item.href}
                               className="block px-5 py-3 text-sm font-medium text-brand-charcoal hover:text-brand-green hover:bg-brand-green-light/60 transition-colors duration-200">
-                              {lang === "ar" ? item.ar : item.en}
+                              {item.label}
                             </Link>
                           ))}
                         </div>
@@ -139,7 +146,7 @@ export default function Header() {
               >
                 {lang === "ar" ? "EN" : "عربي"}
               </button>
-              <Button href="/quote" size="sm">{tr.nav.quote}</Button>
+              <Button href="/quote" size="sm">{tr_.nav.quote}</Button>
             </div>
 
             {/* Mobile hamburger */}
@@ -202,7 +209,7 @@ export default function Header() {
                     {serviceLinks.map((s) => (
                       <Link key={s.href} href={s.href}
                         className="flex items-center px-3 py-2.5 rounded-xl text-sm font-medium text-brand-charcoal-mid hover:text-brand-green hover:bg-brand-green-light mb-0.5">
-                        {lang === "ar" ? s.ar : s.en}
+                        {s.label}
                       </Link>
                     ))}
                   </div>
@@ -217,7 +224,7 @@ export default function Header() {
           </div>
 
           <div className="p-6 border-t border-gray-100 space-y-3">
-            <Button href="/quote" className="w-full justify-center">{tr.nav.quote}</Button>
+            <Button href="/quote" className="w-full justify-center">{tr_.nav.quote}</Button>
             <button onClick={toggle} className="w-full text-center text-sm font-bold text-brand-charcoal-light hover:text-brand-charcoal py-2 border border-gray-200 rounded-xl">
               {lang === "ar" ? "English" : "العربية"}
             </button>
