@@ -68,6 +68,10 @@ function slugify(text: string): string {
     .slice(0, 40);
 }
 
+function cleanList(arr?: string[]): string[] {
+  return (arr || []).map((x) => x.trim()).filter(Boolean);
+}
+
 function merge(services: ServiceItem[], details: ServiceDetailItem[]): CombinedService[] {
   const byId = new Map(details.map((d) => [d.id, d]));
   const combined = services.map((s) => {
@@ -180,10 +184,10 @@ export default function ServicesPage() {
           titleEn: s.titleEn,
           intro: s.intro,
           introEn: s.introEn,
-          advantages: s.advantages,
-          advantagesEn: s.advantagesEn,
-          value: s.value,
-          valueEn: s.valueEn,
+          advantages: cleanList(s.advantages),
+          advantagesEn: cleanList(s.advantagesEn),
+          value: cleanList(s.value),
+          valueEn: cleanList(s.valueEn),
         }))
       ),
     ]);
@@ -206,8 +210,11 @@ export default function ServicesPage() {
     setEditing((e) => (e ? { ...e, [field]: val } : e));
 
   const changeList = (field: "advantages" | "advantagesEn" | "value" | "valueEn", val: string) => {
-    const arr = val.split("\n").map((x) => x.trim()).filter(Boolean);
-    change(field, arr);
+    // Keep the raw lines as typed (including trailing spaces/blank lines) --
+    // trimming per keystroke here would eat a space the instant it's typed,
+    // since the cursor is almost always at the end of a line while typing.
+    // Cleanup (trim + drop blank lines) happens once, in persist(), on save.
+    change(field, val.split("\n"));
   };
 
   return (
