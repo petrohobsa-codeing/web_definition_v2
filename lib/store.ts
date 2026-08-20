@@ -316,6 +316,7 @@ export const defaultSettings: SiteSettings = {
   address: "طريق الملك فهد، الرياض، المملكة العربية السعودية",
   workingHours: "الأحد – الخميس، 8 صباحاً – 6 مساءً",
   cities: "الرياض، مكة المكرمة، المدينة المنورة، ينبع، تبوك",
+  website: "petrohub.com.sa",
   adminPassword: "petrohub2024",
 };
 

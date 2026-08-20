@@ -16,6 +16,7 @@ export default function SettingsPage() {
     address: "",
     workingHours: "",
     cities: "",
+    website: "",
     adminPassword: "",
   });
   const [saved, setSaved] = useState(false);
@@ -56,6 +57,7 @@ export default function SettingsPage() {
     { key: "address", label: "العنوان", placeholder: "طريق الملك فهد، الرياض" },
     { key: "workingHours", label: "ساعات العمل", placeholder: "الأحد – الخميس، 8 صباحاً – 6 مساءً" },
     { key: "cities", label: "المدن التي نخدمها", placeholder: "الرياض، جدة، الدمام" },
+    { key: "website", label: "الموقع الإلكتروني", placeholder: "petrohub.com.sa", type: "url" },
   ];
 
   return (

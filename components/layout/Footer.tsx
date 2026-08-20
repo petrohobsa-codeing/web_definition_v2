@@ -41,8 +41,8 @@ const t = {
 
 const defaultContact = {
   phone: "+966 55 885 5824",
-  website: "www.petrohob-sa.com",
-  email: "Info@petrohob-sa.com",
+  website: "petrohub.com.sa",
+  email: "Info@petrohub.com.sa",
 };
 
 export default function Footer() {
@@ -56,7 +56,7 @@ export default function Footer() {
   const rows = [
     { label: L.hq, value: settings?.address || L.hqValue, icon: MapPin },
     { label: L.phoneLabel, value: settings?.phone || defaultContact.phone, icon: Phone, href: `tel:${(settings?.phone || defaultContact.phone).replace(/\s/g, "")}` },
-    { label: L.websiteLabel, value: defaultContact.website, icon: Globe, href: `https://${defaultContact.website}` },
+    { label: L.websiteLabel, value: settings?.website || defaultContact.website, icon: Globe, href: `https://${settings?.website || defaultContact.website}` },
     { label: L.emailLabel, value: settings?.email || defaultContact.email, icon: Mail, href: `mailto:${settings?.email || defaultContact.email}` },
   ];
 

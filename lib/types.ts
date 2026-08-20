@@ -105,6 +105,7 @@ export interface SiteSettings {
   address: string;
   workingHours: string;
   cities: string;
+  website: string;
   adminPassword?: string;
 }
 

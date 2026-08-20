@@ -56,6 +56,7 @@ function rowToSettings(r: any) {
     address: r.address,
     workingHours: r.working_hours,
     cities: r.cities,
+    website: r.website || "",
     adminPassword: r.admin_password,
   };
 }
@@ -100,6 +101,7 @@ export async function PUT(req: NextRequest, context: { params: { resource: strin
     if (body.address !== undefined) row.address = body.address;
     if (body.workingHours !== undefined) row.working_hours = body.workingHours;
     if (body.cities !== undefined) row.cities = body.cities;
+    if (body.website !== undefined) row.website = body.website;
     if (body.adminPassword !== undefined) row.admin_password = body.adminPassword;
     const { error } = await supabaseAdmin.from("settings").update(row).eq("id", "main");
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
