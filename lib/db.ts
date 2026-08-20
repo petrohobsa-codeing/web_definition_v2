@@ -16,6 +16,7 @@ import type {
     NetworkCard,
     CredentialItem,
     FaqItem,
+    AboutCompanyContent,
 } from "./types";
 import {
   defaultSlides,
@@ -30,6 +31,7 @@ import {
     defaultCredentials,
     defaultFaqs,
   defaultServiceDetails,
+  defaultAboutCompany,
 } from "./store";
 
 async function adminFetch(path: string, options: RequestInit = {}) {
@@ -448,4 +450,65 @@ export async function setServiceDetails(items: ServiceDetailItem[]): Promise<voi
             sort_order: i,
           }))
         );
+}
+
+
+// ── About the company card (عن الشركة) ────────────────────────────────────────
+
+export async function getAboutCompany(): Promise<AboutCompanyContent> {
+  const { data } = await supabase.from("about_company").select("*").eq("id", "main").maybeSingle();
+  if (!data) {
+    await setAboutCompany(defaultAboutCompany);
+    return defaultAboutCompany;
+  }
+  return {
+    photo: data.photo || defaultAboutCompany.photo,
+    titleTop: data.title_top || "",
+    titleBottom: data.title_bottom || "",
+    eyebrow: data.eyebrow || "",
+    headline: data.headline || "",
+    paragraph: data.paragraph || "",
+    since: data.since_label || "",
+    visionLabel: data.vision_label || "",
+    visionText: data.vision_text || "",
+    missionLabel: data.mission_label || "",
+    missionText: data.mission_text || "",
+    titleTopEn: data.title_top_en || undefined,
+    titleBottomEn: data.title_bottom_en || undefined,
+    eyebrowEn: data.eyebrow_en || undefined,
+    headlineEn: data.headline_en || undefined,
+    paragraphEn: data.paragraph_en || undefined,
+    sinceEn: data.since_label_en || undefined,
+    visionLabelEn: data.vision_label_en || undefined,
+    visionTextEn: data.vision_text_en || undefined,
+    missionLabelEn: data.mission_label_en || undefined,
+    missionTextEn: data.mission_text_en || undefined,
+  };
+}
+
+export async function setAboutCompany(content: AboutCompanyContent): Promise<void> {
+  await supabase.from("about_company").upsert({
+    id: "main",
+    photo: content.photo || null,
+    title_top: content.titleTop,
+    title_bottom: content.titleBottom,
+    eyebrow: content.eyebrow,
+    headline: content.headline,
+    paragraph: content.paragraph,
+    since_label: content.since,
+    vision_label: content.visionLabel,
+    vision_text: content.visionText,
+    mission_label: content.missionLabel,
+    mission_text: content.missionText,
+    title_top_en: content.titleTopEn || null,
+    title_bottom_en: content.titleBottomEn || null,
+    eyebrow_en: content.eyebrowEn || null,
+    headline_en: content.headlineEn || null,
+    paragraph_en: content.paragraphEn || null,
+    since_label_en: content.sinceEn || null,
+    vision_label_en: content.visionLabelEn || null,
+    vision_text_en: content.visionTextEn || null,
+    mission_label_en: content.missionLabelEn || null,
+    mission_text_en: content.missionTextEn || null,
+  });
 }
