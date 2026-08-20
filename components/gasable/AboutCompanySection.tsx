@@ -1,48 +1,55 @@
 "use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Reveal from "@/components/gasable/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/gasable/Stagger";
 import { Eye, Target, Calendar } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
-
-const aboutCompany = {
-  photo: "/images/hero/petrohub-hq.jpg",
-  ar: {
-    titleTop: "عن",
-    titleBottom: "بتروهب",
-    eyebrow: "خبرة ميدانية، تنفيذ منضبط، ومعلومة يمكن الاعتماد عليها",
-    headline: "نحو إدارة أكثر وعيًا بكل وحدة طاقة",
-    paragraph:
-      "Petrohub شركة تتخذ من الرياض مقرًا رئيسيًا، وتمتد خبرتها منذ عام 2004. تعمل داخل المملكة العربية السعودية وخارجها، وتخدم المنشآت والمشروعات عبر مزيج متكامل من إمدادات الطاقة والمياه، والإدارة اللوجستية والتشغيلية، وأنظمة المراقبة والتحكم الذكي. لا ننظر إلى الطلب كعملية منفصلة، بل كدورة تبدأ بفهم الاحتياج، وتمر بالتخطيط والتنفيذ والتحقق، وتنتهي بصورة أوضح تساعد العميل على اتخاذ قرار أفضل.",
-    since: "منذ عام 2004",
-    visionLabel: "رؤيتنا",
-    visionText:
-      "أن نكون من أبرز الشركات في تطوير نماذج متقدمة لإدارة الطاقة، ورفع معايير الوضوح والانضباط والكفاءة في القطاع.",
-    missionLabel: "رسالتنا",
-    missionText:
-      "تمكين المنشآت من إدارة احتياجاتها بثقة، عبر تنفيذ ميداني منظم، ومتابعة فعالة، وأنظمة تمنحها بيانات أدق وتحكمًا أكبر.",
-  },
-  en: {
-    titleTop: "About",
-    titleBottom: "Petrohub",
-    eyebrow: "Practical experience, methodical implementation, and trustworthy data",
-    headline: "Towards a more mindful management of each unit of energy",
-    paragraph:
-      "Petrohub is a Riyadh-based enterprise with a legacy that extends back to 2004. Operating both domestically and internationally, it supports facilities and projects through a comprehensive blend of energy and water supply, logistics and operational management, as well as advanced monitoring and control systems. We regard energy as a strategic component that significantly influences business continuity and performance quality. Consequently, we do not perceive demand as an isolated purchasing process; rather, we view it as a cycle that commences with identifying the need, advances through planning, implementation, and verification, and culminates in a clearer understanding that enables the client to make informed decisions.",
-    since: "Since 2004",
-    visionLabel: "Our Vision",
-    visionText:
-      "To rank among the foremost companies in the development of advanced energy management models, and to elevate the standards of clarity, discipline and efficiency within the sector.",
-    missionLabel: "Our Mission",
-    missionText:
-      "Empowering organizations to adeptly manage their requirements through structured on-site execution, effective follow-up, and systems that deliver more precise data and greater control.",
-  },
-};
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
+import { getAboutCompany } from "@/lib/db";
+import { defaultAboutCompany } from "@/lib/store";
+import type { AboutCompanyContent } from "@/lib/types";
 
 export default function AboutCompanySection() {
   const { lang } = useLang();
-  const A = aboutCompany[lang];
+  const [content, setContent] = useState<AboutCompanyContent>(defaultAboutCompany);
+
+  useEffect(() => {
+    getAboutCompany()
+      .then(setContent)
+      .catch(() => {});
+  }, []);
+
+  // English copy typed by the admin wins; otherwise the Arabic text is
+  // auto-translated, the same way the rest of the admin-managed content works.
+  const at = useAutoTranslate([
+    content.titleTop,
+    content.titleBottom,
+    content.eyebrow,
+    content.headline,
+    content.paragraph,
+    content.since,
+    content.visionLabel,
+    content.visionText,
+    content.missionLabel,
+    content.missionText,
+  ]);
+
+  const pick = (ar: string, en?: string) => (lang === "en" ? en || at(ar) : ar);
+
+  const A = {
+    titleTop: pick(content.titleTop, content.titleTopEn),
+    titleBottom: pick(content.titleBottom, content.titleBottomEn),
+    eyebrow: pick(content.eyebrow, content.eyebrowEn),
+    headline: pick(content.headline, content.headlineEn),
+    paragraph: pick(content.paragraph, content.paragraphEn),
+    since: pick(content.since, content.sinceEn),
+    visionLabel: pick(content.visionLabel, content.visionLabelEn),
+    visionText: pick(content.visionText, content.visionTextEn),
+    missionLabel: pick(content.missionLabel, content.missionLabelEn),
+    missionText: pick(content.missionText, content.missionTextEn),
+  };
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
@@ -91,7 +98,7 @@ export default function AboutCompanySection() {
                 style={{ borderTopLeftRadius: "140px" }}
               >
                 <Image
-                  src={aboutCompany.photo}
+                  src={content.photo || defaultAboutCompany.photo}
                   alt={A.titleBottom}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

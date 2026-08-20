@@ -160,3 +160,28 @@ export interface ServiceDetailItem {
   advantagesEn?: string[];
   valueEn?: string[];
 }
+
+
+export interface AboutCompanyContent {
+  photo: string;
+  titleTop: string;
+  titleBottom: string;
+  eyebrow: string;
+  headline: string;
+  paragraph: string;
+  since: string;
+  visionLabel: string;
+  visionText: string;
+  missionLabel: string;
+  missionText: string;
+  titleTopEn?: string;
+  titleBottomEn?: string;
+  eyebrowEn?: string;
+  headlineEn?: string;
+  paragraphEn?: string;
+  sinceEn?: string;
+  visionLabelEn?: string;
+  visionTextEn?: string;
+  missionLabelEn?: string;
+  missionTextEn?: string;
+}

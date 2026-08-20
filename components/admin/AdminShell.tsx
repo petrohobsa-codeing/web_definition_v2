@@ -22,12 +22,14 @@ import {
   Newspaper,
   CalendarDays,
   Users,
-  Wrench, } from "lucide-react";
+  Wrench,
+  Building2, } from "lucide-react";
 
 const navItems = [
   { href: "/admin/dashboard", label: "لوحة التحكم", icon: LayoutDashboard },
   { href: "/admin/slides", label: "شرائح الرئيسية", icon: Layers },
   { href: "/admin/services", label: "الخدمات وتفاصيلها", icon: Wrench },
+  { href: "/admin/about", label: "بطاقة عن الشركة", icon: Building2 },
   { href: "/admin/projects", label: "المشاريع والأعمال", icon: FolderOpen },
   { href: "/admin/news", label: "الأخبار والمقالات", icon: Newspaper },
   { href: "/admin/activities", label: "الأنشطة", icon: CalendarDays },

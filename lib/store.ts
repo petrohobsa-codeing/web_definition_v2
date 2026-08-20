@@ -14,6 +14,7 @@ import type {
     NetworkCard,
     CredentialItem,
     FaqItem,
+    AboutCompanyContent,
 } from "./types";
 
 const K = {
@@ -563,3 +564,35 @@ export const defaultServiceDetails: ServiceDetailItem[] = [
         valueEn: ["Fixed cameras and vehicle-mounted cameras (Dash Cams) offer visual context that enhances monitoring and safety", "Immediate notifications upon limit exceedance", "Dashboards, logs, and reports that facilitate analysis and strategic planning"],
   },
   ];
+
+// ── About the company (البطاقة التعريفية عن الشركة) ──────────────────────────
+
+export const defaultAboutCompany: AboutCompanyContent = {
+  photo: "/images/hero/petrohub-hq.jpg",
+  titleTop: "عن",
+  titleBottom: "بتروهب",
+  eyebrow: "خبرة ميدانية، تنفيذ منضبط، ومعلومة يمكن الاعتماد عليها",
+  headline: "نحو إدارة أكثر وعيًا بكل وحدة طاقة",
+  paragraph:
+    "Petrohub شركة تتخذ من الرياض مقرًا رئيسيًا، وتمتد خبرتها منذ عام 2004. تعمل داخل المملكة العربية السعودية وخارجها، وتخدم المنشآت والمشروعات عبر مزيج متكامل من إمدادات الطاقة والمياه، والإدارة اللوجستية والتشغيلية، وأنظمة المراقبة والتحكم الذكي. لا ننظر إلى الطلب كعملية منفصلة، بل كدورة تبدأ بفهم الاحتياج، وتمر بالتخطيط والتنفيذ والتحقق، وتنتهي بصورة أوضح تساعد العميل على اتخاذ قرار أفضل.",
+  since: "منذ عام 2004",
+  visionLabel: "رؤيتنا",
+  visionText:
+    "أن نكون من أبرز الشركات في تطوير نماذج متقدمة لإدارة الطاقة، ورفع معايير الوضوح والانضباط والكفاءة في القطاع.",
+  missionLabel: "رسالتنا",
+  missionText:
+    "تمكين المنشآت من إدارة احتياجاتها بثقة، عبر تنفيذ ميداني منظم، ومتابعة فعالة، وأنظمة تمنحها بيانات أدق وتحكمًا أكبر.",
+  titleTopEn: "About",
+  titleBottomEn: "Petrohub",
+  eyebrowEn: "Practical experience, methodical implementation, and trustworthy data",
+  headlineEn: "Towards a more mindful management of each unit of energy",
+  paragraphEn:
+    "Petrohub is a Riyadh-based enterprise with a legacy that extends back to 2004. Operating both domestically and internationally, it supports facilities and projects through a comprehensive blend of energy and water supply, logistics and operational management, as well as advanced monitoring and control systems. We regard energy as a strategic component that significantly influences business continuity and performance quality. Consequently, we do not perceive demand as an isolated purchasing process; rather, we view it as a cycle that commences with identifying the need, advances through planning, implementation, and verification, and culminates in a clearer understanding that enables the client to make informed decisions.",
+  sinceEn: "Since 2004",
+  visionLabelEn: "Our Vision",
+  visionTextEn:
+    "To rank among the foremost companies in the development of advanced energy management models, and to elevate the standards of clarity, discipline and efficiency within the sector.",
+  missionLabelEn: "Our Mission",
+  missionTextEn:
+    "Empowering organizations to adeptly manage their requirements through structured on-site execution, effective follow-up, and systems that deliver more precise data and greater control.",
+};
