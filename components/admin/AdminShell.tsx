@@ -23,13 +23,22 @@ import {
   CalendarDays,
   Users,
   Wrench,
-  Building2, } from "lucide-react";
+  Building2,
+  LayoutTemplate,
+  AlertTriangle,
+  GitMerge,
+  Briefcase,
+} from "lucide-react";
 
 const navItems = [
   { href: "/admin/dashboard", label: "لوحة التحكم", icon: LayoutDashboard },
   { href: "/admin/slides", label: "شرائح الرئيسية", icon: Layers },
   { href: "/admin/services", label: "الخدمات وتفاصيلها", icon: Wrench },
   { href: "/admin/about", label: "بطاقة عن الشركة", icon: Building2 },
+  { href: "/admin/challenges", label: "بطاقة التحديات", icon: AlertTriangle },
+  { href: "/admin/operating-model", label: "النموذج التشغيلي", icon: GitMerge },
+  { href: "/admin/sectors", label: "القطاعات المخدومة", icon: Briefcase },
+  { href: "/admin/footer", label: "محتوى التذييل", icon: LayoutTemplate },
   { href: "/admin/projects", label: "المشاريع والأعمال", icon: FolderOpen },
   { href: "/admin/news", label: "الأخبار والمقالات", icon: Newspaper },
   { href: "/admin/activities", label: "الأنشطة", icon: CalendarDays },

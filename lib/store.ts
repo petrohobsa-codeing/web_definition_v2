@@ -15,6 +15,10 @@ import type {
     CredentialItem,
     FaqItem,
     AboutCompanyContent,
+    FooterContent,
+    ChallengesContent,
+    OperatingModelContent,
+    SectorsContent,
 } from "./types";
 
 const K = {
@@ -596,4 +600,117 @@ export const defaultAboutCompany: AboutCompanyContent = {
   missionLabelEn: "Our Mission",
   missionTextEn:
     "Empowering organizations to adeptly manage their requirements through structured on-site execution, effective follow-up, and systems that deliver more precise data and greater control.",
+};
+
+// ── Footer content ────────────────────────────────────────────────────────────
+
+export const defaultFooterContent: FooterContent = {
+  tagline: "ابدأ برؤية أوضح لاحتياجك التشغيلي",
+  heading: "القيمة التي يحصل عليها العميل",
+  paragraph:
+    "سواء كان احتياجكم مرتبطًا بإمدادات الطاقة والمياه، أو بالتنسيق الميداني والمتابعة التشغيلية، أو ببناء نظام موحد للمراقبة والقياس، يعمل فريق Petrohub على فهم طبيعة عملياتكم وتقديم نطاق يناسب مواقعكم وأولوياتكم ومتطلباتكم.",
+  closing: "Petrohub — من الاحتياج إلى التنفيذ، ومن التنفيذ إلى رؤية يمكن الاعتماد عليها.",
+  taglineEn: "Start with a clearer view of your operational need",
+  headingEn: "The Value the Client Gets",
+  paragraphEn:
+    "Whether your need relates to energy and water supply, field coordination and operational follow-up, or building a unified monitoring and measurement system, the Petrohub team works to understand your operations and offer a scope that fits your sites, priorities and requirements.",
+  closingEn: "Petrohub — from need to execution, and from execution to a vision you can rely on.",
+};
+
+// ── Challenges content ────────────────────────────────────────────────────────
+
+export const defaultChallengesContent: ChallengesContent = {
+  badge: "التحديات التي تواجه المنشآت",
+  headline: "التحدي ليس في توافر المنتج وحده",
+  subheading: "إدارة الطاقة تحتاج إلى رؤية قبل التسليم وأثناءه وبعده",
+  paragraph:
+    "تتعامل المنشآت اليوم مع سلسلة مترابطة من الجهات والمواقع ووسائل النقل والمستندات والقراءات. وكلما اتسعت هذه السلسلة، ازدادت الحاجة إلى مسؤوليات واضحة، وبيانات قابلة للتحقق، وتحديثات تصل في الوقت المناسب.",
+  badgeEn: "Challenges Facing Facilities",
+  headlineEn: "The challenge isn't product availability alone",
+  subheadingEn: "Energy management needs visibility before, during and after delivery",
+  paragraphEn:
+    "Facilities today deal with an interconnected chain of parties, sites, transport methods, documents and readings. As this chain grows, so does the need for clear responsibilities, verifiable data, and updates that arrive at the right time.",
+  items: [
+    { id: "1", titleAr: "مطابقة الكميات", descAr: "الفروقات بين المطلوب والمحمّل والمستلم تستدعي قياسًا أوضح وسجلًا يمكن الرجوع إليه.", titleEn: "Quantity reconciliation", descEn: "Gaps between requested, loaded and received amounts call for clearer measurement and a traceable record." },
+    { id: "2", titleAr: "استقرار الإمداد", descAr: "أي تأخر أو انقطاع قد ينعكس مباشرة على الإنتاج والخدمة والالتزامات التشغيلية.", titleEn: "Supply stability", descEn: "Any delay or interruption can directly affect production, service, and operational commitments." },
+    { id: "3", titleAr: "تشتت المتابعة", descAr: "تعدد الموردين ووسائل التواصل والمستندات يستهلك الوقت ويزيد احتمالات الخطأ.", titleEn: "Scattered follow-up", descEn: "Multiple suppliers, communication channels and documents consume time and raise the chance of error." },
+    { id: "4", titleAr: "سلامة المنتج", descAr: "تحتاج المنشآت إلى ضمان مطابقة المواد للمواصفات والحد من مخاطر الخلط أو التغيير في خصائصها.", titleEn: "Product integrity", descEn: "Facilities need assurance that materials meet specification, with the risk of mixing or altered properties minimized." },
+    { id: "5", titleAr: "تعدد المواقع والأطراف", descAr: "ارتفاع عدد نقاط التسليم والجهات المشاركة يتطلب تنسيقًا محكمًا ومسؤوليات محددة.", titleEn: "Multiple sites & parties", descEn: "A rising number of delivery points and participating parties requires tight coordination and clear ownership." },
+    { id: "6", titleAr: "تأخر المعلومة", descAr: "غياب القراءات اللحظية يجعل التخطيط وإعادة الطلب أقل دقة ويؤخّر الاستجابة.", titleEn: "Delayed information", descEn: "Without real-time readings, planning and reordering become less accurate and response times slow down." },
+  ],
+};
+
+// ── Operating Model content ───────────────────────────────────────────────────
+
+export const defaultOperatingModelContent: OperatingModelContent = {
+  badge: "نموذج Petrohub التشغيلي",
+  tagline: "من الاحتياج إلى التنفيذ، ومن التنفيذ إلى معلومة قابلة للاستخدام",
+  heading: "مسار واحد يربط الإمداد والمتابعة والمراقبة",
+  paragraph:
+    "صممنا طريقة العمل بحيث يحصل العميل على تجربة مترابطة، لا مجموعة خدمات منفصلة. يبدأ المسار بفهم الاحتياج، ثم تنسيق المصدر والنقل والتوقيت، ومتابعة الطلب ميدانيًا حتى التسليم وتوثيقه، والاستفادة من البيانات في التخطيط وتحسين الأداء.",
+  cycleLabel: "دورة العمل",
+  badgeEn: "Petrohub Operational Framework",
+  taglineEn: "From necessity to execution, and from execution to actionable information",
+  headingEn: "A singular pathway connecting supply, tracking, and monitoring",
+  paragraphEn:
+    "We have structured our workflow to ensure that the client enjoys a cohesive experience rather than a disjointed array of services. The process commences with a thorough understanding of the client's needs and site specifications, followed by the coordination of sourcing, transport and timing, on-site tracking of the order through delivery and documentation, and the use of that data to plan and improve performance.",
+  cycleLabelEn: "The Work Cycle",
+  steps: [
+    { id: "1", number: "01", titleAr: "فهم الاحتياج", descAr: "تحديد المادة والكمية والموقع والتوقيت والمتطلبات الفنية والتشغيلية.", titleEn: "Understanding the need", descEn: "Defining the material, quantity, site, timing and technical/operational requirements." },
+    { id: "2", number: "02", titleAr: "التحقق والتخطيط", descAr: "مراجعة البيانات، وتنسيق المصدر والمسار وآلية التنفيذ.", titleEn: "Verification & planning", descEn: "Reviewing the data and coordinating the source, route and execution method." },
+    { id: "3", number: "03", titleAr: "الجدولة والتأكيد", descAr: "إبلاغ العميل باستلام الطلب واعتماده والموعد المتوقع لبدء التنفيذ.", titleEn: "Scheduling & confirmation", descEn: "Notifying the client the request is received and approved, with an expected start time." },
+    { id: "4", number: "04", titleAr: "التنفيذ والمتابعة", descAr: "متابعة التحرك والوصول والتسليم، ومعالجة الملاحظات فور ظهورها.", titleEn: "Execution & follow-up", descEn: "Tracking movement, arrival and delivery, and handling feedback as soon as it appears." },
+    { id: "5", number: "05", titleAr: "التوثيق والإغلاق", descAr: "تأكيد الاستلام وتوثيق الكميات والقراءات والمستندات ذات الصلة.", titleEn: "Documentation & closeout", descEn: "Confirming receipt and documenting quantities, readings and related documents." },
+    { id: "6", number: "06", titleAr: "القياس والتحسين", descAr: "الاستفادة من البيانات في إعادة الطلب، وضبط الاستهلاك، ورفع كفاءة التشغيل.", titleEn: "Measurement & improvement", descEn: "Using the data for reordering, adjusting consumption, and raising operational efficiency." },
+  ],
+};
+
+// ── Sectors content ───────────────────────────────────────────────────────────
+
+export const defaultSectorsContent: SectorsContent = {
+  badge: "القطاعات التي نخدمها",
+  heading: "خبرة قابلة للتكيف مع طبيعة كل نشاط وموقع",
+  paragraph:
+    "نخدم منشآت ومشروعات ذات متطلبات تشغيلية متنوعة. تتكيف طريقة عمل Petrohub مع حجم المنشأة، وعدد المواقع، وحساسية التشغيل، ومتطلبات كل مشروع.",
+  teamsLabel: "فرق مؤهلة",
+  teamsText: "فرق يتم استقطابها وتجهيزها بما يتناسب مع احتياجات القطاع والموقع ونطاق العمل.",
+  coverageLabel: "نطاق التغطية",
+  coverageText: "جميع مدن المملكة العربية السعودية، مع إمكانية تنفيذ الأعمال خارج المملكة وفق طبيعة المشروع ومتطلباته.",
+  commitLabel: "التزامنا",
+  sectorsAr: [
+    "الإنشاءات والمقاولات",
+    "القطاع الصناعي",
+    "التعدين",
+    "النفط والغاز",
+    "البنية التحتية والمشاريع الكبرى",
+    "الجهات الحكومية",
+    "الرعاية الصحية",
+    "الضيافة والسياحة",
+    "التجارة والخدمات",
+  ],
+  sectorsEn: [
+    "Construction and Contracting",
+    "Industrial sector",
+    "Mining",
+    "Petroleum and natural gas",
+    "Infrastructure and significant initiatives",
+    "Governmental organizations",
+    "Healthcare",
+    "Hospitality and Tourism",
+    "Commerce and Services",
+  ],
+  badgeEn: "Sectors We Serve",
+  headingEn: "Experience tailored to the specific nature of each activity and location",
+  paragraphEn:
+    "We cater to facilities and projects with varied operational needs. Petrohub's approach is tailored to the facility's size, the number of locations, the sensitivity of the operation, and the specific requirements of each project.",
+  teamsLabelEn: "Qualified teams",
+  teamsTextEn: "Teams are assembled and outfitted based on the requirements of the sector, geographical area, and scope of work.",
+  coverageLabelEn: "Coverage area",
+  coverageTextEn: "All cities within the Kingdom of Saudi Arabia, with the potential to conduct work outside the Kingdom based on the project's nature and requirements.",
+  commitLabelEn: "Our dedication",
+  commitments: [
+    { id: "1", icon: "CheckCircle2", titleAr: "الجودة", descAr: "إجراءات واضحة وتنفيذ يراعي المتطلبات الفنية.", titleEn: "Quality", descEn: "Clear procedures and implementations that consider technical requirements." },
+    { id: "2", icon: "ShieldCheck", titleAr: "السلامة والامتثال", descAr: "ممارسات تراعي الاشتراطات وتحمي الأفراد والمواقع.", titleEn: "Safety & Compliance", descEn: "Practices that adhere to requirements and safeguard individuals and locations." },
+    { id: "3", icon: "TrendingUp", titleAr: "التحسين المستمر", descAr: "مراجعة الأداء وتطوير الإجراءات والمنتجات التقنية.", titleEn: "Ongoing enhancement", descEn: "Evaluating performance and formulating technical procedures and products." },
+  ],
 };

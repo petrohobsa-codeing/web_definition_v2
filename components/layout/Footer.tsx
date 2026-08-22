@@ -4,36 +4,27 @@ import Image from "next/image";
 import { Mail, Phone, MapPin, Globe, ExternalLink } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
-import { getSettings } from "@/lib/db";
-import type { SiteSettings } from "@/lib/types";
+import { getSettings, getFooterContent } from "@/lib/db";
+import { defaultFooterContent } from "@/lib/store";
+import type { SiteSettings, FooterContent } from "@/lib/types";
 import Logo from "@/components/ui/Logo";
 
-const t = {
+const staticLabels = {
   ar: {
-    tagline: "ابدأ برؤية أوضح لاحتياجك التشغيلي",
-    heading: "القيمة التي يحصل عليها العميل",
-    paragraph:
-      "سواء كان احتياجكم مرتبطًا بإمدادات الطاقة والمياه، أو بالتنسيق الميداني والمتابعة التشغيلية، أو ببناء نظام موحد للمراقبة والقياس، يعمل فريق Petrohub على فهم طبيعة عملياتكم وتقديم نطاق يناسب مواقعكم وأولوياتكم ومتطلباتكم.",
     hq: "المقر الرئيسي",
     hqValue: "الرياض - المملكة العربية السعودية",
     phoneLabel: "رقم التواصل",
     websiteLabel: "الموقع الإلكتروني",
     emailLabel: "البريد الإلكتروني",
-    closing: "Petrohub — من الاحتياج إلى التنفيذ، ومن التنفيذ إلى رؤية يمكن الاعتماد عليها.",
     rights: "جميع الحقوق محفوظة.",
     admin: "لوحة التحكم",
   },
   en: {
-    tagline: "Start with a clearer view of your operational need",
-    heading: "The Value the Client Gets",
-    paragraph:
-      "Whether your need relates to energy and water supply, field coordination and operational follow-up, or building a unified monitoring and measurement system, the Petrohub team works to understand your operations and offer a scope that fits your sites, priorities and requirements.",
     hq: "Head Office",
     hqValue: "Riyadh - Kingdom of Saudi Arabia",
     phoneLabel: "Phone",
     websiteLabel: "Website",
     emailLabel: "Email",
-    closing: "Petrohub — from need to execution, and from execution to a vision you can rely on.",
     rights: "All rights reserved.",
     admin: "Admin Panel",
   },
@@ -47,11 +38,19 @@ const defaultContact = {
 
 export default function Footer() {
   const { lang } = useLang();
-  const L = t[lang];
+  const L = staticLabels[lang];
   const [settings, setSettings] = useState<SiteSettings | null>(null);
+  const [footer, setFooter] = useState<FooterContent>(defaultFooterContent);
   useEffect(() => {
     getSettings().then(setSettings).catch(() => {});
+    getFooterContent().then(setFooter).catch(() => {});
   }, []);
+
+  const pick = (ar: string, en?: string) => (lang === "en" ? en || ar : ar);
+  const tagline = pick(footer.tagline, footer.taglineEn);
+  const heading = pick(footer.heading, footer.headingEn);
+  const paragraph = pick(footer.paragraph, footer.paragraphEn);
+  const closing = pick(footer.closing, footer.closingEn);
 
   const rows = [
     { label: L.hq, value: settings?.address || L.hqValue, icon: MapPin },
@@ -80,10 +79,10 @@ export default function Footer() {
           <Link href="/" className="inline-flex items-center gap-3 mb-3" aria-label="Petrohub">
             <Logo variant="light" lang={lang} />
           </Link>
-          <p className="text-white/70 text-sm mb-10">{L.tagline}</p>
+          <p className="text-white/70 text-sm mb-10">{tagline}</p>
 
-          <h2 className="text-h2 font-black mb-5 leading-tight">{L.heading}</h2>
-          <p className="text-body text-white/75 leading-loose mb-10">{L.paragraph}</p>
+          <h2 className="text-h2 font-black mb-5 leading-tight">{heading}</h2>
+          <p className="text-body text-white/75 leading-loose mb-10">{paragraph}</p>
 
           <div className="divide-y divide-white/15 border-t border-b border-white/15 mb-10">
             {rows.map((r) => (
@@ -103,7 +102,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <p className="text-white/60 text-sm mb-12">{L.closing}</p>
+          <p className="text-white/60 text-sm mb-12">{closing}</p>
         </div>
 
         <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
