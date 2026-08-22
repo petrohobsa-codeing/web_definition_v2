@@ -17,6 +17,10 @@ import type {
     CredentialItem,
     FaqItem,
     AboutCompanyContent,
+    FooterContent,
+    ChallengesContent,
+    OperatingModelContent,
+    SectorsContent,
 } from "./types";
 import {
   defaultSlides,
@@ -32,6 +36,10 @@ import {
     defaultFaqs,
   defaultServiceDetails,
   defaultAboutCompany,
+  defaultFooterContent,
+  defaultChallengesContent,
+  defaultOperatingModelContent,
+  defaultSectorsContent,
 } from "./store";
 
 async function adminFetch(path: string, options: RequestInit = {}) {
@@ -510,5 +518,171 @@ export async function setAboutCompany(content: AboutCompanyContent): Promise<voi
     vision_text_en: content.visionTextEn || null,
     mission_label_en: content.missionLabelEn || null,
     mission_text_en: content.missionTextEn || null,
+  });
+}
+
+// ── Footer content ────────────────────────────────────────────────────────────
+
+export async function getFooterContent(): Promise<FooterContent> {
+  const { data } = await supabase.from("footer_content").select("*").eq("id", "main").maybeSingle();
+  if (!data) {
+    await setFooterContent(defaultFooterContent);
+    return defaultFooterContent;
+  }
+  return {
+    tagline: data.tagline || defaultFooterContent.tagline,
+    heading: data.heading || defaultFooterContent.heading,
+    paragraph: data.paragraph || defaultFooterContent.paragraph,
+    closing: data.closing || defaultFooterContent.closing,
+    taglineEn: data.tagline_en || undefined,
+    headingEn: data.heading_en || undefined,
+    paragraphEn: data.paragraph_en || undefined,
+    closingEn: data.closing_en || undefined,
+  };
+}
+
+export async function setFooterContent(content: FooterContent): Promise<void> {
+  await supabase.from("footer_content").upsert({
+    id: "main",
+    tagline: content.tagline,
+    heading: content.heading,
+    paragraph: content.paragraph,
+    closing: content.closing,
+    tagline_en: content.taglineEn || null,
+    heading_en: content.headingEn || null,
+    paragraph_en: content.paragraphEn || null,
+    closing_en: content.closingEn || null,
+  });
+}
+
+// ── Challenges content ────────────────────────────────────────────────────────
+
+export async function getChallengesContent(): Promise<ChallengesContent> {
+  const { data } = await supabase.from("challenges_content").select("*").eq("id", "main").maybeSingle();
+  if (!data) {
+    await setChallengesContent(defaultChallengesContent);
+    return defaultChallengesContent;
+  }
+  return {
+    badge: data.badge || defaultChallengesContent.badge,
+    headline: data.headline || defaultChallengesContent.headline,
+    subheading: data.subheading || defaultChallengesContent.subheading,
+    paragraph: data.paragraph || defaultChallengesContent.paragraph,
+    badgeEn: data.badge_en || undefined,
+    headlineEn: data.headline_en || undefined,
+    subheadingEn: data.subheading_en || undefined,
+    paragraphEn: data.paragraph_en || undefined,
+    items: data.items || defaultChallengesContent.items,
+  };
+}
+
+export async function setChallengesContent(content: ChallengesContent): Promise<void> {
+  await supabase.from("challenges_content").upsert({
+    id: "main",
+    badge: content.badge,
+    headline: content.headline,
+    subheading: content.subheading,
+    paragraph: content.paragraph,
+    badge_en: content.badgeEn || null,
+    headline_en: content.headlineEn || null,
+    subheading_en: content.subheadingEn || null,
+    paragraph_en: content.paragraphEn || null,
+    items: content.items,
+  });
+}
+
+// ── Operating Model content ───────────────────────────────────────────────────
+
+export async function getOperatingModelContent(): Promise<OperatingModelContent> {
+  const { data } = await supabase.from("operating_model").select("*").eq("id", "main").maybeSingle();
+  if (!data) {
+    await setOperatingModelContent(defaultOperatingModelContent);
+    return defaultOperatingModelContent;
+  }
+  return {
+    badge: data.badge || defaultOperatingModelContent.badge,
+    tagline: data.tagline || defaultOperatingModelContent.tagline,
+    heading: data.heading || defaultOperatingModelContent.heading,
+    paragraph: data.paragraph || defaultOperatingModelContent.paragraph,
+    cycleLabel: data.cycle_label || defaultOperatingModelContent.cycleLabel,
+    badgeEn: data.badge_en || undefined,
+    taglineEn: data.tagline_en || undefined,
+    headingEn: data.heading_en || undefined,
+    paragraphEn: data.paragraph_en || undefined,
+    cycleLabelEn: data.cycle_label_en || undefined,
+    steps: data.steps || defaultOperatingModelContent.steps,
+  };
+}
+
+export async function setOperatingModelContent(content: OperatingModelContent): Promise<void> {
+  await supabase.from("operating_model").upsert({
+    id: "main",
+    badge: content.badge,
+    tagline: content.tagline,
+    heading: content.heading,
+    paragraph: content.paragraph,
+    cycle_label: content.cycleLabel,
+    badge_en: content.badgeEn || null,
+    tagline_en: content.taglineEn || null,
+    heading_en: content.headingEn || null,
+    paragraph_en: content.paragraphEn || null,
+    cycle_label_en: content.cycleLabelEn || null,
+    steps: content.steps,
+  });
+}
+
+// ── Sectors content ───────────────────────────────────────────────────────────
+
+export async function getSectorsContent(): Promise<SectorsContent> {
+  const { data } = await supabase.from("sectors_content").select("*").eq("id", "main").maybeSingle();
+  if (!data) {
+    await setSectorsContent(defaultSectorsContent);
+    return defaultSectorsContent;
+  }
+  return {
+    badge: data.badge || defaultSectorsContent.badge,
+    heading: data.heading || defaultSectorsContent.heading,
+    paragraph: data.paragraph || defaultSectorsContent.paragraph,
+    teamsLabel: data.teams_label || defaultSectorsContent.teamsLabel,
+    teamsText: data.teams_text || defaultSectorsContent.teamsText,
+    coverageLabel: data.coverage_label || defaultSectorsContent.coverageLabel,
+    coverageText: data.coverage_text || defaultSectorsContent.coverageText,
+    commitLabel: data.commit_label || defaultSectorsContent.commitLabel,
+    sectorsAr: data.sectors_ar || defaultSectorsContent.sectorsAr,
+    sectorsEn: data.sectors_en || defaultSectorsContent.sectorsEn,
+    badgeEn: data.badge_en || undefined,
+    headingEn: data.heading_en || undefined,
+    paragraphEn: data.paragraph_en || undefined,
+    teamsLabelEn: data.teams_label_en || undefined,
+    teamsTextEn: data.teams_text_en || undefined,
+    coverageLabelEn: data.coverage_label_en || undefined,
+    coverageTextEn: data.coverage_text_en || undefined,
+    commitLabelEn: data.commit_label_en || undefined,
+    commitments: data.commitments || defaultSectorsContent.commitments,
+  };
+}
+
+export async function setSectorsContent(content: SectorsContent): Promise<void> {
+  await supabase.from("sectors_content").upsert({
+    id: "main",
+    badge: content.badge,
+    heading: content.heading,
+    paragraph: content.paragraph,
+    teams_label: content.teamsLabel,
+    teams_text: content.teamsText,
+    coverage_label: content.coverageLabel,
+    coverage_text: content.coverageText,
+    commit_label: content.commitLabel,
+    sectors_ar: content.sectorsAr,
+    sectors_en: content.sectorsEn,
+    badge_en: content.badgeEn || null,
+    heading_en: content.headingEn || null,
+    paragraph_en: content.paragraphEn || null,
+    teams_label_en: content.teamsLabelEn || null,
+    teams_text_en: content.teamsTextEn || null,
+    coverage_label_en: content.coverageLabelEn || null,
+    coverage_text_en: content.coverageTextEn || null,
+    commit_label_en: content.commitLabelEn || null,
+    commitments: content.commitments,
   });
 }

@@ -186,3 +186,88 @@ export interface AboutCompanyContent {
   missionLabelEn?: string;
   missionTextEn?: string;
 }
+
+export interface FooterContent {
+  tagline: string;
+  heading: string;
+  paragraph: string;
+  closing: string;
+  taglineEn?: string;
+  headingEn?: string;
+  paragraphEn?: string;
+  closingEn?: string;
+}
+
+export interface ChallengeItem {
+  id: string;
+  titleAr: string;
+  descAr: string;
+  titleEn: string;
+  descEn: string;
+}
+
+export interface ChallengesContent {
+  badge: string;
+  headline: string;
+  subheading: string;
+  paragraph: string;
+  badgeEn?: string;
+  headlineEn?: string;
+  subheadingEn?: string;
+  paragraphEn?: string;
+  items: ChallengeItem[];
+}
+
+export interface OperatingStep {
+  id: string;
+  number: string;
+  titleAr: string;
+  descAr: string;
+  titleEn: string;
+  descEn: string;
+}
+
+export interface OperatingModelContent {
+  badge: string;
+  tagline: string;
+  heading: string;
+  paragraph: string;
+  cycleLabel: string;
+  badgeEn?: string;
+  taglineEn?: string;
+  headingEn?: string;
+  paragraphEn?: string;
+  cycleLabelEn?: string;
+  steps: OperatingStep[];
+}
+
+export interface SectorCommitment {
+  id: string;
+  icon: string;
+  titleAr: string;
+  descAr: string;
+  titleEn: string;
+  descEn: string;
+}
+
+export interface SectorsContent {
+  badge: string;
+  heading: string;
+  paragraph: string;
+  teamsLabel: string;
+  teamsText: string;
+  coverageLabel: string;
+  coverageText: string;
+  commitLabel: string;
+  sectorsAr: string[];
+  sectorsEn: string[];
+  badgeEn?: string;
+  headingEn?: string;
+  paragraphEn?: string;
+  teamsLabelEn?: string;
+  teamsTextEn?: string;
+  coverageLabelEn?: string;
+  coverageTextEn?: string;
+  commitLabelEn?: string;
+  commitments: SectorCommitment[];
+}

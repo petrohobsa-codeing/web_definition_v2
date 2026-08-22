@@ -1,16 +1,20 @@
 "use client";
 import CountUp from "@/components/ui/CountUp";
 import { defaultStats } from "@/lib/store";
+import { getStats } from "@/lib/db";
 import { useLang } from "@/context/LanguageContext";
 import { tr } from "@/lib/i18n";
 import { StaggerGroup, StaggerItem } from "./Stagger";
 import { Boxes, MapPin, Clock, Leaf, BadgeCheck } from "lucide-react";
+import { useState, useEffect } from "react";
+import type { StatItem } from "@/lib/types";
 
 const icons = [Boxes, MapPin, Clock, Leaf, BadgeCheck];
 
 export default function InFigures() {
   const { lang } = useLang();
-  const stats = defaultStats;
+  const [stats, setStats] = useState<StatItem[]>(defaultStats);
+  useEffect(() => { getStats().then(setStats).catch(() => {}); }, []);
   return (
     <section className="bg-white py-[50px]">
       <div className="max-w-[1200px] mx-auto px-6">
