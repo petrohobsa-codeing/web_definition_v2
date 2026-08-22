@@ -7,6 +7,7 @@ import { ChevronLeft, Phone, Mail, MapPin, Globe } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { getSettings } from "@/lib/db";
 import type { SiteSettings } from "@/lib/types";
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
 
 const defaultContact = {
   phone: "+966 55 885 5824",
@@ -51,7 +52,10 @@ export default function ContactContent() {
     getSettings().then(setSettings).catch(() => {});
   }, []);
 
-  const hqValue = lang === "en" ? L.hqValue : (settings?.address || L.hqValue);
+  const at = useAutoTranslate([settings?.address]);
+  const hqValue = lang === "en"
+    ? (at(settings?.address) || L.hqValue)
+    : (settings?.address || L.hqValue);
 
   const contactInfo = [
     { icon: MapPin, label: L.hqLabel, value: hqValue, href: undefined, color: "bg-[#24487B]" },

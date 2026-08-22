@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { getSettings, getFooterContent } from "@/lib/db";
 import { defaultFooterContent } from "@/lib/store";
 import type { SiteSettings, FooterContent } from "@/lib/types";
+import { useAutoTranslate } from "@/lib/useAutoTranslate";
 import Logo from "@/components/ui/Logo";
 
 const staticLabels = {
@@ -50,7 +51,10 @@ export default function Footer() {
   const paragraph = pick(footer.paragraph, footer.paragraphEn);
   const closing = pick(footer.closing, footer.closingEn);
 
-  const hqValue = lang === "en" ? L.hqValue : (settings?.address || L.hqValue);
+  const at = useAutoTranslate([settings?.address]);
+  const hqValue = lang === "en"
+    ? (at(settings?.address) || L.hqValue)
+    : (settings?.address || L.hqValue);
 
   const rows = [
     { label: L.hq, value: hqValue, icon: MapPin },
