@@ -98,6 +98,16 @@ export interface ContactMessage {
   createdAt: string;
 }
 
+export interface SocialLinks {
+  instagram?: string;
+  twitter?: string;
+  linkedin?: string;
+  facebook?: string;
+  youtube?: string;
+  tiktok?: string;
+  snapchat?: string;
+}
+
 export interface SiteSettings {
   phone: string;
   whatsapp: string;
@@ -107,6 +117,7 @@ export interface SiteSettings {
   cities: string;
   website: string;
   adminPassword?: string;
+  socialLinks?: SocialLinks;
 }
 
 

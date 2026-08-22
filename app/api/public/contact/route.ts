@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const { data } = await supabaseAdmin
     .from("settings")
-    .select("phone, whatsapp, email, address, website")
+    .select("phone, whatsapp, email, address, website, social_links")
     .eq("id", "main")
     .maybeSingle();
 
@@ -16,5 +16,6 @@ export async function GET() {
     email: data?.email || "",
     address: data?.address || "",
     website: data?.website || "",
+    socialLinks: data?.social_links || {},
   });
 }

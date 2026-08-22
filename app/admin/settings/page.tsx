@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import AdminShell from "@/components/admin/AdminShell";
 import { getSettings, setSettings } from "@/lib/db";
-import type { SiteSettings } from "@/lib/types";
+import type { SiteSettings, SocialLinks } from "@/lib/types";
 import { Save, Eye, EyeOff } from "lucide-react";
 
 const inputCls =
@@ -18,6 +18,7 @@ export default function SettingsPage() {
     cities: "",
     website: "",
     adminPassword: "",
+    socialLinks: {},
   });
   const [saved, setSaved] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -36,6 +37,13 @@ export default function SettingsPage() {
     if (field === "adminPassword") setPasswordError("");
   };
 
+  const changeSocial = (platform: keyof SocialLinks, val: string) => {
+    setForm((prev) => ({
+      ...prev,
+      socialLinks: { ...prev.socialLinks, [platform]: val },
+    }));
+  };
+
   const handleSave = async () => {
     if (form.adminPassword !== confirmPassword) {
       setPasswordError("كلمتا المرور غير متطابقتين");
@@ -50,7 +58,7 @@ export default function SettingsPage() {
     setTimeout(() => setSaved(false), 2000);
   };
 
-  const fields: { key: keyof SiteSettings; label: string; placeholder: string; type?: string }[] = [
+  const fields: { key: "phone" | "whatsapp" | "email" | "address" | "workingHours" | "cities" | "website"; label: string; placeholder: string; type?: string }[] = [
     { key: "phone", label: "رقم الهاتف", placeholder: "+966500000000", type: "tel" },
     { key: "whatsapp", label: "رقم واتساب", placeholder: "+966500000000", type: "tel" },
     { key: "email", label: "البريد الإلكتروني", placeholder: "info@petrohub.sa", type: "email" },
@@ -85,6 +93,39 @@ export default function SettingsPage() {
                   className={inputCls}
                   value={form[f.key]}
                   onChange={(e) => change(f.key, e.target.value)}
+                  placeholder={f.placeholder}
+                  dir="ltr"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Social Media */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-6">
+          <h2 className="text-sm font-black text-brand-charcoal mb-1 pb-3 border-b border-gray-100">
+            روابط السوشل ميديا
+          </h2>
+          <p className="text-xs text-brand-charcoal-light mb-5">اتركها فارغة إذا لم يكن للشركة حساب في المنصة</p>
+          <div className="space-y-4">
+            {(
+              [
+                { key: "instagram" as const, label: "Instagram", placeholder: "https://instagram.com/yourpage" },
+                { key: "twitter" as const, label: "X (Twitter)", placeholder: "https://x.com/yourpage" },
+                { key: "linkedin" as const, label: "LinkedIn", placeholder: "https://linkedin.com/company/yourpage" },
+                { key: "facebook" as const, label: "Facebook", placeholder: "https://facebook.com/yourpage" },
+                { key: "youtube" as const, label: "YouTube", placeholder: "https://youtube.com/@yourpage" },
+                { key: "tiktok" as const, label: "TikTok", placeholder: "https://tiktok.com/@yourpage" },
+                { key: "snapchat" as const, label: "Snapchat", placeholder: "https://snapchat.com/add/yourpage" },
+              ] as { key: keyof SocialLinks; label: string; placeholder: string }[]
+            ).map((f) => (
+              <div key={f.key}>
+                <label className="block text-xs font-bold text-brand-charcoal mb-1.5">{f.label}</label>
+                <input
+                  type="url"
+                  className={inputCls}
+                  value={form.socialLinks?.[f.key] || ""}
+                  onChange={(e) => changeSocial(f.key, e.target.value)}
                   placeholder={f.placeholder}
                   dir="ltr"
                 />

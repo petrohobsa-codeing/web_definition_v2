@@ -58,6 +58,7 @@ function rowToSettings(r: any) {
     cities: r.cities,
     website: r.website || "",
     adminPassword: r.admin_password,
+    socialLinks: r.social_links || {},
   };
 }
 
@@ -103,6 +104,7 @@ export async function PUT(req: NextRequest, context: { params: { resource: strin
     if (body.cities !== undefined) row.cities = body.cities;
     if (body.website !== undefined) row.website = body.website;
     if (body.adminPassword !== undefined) row.admin_password = body.adminPassword;
+    if (body.socialLinks !== undefined) row.social_links = body.socialLinks;
     const { error } = await supabaseAdmin.from("settings").update(row).eq("id", "main");
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ ok: true });
