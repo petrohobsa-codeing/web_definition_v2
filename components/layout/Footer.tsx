@@ -50,8 +50,10 @@ export default function Footer() {
   const paragraph = pick(footer.paragraph, footer.paragraphEn);
   const closing = pick(footer.closing, footer.closingEn);
 
+  const hqValue = lang === "en" ? L.hqValue : (settings?.address || L.hqValue);
+
   const rows = [
-    { label: L.hq, value: settings?.address || L.hqValue, icon: MapPin },
+    { label: L.hq, value: hqValue, icon: MapPin },
     { label: L.phoneLabel, value: settings?.phone || defaultContact.phone, icon: Phone, href: `tel:${(settings?.phone || defaultContact.phone).replace(/\s/g, "")}` },
     { label: L.websiteLabel, value: settings?.website || defaultContact.website, icon: Globe, href: `https://${settings?.website || defaultContact.website}` },
     { label: L.emailLabel, value: settings?.email || defaultContact.email, icon: Mail, href: `mailto:${settings?.email || defaultContact.email}` },

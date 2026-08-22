@@ -51,8 +51,10 @@ export default function ContactContent() {
     getSettings().then(setSettings).catch(() => {});
   }, []);
 
+  const hqValue = lang === "en" ? L.hqValue : (settings?.address || L.hqValue);
+
   const contactInfo = [
-    { icon: MapPin, label: L.hqLabel, value: settings?.address || L.hqValue, href: undefined, color: "bg-[#24487B]" },
+    { icon: MapPin, label: L.hqLabel, value: hqValue, href: undefined, color: "bg-[#24487B]" },
     { icon: Phone, label: L.phoneLabel, value: settings?.phone || defaultContact.phone, href: `tel:${(settings?.phone || defaultContact.phone).replace(/\s/g, "")}`, color: "bg-brand-green" },
     { icon: Globe, label: L.websiteLabel, value: settings?.website || defaultContact.website, href: `https://${settings?.website || defaultContact.website}`, color: "bg-[#3BBA9F]" },
     { icon: Mail, label: L.emailLabel, value: settings?.email || defaultContact.email, href: `mailto:${settings?.email || defaultContact.email}`, color: "bg-[#252C5D]" },
