@@ -1,15 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { getSettings } from "@/lib/db";
 
 export default function WhatsAppButton() {
   const [whatsapp, setWhatsapp] = useState("966500000000");
   useEffect(() => {
-      getSettings().then((s) => {
-            const number = s?.whatsapp || s?.phone;
-            if (number) setWhatsapp(number.replace(/[^0-9]/g, ""));
-      });
+    fetch("/api/public/contact")
+      .then((r) => r.json())
+      .then((s) => {
+        const number = s?.whatsapp || s?.phone;
+        if (number) setWhatsapp(number.replace(/[^0-9]/g, ""));
+      })
+      .catch(() => {});
   }, []);
   return (
     <motion.a

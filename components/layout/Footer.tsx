@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
-import { getSettings, getFooterContent } from "@/lib/db";
+import { getFooterContent } from "@/lib/db";
 import { defaultFooterContent } from "@/lib/store";
 import type { SiteSettings, FooterContent } from "@/lib/types";
 import { useAutoTranslate } from "@/lib/useAutoTranslate";
@@ -41,7 +41,10 @@ export default function Footer() {
   const [settings, setSettings] = useState<SiteSettings | null>(null);
   const [footer, setFooter] = useState<FooterContent>(defaultFooterContent);
   useEffect(() => {
-    getSettings().then(setSettings).catch(() => {});
+    fetch("/api/public/contact")
+      .then((r) => r.json())
+      .then((s) => setSettings(s as SiteSettings))
+      .catch(() => {});
     getFooterContent().then(setFooter).catch(() => {});
   }, []);
 

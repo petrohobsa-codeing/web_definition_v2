@@ -5,7 +5,6 @@ import Badge from "@/components/ui/Badge";
 import ContactForm from "@/components/sections/ContactForm";
 import { ChevronLeft, Phone, Mail, MapPin, Globe } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
-import { getSettings } from "@/lib/db";
 import type { SiteSettings } from "@/lib/types";
 import { useAutoTranslate } from "@/lib/useAutoTranslate";
 
@@ -49,7 +48,10 @@ export default function ContactContent() {
   const L = t[lang];
   const [settings, setSettings] = useState<SiteSettings | null>(null);
   useEffect(() => {
-    getSettings().then(setSettings).catch(() => {});
+    fetch("/api/public/contact")
+      .then((r) => r.json())
+      .then((s) => setSettings(s as SiteSettings))
+      .catch(() => {});
   }, []);
 
   const at = useAutoTranslate([settings?.address]);
