@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, Globe, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
 import { getSettings, getFooterContent } from "@/lib/db";
@@ -17,7 +17,6 @@ const staticLabels = {
     websiteLabel: "الموقع الإلكتروني",
     emailLabel: "البريد الإلكتروني",
     rights: "جميع الحقوق محفوظة.",
-    admin: "لوحة التحكم",
   },
   en: {
     hq: "Head Office",
@@ -26,7 +25,6 @@ const staticLabels = {
     websiteLabel: "Website",
     emailLabel: "Email",
     rights: "All rights reserved.",
-    admin: "Admin Panel",
   },
 };
 
@@ -105,14 +103,10 @@ export default function Footer() {
           <p className="text-white/60 text-sm mb-12">{closing}</p>
         </div>
 
-        <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div className="pt-6 border-t border-white/15 text-center text-xs">
           <p className="text-white/40">
             © {new Date().getFullYear()} Petrohub — {L.rights}
           </p>
-          <Link href="/admin" className="text-white/25 hover:text-white/50 transition-colors flex items-center gap-1">
-            <ExternalLink size={11} />
-            {L.admin}
-          </Link>
         </div>
       </div>
     </footer>
